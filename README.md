@@ -1,6 +1,6 @@
 # SEI-Project-3-59
 
-Team Members
+The best team ever
 Rhona Petersen
 Talia Glantz
 Jamie Joahill
