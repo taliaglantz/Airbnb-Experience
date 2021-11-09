@@ -6,5 +6,5 @@ Talia Glantz
 Jamie Joahill
 Anna Wilczynska
 
-This is Talia typing
+Rhona is typing
 
