@@ -1,10 +1,7 @@
 # SEI-Project-3-59
 
-This really is the best team ever
+PLEASE TELL ME YOU CAN SEE THIS !!!!!!!
 Rhona Petersen
 does this work?
 Jamie Joahill
 Anna Wilczynska
-
-This is Talia typing
-
