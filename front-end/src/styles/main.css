@@ -1,0 +1,15 @@
+
+
+.popup-screen {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+} 
+
+.popup-window {
+  background-color: white !important;
+}
