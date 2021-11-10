@@ -133,8 +133,132 @@ export default [
     languages: 'English',
     whatIsIncluded: ['food', 'drinks', 'tickets'],
     reviews: []
-  }, 
+  },
 
+  {
+    name: 'Explore Harry Potter\'s London Tour',
+    location: 'London',
+    date: [12, 28],
+    duration: 150,
+    description: 'Join me as we venture into the magical wizarding world of Harry Potter in London! We will journey through the city and learn the history of JK Rowling and Harry Potter in London. On this walking tour of London\'s streets we will watch clips from the movies while I regale you with behind-the-scenes stories of those locations as well as the history of JK Rowling\'s time in London. Our first stop will be the entrance to Diagon Alley, before we pop down to see the Ministry of Magic, and find out which Leaky Cauldron has the best tacos, as well as others I don\'t want to spoil here. I will also share some of the strangest, funniest non-HP facts I\'ve learned about London along the way. We will finish at Borough Market, London\'s top street food destination, with King\'s Cross just a separate Tube ride away. PLEASE be aware the tour is offered in English only, and it is largely story-based, so a better-than-basic conversational grasp of English is essential.',
+    category: 'Entertainment',
+    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636477559/hp1_qzgrpn.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636477559/hp2_ilcfdm.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636477559/hp4_mwjhzh.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636477559/hp3_qh5f3b.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636477560/hp5_iqfh0c.jpg'
+    ],
+    attendees: [],
+    price: '£15',
+    thingsToKnow: [
+      {
+        header: 'Guest requirements',
+        text: [
+          'Up to 10 guests of all ages can attend.'
+        ]
+      },
+      {
+        header: 'What to bring',
+        text: [
+          'Water',
+          'Oyster or travel card with enough for one journey'
+        ]
+      },
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
+        ]
+      }
+    ],
+    languages: 'English',
+    whatIsIncluded: ['tickets'],
+    reviews: []//[reviewSchema]
+  },
+  {
+    name: 'Soho Music & Historic Pubs Tour',
+    location: 'London',
+    date: [],
+    duration: 150,
+    description: 'Experience hidden pubs, great beer and truly unique photo locations, as we discover the UK\'s fantastic and hilarious musical past and present.Check out where the Beatles recorded Hey Jude, where the',
+    category: 'Entertainment',
+    image: ['',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478241/sh1_vnw6qw.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478242/sh2_swo6sa.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478243/sh5_hiqos0.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478243/sh3_isssjf.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478244/sh4_kfgohe.jpg'
+    ],
+    attendees: [],
+    price: '£25',
+    thingsToKnow: [
+      {
+        header: 'Guest requirements',
+        text: [
+          'Up to 10 guests ages 18 and up can attend'
+        ]
+      },
+      {
+        header: 'What to bring',
+        text: [
+          'Lots of laughs',
+          'Photographic ID (18 years and over only)'
+        ]
+      },
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
+        ]
+      }
+    ],
+    languages: 'English',
+    whatIsIncluded: ['tickets'],
+    reviews: []//[reviewSchema]
+  },
+  {
+    name: 'Explore LGBTQ+ London after dark',
+    location: 'London',
+    date: [],
+    duration: 90,
+    description: 'Step away from the commercial hype of gay London and experience the queer magic of in our nightlife. If you want to have an alternative perspective and be part of London\'s queer community in a tailor',
+    category: 'Entertainment',
+    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478535/lg1_aizx8z.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478535/lg2_zeanfx.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478535/lg4_bfpbhb.webp',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478535/lg3_oqtbtq.jpg',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636478536/lg5_kdgwyj.jpg'
+    ],
+    attendees: [],
+    price: '£55',
+    thingsToKnow: [
+      {
+        header: 'Guest requirements',
+        text: [
+          'Up to 10 guests ages 18 and up can attend.',
+          'All participants (and the host) must wear a protective face covering.',
+          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.'
+        ]
+      },
+      {
+        header: 'What to bring',
+        text: [
+          'ID for venue entry',
+          'Cash / Payment card for drinks',
+          'Oyster card (discount travel card or zone 1-3 travel card)'
+        ]
+      },
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
+        ]
+      }
+    ],
+    languages: 'English',
+    whatIsIncluded: ['tickets'],
+    reviews: []//[reviewSchema]
+  },
   {
     name: 'Baking Brownies at Melt',
     location: 'London',
