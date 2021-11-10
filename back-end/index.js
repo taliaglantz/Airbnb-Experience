@@ -1,12 +1,12 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import { port, dbURI } from './config/environment'
-import router from './config/router'
+import { port, dbURI } from './config/environment.js'
+import router from './config/router.js'
 
 const app = express()
 const startServer = async () => {
   try {
-    await mongoose.conenct(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    await mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     console.log('Database has connected ')
 
     //! Logger Middleware
@@ -27,3 +27,4 @@ const startServer = async () => {
 }
 
 startServer()
+
