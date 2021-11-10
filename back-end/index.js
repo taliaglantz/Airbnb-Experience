@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import { port, dbURI } from './config/environment'
-import router from './config/router'
+import { port, dbURI } from './config/environment.js'
+import router from './config/router.js'
 
 const app = express()
 const startServer = async () => {

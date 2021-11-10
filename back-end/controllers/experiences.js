@@ -32,7 +32,7 @@ export const getSingleExperience = async(req, res) => {
 }
 
 //! Delete experience
-export const deleteExperince = async (req, res) => {
+export const deleteExperience = async (req, res) => {
   try {
     const { id } = req.params
     const experienceToDelete = await Experience.findById(id)
@@ -47,7 +47,7 @@ export const deleteExperince = async (req, res) => {
 }
 
 //! Update experience
-export const updateExperience = async (req, res) => {
+export const updatedExperience = async (req, res) => {
   try {
     const { id } = req.params
     const updatedExperience = await Podcast.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
@@ -111,4 +111,3 @@ export const deleteAComment = async (req, res) => {
   }
 }
 
-export default experiences
