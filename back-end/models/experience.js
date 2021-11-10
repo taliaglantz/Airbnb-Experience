@@ -16,7 +16,7 @@ const reviewSchema = new mongoose.Schema({
 const experienceSchema = new mongoose.Schema({
   name: { type: String, required: true, maxlength: 30 },
   location: { type: String, required: true },
-  date: [{ type: Number, required: true }], 
+  date: [{ type: Number, required: true }],
   duration: { type: Number },
   description: { type: String, required: true, maxlength: 200, unique: true },
   category: { type: String, required: true },
@@ -33,16 +33,16 @@ const experienceSchema = new mongoose.Schema({
 
 //*virtual field
 experienceSchema.virtual('averageRating')
-.get(function() {
-  if (!this.reviews.length) return 'Not rated yet'
-  const sumOfRatings = this.reviews.reduce((acc, review) => {
-      if (!reviews.rating) return acc
+  .get(function () {
+    if (!this.reviews.length) return 'Not rated yet'
+    const sumOfRatings = this.reviews.reduce((acc, review) => {
+      if (!review.rating) return acc
       return acc + review.rating
     }, 0)
     return (sumOfRatings / this.reviews.length).toFixed(2)
-})
+  })
 
-experienceSchema.set('toJSON', { virtuals: true }) 
+experienceSchema.set('toJSON', { virtuals: true })
 experienceSchema.plugin(uniqueValidator)
 
 export default mongoose.model('Experience', experienceSchema)

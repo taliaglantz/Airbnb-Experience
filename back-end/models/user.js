@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
   languages: [{ type: String }],
   occupation: { type: String },
   about: { type: String, maxlength: 100 },
-  dob: { type: Date},
+  dob: { type: Date },
   wishlist: [{ type: mongoose.Schema.ObjectId, ref: 'Experience' }], // do we import this?
   experiences: [{ type: mongoose.Schema.ObjectId, ref: 'Experience' }]
 },
