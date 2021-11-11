@@ -1225,10 +1225,9 @@ export default [
         ]
       },
       {
-        header: 'Cancellation policy',
-        text: [
-          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
-        ]
+        day: '17',
+        month: '11',
+        year: '2021'
       },
     ],
     languages: 'English',
@@ -1359,10 +1358,9 @@ export default [
         ]
       },
       {
-        header: 'Cancellation policy',
-        text: [
-          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
-        ]
+        day: '20',
+        month: '11',
+        year: '2021'
       },
     ],
     languages: 'English',
