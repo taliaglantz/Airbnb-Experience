@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 
 
 const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true, maxlength: 30 },
+  username: { type: String, required: true, unique: true },
   firstName: { type: String },
   lastName: { type: String },
   email: { type: String, required: true, unique: true },
@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   location: { type: String },
   languages: [{ type: String }],
   occupation: { type: String },
-  about: { type: String, maxlength: 100 },
+  about: { type: String },
   dob: { type: Date },
   wishlist: [{ type: mongoose.Schema.ObjectId, ref: 'Experience' }], // do we import this?
   experiences: [{ type: mongoose.Schema.ObjectId, ref: 'Experience' }]

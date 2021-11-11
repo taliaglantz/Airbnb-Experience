@@ -9,7 +9,7 @@ router.route('/experiences')
   .get(getAllExperiences)
   .post( addExperience )
 
-router.route('experiences/:id')
+router.route('/experiences/:id')
   .get(getSingleExperience)
   .put(updatedExperience)
   .delete(deleteExperience)
@@ -26,7 +26,7 @@ router.route('/register')
 router.route('/login')
   .post(loginUser)
 
-router.route('profile')
+router.route('/profile')
   .get(getUserProfile)
 
 export default router
