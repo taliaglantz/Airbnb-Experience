@@ -3442,5 +3442,5 @@ export default [
     languages: ['English'],
     whatIsIncluded: ['Tickets', 'Equipment Bike helmet. Hi-Viz jacket. Santa hat'],
     reviews: []//[reviewSchema]
-  }, 
+  } 
 ]
