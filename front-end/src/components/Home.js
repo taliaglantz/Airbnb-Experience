@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 const Home = () => {
 
