@@ -13,3 +13,46 @@
 .popup-window {
   background-color: white !important;
 }
+
+/* .map{
+  display: flex;
+  align-content: center;
+  
+} */
+
+.map-container {
+  position: fixed;
+  width: 900px;
+  height: 100vh;
+}
+
+.map-controller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 220px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 0.8rem;
+  margin: 1rem;
+}
+
+.buttons {
+  justify-content: space-evenly !important;
+}
+
+.marker {
+  font-size: 20px;
+}
+
+.rocket {
+  display: block;
+  transform: translateX(-20px);
+}
+
+
+
+.hero-image {
+border-radius: 5px;
+}

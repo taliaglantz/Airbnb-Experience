@@ -1,57 +1,66 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import ReactMapGL from 'react-map-gl'
-// import locationData from '../data/locations'
-import 'dotenv/config'
-import { Container } from 'semantic-ui-react'
-
+import React, { useState, useEffect } from 'react'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import locationData from '../data/locations'
 
 
 
 const ExperiencesMap = () => {
-  // const [viewPort, setViewPort] = useState(null)
-  const REACT_APP_MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoidGFsaWFnbGFudHoiLCJhIjoiY2t2dTJjZ3I4MGowdTJvanRueWc3MWRrbCJ9.XHliFyEBjsvGbXdinz3nEw'
-  console.log('REACT_APP_MAPBOX_ACCESS_TOKEN ->', REACT_APP_MAPBOX_ACCESS_TOKEN)
+  const [viewport, setViewport] = useState(null)
+  const [popup, setPopup] = useState(null)
 
-  // useEffect(() => {
-  //   window.navigator.geolocation.getCurrentPosition(position => {
-  //     const { latitude, longitude } = position.coords
-  //     setViewPort({ latitude, longitude })
-  //   })
-  // }, [])
+  //console.log('REACT_APP_MAPBOX_ACCESS_TOKEN ->', process.env.REACT_APP_MAPBOX_ACCESS_TOKEN)
 
+
+  useEffect(() => {
+    window.navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords
+      setViewport({ latitude, longitude })
+    })
+  }, [])
+
+  //console.log(viewport)
+  console.log(popup)
   return (
+    <div className="map-container">
+      {viewport ?
 
-    <>
-      <h1>Map</h1>
-      {/* {viewPort ? */}
-      <Container>
         <ReactMapGL
-          mapboxApiAccessToken={REACT_APP_MAPBOX_ACCESS_TOKEN}
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
           height='100%'
           width='100%'
           mapStyle='mapbox://styles/mapbox/streets-v11'
-          zoom={5}
-          // latitude={viewPort.latitude}
-          // longitude={viewPort.longitude}
-          latitude={51.509240}
-          longitude={0.005540}
-        // onViewPortChange={(viewport) => setViewPort(viewport)}
-        />
-      </Container>
-      {/* <Marker latitude={viewPort.latitude} longitude={viewPort.longitude}>
-        🦋
-      </Marker> */}
+          zoom={10}
+          latitude={viewport.latitude}
+          longitude={viewport.longitude}
+          onViewportChange={(viewport) => setViewport(viewport)}
+        >
+          {locationData.map(location => {
+            return (
+              <Marker key={location.id} latitude={location.latitude} longitude={location.longitude}>
+                <span onClick={() => setPopup(location)}>
+                  {location.icon}
+                </span>
+              </Marker>
+            )
+          })}
+          {popup &&
+            <Popup
+              latitude={popup.latitude}
+              longitude={popup.longitude}
+              closeOnClick={true}
+              onClose={() => setPopup(null)}
+            >
+              <div>{popup.name}</div>
+            </Popup>
+          }
+        </ReactMapGL>
+        :
+        <h1>Loading your location...</h1>
+      }
+    </div>
 
-      {/* : 
-      <h1>Loading your location</h1>
-      } */}
-
-    </>
 
   )
-
-
 }
-
 export default ExperiencesMap
