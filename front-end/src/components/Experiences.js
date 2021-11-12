@@ -137,7 +137,7 @@ const Experiences = () => {
                       <div>{popup.name}</div>
                     </Popup>
                   }
-                  
+
                 </ReactMapGL>
                 :
                 <h1>Loading your location...</h1>

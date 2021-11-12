@@ -22,7 +22,8 @@ export const addExperience = async (req, res) => {
 export const getSingleExperience = async(req, res) => {
   try {
     const { id } = req.params
-    const singleExperience = await Experience.findById(id).populate('owner')
+    console.log('ID->', id)
+    const singleExperience = await Experience.findById(id).populate('host') // add comments here
     if (!singleExperience) throw new Error()
     return res.status(200).json(singleExperience)
   } catch (err) {

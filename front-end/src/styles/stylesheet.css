@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'airbnb_cereal_appbold';
+    src: url('fonts/airbnbcereal-bold-webfont.woff2') format('woff2'),
+         url('fonts/airbnbcereal-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'airbnb_cereal_appbook';
+    src: url('fonts/airbnbcereal-book-webfont.woff2') format('woff2'),
+         url('fonts/airbnbcereal-book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'airbnb_cereal_appextra_bold';
+    src: url('fonts/airbnbcereal-extrabold-webfont.woff2') format('woff2'),
+         url('fonts/airbnbcereal-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'airbnb_cereal_applight';
+    src: url('fonts/airbnbcereal-light_1-webfont.woff2') format('woff2'),
+         url('fonts/airbnbcereal-light_1-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'airbnb_cereal_appmedium';
+    src: url('fonts/airbnbcereal-medium-webfont.woff2') format('woff2'),
+         url('fonts/airbnbcereal-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'airbnb_cereal_appblack';
+    src: url('fonts/airbnbcereal-black-webfont.woff2') format('woff2'),
+         url('fonts/airbnbcereal-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

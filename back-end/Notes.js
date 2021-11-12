@@ -1,0 +1,17 @@
+// {
+//   username: 'Jamie',
+//   firstName: 'Jamie',
+//   lastName: 'Joahill',
+//   email: 'jamie@email.com',
+//   mobile: '07999999999',
+//   profilePicture: 'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636473179/samples/people/jazz.jpg',
+//   password: 'pass',
+//   isHost: false,
+//   location: 'London',
+//   languages: ['English'],
+//   occupation: 'Developer',
+//   about: 'Hi, this is Jamie! Whats up...',
+//   dob: new Date(1993, 7, 29),
+//   wishlist: [], 
+//   experiences: []
+// },
