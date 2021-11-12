@@ -2,13 +2,12 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 import uniqueValidator from 'mongoose-unique-validator'
 
-
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   firstName: { type: String },
   lastName: { type: String },
   email: { type: String, required: true },
-  mobile: { type: String, unique: true },
+  mobile: { type: String },
   profilePicture: { type: String },
   password: { type: String, required: true },
   isHost: { type: Boolean },
@@ -24,6 +23,20 @@ const userSchema = new mongoose.Schema({
   timestamp: true
 })
 
+// userSchema.virtual('createdExperiences', {
+//   ref: 'Experience',
+//   localField: '_id',
+//   foreignField: 'owner'
+// })
+
+// userSchema.set('toJSON', {
+//   virtuals: true,
+//   transform(_doc, json) {
+//     delete json.password
+//     return json
+//   }
+// })
+
 userSchema
   .virtual('passwordConfirmation')
   .set(function(passwordConfirmation) {
@@ -31,7 +44,7 @@ userSchema
   })
 
 userSchema
-  .pre('validate', function() {
+  .pre('validate', function(next) {
     if (this.isModified('password') && this.password !== this._passwordConfirmation) {
       this.invalidate('passwordConfirmation', 'does not match')
     }
@@ -46,7 +59,10 @@ userSchema
     next()
   })
 
-  userSchema.plugin(uniqueValidator)
+userSchema.methods.validatePassword = function(password) {
+  return bcrypt.compareSync(password, this.password)
+}
 
+userSchema.plugin(uniqueValidator)
 
 export default mongoose.model('User', userSchema)
