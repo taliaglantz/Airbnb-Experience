@@ -6,10 +6,12 @@
     "axios": "^0.21.1",
     "eslint-plugin-react": "^7.18.3",
     "http-proxy-middleware": "^1.0.5",
+    "jquery": "^3.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "5.3.0",
     "react-scripts": "4.0.3",
+    "rsuite": "^5.2.0",
     "sass": "^1.32.8",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4"

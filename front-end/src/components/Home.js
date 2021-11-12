@@ -4,6 +4,8 @@ const Home = () => {
 
   return (
     <div>
+      <div className='hero'>
+      </div>
       <p>Home</p>
       <p>Home</p>
       <p>Home</p>

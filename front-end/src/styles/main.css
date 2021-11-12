@@ -1,4 +1,377 @@
+@import url('stylesheet.css');
 
+*{
+  font-family: 'airbnb_cereal_appmedium';
+}
+
+:root {
+  
+  --rs-text-active: black !important;
+  --rs-btn-subtle-text: black !important;
+  --rs-btn-subtle-hover-text: black !important;
+  --rs-btn-subtle-hover-bg: rgb(245, 245, 245)!important;
+}
+
+/* 
+* {
+  color:#fc405f;
+  --rs-state-focus-shadow:0 0 0 0px
+  --rs-input-focus-border:#fc405f00
+} */
+/* ! Date Picker */
+body {
+  position: relative;
+}
+
+.ui.menu {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.rs-picker-toolbar-right > button {
+  background-color: transparent !important;
+  color: transparent !important;
+  padding: 0px !important;
+  position: absolute;
+  transform: translate(-1068px, -455px);
+  width: 100vw;
+  height: 100vh;
+  z-index: -100 !important;
+}
+
+.rs-ripple, .rs-ripple-rippling {
+  background: transparent !important;
+}
+
+.rs-btn-icon.rs-btn-xs {
+  border-radius: 50% !important;
+}
+
+.rs-picker-menu .rs-calendar .rs-calendar-table-header-row .rs-calendar-table-cell-content:hover {
+  border: none !important;
+}
+
+.rs-calendar-table-cell-selected:before {
+  display: flex !important;
+  margin-top: 1px !important;
+  height: 48px !important;
+}
+
+.rs-calendar-header-title {
+  font-size: 16px !important;
+}
+
+.rs-icon {
+  font-size: 19px !important;
+  margin-top: -4px !important;
+}
+
+.rs-calendar-table-cell-content {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 48px !important;
+  width: 48px !important;
+}
+
+.rs-calendar-month-dropdown {
+  display: none !important;
+}
+
+.rs-calendar-table-cell-content:hover {
+  color: black !important;
+  height: 47px !important;
+  width: 47px !important;
+  background-color: inherit !important;
+  border: 1px black solid;
+  border-radius: 50% !important;
+  padding: 4px !important;
+
+}
+
+.rs-calendar-table-cell:hover :not(.rs-calendar-table-cell-in-range:hover) {
+  background: white !important;
+}
+
+.rs-calendar-table-cell-in-range:hover {
+  background-color: rgb(245, 245, 245) !important;
+}
+
+.rs-calendar-table-cell-selected-start:before {
+  background: linear-gradient(to right, white 49%, rgb(245, 245, 245) 50%) !important;
+}
+
+.rs-calendar-table-cell-selected-end:before {
+  background: linear-gradient(to left, white 49%, rgb(245, 245, 245) 50%) !important;
+}
+.rs-calendar-table-cell-in-range:before {
+  margin-top:  0.5px !important;
+  height: 48px  !important;
+  background-color: rgb(245, 245, 245) !important;
+}
+
+.rs-calendar-table-cell {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+
+.rs-calendar-view {
+  padding: 0px !important;
+}
+
+.rs-calendar-table-cell-selected .rs-calendar-table-cell-content {
+  background-color: black !important;
+  height: 48px !important;
+  width: 48px !important; 
+  border-radius: 50%;
+}
+
+.rs-picker-toolbar-ranges {
+  display: none !important;
+}
+.rs-picker-toolbar {
+  border: none !important;
+}
+
+.rs-picker-toggle-wrapper {
+  height: 100%;
+  max-width: 100vw !important;
+  position: absolute !important;
+  width: 316px !important;
+  transform: translate(0, 100%);
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.rs-picker-toggle {
+  display: none !important;
+}
+
+.rs-picker-daterange-header {
+  display: none !important;
+}
+
+.large-button .half, .large-button .half {
+  padding-left: 34px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  box-shadow: 0 1px 10px 0 rgb(34 36 38 / 5%);
+}
+.dates-clicked {
+  width: 424px !important;
+  transform: translate(9px);
+  z-index: 100;
+  background: rgb(255, 255, 255);
+}
+
+.location {
+  width: 849px !important;
+  transform: translate(8px);
+  z-index: 100;
+  background:linear-gradient(to left, rgb(139, 139, 139), white 60%);
+}
+
+.location:hover {
+  background: linear-gradient(to left, rgb(139, 139, 139), rgb(245, 245, 245) 60%);
+}
+
+
+.dates {
+  width: 848px !important;
+  padding-left: 458px !important;
+  transform: translate(9px);
+  background-color: white;
+  background:linear-gradient(to right, rgb(139, 139, 139), white 70%);
+  
+}
+
+.location-clicked {
+  width: 424px !important;
+  transform: translate(calc(-100% + 7px));
+  z-index: 100;
+  background: white;
+}
+
+.hero {
+  width: 100vw;
+  height: 600px;
+  background: 
+  linear-gradient(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2) 70%),
+  url('https://cdn57.androidauthority.net/wp-content/uploads/2019/05/airbnb-experiences-farm-house.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.navbar-extended {
+  height: 100%;
+  width: 100vw;
+  min-width: 400px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 0px;
+  top: 74px;
+  transform: translate(-50%);
+}
+
+.rs-picker-toggle-textbox {
+  border-radius: 24 !important;
+  border: none !important;
+  height: 100% !important;
+}
+
+ 
+/* !Calendar container */
+.rs-picker-menu {
+  border-radius: 32px !important;
+  padding: 16px 32px !important;
+  height: 450px !important;
+  width: 849px !important;
+  background-color: white !important;
+  transform: translate(-50%);
+  z-index: 3;
+  overflow: visible !important;
+}
+
+/* !Single calendar */
+.rs-calendar {
+  border: none !important;
+  padding: 27px !important;
+  height: auto !important;
+  width: 50% !important;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  width: 100%;
+  height: 40px;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+hr {
+  border-top: rgb(220, 220, 220)
+}
+
+.dropdown-content {
+  overflow: hidden;
+  padding: 10px 0px 10px 0px;
+  margin-top: 10px;
+  min-width: 200px !important;
+  border-radius: 24px;
+  display: none;
+  position: absolute;
+  transform: translate(calc(-100% + 73.2px));
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+}
+
+.dropdown.item:hover {
+  background: none !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50% !important;
+  background-color: #fc405f;
+  color: white
+}
+
+.user-icon {
+  margin-left: 5px;
+  height: 32px;
+  width: 32px;
+
+}
+
+.navbar-item {
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-secondary {
+  padding: 0px !important;
+}
+
+.bars .icon {
+  padding: 10px;
+}
+
+.search-data {
+  display: flex;
+}
+
+.search-data > p {
+  padding: 5px 10px;
+  margin: 0;
+  display: block;
+}
+
+.search-data > p:first-of-type {
+  margin-left: 10px;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+.navbar-button {
+  height: 48px;
+  background-color: white;
+  border-radius: 24px;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  transition-duration: .4s;
+}
+
+.navbar-button:hover {
+  box-shadow:  0 3px 4px 0 rgb(34 36 38 / 15%);
+}
+
+.large-button {
+  width: 850px;
+  height: 64px;
+  border-radius: 32px;
+}
+
+.large {
+  font-size: 16px !important; 
+}
+
+.large-icon {
+  font-family: 'airbnb_cereal_appblack';
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100px;
+  border-radius: 24px !important;
+  z-index: 102;
+}
 
 .popup-screen {
   background-color: rgba(0, 0, 0, 0.3);
@@ -12,4 +385,33 @@
 
 .popup-window {
   background-color: white !important;
+  padding: 10px 0px 10px 0px;
+  width: 100vw;
+  min-width: 300px !important;
+  max-width: 500px;
+  border-radius: 24px;
+  position: absolute;
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+}
+
+.map {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png');
+  background-size: no-repeat;
+}
+
+
+input:focus { 
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
+textarea:focus { 
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
 }
