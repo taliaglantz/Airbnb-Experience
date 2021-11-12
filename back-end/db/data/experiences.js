@@ -2,6 +2,10 @@ export default [
   {
     name: 'Yoga with Goats',
     location: 'London',
+    locationCoord: {
+      latitude: 51.490684,
+      longitude: -0.147935
+    },
     date: [
       {
         day: 12,
@@ -58,6 +62,10 @@ export default [
   {
     name: 'Eat 8 British foods & See 30+ sights!',
     location: 'London',
+    locationCoord: {
+      latitude: 51.506584,
+      longitude: -0.141700
+    },
     date: [
       {
         day: 8,
@@ -106,10 +114,13 @@ export default [
     whatIsIncluded: ['food', 'drinks'],
     reviews: []
   },
-
   {
     name: 'Royal High Tea at Kensington Palace',
     location: 'London',
+    locationCoord: {
+      latitude: 51.501671,
+      longitude: -0.175426
+    },
     date: [
       {
         day: 14,
@@ -180,6 +191,10 @@ export default [
   {
     name: 'Explore Harry Potter\'s London Tour',
     location: 'London',
+    locationCoord: {
+      latitude: 51.509946,
+      longitude: -0.134834
+    },
     date: [
       {
         day: 17,
@@ -241,6 +256,10 @@ export default [
   {
     name: 'Soho Music & Historic Pubs Tour',
     location: 'London',
+    locationCoord: {
+      latitude: 51.513518,
+      longitude: -0.136164
+    },
     date: [{
       day: 14,
       month: 12,
@@ -301,6 +320,10 @@ export default [
   {
     name: 'Explore LGBTQ+ London after dark',
     location: 'London',
+    locationCoord: {
+      latitude: 51.519273,
+      longitude: -0.077874
+    },
     date: [],
     duration: 90,
     description: 'Step away from the commercial hype of gay London and experience the queer magic of in our nightlife. If you want to have an alternative perspective and be part of London\'s queer community in a tailor',
@@ -344,6 +367,10 @@ export default [
   {
     name: 'Baking Brownies at Melt',
     location: 'London',
+    locationCoord: {
+      latitude: 51.517612,
+      longitude: -0.196271
+    },
     date: [
       {
         day: 15,
@@ -453,6 +480,10 @@ export default [
   {
     name: 'Secret Old London',
     location: 'London',
+    locationCoord: {
+      latitude: 51.574026,
+      longitude: -0.119082
+    },
     date: [
       {
         day: 12,
@@ -561,6 +592,10 @@ export default [
   {
     name: 'Daily evening Art class and wine glass',
     location: 'London',
+    locationCoord: {
+      latitude: 51.504189,
+      longitude: -0.024097
+    },
     date: [
       {
         day: 15,
@@ -663,6 +698,10 @@ export default [
   {
     name: 'East London Street Art Tour',
     location: 'London',
+    locationCoord: {
+      latitude: 51.504189,
+      longitude: -0.024097
+    },
     date: [
       {
         day: 12,
@@ -715,6 +754,10 @@ export default [
   {
     name: 'Groom and walk miniature ponies',
     location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.487339,
+      longitude: -0.065485,
+    },
     date: [
       {
         day: 14,
@@ -880,6 +923,10 @@ export default [
   {
     name: 'Guided run in the Surrey Hills',
     location: 'Surrey, United Kingdom',
+    locationCoord: {
+      latitude: 51.49722,
+      longitude: -0.039079,
+    },
     date: [
       {
         day: 11,
@@ -956,6 +1003,10 @@ export default [
   {
     name: 'Forest Bathing / Shinrin-Yoku',
     location: 'East Sussex, United Kingdom',
+    locationCoord: {
+      latitude: 50.916055,
+      longitude: -0.250041,
+    },
     date:
     {
       day: 21,
@@ -1010,7 +1061,12 @@ export default [
   },
   {
     name: 'Deer Photography Walk',
-    location: 'Richmond, United Kingdom', date: [
+    location: 'Richmond, United Kingdom', 
+    locationCoord: {
+      latitude: 51.441499,
+      longitude: -0.274586,
+    },
+    date: [
       {
         day: 12,
         month: 11,
@@ -1239,6 +1295,10 @@ export default [
   {
     name: 'Walk a micro pig',
     location: 'Faversham, United Kingdom',
+    locationCoord: {
+      latitude: 51.311308,
+      longitude: -0.896451,
+    },
     date: [
       {
         day: 12,
@@ -1373,6 +1433,10 @@ export default [
   {
     name: 'Adaptive Sports Club in Hillingdon',
     location: 'Hayes Town, United Kingdom',
+    locationCoord: {
+      latitude: 51.749665,
+      longitude: -0.344512,
+    },
     date: [
       {
         day: 13,
@@ -1450,6 +1514,10 @@ export default [
   {
     name: 'Inclusive Sports - Hounslow',
     location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.464432,
+      longitude: -0.379329,
+    },
     date: [
       {
         day: 16,
@@ -1524,6 +1592,10 @@ export default [
   {
     name: 'Inclusive Sports Club in Hackney',
     location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.544220,
+      longitude: -0.053502,
+    },
     date: [
       {
         day: 11,
@@ -1601,6 +1673,10 @@ export default [
   {
     name: 'Hive Pro Paintball Experience',
     location: 'St Albans, United Kingdom',
+    locationCoord: {
+      latitude: 51.749665,
+      longitude: -0.344512,
+    },
     date: [
       {
         day: 20,
@@ -1724,6 +1800,10 @@ export default [
   {
     name: 'Paddle Boarding in the Hertfordshire',
     location: 'Berkhamsted, United Kingdom',
+    locationCoord: {
+      latitude: 51.762653,
+      longitude: -0.566683,
+    },
     date: [
       {
         day: 13,
@@ -1845,6 +1925,10 @@ export default [
   {
     name: 'Guided MTB in the Surrey Hills',
     location: 'Surrey, United Kingdom',
+    locationCoord: {
+      latitude: 51.762653,
+      longitude: -0.566683,
+    },
     date: [
       {
         day: 13,
@@ -1950,6 +2034,10 @@ export default [
   {
     name: 'Play social football games in London',
     location: 'Greater London, United Kingdom',
+    locationCoord: {
+      latitude: 51.498236,
+      longitude: -0.116696,
+    }, 
     date: [
       {
         day: 13,
@@ -2054,6 +2142,10 @@ export default [
   {
     name: 'Fitness Session at Greenwich Royal Park',
     location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.480316,
+      longitude: -0.022665,
+    },
     date: [
       {
         day: 14,
@@ -2130,10 +2222,14 @@ export default [
     languages: ['English'],
     whatIsIncluded: ['tickets'],
     reviews: []//[reviewSchema]
-  },
-  {
-    name: 'Discover hidden sites with a historian',
-    location: 'Greater London, United Kingdom',
+  }, 
+  { // New experiences start
+    name: 'London\'s Best Kept Secret Bike Tour',
+    location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.418988,
+      longitude: -0.175175,
+    },
     date: [
       {
         day: '12',
@@ -2276,8 +2372,8 @@ export default [
         year: '2021'
       }
     ],
-    duration: 120,
-    description: 'This walk follows government guidelines on covid protection to ensure guest safety. Fantastic experience. Learnt so much about what is hiding in plain sight! Mark, Discover Hidden Sites Guest I will take you on an interactive walk through beautiful hidden gardens very near the usual tourist sites but rarely visited by most tourists. Firstly we will hear about the sensational story of 19-year-old Katherine Howard, Henry VIII\'s fifth wife who was executed for adultery. Discover scandals and court plots that make Game of Thrones seem dull! Secondly, we will learn about Jonathan Tyers `The Maker of Dreams and owner of the Vegas and Disney of the 18th century. Discover how Jonathan became wealthy and inspired generations of wealth creators! Thirdly, we\'ll see the home of the suffragist Millicent Fawcett, whose house entertained 19th century feminists, bohemians, and radicals. Discover how Millicent changed the world! Finally we will look at how the stories of Katherine, Jonathan and Millicent are all about your values and how you choose to interpret their time on earth! Other things to note This is a gentle great for groups and solo travellers walk that will take place in all types of weather. The last stop is Fentiman Park, which is minutes away from the Vauxhall underground, bus, and railway stations. I will provide hand sanitiser.',
+    duration: 240,
+    description: 'Are you ready to enter a peaceful world of lush greens and serenity? Only a short distance away from the busy centre of London a different world is waiting for you. I will welcome you at my 100 year old house before I provide you with a bicycle and we will go for a relaxed ride along a historic river, crossing beautiful parks along the way, completely traffic free. Find out how London was formed of little villages growing together and how this rural charm can still be experienced today. I will show you why this river, where people have been living and working for centuries, is still one of London\'s best kept secrets. We will cycle through one of South London\'s most historical area, where once a church stood as big as Westminster Abbey and a King was crowned. We will see London\'s only still functioning waterwheel set in a market next to the river and stop for drinks/food at an ancient pub at the ponds of a picturesque English village. I have designed this trip to be away from traffic so you can focus on the charming scenery of this fascinating part of London.Other things to note Contact me for dates not available on my calendar. The route is flat and should not cause difficulties for a healthy person that knows how to ride a bike.The overall distance is about 12 miles/20 km. For more information see Londoncycletours.com',
     category: 'Sight seeing',
     image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573314/ss1_slhaea.webp',
       'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573313/ss3_nyck8y.webp',
@@ -2286,22 +2382,22 @@ export default [
       'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573314/ss5_kflt1j.webp'
     ],
     attendees: [],
-    price: "£18",
+    price: "£80",
     thingsToKnow: [
       {
         header: 'Guest requirements',
         text: [
-          'Up to 10 guests ages 14 and up can attend.',
+          'Up to 6 guests ages 15 and up can attend.',
           'All participants (and the host) must wear a protective face covering.',
           'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.',
-          'It is important that guests are fluent in English to get best value from this walk. It is fine to bring pets along and is on a flat surface most of the time so should be fine for wheelchair users and those with limited mobility.'
+          'This experience is family friendly and can also be hosted as a private group. I can also speak Spanish and German. Guests must be able to ride a bicycle for 12 miles/20 km on flat and easy terrain and have to wear a helmet that I will provide for safety reasons. Luggage or bags can be left at my house.'
         ]
       },
       {
         header: 'What to bring',
         text: [
-          "",
-          ""
+          'rain/wind proof jacket depending on weather',
+          'sunglasses and a pair of gloves depending on weather'
         ]
       },
       {
@@ -2313,553 +2409,89 @@ export default [
     ],
     languages: 'English',
     accessibility: 'Free admission for people assisting guests with disabilities',
-    whatIsIncluded: ["tickets", ""],
+    whatIsIncluded: ['helmet', 'your luggage can be stored at my house', 'waterproof trousers', 'gloves and rain poncho can be provided if needed'],
     reviews: []
   },
   {
-    name: 'The Lights & Top Sights of London',
-    location: 'London, United Kingdom',
+    name: 'Carriage-Driving in the Countryside',
+    location: 'Hertfordshire, United Kingdom',
+    locationCoord: {
+      latitude: 51.803226,
+      longitude: -0.0375382,
+    },
     date: [
       {
-        day: '12',
-        month: '11',
-        year: '2021'
+        day: 14,
+        month: 11,
+        year: 2021
       },
       {
-        day: '14',
-        month: '11',
-        year: '2021'
+        day: 16,
+        month: 11,
+        year: 2021
       },
       {
-        day: '17',
-        month: '11',
-        year: '2021'
+        day: 19,
+        month: 11,
+        year: 2021
       },
       {
-        day: '18',
-        month: '11',
-        year: '2021'
+        day: 21,
+        month: 11,
+        year: 2021
       },
       {
-        day: '19',
-        month: '11',
-        year: '2021'
+        day: 30,
+        month: 11,
+        year: 2021
       },
       {
-        day: '20',
-        month: '11',
-        year: '2021'
+        day: 3,
+        month: 12,
+        year: 2021
       },
       {
-        day: '21',
-        month: '11',
-        year: '2021'
+        day: 7,
+        month: 12,
+        year: 2021
       },
       {
-        day: '24',
-        month: '11',
-        year: '2021'
+        day: 14,
+        month: 12,
+        year: 2021
       },
       {
-        day: '25',
-        month: '11',
-        year: '2021'
+        day: 17,
+        month: 12,
+        year: 2021
       },
-      {
-        day: '26',
-        month: '11',
-        year: '2021'
-      },
-      {
-        day: '27',
-        month: '11',
-        year: '2021'
-      },
-      {
-        day: '28',
-        month: '11',
-        year: '2021'
-      },
-      {
-        day: '1',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '2',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '3',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '4',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '5',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '6',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '7',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '8',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '9',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '10',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '11',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '12',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '13',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '14',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '15',
-        month: '12',
-        year: '2021'
-      },
-      {
-        day: '16',
-        month: '12',
-        year: '2021'
-      }
-    ],
-    duration: 300,
-    description: 'See the main landmarks of London! We will take you on a walking tour of the two best areas of London : Westminster & The Southbank. This tour is best at dusk & night where London really comes alive We will share the history of London & of these famous places. Plus we will entertain you with great facts & stories of the olden days & also modern history. It is a great way to see London with us, your friendly local London guides. We take a quick journey to Shakespearean London : The Southbank. Walking through these streets, seeing the best landmarks and hearing about their history, facts & stories will give you a glimpse of the amazing history of this city We will see St Pauls, Tower Bridge, the Tower of London lit up at night. Plus we will stop at Shakespeare\'s globe theatre, The Clink Prison, HMS Belfast and the Golden Hinde (plus much more!) We will then guide you through the historical roads of Westminster. Where we will see Buckingham Palace all lit up. We will walk down The Royal Mall, Whitehall & Downing Street. We will then make our way to Westminster Palace & Westminster Abbey. These famous monuments look amazing at night. We will tell you all about their histor Other things to note This is walking tour : please bring comfy shoesIt may get chilly : please wrap up warm If it looks like rain : bring an umbrella Summer months : its doesn\'t get until late : so you wont see many lights....',
-    category: 'Sight seeing',
-    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573552/ss7_omccnb.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573552/ss9_zva8du.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573552/ss11_nk8med.jpg',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573552/ss10_gmrzey.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573555/ss12_u1ix6d.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573552/ss8_uspaqe.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636573552/ss6_kmk098.webp'
-    ],
-    attendees: [],
-    price: "£47",
-    thingsToKnow: [
-      {
-        header: 'Guest requirements',
-        text: [
-          'Up to 10 guests ages 2 and up can attend.',
-          'All participants (and the host) must wear a protective face covering.',
-          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.'
-        ]
-      },
-      {
-        header: 'What to bring',
-        text: [
-          'Warm Coat',
-          'Umbrella if it is raining',
-          'Snacks & Drinks',
-          'Topped up Oyster Card / Travelcard or Contactless debit / credit card'
-        ]
-      },
-      {
-        header: 'Cancellation policy',
-        text: [
-          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
-        ]
-      },
-    ],
-    languages: 'English',
-    accessibility: 'Free admission for people assisting guests with disabilities',
-    whatIsIncluded: ["tickets", ""],
-    reviews: []
-  },
-  {
-    name: 'City of London E-Scooter Tour',
-    location: 'London, United Kingdom',
-    date: [
-    {
-      day: '12',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '17',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '18',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '19',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '20',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '21',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '24',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '25',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '26',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '27',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '28',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '1',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '2',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '3',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '4',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '5',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '6',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '7',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '8',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '9',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '10',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '11',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '12',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '13',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '15',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '16',
-      month: '12',
-      year: '2021'
-    }
     ],
     duration: 120,
-    description: 'All Customers must have at least a provisional drivers license to access the E-Scooters.E-Scooter Rental is not included and will cost £9.99 on the day of the tour. E-Scooters will be accessed via the Dott App, a link to download the app will be provided upon booking.This one of a kind e-scooter tour is an exploration into the very heart of London, thats right, The Square Mile, The City of London, Bankers Paradise. On this tour we will explore the history and culture of this unique part of London We start the tour by Liverpool Street Station with a safety tutorial from your expert local guide. Once your guide has checked you in and provided you with a helmet you will have the opportunity to practice using the e-scooter before we begin exploring the City of London.We will then move into the heart of the City and start with a discussion on it\'s impressive skyline and how it has changed over the course of London\'s history. From there we will zip to the Tower of London for a deep dive into the gruesome and fascinating history of the iconic London landmark. From there we will scoot and explore landmarks such as Monument, Mansion House, Old Bailey and St Paul\'s Cathedral!',
-    category: 'Sight seeing',
-    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636574042/ss14_nk67wz.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636574042/ss15_kpbjxi.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636574042/ss13_keuxjl.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636574042/ss16_gtugza.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636574042/ss17_eblknp.webp'
+    description: 'I will meet my guests at the riding school where our driving horses are. I will give them a safety briefing. Then we will bring our lovely Haflinger, Bruce, in from the field and give him his hay and a brush. Guests will learn how to harness the horse, and put him into the carriage. We will put on hi-vis jackets. Guests will sit up at the front of the carriage with me, and with their own set of reins so they learn to control the horse (a bit like dual-control in a car). We will drive round the village of Furneux Pelham at a walk and trot, for forty minutes, passing the church, the school, the old forge, the pub, and will arrive back at the Riding School. We will unharness the horse, give him a nice feed and put him back in his field. We will enjoy hot and cold drinks and snacks before we head home. The whole experience will take two hours. Other things to note: There are around 30 ponies and horses, two friendly dogs, several sheep and three cats at the riding school. We provide optional riding hats (which we recommend). It is best to be quite quiet around horses. We make every effort to make you safe but please be aware Carriage-Driving is a risk sport.',
+    category: 'Nature and outdoors',
+    image: [
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636643803/c126d13e-646d-4575-aecd-6d6893051c72_xfh2fn.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636643804/7b3487c8-ee3a-4cab-808b-6ab6e60d2f59_sk0p1m.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636643803/9ac8b6e1-88f7-4a03-b45c-74b8b6874daf_t4qq30.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636643805/861e95ef-3d33-4f4f-bc0d-e732976edd13_hm8ioa.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636643807/24201260-0b9d-42d0-9746-cd1caa2862dc_jrhjgw.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636643807/bea8e614-9d09-429f-818e-e05afa310a4c_wjbfm2.webp'
     ],
     attendees: [],
-    price: '£25',
+    price: '£40',
     thingsToKnow: [
-      {
-        header: 'Guest requirements',
-        text: [
-          'Up to 8 guests ages 18 and up can attend.',
-          'All participants (and the host) must wear a protective face covering.',
-          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.',
-          'All Guests must have a valid Drivers License, either Provisional or Full.'
-        ]
-      },
-      {
-        header: 'What to bring',
-        text: [
-          'Drivers License'
-        ]
-      },
       {
         header: 'Cancellation policy',
         text: [
           'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
         ]
       },
-    ],
-    languages: 'English',
-    accessibility: 'Free admission for people assisting guests with disabilities',
-    whatIsIncluded: ['tickets', 'Helmet', 'High Visibility Vest'],
-    reviews: []
-  },
-  {
-    name: 'An enhanced reality game in the historical streets of London',
-    location: 'London, United Kingdom',
-    date: [
-    {
-      day: '12',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '17',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '18',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '19',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '20',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '21',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '24',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '25',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '26',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '27',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '28',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '1',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '2',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '3',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '4',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '5',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '6',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '7',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '8',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '9',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '10',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '11',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '12',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '13',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '15',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '16',
-      month: '12',
-      year: '2021'
-    }
-    ],
-    duration: 120,
-    description: 'Players assume the role of secret agents whose mission is to prevent an imminent heist in the heart of London. As they follow the criminals\' trail in the streets, they get to solve a number of puzzles and mental challenges that are dispersed in the game area. These puzzles encourage team spirit and are great fun! Groups split in small teams of 2-4 players each. Teams interact with their environment and compete against each other for points. They can tackle challenges in any order they choose. This allows them to create their unique strategies and ensures they are well-dispersed over the game area. The game is played in the streets and alleys in the vicinity of St Paul\'s. Through special iPad tablets handed out to each team, the game uses latest digital technology in a most intuitive way that engages even those who are uncomfortable with mainstream mobile applications: Interactive maps guide the teams to various locations of interest where they solve challenges. With the help of these maps, each team can see the position of all other teams in real time.Several of the challenges contain seamless augmented reality features and image recognition on real world objects or landmarks. This adds another dimension to the games and makes them very entertaining.',
-    category: 'Sight seeing',
-    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575340/ss18_rtumye.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575340/ss22_ggbdy4.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575340/ss21_gducjf.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575340/ss19_xebcvl.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575343/ss24_rslsjt.jpg',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575342/ss23_pckpzy.jpg'
-    ],
-    attendees: [],
-    price: '£24',
-    thingsToKnow: [
       {
         header: 'Guest requirements',
         text: [
-          'Up to 10 guests ages 15 and up can attend.',
-          'All participants (and the host) must wear a protective face covering',
+          'Up to 3 guests ages 2 and up can attend.',
+          'All participants (and the host) must wear a protective face covering.',
           'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.',
-          '1-Guests should feel comfortable with using iPads',
-          '2-Walking around'
-        ]
-      },
-      {
-        header: 'What to bring',
-        text: [
-          'Comfy shoes'
         ]
       },
       {
@@ -2869,6 +2501,198 @@ export default [
         ]
       },
       {
+        header: 'What to bring',
+        text: [
+          'Warm, practical clothes',
+          'Rainproof jacket',
+          'Strong shoes or boots',
+          'Gloves if it is cold',
+          'A warm hat, if it is cold'
+        ]
+      }
+    ],
+    languages: ['English'],
+    whatIsIncluded: ['tickets'],
+    reviews: []//[reviewSchema]
+  },
+  {
+    name: 'Cinematic Style Private Photo shoot',
+    location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.516073,
+      longitude: -0.144613,
+    },
+    date: [
+      {
+        day: '12',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '14',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '17',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '18',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '19',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '20',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '21',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '24',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '25',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '26',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '27',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '28',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '1',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '2',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '3',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '4',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '5',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '6',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '7',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '8',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '9',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '10',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '11',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '12',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '13',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '14',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '15',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '16',
+        month: '12',
+        year: '2021'
+      }
+    ],
+    duration: 120,
+    description: 'Ever dreamed about having your own personal photographer in London? Whether you are a seasoned model or a camera-shy novice, I will make you look like a professional model by the end of this shoot. This experience is the only one on AirBnB offering Cinematic Style high end personal portraits in this price range. This is not a simple photowalk. The focus in this experience is to capture moments that will bring out the model within you. What sets this experience this apart from others is: - Your photoshoot is conducted by an experienced portrait photographer with over six years of experience. This is not like other experiences which are conducted by influencers or guides. - This a high end fully customized portrait shoot. After understanding your style and your needs, we will discuss locations that will be unique to you. Unlike other experiences, you will not be limited to a set route in London. - The portraits you will get at the end of the shoot will be shot in Cinematic or Editorial style. This means your photos will look like a work of art you can print and place on your wall or use on your social media to promote your business. If you would like to use this experience for event photography or specific business needs, I would be more than happy to cater to your unique needs. Please feel free to directly message me and we can plan a shoot together.',
+    category: 'Sight seeing',
+    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644480/ss52_z9smhg.webp',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644480/ss58_wqvuqi.webp',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644480/ss55_rlzf9y.webp',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644481/ss57_bimzno.webp',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644480/ss54_fua1aa.webp',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644481/ss53_ugjuvd.webp'
+    ],
+    attendees: [],
+    price: "£150",
+    thingsToKnow: [
+      {
+        header: 'Guest requirements',
+        text: [
+          'Up to 3 guests ages 8 and up can attend. Parents may also bring children under 2 years of age.',
+          'All participants (and the host) must wear a protective face covering.',
+          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.'
+        ]
+      },
+      {
+        header: 'What to bring',
+        text: [
+          'rain/wind proof jacket depending on weather',
+          'sunglasses and a pair of gloves depending on weather'
+        ]
+      },
+      {
         header: 'Cancellation policy',
         text: [
           'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
@@ -2877,177 +2701,281 @@ export default [
     ],
     languages: 'English',
     accessibility: 'Free admission for people assisting guests with disabilities',
-    whatIsIncluded: ['tickets', 'iPads'],
+    whatIsIncluded: ['Creative supplies', 'Camera', 'Camera'],
     reviews: []
   },
   {
-    name: 'History of Queer Vauxhall Treasure Hunt',
-    location: 'London, United Kingdom',
+    name: 'Royal Berkshire electric Cycle Tour',
+    location: 'Reading, United Kingdom',
+    locationCoord: {
+      latitude: 51.585822,
+      longitude: -0.140012,
+    },
     date: [
-    {
-      day: '12',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '17',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '18',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '19',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '20',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '21',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '24',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '25',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '26',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '27',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '28',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '1',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '2',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '3',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '4',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '5',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '6',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '7',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '8',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '9',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '10',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '11',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '12',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '13',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '15',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '16',
-      month: '12',
-      year: '2021'
-    }
+      {
+        day: 14,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 21,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 28,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 5,
+        month: 12,
+        year: 2021
+      },
+      {
+        day: 12,
+        month: 12,
+        year: 2021
+      },
+      {
+        day: 19,
+        month: 12,
+        year: 2021
+      },
+      {
+        day: 26,
+        month: 12,
+        year: 2021
+      },
+      {
+        day: 2,
+        month: 1,
+        year: 2022
+      },
+      {
+        day: 9,
+        month: 1,
+        year: 2022
+      },
     ],
     duration: 180,
-    description: 'Drag yourself around the streets of drags to discover the history of Voho, London’s oldest gaybourhood with a reputation for fantastical hedonism that’s lasted for over 200 years. On this unique walk, you’ll solve clue-after-clue to follow a trail discovering hidden gems of history. Narrated by the fabulous Lady Lambeth, you’ll get the inside scoop on lesbians abseiling into parliament and what connects Princess Diana, Freddie Mercury and the country’s most iconic drag bar. This experience is part scavenger hunt part history tour, and is completely self-guided using your mobile phone. We\'ll send clues to you directly, you use your powers of observation to find the answer and as you solve one clue we\'ll reveal directions for the next. You can play with friends in groups of up to 6. The walk will end at the world-famous Royal Vauxhall Tavern, where you can enjoy a drink at the iconic venue that\'s been graced by Princess Diana, Freddie Mercury and many more.',
-    category: 'Sight seeing',
-    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575868/ss25_kw2gra.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575869/ss28_tuwzso.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575869/ss27_famke3.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636575869/ss26_ye1pad.webp'
+    description: 'Join me on one of the most beautiful trails in Berkshire and Oxfordshire and create memories you cannot forget through public footpaths and forest trails including small roads alongside the river and small bridges -- visiting organic vegetable farms market, equestrian places and other local animals such as lamas, cows, sheep, fox, rabbits, wild birds..-- an old church from Norman times and a drink in a traditional English pub and the beautiful Thames River with miles of narrowboats and boat clubs. We will have amazing views all along for the perfect photographic memories.',
+    category: 'Nature and outdoors',
+    image: [
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644369/eac6d2a0-f3c6-4061-97e4-0516de4cc86b_mtdd2o.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644371/bf5735f0-035b-4cbe-bead-832e507e97e9_nsgvrv.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644372/64a2b4fb-d347-42ae-865d-97861b4fc155_ptwvs5.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644373/8e14ec9f-61b9-4090-a358-f71d9690e7f9-1_y0kl75.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644373/ecb6af87-f299-4210-b260-fa293b214853_rbvtwu.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644376/25b74da9-8618-4207-ae0f-bbb21ca1e43f_zfpwga.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644384/11dd6841-7bf2-4d22-9d5f-3591217da846_kzbhdt.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644385/49cb9c29-d17a-484b-9949-e07bffd5afe9_n7gyhw.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644385/43eb88e5-f515-40f2-8b52-5a771467a17f_mczjax.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644386/81e7cac5-3d93-496f-a142-30790abfa4fb_llugt7.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644387/96afa59a-eecb-4799-9202-f772cdf2f1fd_wpjcyc.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644393/bb7ea557-8068-47f9-ae6c-085a3a0a2f06_n9xoz4.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644394/c1c2b59a-a6fa-4b6b-9f02-165a23f9d415_yl6fxj.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636644396/249de2d2-5c42-48d1-aff0-f01735f774a5_sxllvu.jpg'
     ],
     attendees: [],
-    price: "£10",
+    price: '£40',
     thingsToKnow: [
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
+        ]
+      },
       {
         header: 'Guest requirements',
         text: [
-          'Up to 6 guests ages 14 and up can attend. Parents may also bring children under 2 years of age.',
+          'Up to 1 guest ages 18 and up can attend.',
           'All participants (and the host) must wear a protective face covering.',
-          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead'
+          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.',
+          'Guests should have previous biking experience.'
+        ]
+      },
+      {
+        header: 'Government ID',
+        text: [
+          'You’ll need to take a picture of yourself that matches the photo on your ID. This is so Airbnb can confirm who’s actually going on the experience. You’ll only have to do this once.'
         ]
       },
       {
         header: 'What to bring',
         text: [
-          'Mobile phone'
+          'comfortable biking clothes and camera.'
+        ]
+      }
+    ],
+    languages: ['English'],
+    whatIsIncluded: ['Tickets', 'Equipment Helmet, light, safety gears, water, electric pedal-assist bicycle 2021 model, sandwiches and a drink at the Pub.'],
+    reviews: []//[reviewSchema]
+  },
+  {
+    name: 'Experience London on pedicab',
+    location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.514698,
+      longitude: -0.149194,
+    },
+    date: [
+      {
+        day: '12',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '14',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '17',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '18',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '19',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '20',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '21',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '24',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '25',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '26',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '27',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '28',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '1',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '2',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '3',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '4',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '5',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '6',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '7',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '8',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '9',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '10',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '11',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '12',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '13',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '14',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '15',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '16',
+        month: '12',
+        year: '2021'
+      }
+    ],
+    duration: 60,
+    description: 'Feel the wind blowing in your hair while you take in the breathtaking views of London. Choose the soundtrack for your journey that is gonna blast from the sound system while i am taking you on a one hour ride. We’ll meet at Bond Street (max 6 people.) Sit enjoy and relax while we pass by Oxford Circus, regent street, Piccadilly Circus, Trafalgar Square, big ben, london eye, soho and Carnaby street.Other things to note Pedicab allowed to ride with max three people per bike. We have two bikes.',
+    category: 'Sight seeing',
+    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644949/ss61_pbrdu8.webp',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644949/ss62_csyd5i.webp'
+    ],
+    attendees: [],
+    price: "£50",
+    thingsToKnow: [
+      {
+        header: 'Guest requirements',
+        text: [
+          'Up to 6 guests of all ages can attend.',
+          'All participants (and the host) must wear a protective face covering.',
+          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.'
         ]
       },
       {
@@ -3063,547 +2991,52 @@ export default [
     reviews: []
   },
   {
-    name: 'Soulful Travel Memories',
+    name: 'Dry Flower Wreath Making & Wine',
     location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.551259,
+      longitude: -0.032746,
+    },
     date: [
-    {
-      day: '13',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '15',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '16',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '17',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '18',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '19',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '20',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '21',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '22',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '23',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '24',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '25',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '26',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '27',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '28',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '29',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '30',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '1',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '2',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '3',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '4',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '5',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '6',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '7',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '8',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '9',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '10',
-      month: '12',
-      year: '2021'
-    }
+      {
+        day: 25,
+        month: 11,
+        year: 2021
+      },
     ],
     duration: 90,
-    description: 'Whether you are travelling solo, with your significant other, or with friends/family, it is always hard to get a great photo of you all to truly capture the environment! Don\'t leave it up to a stranger on the street, let me show you some of my favourite spots around London and you\'ll get a bunch of epic shots to take as your souvenir.This 2-hour tour will show you some well-known spots plus some hidden gems around London whilst I snap some candid and posed photos of you along the way. Get ready for some fresh, Insta-ready images to make you the envy of your friends back home. You will get at least 25 to 50 high-resolution, social media-ready, edited photos per person. Please note this is a small group tour (there will likely be others joining you!) If you wish to have a private tour or are travelling in a larger group, please contact me to arrange a custom booking. Other things to note If the time slot isn\'t available for you just contact me and we can find another time. Check out my other experiences and reviews!',
-    category: 'Sight seeing',
-    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636616763/ss29_lkij80.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636616763/ss32_madoib.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636616763/ss35_sqvfc0.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636616763/ss33_cuh3jk.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636616763/ss30_ydzys1.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636616763/ss31_rvdyua.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636616763/ss34_ifig82.webp'
+    description: 'Wreath making in our florist - within peaceful church courtyard, you will be shown how to prepare, design and technical construction. We\'ll build the wreath from the beginning with dry and colourful specimens (ie. ribbons, dried fruit) Wide variety of texture and colour are available to create a wreath with volume! You\'ll be bringing your styled creation home afterward, with all the guidance and help you need from a professional floral designer. There\'s time to experiment and play with your design and photograph before we enjoy a glass of red /tea and in front of your creation. Bridal/hen parties or team building group with brunch option available in our partner locations. MINIMUM 2 PARTICIPANTS TO RUN. FOR INDIVIDUAL BOOKINGS PLEASE SEND A MESSAGE BEFORE BOOKING. Please arrive 10 minutes before starting time to enjoy full benefit of our workshop. Late comer over 30 mins maybe rejected, due to consideration for other guests.',
+    category: 'Nature and outdoors',
+    image: [
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645123/7f199bbc-d4da-4dbf-b0bb-33db7a1cae0f_tvhiww.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645126/5f10fe6b-8aea-49f1-8414-bb14a317b55a_slksum.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645126/d98f033e-2fdb-4114-8e53-f05007a6fdb1_d2jx47.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645129/dcbd961c-b00d-4bc6-b714-a52fbf2bef41_honh4p.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645130/116e4282-acb8-464b-819c-8106e8eada98_zvb96c.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645130/9ff41bc7-585e-4fcf-b9b3-d310b419eb97_tnatzg.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645131/7007e45a-8b0a-4b52-83a3-63c3829d20a6_sq2gho.webp'
     ],
     attendees: [],
-    price: "£30",
+    price: '£48',
     thingsToKnow: [
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
+        ]
+      },
       {
         header: 'Guest requirements',
         text: [
-          'Up to 10 guests of all ages can attend.',
+          'Up to 10 guests ages 14 and up can attend.',
           'All participants (and the host) must wear a protective face covering.',
           'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.',
-          'If the time slot isn\'t available for you just contact me and we can find another time.  Check out my other experiences and reviews!'
         ]
       },
       {
-        header: 'Cancellation policy',
+        header: 'Government ID',
         text: [
-          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
-        ]
-      },
-    ],
-    languages: 'English',
-    accessibility: 'Free admission for people assisting guests with disabilities',
-    whatIsIncluded: ['tickets', 'Food', 'Drinks'],
-    reviews: []
-  },
-  {
-    name: 'Visit Churchill\'s War Rooms',
-    location: 'London, United Kingdom',
-    date: [
-    {
-      day: '13',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '15',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '16',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '17',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '18',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '19',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '20',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '21',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '22',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '23',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '24',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '25',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '26',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '27',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '28',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '29',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '30',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '1',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '2',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '3',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '4',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '5',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '6',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '7',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '8',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '9',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '10',
-      month: '12',
-      year: '2021'
-    }
-    ],
-    duration: 120,
-    description: 'We will see 20+ of London\'s most iconic sights in a 3 hour walking tour & then head into Churchills WW2 War Rooms (Bunker) This part of London is a must see for all visitors to London. We will head through Green Park to Buckingham Palace, where we\'ll watch the world famous Changing of the Guard ceremony (Daily during the summer) We will walk down The Mall, the red colored road that is adorned by two Royal Parks & two Royal Palaces. Then we will head Parliament Square to see Big Ben (sadly covered up) & Westminster Abbey. Sights we will see along the way include Trafalgar Square, Nelson\'s Column, Horse Guards, Downing Street, Parliament Square, Westminster Abbey & the Houses of Parliament. I will guide you on an exploration of one of London\'s most loved areas : Westminster. It is the oldest part of London with buildings that are 1000 years old. Early Kings and Queens lived, got married and were buried in this part of London. There are Palaces and Parks galore here. This area houses the UK\'s famous Houses of Parliament (Westminster Palace) We will walk around this area and tell you the history, the fun facts and figures and also how the UK evolved from Roman to Medieval times to the modern day London. After the walking tour we then head to the Bunker where Churchill ran Britain\'s efforts during WW2 :) Entrance to Churchill\'s War Rooms is included',
-    category: 'Sight Seeing',
-    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618361/ss43_dtwwhs.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618361/ss46_g3odmc.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618361/ss44_efoqgp.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618361/ss47_v2dyfk.jpg',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618361/ss45_x28kb3.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618362/ss48_iypjeb.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618362/ss51_bbqeau.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618362/ss50_biep9d.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636618364/ss49_ml1lct.webp'
-    ],
-    attendees: [],
-    price: '£45',
-    thingsToKnow: [
-      {
-        header: 'Guest requirements',
-        text: [
-          'Up to 10 guests ages 5 and up can attend.',
-          'All participants (and the host) must wear a protective face covering.',
-          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.'
-        ]
-      },
-      {
-        header: 'What to bring',
-        text: [
-          'Comfy Shoes',
-          'Umbrella',
-          'Sun screen (if it is sunny)',
-          'Warm Coat (if its cold)',
-          'Camera (you\'ll see loads of amazing sites!)'
-        ]
-      },
-      {
-        header: 'Cancellation policy',
-        text: [
-          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
-        ]
-      },
-    ],
-    languages: 'English',
-    accessibility: 'Free admission for people assisting guests with disabilities',
-    whatIsIncluded: ['tickets', 'Food'],
-    reviews: []
-  },
-  {
-    name: 'Afternoon Tea on a 1960s London Bus',
-    location: 'London, United Kingdom',
-    date: [
-    {
-      day: '13',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '14',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '15',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '16',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '17',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '18',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '19',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '20',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '21',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '22',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '23',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '24',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '25',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '26',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '27',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '28',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '29',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '30',
-      month: '11',
-      year: '2021'
-    },
-    {
-      day: '1',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '2',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '3',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '4',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '5',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '6',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '7',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '8',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '9',
-      month: '12',
-      year: '2021'
-    },
-    {
-      day: '10',
-      month: '12',
-      year: '2021'
-    }
-    ],
-    duration: 120,
-    description: 'We take you round Big Ben, The Houses of Parliament, Westminster Abbey, St James\’s Park, Hyde Park, The Royal Albert Hall, Marble Arch, Nelson\’s Column, Downing Street and more. The London sightseeing tour lasts approximately 1 hour and 30 minutes. You can choose your dietary requirement: Vegetarian, Pescetarian, Halal, Vegan and Gluten Free* (may contain traces), if you would like any of these special menu please mention it upon booking or feel free to call us 02030261188. As a special treat, this AirBnB experience will include a complimentary glass of Bubbly! Departure time: - Victoria Coach Station (Gate 0 INSIDE THE STATION - check on the TV screen): 12:00, 14:30, 17:00. Other things to note Children under 5 are not permitted.There are no toilets on board. Arrive 15 min before. The bus will be leaving on time as we cannot wait, please contact us (02030261188) if you think to be late',
-    category: 'Sight Seeing',
-    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636617816/ss36_ikwrsp.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636617816/ss41_jc76r5.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636617816/ss37_kg570m.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636617816/ss38_u9qhnx.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636617816/ss40_msptfr.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636617816/ss39_t2m5dc.webp',
-      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636617816/ss42_qgfprz.webp'
-    ],
-    attendees: [],
-    price: '£55',
-    thingsToKnow: [
-      {
-        header: 'Guest requirements',
-        text: [
-          'Up to 10 guests ages 5 and up can attend.',
-          'All participants (and the host) must wear a protective face covering.',
-          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.'
-        ]
-      },
-      {
-        header: 'What to bring',
-        text: [
-          'Booking Confirmation'
+          'You’ll need to take a picture of yourself that matches the photo on your ID. This is so Airbnb can confirm who’s actually going on the experience. You’ll only have to do this once.'
         ]
       },
       {
@@ -3611,6 +3044,217 @@ export default [
         text: [
           'This experience includes alcohol. Only guests who meet the legal drinking age will be served alcoholic beverages.'
         ]
+      }
+    ],
+    languages: ['English'],
+    whatIsIncluded: ['Tickets', 'Equipment Wire, scissors and produces', 'Drinks Glass of red wine, tea and water for non-alcoholic option'],
+    reviews: []//[reviewSchema]
+  },
+  {
+    name: 'Photography tour in London',
+    location: 'London, United Kingdom',
+    locationCoord: {
+      latitude: 51.514698,
+      longitude: -0.149194,
+    },
+    date: [
+      {
+        day: '12',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '14',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '17',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '18',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '19',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '20',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '21',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '24',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '25',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '26',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '27',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '28',
+        month: '11',
+        year: '2021'
+      },
+      {
+        day: '1',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '2',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '3',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '4',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '5',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '6',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '7',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '8',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '9',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '10',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '11',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '12',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '13',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '14',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '15',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '16',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '17',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '18',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '19',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '20',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '21',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '22',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '23',
+        month: '12',
+        year: '2021'
+      },
+      {
+        day: '24',
+        month: '12',
+        year: '2021'
+      }
+    ],
+    duration: 60,
+    description: 'I will hold a unique photo shooting tour in Central London that a lot of people do not know about，it will include some secret spot that not many people will notice，I offer both Chinese and English language as the tour guide and I will take the best pictures for you in London.',
+    category: 'Sight seeing',
+    image: ['https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644949/ss61_pbrdu8.webp',
+      'https://res.cloudinary.com/dmpvulj3q/image/upload/v1636644949/ss62_csyd5i.webp'
+    ],
+    attendees: [],
+    price: "£50",
+    thingsToKnow: [
+      {
+        header: 'Guest requirements',
+        text: [
+          'Up to 6 guests of all ages can attend.',
+          'All participants (and the host) must wear a protective face covering.',
+          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.'
+        ]
       },
       {
         header: 'Cancellation policy',
@@ -3621,7 +3265,184 @@ export default [
     ],
     languages: 'English',
     accessibility: 'Free admission for people assisting guests with disabilities',
-    whatIsIncluded: ['tickets', 'Food'],
+    whatIsIncluded: ['tickets'],
     reviews: []
-  } 
+  },
+  {
+    name: 'Farmyard Experience',
+    location: 'Margery, United Kingdom',
+    locationCoord: {
+      latitude: 51.259097,
+      longitude: -0.207366,
+    },
+    date: [
+      {
+        day: 20,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 21,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 24,
+        month: 11,
+        year: 2021
+      },
+    ],
+    duration: 90,
+    description: '1 ticket admits 2 people, inclusive of accompanying parent. If the morning slot doesn\'t suit you, other times can be arranged on request. You’re in charge of getting the farm off to it’s morning start. We need to make feeds for the horses, goats, chickens, ducks, and Alpacas. Let the ducks out and fill their pond. Stroke and groom our Shetland. Feed the Guineas and rabbits and make a fuss of them. Meet our farmyard dogs and cats. And then time to play with the goats. But be warned, they will jump all over you! Please note, there will no contact with any horses other than a Shetland upon request. If you don\'t see a time or date that suits you, please get in touch. Or you can come later in the day and spend time with the animals in their environment, they are always willing playmates',
+    category: 'Nature and outdoors',
+    image: [
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645835/3aa0bda0-b74f-474b-a3e9-605c073e76d8_azlku6.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645834/5bb249cc-f0f3-4395-be73-2e7043ffb5f6-1_dn407c.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645837/72c6b5ae-1587-4e39-8455-d5a57c87a88f_h9jvja.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645838/a3e1847a-9574-4c4f-837e-ae3bb4893748_q4rj8j.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645840/4c474fd9-a81f-4486-b9cf-ccde44f70b7d-2_ns4uxc.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645847/35e4b72f-edb7-4a48-a3e5-7a9facace9fa-1_pp1ovg.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645850/8fbfdc87-a1c8-4a4b-8adc-4167a45ccb7a_a7cqnv.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645850/c90b24dd-0e79-4fed-9d3b-266688353ac3_kz1u4b.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645851/d6eb119f-6d11-4207-b728-7dd80db3927f_y4jbk0.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645860/e91c9aaf-4822-4665-992c-574537507451_evxc6o.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645863/0659d1b4-2da7-491e-acd6-057c94fd0e69_wdvwxw.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645864/1761cd7c-597f-4893-9ee1-1b732ae9ac22_kynwe2.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645865/76121dd0-7895-4034-b9b3-1393f72c2c33_srfcxa.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645865/6ea24d4c-05f4-4991-876a-b58b1c96fd16_kisd13.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645869/32522218-44fb-4e3b-a9a2-62ee4eefd57f_pjhq7z.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645871/5368455c-7ec1-4727-9397-265103984f30_ezchup.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645877/37efbbbb-dcc8-4312-a878-d2612890e52d_zhtaez.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645879/6e0e0d9b-aff0-4545-9b4b-1697304096f1_rdrva2.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645882/af5f012f-b93d-4054-942d-5a6b92e8aa53_ju0bsc.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645886/d192478d-8194-4944-b422-a55567bec6af_jlocs7.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645885/e2d266b0-0772-4a00-8b7a-81d563a3bfb2_wws1rx.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645881/16c329dd-2cce-4b67-9a30-538a193a7786_zjhnit.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645888/291d4471-8df5-48b3-a608-5ca700027904_qxay3g.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636645884/38f0b480-a2a0-4fed-adf4-f75b70e31e5d_bv6ri5.webp'
+    ],
+    attendees: [],
+    price: '£65',
+    thingsToKnow: [
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Any experience can be cancelled and fully refunded within 24 hours of purchase, or at least 7 days before the experience starts.'
+        ]
+      },
+      {
+        header: 'Guest requirements',
+        text: [
+          'Up to 10 guests ages 14 and up can attend.',
+          'All participants (and the host) must wear a protective face covering.',
+          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.',
+        ]
+      },
+      {
+        header: 'What to bring',
+        text: [
+          'Boots, waterproofs and old clothing'
+        ]
+      },
+    ],
+    languages: ['English'],
+    whatIsIncluded: ['Tickets'],
+    reviews: []//[reviewSchema]
+  },
+  {
+    name: 'Christmas Lights Bike Ride',
+    location: 'London United Kingdom',
+    locationCoord: {
+      latitude: 51.515022,
+      longitude: -0.142333,
+    },
+    date: [
+      {
+        day: 26,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 27,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 28,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 29,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 30,
+        month: 11,
+        year: 2021
+      },
+      {
+        day: 1,
+        month: 12,
+        year: 2021
+      },
+      {
+        day: 2,
+        month: 12,
+        year: 2021
+      }, 
+      {
+        day: 3,
+        month: 12,
+        year: 2021
+      },
+      {
+        day: 4,
+        month: 12,
+        year: 2021
+      },  
+
+    ],
+    duration: 180,
+    description: 'We will select some easy wheels from our central London base. Setting off with Christmas tunes blasting from our lead bike, stopping occasionally to give you some quirky stories about Christmas past and where it is today. After story time, it is full-on cycling unashamedly under all the Christmas light displays we can find in central London. This ride is only available from 26/11/21 to 03/01/22 Santa hat F.O.C.',
+    category: 'Nature and outdoors',
+    image: [
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636647611/910e8e16-b39a-42f3-86ac-999b92605166_f910rq.webp',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636647619/f727c93c-bdd3-4149-b447-84eb4e26c276_n2eqtv.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636647620/213ad3dd-8c9c-4b32-8d5b-8cd101a2b10d_lwxslc.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636647620/86963e6b-a7af-4ed0-aa88-7e479686169c_usu5dj.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636647622/ba611049-ab4d-420d-a806-e03c0fd13633_nzdp6j.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636647622/cb8a76a6-d909-43da-9ea8-c531d7e4ca1c_bhm1hj.jpg',
+      'https://res.cloudinary.com/dqqqume3a/image/upload/v1636647624/0fc410ab-096d-42da-a0bb-24df88e1381d_wzjalx.jpg'
+    ],
+    attendees: [],
+    price: '£35',
+    thingsToKnow: [
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Cancel up to 7 days before the Experience start time for a full refund, or within 24 hours of booking as long as the booking is made more than 48 hours before the start time.'
+        ]
+      },
+      {
+        header: 'Guest requirements',
+        text: [
+          'Up to 10 guests ages 14 and up can attend.',
+          'All participants (and the host) must wear a protective face covering.',
+          'Keep a safe physical distance between yourself and other people. When you meet your host(s) and other guests, don\'t shake hands or hug – try a no-contact greeting instead.',
+        ]
+      },
+      {
+        header: 'What to bring',
+        text: [
+          'Warm clothes, suitable for an outside winter activity.',
+          'Gloves, or we have some for sale if you don\'t have any.'
+        ]
+      },
+    ],
+    languages: ['English'],
+    whatIsIncluded: ['Tickets', 'Equipment Bike helmet. Hi-Viz jacket. Santa hat'],
+    reviews: []//[reviewSchema]
+  }, 
 ]

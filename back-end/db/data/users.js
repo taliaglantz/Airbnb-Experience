@@ -12,7 +12,7 @@ export default [
     languages: ['English', 'Polish'],
     occupation: 'Software engineer',
     about: 'Hi, this is Anna! Nice to meet you 😀!',
-    dob: new Date(1995, 06, 24),
+    dob: new Date(1995, 6, 24),
     wishlist: [],
     experiences: []
   },
