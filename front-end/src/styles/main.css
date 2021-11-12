@@ -387,6 +387,25 @@ hr {
   background-color: white !important;
 }
 
+/* EXPERIENCECARD.JS */
+
+
+.what-we-will-do {
+  font-weight: bold;
+}
+
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+/* EXPERIENCES.JS */
+
+/* Start of Map box */
+
 .map {
   position: fixed;
   width: 100%;
@@ -425,6 +444,8 @@ hr {
   display: block;
   transform: translateX(-20px);
 }
+
+/* End of Map Box */
 
 
 
