@@ -442,6 +442,33 @@ hr {
 }
 
 
+/* Experience Component Start */
+
+.experiences-container {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  margin: auto 0; */
+}
+.rlss-container {
+  display: flex;
+  justify-content: space-between;
+}
+.rating-location {
+  display: flex;
+}
+
+.share-save {
+  display: flex;
+}
+
+.borders {
+  border-top: 10px solid #000;
+}
+/* Experience Component End */
+
 /* 
 
 input:focus { 
