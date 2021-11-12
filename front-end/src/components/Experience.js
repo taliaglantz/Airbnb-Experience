@@ -1,11 +1,11 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Breadcrumb, Rating, Icon, Grid, Image, Container, Card } from 'semantic-ui-react'
+import { Breadcrumb, Grid, Container, Card, Header } from 'semantic-ui-react'
 
 const Experience = () => {
 
   const [experience, setExperience] = useState([])
+  //const [images, setImages] = useState([])
 
   useEffect(() => {
     
@@ -67,7 +67,7 @@ const Experience = () => {
 
   const ExperienceTitle = () => (
     <Container>
-      <h4>{experience.name}</h4>
+      <Header as="h2">{experience.name}</Header>
     </Container>
   )
 
@@ -76,17 +76,17 @@ const Experience = () => {
       <Grid>
         <Grid.Row columns={4}>
           <Grid.Column>
-            <Image src='https://via.placeholder.com/350' />
+            {/* <Image className="experience-img-0" src={experience.image[0]}/> */}
           </Grid.Column>
           <Grid.Column>
-            <Image src='https://via.placeholder.com/350' />
+            {/* <Image src={experience.image[1]} /> */}
           </Grid.Column>
           <Grid.Row>
-            <Image src='https://via.placeholder.com/150' />
-            <Image src='https://via.placeholder.com/150' />
+            {/* <Image className="experience-img-2" src={experience.image[2]} /> */}
+            {/* <Image className="experience-img-3"src={experience.image[3]} /> */}
           </Grid.Row>
           <Grid.Column>
-            <Image src='https://via.placeholder.com/350' />
+            {/* <Image className="experience-img-4" src={experience.image[4]} /> */}
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -96,15 +96,15 @@ const Experience = () => {
   const HostDetails = () => (
     <Container>
       {/* Experience hosted by goes here */}
-      <h4>Experience hosted by</h4> 
+      <Header as="h3">Experience hosted by</Header> 
       <p>{experience.duration / 60} hours</p><p>Hosted in English</p>
     </Container>
   )
 
   const WhatYoullDo = () => (
     <Container>
-      <h4>What you &apos;ll do</h4>
-      <p>We&apos;ll take you round Big Ben, The Houses of Parliament, Westminster Abbey, St James’s Park, Hyde Park, The Royal Albert Hall, Marble Arch, Nelson’s Column, Downing Street and more. The London sightseeing tour lasts approximately 1 hour and 30 minutes. You can choose your dietary requirement: Vegetarian, Pescetarian, Halal, Vegan and Gluten Free* (*may contain traces), if you would like any of these special menu please mention it upon…</p>
+      <Header as="h3">What you &apos;ll do</Header>
+      <p>{experience.description}</p>
     </Container>
   )
 
@@ -120,15 +120,17 @@ const Experience = () => {
 
   const WhatsIncluded = () => (
     <Container>
-      <h4>What&apos;s included</h4>
+      <Header as="h3">What&apos;s included</Header>
       <WhatsIncludedCard />
     </Container>
   )
 
   const MeetYourHost = () => (
-    <Container>
+    <Container className="meet-your-host">
       <Card.Description>
-        <h4>Meet your host, {experience.host.firstName}</h4>
+        <Header as="h3">Meet your host, </Header>
+        <Rating />
+        <p>Sightseeing and Afternoon Tea All in One! Come and experience Afternoon Tea with a difference on our exclusive and unique Afternoon Tea Bus. Our vintage 1960&apos;s Routemaster bus will drive you through the streets of Central London, taking in some of the City’s best sights, whilst you indulge in our fabulous Afternoon Tea. Capture the heart of the city’s culture, landmarks and history on our London Routemaster Bus, whilst sipping on a lovely cup of tea and enjoying the exquisite tastes of England & France. High tea accompanied with an array of tasty sandwiches and delicious cakes and pastries. Please do not hesitate to check all our distancing measures on our blog and socials: https://b-bakery.com/london/blog/social-distancing-and-safety-on-our-buses.</p>
       </Card.Description>
     </Container>
   )
@@ -140,7 +142,6 @@ const Experience = () => {
       <div className="rlss-container">
         <div className="rating-location">
           <Rating />
-
           <p>London, United Kingdom</p>
         </div>
         <div className="share-save">
