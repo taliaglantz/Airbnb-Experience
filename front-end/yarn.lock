@@ -10725,6 +10725,11 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
+suite@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/suite/-/suite-0.2.0.tgz#686a7e31a3f204f9c8cd664b98636994dbbcf97a"
+  integrity sha512-xCrRPoUXnSak94bnjQnjdNEexdtggG86SWRV3kenb12CTpWq8z0SGr4sjH0CCbrcK09BDa4+RbDk56nHP4Hv+Q==
+
 supercluster@^7.1.4:
   version "7.1.4"
   resolved "https://registry.yarnpkg.com/supercluster/-/supercluster-7.1.4.tgz#6762aabfd985d3390b49f13b815567d5116a828a"

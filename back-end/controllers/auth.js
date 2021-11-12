@@ -2,15 +2,15 @@
 // import jwt from 'jsonwebtoken'
 // import { secret } from '../config/environment.js'
 
-// export const registerUser = async (req, res) => {
-//   try {
-//     const newUser = await User.create(req.body)
-//     return res.status(201).json({ 'message': `Thank you Registering! Welcome ${newUser.username}` })
-//   } catch (err) {
-//     console.log('Error', err)
-//     return res.status(422).json(err)
-//   }
-// }
+export const registerUser = async (req, res) => {
+  try {
+    const newUser = await User.create(req.body)
+    return res.status(201).json({ 'message': `Thank you Registering! Welcome ${newUser.username}` })
+  } catch (err) {
+    console.log('ERROR!!!!', err)
+    return res.status(422).json(err)
+  }
+}
 
 // export const loginUser = async (req, res) => {
 //   try {

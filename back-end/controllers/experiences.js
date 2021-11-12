@@ -23,12 +23,12 @@ export const getSingleExperience = async(req, res) => {
   try {
     const { id } = req.params
     console.log('ID->', id)
-    const singleExperience = await Experience.findById(id).populate('host') // add comments here
-    if (!singleExperience) throw new Error()
+    const singleExperience = await Experience.findById(id).populate('host') // Add comments here
+    if (!singleExperience) throw new Error('Not found')
     return res.status(200).json(singleExperience)
   } catch (err) {
     console.log(err)
-    return res.status(404).json({ 'Message': 'Not found' })
+    return res.status(404).json({ 'Message': err.message })
   }
 }
 
@@ -37,9 +37,10 @@ export const deleteExperience = async (req, res) => {
   try {
     const { id } = req.params
     const experienceToDelete = await Experience.findById(id)
-    if (!experienceToDelete) throw new Error()
-    if (!experienceToDelete.owner.equals(req.currentUser.id)) throw new Error()
-    await experienceToDelete.remove()
+    console.log('EXPERIENCE TO DELETE ->', experienceToDelete)
+    if (!experienceToDelete) throw new Error('Experience not found')
+    // if (!experienceToDelete.owner.equals(req.currentUser.id)) throw new Error()
+    // await experienceToDelete.remove()
     return res.sendStatus(204)
   } catch (err) {
     console.log(err)
@@ -48,10 +49,10 @@ export const deleteExperience = async (req, res) => {
 }
 
 //! Update experience
-export const updatedExperience = async (req, res) => {
+export const updateExperience = async (req, res) => {
   try {
     const { id } = req.params
-    const updatedExperience = await Podcast.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
+    const updatedExperience = await Experience.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
     if (!updatedExperience) throw new Error()
     return res.status(202).json(updatedExperience)
   } catch (err) {
