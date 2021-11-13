@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow } from 'semantic-ui-react'
+import ExperiencesMap from './ExperiencesMap'
+// Need React Location and History
 
 const Experience = () => {
 
@@ -156,6 +158,14 @@ const Experience = () => {
     </Container>
   )
 
+  const WhereYoullBe = () => (
+    <Container>
+      <Header as="h3">Where you&apos;ll be</Header>
+      {/* INSERT MAP <ExperiencesMap /> */}
+    </Container>
+  )
+
+
   return (
     <section className="experiences-container">
       <BreadCrumbComponent />
@@ -188,6 +198,11 @@ const Experience = () => {
           <Grid.Row columns={1}>
             <Grid.Column width={7}>
               <MeetYourHost />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column width={7}>
+              <WhereYoullBe />
             </Grid.Column>
           </Grid.Row>
         </Grid>
