@@ -481,8 +481,8 @@ hr {
   display: flex;
 }
 
-.share-save {
-  display: flex;
+.ui.container.icon-style {
+  border: 1px solid red;
 }
 
 

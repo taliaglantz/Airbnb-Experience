@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Breadcrumb, Grid, Container, Card, Header } from 'semantic-ui-react'
+import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow } from 'semantic-ui-react'
 
 const Experience = () => {
 
@@ -8,19 +9,24 @@ const Experience = () => {
   //const [images, setImages] = useState([])
 
   useEffect(() => {
-    
     const getData = async () => {
       try {
-        // When route is set up
-        // const { data } = await axios.get(`/api/experiences/${id}`)
-        const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda4') // Change this to experience with id 
-        console.log(data)
+        // // When route is set up
+        // // const { data } = await axios.get(`/api/experiences/${id}`)
+        // await axios.get('/api/experiences/618e5589869bf3b103dcbda4')
+        //   .then((response) => {
+        //     //console.log(JSON.stringify(response))
+        //     return response
+        //   })
+        //   .then((response) => setExperience(response.data))
+        //   // Change this to experience with id 
+        const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda4')
         setExperience(data)
       } catch (err) {
         console.log('Error Getting Experience ->', err)
       }
     }
-    getData()
+    getData().then()
   },[])
 
   // Place holder information
@@ -57,12 +63,15 @@ const Experience = () => {
   // const heartIcon = () => <Icon name="save" />
   const HeartIcon = () => (
     <Container>
-      <i aria-hidden="true" className="heart outline icon"><p>save</p></i>
+      <i aria-hidden="true" className="heart outline icon"></i>
+      <p>save</p>
     </Container>
   )
 
   const ShareIcon = () => (
-    <i aria-hidden="true" className="share square outline icon"></i>
+    <Container>
+      <i aria-hidden="true" className="share square outline icon"></i>
+    </Container>
   )
 
   const ExperienceTitle = () => (
@@ -76,27 +85,38 @@ const Experience = () => {
       <Grid>
         <Grid.Row columns={4}>
           <Grid.Column>
+            {/* <SomeImage props=index0></SomeImage> */}
+            {/* {experience.image} */}
             {/* <Image className="experience-img-0" src={experience.image[0]}/> */}
+            {experience.image !== undefined ? <Image className="experience-img-0" src={experience.image[0]}/> : <div>Unable to load image</div>}
           </Grid.Column>
           <Grid.Column>
             {/* <Image src={experience.image[1]} /> */}
+            {experience.image !== undefined ? <Image className="experience-img-1" src={experience.image[1]}/> : <div>Unable to load image</div>}
           </Grid.Column>
           <Grid.Row>
             {/* <Image className="experience-img-2" src={experience.image[2]} /> */}
             {/* <Image className="experience-img-3"src={experience.image[3]} /> */}
+            {experience.image !== undefined ? <Image className="experience-img-2" src={experience.image[2]}/> : <div>Unable to load image</div>}
+            {experience.image !== undefined ? <Image className="experience-img-3" src={experience.image[3]}/> : <div>Unable to load image</div>}
           </Grid.Row>
           <Grid.Column>
             {/* <Image className="experience-img-4" src={experience.image[4]} /> */}
+            {experience.image !== undefined ? <Image className="experience-img-4" src={experience.image[4]}/> : <div>Unable to load image</div>}
           </Grid.Column>
         </Grid.Row>
       </Grid>
     </Container>
   )
+  const details = { ...experience.host }
+  console.log(details)
 
   const HostDetails = () => (
     <Container>
-      {/* Experience hosted by goes here */}
-      <Header as="h3">Experience hosted by</Header> 
+      <div>
+        <Header as="h3">Experience hosted by {details.firstName}</Header> 
+        <Image src={details.profilePicture} avatar />
+      </div>
       <p>{experience.duration / 60} hours</p><p>Hosted in English</p>
     </Container>
   )
@@ -124,13 +144,14 @@ const Experience = () => {
       <WhatsIncludedCard />
     </Container>
   )
-
+  
   const MeetYourHost = () => (
+
     <Container className="meet-your-host">
       <Card.Description>
-        <Header as="h3">Meet your host, </Header>
+        <Header as="h3">Meet your host, {details.firstName}</Header>
         <Rating />
-        <p>Sightseeing and Afternoon Tea All in One! Come and experience Afternoon Tea with a difference on our exclusive and unique Afternoon Tea Bus. Our vintage 1960&apos;s Routemaster bus will drive you through the streets of Central London, taking in some of the City’s best sights, whilst you indulge in our fabulous Afternoon Tea. Capture the heart of the city’s culture, landmarks and history on our London Routemaster Bus, whilst sipping on a lovely cup of tea and enjoying the exquisite tastes of England & France. High tea accompanied with an array of tasty sandwiches and delicious cakes and pastries. Please do not hesitate to check all our distancing measures on our blog and socials: https://b-bakery.com/london/blog/social-distancing-and-safety-on-our-buses.</p>
+        <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p>
       </Card.Description>
     </Container>
   )
@@ -142,18 +163,36 @@ const Experience = () => {
       <div className="rlss-container">
         <div className="rating-location">
           <Rating />
-          <p>London, United Kingdom</p>
         </div>
-        <div className="share-save">
-          <ShareIcon />
-          <HeartIcon/>
-        </div>
+        <ShareIcon />
+        <HeartIcon />
       </div>
       <ImageGrid />
-      <HostDetails />
-      <WhatYoullDo />
-      <WhatsIncluded />
-      <MeetYourHost />
+      <Container>
+        <Grid divided='vertically'>
+          <Grid.Row columns={1}>
+            <Grid.Column width={7}>
+              <HostDetails />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column width={7}>
+              <WhatYoullDo />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column width={7}>
+              <WhatsIncluded />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column width={7}>
+              <MeetYourHost />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+      
     </section>
   )
 }
