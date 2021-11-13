@@ -171,6 +171,11 @@ const Experience = () => {
     </Container>
   )
 
+  const ChooseAvailableDates = () => (
+    <Header as="h3">Choose from available dates</Header>
+  )
+
+
 
   return (
     <section className="experiences-container">
