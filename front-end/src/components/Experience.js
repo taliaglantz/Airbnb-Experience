@@ -183,6 +183,33 @@ const Experience = () => {
     <Header as="h3">Similar Experiences</Header>
   )
 
+  const [exploreData, setexploreData] = useState([])
+  useEffect(() => {
+    const exloringData = async () => {
+      try {
+        const { data } = await axios.get('/api/experiences')
+        setexploreData(data)
+      } catch (err) {
+        console.log('Error getting explore data ->', err)
+      }
+    }
+    exloringData()
+  },[])
+
+  // const [experienceCategory, setexperienceCategory] = useState([])
+  const experienceCategory = []
+  exploreData.map(experience => {
+    experienceCategory.push(experience.category)
+  })
+
+  const uniqueExperience = [...new Set(experienceCategory)]
+
+  console.log('Unique Experience', uniqueExperience)
+
+  const KeepExploringInLondon = () => (
+    <Header as="h3">Keep exploring in London</Header>
+  )
+
   return (
     <section className="experiences-container">
       <BreadCrumbComponent />
@@ -220,6 +247,31 @@ const Experience = () => {
           <Grid.Row columns={1}>
             <Grid.Column width={7}>
               <WhereYoullBe />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <Reviews />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <ChooseAvailableDates />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <ThingsToKnow />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <SimilarExperiences />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <KeepExploringInLondon />
             </Grid.Column>
           </Grid.Row>
         </Grid>
