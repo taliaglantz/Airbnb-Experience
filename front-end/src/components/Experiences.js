@@ -1,32 +1,30 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
-import { Grid, Container } from 'semantic-ui-react'
+import { Grid, Container, Header, Card, Image } from 'semantic-ui-react'
 import ReactMapGL, { Marker, FlyToInterpolator, Popup } from 'react-map-gl' // yarn add react-map-gl to enable mapbox
-import locationData from '../data/locations'
 import axios from 'axios'
-import ExperienceCard from './ExperienceCard'
 
-// Map controller
-
-const MapController = ({ onClick }) => {
-  return (
-    <div className="map-controller">
-      <div className="buttons">
-        {locationData.map(location => (
-          <button
-            key={location.id}
-            className="button is-small is-rounded is-info"
-            onClick={() => onClick(location)}
-          >
-            {location.icon}
-          </button>
-        ))
-        }
-      </div>
-    </div>
-  )
-}
 
 const Experiences = () => {
+
+  // ***EXPERIENCES***
+
+  const [experiences, setExperiences] = useState([])
+  const [hasError, setHasError] = useState(false)
+
+  // displaying all experiences on page
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios.get('/api/experiences')
+        setExperiences(data)
+        //console.log('EXPERIENCES ->', response) // this works
+      } catch (err) {
+        setHasError(true)
+      }
+    }
+    getData()
+  }, [])
 
   //***MAPBOX***
 
@@ -54,27 +52,6 @@ const Experiences = () => {
 
   //console.log(viewport)
   // console.log(popup)
-
-  // ***EXPERIENCES***
-
-  const [experiences, setExperiences] = useState([])
-  const [hasError, setHasError] = useState(false)
-
-  // displaying all experiences on page
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data } = await axios.get('/api/experiences')
-        setExperiences(data)
-        //console.log('EXPERIENCES ->', response) // this works
-      } catch (err) {
-        setHasError(true)
-      }
-    }
-    getData()
-  }, [])
-
-
   //console.log('EXPERIENCES ->', experiences)
   return (
     <Grid divided='vertically'>
@@ -82,24 +59,45 @@ const Experiences = () => {
         <Grid.Column width={9}>
 
           {/* Column on left */}
+          {/* Hovering over card shows up location as black bubble with white price
+              Clicking on the card takes you to the cards' show page
+              Clicking on the black bubble shows a small card of the experience
+              Clicking on that card also takes you to the cards' show page */}
 
-          <MapController onClick={handleNewLocation} />
           <Container>
-            {experiences.length ?
-              <div>
-                {experiences.map(experience => {
-                  return (
-                    <ExperienceCard key={experience._id} {...experience} />
-                  )
-                })
-                }
-              </div>
-              :
-              <h2>{hasError ? 'Something has gone wrong!' : 'loading experiences...'}</h2>
-            }
+            <p>{experiences.length} experiences</p>
+            <Header as='h2'>Experiences in London</Header>
+            <p>Review COVID-19 travel restrictions before you book.<a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
+            <div>
+              {experiences.length ?
+                <div>
+                  {experiences.map(experience => {
+                    return (
+                      <Card className='card' key={experience._id}>
+                        <div>
+                          <Image
+                            floated='left'
+                            src={experience.image[0]}
+                            size='small'
+                          />
+                        </div>
+
+                        <div>
+                          <Header as='h4'>{experience.name}</Header>
+                          <p className="what-we-will-do">What we&apos;ll do:</p>
+                          <p className="description">{experience.description}</p>
+                          <p>{experience.duration / 60} hours</p>
+                        </div>
+                      </Card>
+                    )
+                  })}
+                </div>
+                :
+                <h2>{hasError ? 'Something has gone wrong!' : 'loading experiences...'}</h2>
+              }
+            </div>
           </Container>
         </Grid.Column>
-
 
         {/* Column on right */}
 
@@ -123,23 +121,43 @@ const Experiences = () => {
                   >
                     <span role="img" aria-label="map-marker" className="marker rocket">🚀</span>
                   </Marker>
-                  {locationData.map(location => (
+                  {experiences.map(experience => (
                     <Marker
-                      key={location.id}
-                      latitude={location.latitude}
-                      longitude={location.longitude}
+                      key={experience._id}
+                      latitude={experience.locationCoord.latitude}
+                      longitude={experience.locationCoord.longitude}
                     >
-                      <span onClick={() => setPopup(location)} role="img" aria-label="map-marker" className="marker">{location.icon}</span>
+                      <span onClick={() => setPopup(experience)} role="img" aria-label="map-marker" className="marker">
+                        <button className='price-marker'>{experience.price}</button>
+                      </span>
                     </Marker>
                   ))}
                   {popup &&
                     <Popup
-                      latitude={popup.latitude}
-                      longitude={popup.longitude}
+                      latitude={popup.locationCoord.latitude}
+                      longitude={popup.locationCoord.longitude}
                       closeOnClick={true}
                       onClose={() => setPopup(null)}
+                      closeButton={false}
+                      anchor={'center'}
                     >
-                      <div>{popup.name}</div>
+                      <Card>
+                        <div className='images-in-map-card'>
+                          <div>
+                            <img className='image-on-left' src={popup.image[0]}/>
+                          </div>
+                          <div className='images-in-map-card-right'>
+                            <img className='image-on-right' src={popup.image[1]}/>
+                            <img className='image-on-right' src={popup.image[2]}/>
+                          </div>
+                        </div>
+
+                        <p>{popup.reviews}</p>
+                        <p>{popup.name}</p>
+                        <p>{popup.category} . {popup.duration / 60} hours</p>
+                        <p><strong>From {popup.price}</strong>/person</p>
+                      </Card>
+
                     </Popup>
                   }
 

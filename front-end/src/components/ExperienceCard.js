@@ -1,33 +1,30 @@
 import React from 'react'
-import { Header, Image, Divider } from 'semantic-ui-react'
+import { Card, Header, Image } from 'semantic-ui-react'
 
 
 const ExperienceCard = ({ _id, name, image, description, duration }) => {
 
 
-
-
-
-
   return (
-    <div key={_id}>
 
+    <div>
+      <Card className='card' key={_id}>
+        <div>
+          <Image
+            floated='left'
+            src={image[0]}
+            size='small'
+          />
+        </div>
 
-      <Image
-        floated='left'
-        src={image[0]}
-        size='small'
-      />
-
-      <Header as='h4'>{name}</Header>
-      <Divider />
-      <p className="what-we-will-do">What we&apos;ll do:</p>
-      <p className="description">{description}</p>
-      <p>{duration / 60} hours</p>
-      <Divider />
+        <div>
+          <Header as='h4'>{name}</Header>
+          <p className="what-we-will-do">What we&apos;ll do:</p>
+          <p className="description">{description}</p>
+          <p>{duration / 60} hours</p>
+        </div>
+      </Card>
     </div>
-
-
   )
 }
 export default ExperienceCard
