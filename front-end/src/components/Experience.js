@@ -175,10 +175,13 @@ const Experience = () => {
     <Header as="h3">Choose from available dates</Header>
   )
 
-  const ThingsToKnow = () (
+  const ThingsToKnow = () => (
     <Header as="h3">Things to know</Header>
   )
 
+  const SimilarExperiences = () => (
+    <Header as="h3">Similar Experiences</Header>
+  )
 
   return (
     <section className="experiences-container">
