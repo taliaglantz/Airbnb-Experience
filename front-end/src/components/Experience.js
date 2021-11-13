@@ -120,23 +120,16 @@ const Experience = () => {
       <Grid>
         <Grid.Row columns={4}>
           <Grid.Column>
-            {/* <SomeImage props=index0></SomeImage> */}
-            {/* {experience.image} */}
-            {/* <Image className="experience-img-0" src={experience.image[0]}/> */}
             {experience.image !== undefined ? <Image className="experience-img-0" src={experience.image[0]}/> : <div>Unable to load image</div>}
           </Grid.Column>
           <Grid.Column>
-            {/* <Image src={experience.image[1]} /> */}
             {experience.image !== undefined ? <Image className="experience-img-1" src={experience.image[1]}/> : <div>Unable to load image</div>}
           </Grid.Column>
           <Grid.Row>
-            {/* <Image className="experience-img-2" src={experience.image[2]} /> */}
-            {/* <Image className="experience-img-3"src={experience.image[3]} /> */}
             {experience.image !== undefined ? <Image className="experience-img-2" src={experience.image[2]}/> : <div>Unable to load image</div>}
             {experience.image !== undefined ? <Image className="experience-img-3" src={experience.image[3]}/> : <div>Unable to load image</div>}
           </Grid.Row>
           <Grid.Column>
-            {/* <Image className="experience-img-4" src={experience.image[4]} /> */}
             {experience.image !== undefined ? <Image className="experience-img-4" src={experience.image[4]}/> : <div>Unable to load image</div>}
           </Grid.Column>
         </Grid.Row>
@@ -155,7 +148,10 @@ const Experience = () => {
         <Header as="h3">Experience hosted by {details.firstName}</Header> 
         <Image src={details.profilePicture} avatar />
       </div>
-      <p>{experience.duration / 60} hours</p><p>Hosted in English</p>
+      <p>
+        {experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}
+      </p>
+      <p>Hosted in English</p>
     </Container>
   )
 
@@ -220,9 +216,11 @@ const Experience = () => {
   )
 
   // Returning ThingsToKnow Component
-  const ThingsToKnow = () => (
-    <Header as="h3">Things to know</Header>
-  )
+  // const ThingsToKnow = () => (
+  //   <Container>
+  //     <Header as="h3">Things to know</Header>
+  //   </Container>
+  // )
 
   // Returing SimilarExperiences Component
   const SimilarExperiences = () => (
@@ -257,7 +255,11 @@ const Experience = () => {
   const KeepExploringInLondon = () => (
     <Header as="h3">Keep exploring in London</Header>
   )
-
+  // console.log(experience)
+  
+  //console.log('Things to Header ->',experience.thingsToKnow[0].header)
+  console.log('Experience ->', experience)
+  console.log('Things to know ->', experience.thingsToKnow)
   return (
     <section className="experiences-container">
       {experience ? 
@@ -311,7 +313,11 @@ const Experience = () => {
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column>
-                  <ThingsToKnow />
+                  {/* <ThingsToKnow /> */}
+                  <Container>
+                    <Header as="h3">Things to know</Header>
+                    
+                  </Container>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
@@ -322,16 +328,18 @@ const Experience = () => {
               <Grid.Row columns={1}>
                 <Grid.Column>
                   {/* <KeepExploringInLondon /> */}
-                  <Header as="h3">Keep exploring in London</Header>
-                  {uniqueExperience.map((experience, index) => {
-                    return (
-                      <Card key={index}>
-                        <Card.Content>
-                          <Card.Header>{experience}</Card.Header>
-                        </Card.Content>
-                      </Card>
-                    )
-                  })}
+                  <Header as="h3">Keep exploring</Header>
+                  <div className="exploring-cards">
+                    {uniqueExperience.map((experience, index) => {
+                      return (
+                        <Card key={index} className="experience-card">
+                          <Card.Content className="experience-card-content" textAlign={'center'}>
+                            <Card.Header>{experience}</Card.Header>
+                          </Card.Content>
+                        </Card>
+                      )
+                    })}
+                  </div>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

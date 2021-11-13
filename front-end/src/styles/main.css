@@ -485,6 +485,21 @@ hr {
   border: 1px solid red;
 }
 
+.exploring-cards {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Keep exporing in */
+.ui.card.experience-card {
+  width: 140px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* .ui.container {
   width: 400px;
