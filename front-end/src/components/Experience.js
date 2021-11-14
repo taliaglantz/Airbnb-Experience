@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow } from 'semantic-ui-react'
+import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating } from 'semantic-ui-react'
 import ExperiencesMap from './ExperiencesMap'
 // Need React Location and History
 
@@ -74,28 +74,19 @@ const Experience = () => {
   )
 
   // Returning Rating Component
-  const Rating = () => (
+  //const Rating = () => <Rating />
+
+  const Location = () => (
     <Container>
-      <div 
-        className="ui rating" 
-        role="radiogroup" 
-        tabIndex="-1">
-        <i 
-          tabIndex="0" 
-          aria-checked="false" 
-          aria-posinset="1" 
-          aria-setsize="1" 
-          className="icon" 
-          role="radio"
-        ></i>
-      </div>
+      <Icon name='circle' size='mini' /> 
+      <Link to={`./location/${experience.location}`}>{experience.location}</Link>
     </Container>
   )
-  
+
   // Returning HeartIcons Component
   const HeartIcon = () => (
     <Container>
-      <i aria-hidden="true" className="heart outline icon"></i>
+      <Icon name='heart outline' />
       <p>save</p>
     </Container>
   )
@@ -266,13 +257,20 @@ const Experience = () => {
         <>
           <BreadCrumbComponent />
           <ExperienceTitle />
-          <div className="rlss-container">
-            <div className="rating-location">
-              <Rating />
-            </div>
-            <ShareIcon />
-            <HeartIcon />
-          </div>
+          <Container>
+            <Grid divided='vertically' columns='equal'>
+              <Grid.Row columns={2}>
+                <Grid.Column floated={'left'}>
+                  <Rating />
+                  <Location />
+                </Grid.Column>
+                <Grid.Column floated={'right'}> 
+                  <ShareIcon />
+                  <HeartIcon />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Container>
           <ImageGrid />
           <Container>
             <Grid divided='vertically'>
