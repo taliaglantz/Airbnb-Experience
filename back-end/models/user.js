@@ -24,29 +24,29 @@ const userSchema = new mongoose.Schema({
   timestamp: true
 })
 
-userSchema
-  .virtual('passwordConfirmation')
-  .set(function(passwordConfirmation) {
-    this._passwordConfirmation = passwordConfirmation
-  })
+// userSchema
+//   .virtual('passwordConfirmation')
+//   .set(function(passwordConfirmation) {
+//     this._passwordConfirmation = passwordConfirmation
+//   })
 
-userSchema
-  .pre('validate', function() {
-    if (this.isModified('password') && this.password !== this._passwordConfirmation) {
-      this.invalidate('passwordConfirmation', 'does not match')
-    }
-    next()
-  })
+// userSchema
+//   .pre('validate', function(next) {
+//     if (this.isModified('password') && this.password !== this._passwordConfirmation) {
+//       this.invalidate('passwordConfirmation', 'does not match')
+//     }
+//     next()
+//   })
 
-userSchema
-  .pre('save', function(next) {
-    if (this.isModified('password')) {
-      this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
-    }
-    next()
-  })
+// userSchema
+//   .pre('save', function(next) {
+//     if (this.isModified('password')) {
+//       this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
+//     }
+//     next()
+//   })
 
-  userSchema.plugin(uniqueValidator)
+userSchema.plugin(uniqueValidator)
 
 
 export default mongoose.model('User', userSchema)

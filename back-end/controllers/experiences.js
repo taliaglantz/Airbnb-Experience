@@ -48,10 +48,10 @@ export const deleteExperience = async (req, res) => {
 }
 
 //! Update experience
-export const updatedExperience = async (req, res) => {
+export const updateExperience = async (req, res) => {
   try {
     const { id } = req.params
-    const updatedExperience = await Podcast.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
+    const updatedExperience = await Experience.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
     if (!updatedExperience) throw new Error()
     return res.status(202).json(updatedExperience)
   } catch (err) {

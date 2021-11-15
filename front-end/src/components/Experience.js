@@ -311,22 +311,22 @@ const Experience = () => {
                   <Container>
                     <Header as="h3">Things to know</Header>
                     {experience.thingsToKnow !== undefined ? 
-                      experience.thingsToKnow.map(item => {
+                      experience.thingsToKnow.map((item, index) => {
                         // console.log('Header ->', item.header)
                         return (
-                          <div key={experience._id}>
-                            <Header as="h3">{item.header}</Header>
-                            {item.text.map((item) => {
+                          <div key={index}>
+                            <Header as="h4">{item.header}</Header>
+                            {item.text.map((item, index) => {
                               return (
                                 //console.log('Text Content ->',item)
-                                <p key={experience._id}>{item}</p>
+                                <p key={index}>{item}</p>
                               )
                             })}
                           </div>
                         )
                       }) 
                       : // Loading state
-                      console.log('none')}
+                      console.log('Loading...')}
                   </Container>
                 </Grid.Column>
               </Grid.Row>
