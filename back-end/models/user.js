@@ -70,6 +70,6 @@ userSchema.methods.validatePassword = function(password) {
   return bcrypt.compareSync(password, this.password)
 }
 
-// userSchema.plugin(uniqueValidator)
+userSchema.plugin(uniqueValidator)
 
 export default mongoose.model('User', userSchema)
