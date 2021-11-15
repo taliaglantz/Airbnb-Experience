@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating } from 'semantic-ui-react'
+import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating, ItemMeta } from 'semantic-ui-react'
 import ExperiencesMap from './ExperiencesMap'
 // Need React Location and History
 
@@ -310,23 +310,29 @@ const Experience = () => {
                   {/* <ThingsToKnow /> */}
                   <Container>
                     <Header as="h3">Things to know</Header>
-                    {experience.thingsToKnow !== undefined ? 
-                      experience.thingsToKnow.map((item, index) => {
-                        // console.log('Header ->', item.header)
-                        return (
-                          <div key={index}>
-                            <Header as="h4">{item.header}</Header>
-                            {item.text.map((item, index) => {
+                    <Grid>
+                      <Grid.Row>
+                        <div className="things-to-know-container">
+                          {experience.thingsToKnow !== undefined ? 
+                            experience.thingsToKnow.map((item, index) => {
+                              // console.log('Header ->', item.header)
                               return (
-                                //console.log('Text Content ->',item)
-                                <p key={index}>{item}</p>
+                                <div key={index} className="things-to-know-element">
+                                  <Header as="h4">{item.header}</Header>
+                                  {item.text.map((item, index) => {
+                                    return (
+                                      //console.log('Text Content ->',item)
+                                      <p key={index}>{item}</p>
+                                    )
+                                  })}
+                                </div>
                               )
-                            })}
-                          </div>
-                        )
-                      }) 
-                      : // Loading state
-                      console.log('Loading...')}
+                            }) 
+                            : // Loading state
+                            console.log('Loading...')}
+                        </div>
+                      </Grid.Row>
+                    </Grid>
                   </Container>
                 </Grid.Column>
               </Grid.Row>

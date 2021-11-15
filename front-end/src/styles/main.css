@@ -672,6 +672,23 @@ hr {
 /* .ui.container {
   width: 400px;
 } */
+
+/* Things to know start  */
+
+div.things-to-know-container {
+  padding-left: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+div.things-to-know-container div.things-to-know-element {
+  width: 300px;
+}
+
+/* Things to know end */
+
+
 /* Experience Component End */
 
 /* 
