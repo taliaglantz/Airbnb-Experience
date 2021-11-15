@@ -19,6 +19,7 @@ const Experience = () => {
       try {
         //const { data } = await axios.get(`/api/experiences/${id}`)
         const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda4')
+        // console.log('Data ->', data)
         setExperience(data)
       } catch (err) {
         console.log('Error Getting Experience ->', err)
@@ -185,7 +186,6 @@ const Experience = () => {
       </Card.Description>
     </Container>
   )
-
   // Returning WhereYoullBe Component
   const WhereYoullBe = () => (
     <Container>
@@ -246,11 +246,7 @@ const Experience = () => {
   const KeepExploringInLondon = () => (
     <Header as="h3">Keep exploring in London</Header>
   )
-  // console.log(experience)
   
-  //console.log('Things to Header ->',experience.thingsToKnow[0].header)
-  console.log('Experience ->', experience)
-  console.log('Things to know ->', experience.thingsToKnow)
   return (
     <section className="experiences-container">
       {experience ? 
@@ -314,7 +310,23 @@ const Experience = () => {
                   {/* <ThingsToKnow /> */}
                   <Container>
                     <Header as="h3">Things to know</Header>
-                    
+                    {experience.thingsToKnow !== undefined ? 
+                      experience.thingsToKnow.map(item => {
+                        // console.log('Header ->', item.header)
+                        return (
+                          <div key={experience._id}>
+                            <Header as="h3">{item.header}</Header>
+                            {item.text.map((item) => {
+                              return (
+                                //console.log('Text Content ->',item)
+                                <p key={experience._id}>{item}</p>
+                              )
+                            })}
+                          </div>
+                        )
+                      }) 
+                      : // Loading state
+                      console.log('none')}
                   </Container>
                 </Grid.Column>
               </Grid.Row>
