@@ -9,6 +9,7 @@ import ExperiencesMap from './ExperiencesMap'
 const Experience = () => {
 
   const [experience, setExperience] = useState([])
+  const [experiences, setExperiences] = useState([])
   const [hasError, setHasError] = useState([])
   const { id } = useParams()
   const history = useHistory()
@@ -131,21 +132,24 @@ const Experience = () => {
 
   // Storing Host Object
   const details = { ...experience.host }
-  console.log(details)
+  // console.log(details)
 
   // Returing HostDetails Component
   const HostDetails = () => (
     <Container>
-      <div>
+      <div className="host-title">
         <Header as="h3">Experience hosted by {details.firstName}</Header> 
         <Image src={details.profilePicture} avatar />
       </div>
-      <p>
-        {experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}
-      </p>
-      <p>Hosted in English</p>
+      <div className="experience-details">
+        <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
+        <Icon name='circle' size='mini' /> 
+        <p>Hosted in {experience.languages}</p>
+      </div>
     </Container>
   )
+
+  console.log(experience.languages)
 
   // Returing WhatYoullDo Component
   const WhatYoullDo = () => (
@@ -184,7 +188,7 @@ const Experience = () => {
       </div>
       {/* Place Holder Text for now as description isnt available */}
       {/* <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p> */}
-      <Rating /> (Not yet rated)
+      <Rating /> (Not yet reviewed)
       <p className="myh-text">{details.about}</p>
     </Container>
   )
@@ -229,6 +233,7 @@ const Experience = () => {
       try {
         const { data } = await axios.get('/api/experiences')
         setexploreData(data)
+        setExperiences(data)
       } catch (err) {
         console.log('Error getting explore data ->', err)
       }
@@ -355,7 +360,14 @@ const Experience = () => {
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column>
-                  <SimilarExperiences />
+                  {/* <SimilarExperiences /> */}
+                  <>
+                    <Header as="h3">Similar Experiences</Header>
+                    <div className="similar-experience-container">
+                      {/* {console.log('Current Experience Category ->', experience.category)} */}
+                      {/* {console.log('All Experience Category ->', uniqueExperience)} */}
+                    </div>
+                  </>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
@@ -363,15 +375,15 @@ const Experience = () => {
                   {/* <KeepExploringInLondon /> */}
                   <Header as="h3">Keep exploring</Header>
                   <div className="exploring-cards">
-                    {uniqueExperience.map((experience, index) => {
+                    {/* {uniqueExperience.map((experience, index) => {
                       return (
                         <Card key={index} className="experience-card">
                           <Card.Content className="experience-card-content" textAlign={'center'}>
-                            <Card.Header>{experience}</Card.Header>
+                            <Card.Header>{experience.name}</Card.Header>
                           </Card.Content>
                         </Card>
                       )
-                    })}
+                    })} */}
                   </div>
                 </Grid.Column>
               </Grid.Row>

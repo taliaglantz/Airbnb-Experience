@@ -663,6 +663,19 @@ hr {
   border: 1px solid red;
 }
 
+/* Experience Hosted by Start */
+.host-title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.experience-details {
+  display: flex;
+}
+
+/* Experience hosted by End */
+
 /* Meet your host start */
 .meet-your-host-header {
   display: flex;
