@@ -149,8 +149,6 @@ const Experience = () => {
     </Container>
   )
 
-  console.log(experience.languages)
-
   // Returing WhatYoullDo Component
   const WhatYoullDo = () => (
     <Container>
@@ -159,24 +157,26 @@ const Experience = () => {
     </Container>
   )
 
+  
   // Returing WhatsIncludedCard Component
-  const WhatsIncludedCard = () => (
-    <Card>
-      <Card.Content>
-        <Card.Header>
-          {experience.whatIsIncluded}
-        </Card.Header>
-      </Card.Content>
-    </Card>
-  )
+  // const WhatsIncludedCard = () => (
+  //   <Card>
+  //     <Card.Content>
+  //       <ul>
+  //         {console.log(experience.whatIsIncluded.forEach(item => console.log(item)))}
+  //       </ul>
+  //     </Card.Content>
+  //   </Card>
+  // )
+  // console.log(experience.whatIsIncluded.forEach(item => console.log(item)))
 
   // Returing WhatsIncluded Component
-  const WhatsIncluded = () => (
-    <Container>
-      <Header as="h3">What&apos;s included</Header>
-      <WhatsIncludedCard />
-    </Container>
-  )
+  // const WhatsIncluded = () => (
+  //   <Container>
+  //     <Header as="h3">What&apos;s included</Header>
+  //     <WhatsIncludedCard />
+  //   </Container>
+  // )
   
   // Returing MeetYourHost Component
   const MeetYourHost = () => (
@@ -255,7 +255,6 @@ const Experience = () => {
     <Header as="h3">Keep exploring in London</Header>
   )
 
-  
 
   return (
     <section className="experiences-container">
@@ -304,7 +303,16 @@ const Experience = () => {
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column width={7}>
-                  <WhatsIncluded />
+                  <Header as="h3">What Is Included</Header>
+                  <div className="whats-included-container">
+                    {experience.whatIsIncluded.map((item, index) => {
+                      return (
+                        <Card className="whats-included-card" key={index}>
+                          <Header as="h4">{item}</Header>
+                        </Card>
+                      )
+                    })}
+                  </div>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
@@ -364,8 +372,9 @@ const Experience = () => {
                   <>
                     <Header as="h3">Similar Experiences</Header>
                     <div className="similar-experience-container">
-                      {/* {console.log('Current Experience Category ->', experience.category)} */}
-                      {/* {console.log('All Experience Category ->', uniqueExperience)} */}
+                      {/* {console.log('Current Experience Category ->', experience.category)}
+                      {console.log('All Experience Category ->', uniqueExperience)} */}
+                      
                     </div>
                   </>
                 </Grid.Column>

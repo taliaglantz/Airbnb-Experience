@@ -676,6 +676,16 @@ hr {
 
 /* Experience hosted by End */
 
+/* Whats included card start */
+.whats-included-container {
+  display: flex;
+  flex-direction: column;
+}
+.whats-included-card {
+  padding: 20px !important;
+}
+/* Whats included card end */
+
 /* Meet your host start */
 .meet-your-host-header {
   display: flex;
