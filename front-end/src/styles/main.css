@@ -10,6 +10,8 @@
   --rs-btn-subtle-text: black !important;
   --rs-btn-subtle-hover-text: black !important;
   --rs-btn-subtle-hover-bg: rgb(245, 245, 245)!important;
+  --rs-input-focus-border: rgba(255, 255, 255, 0) !important;
+  --rs-listbox-option-hover-text: none !important;
 }
 
 /* 
@@ -23,6 +25,10 @@ body {
   position: relative;
 }
 
+body .black {
+  background-color: rgb(255, 255, 255);
+}
+
 .ui.menu {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -30,14 +36,34 @@ body {
 }
 
 .rs-picker-toolbar-right > button {
+  margin: auto !important;
+  position: absolute !important;
   background-color: transparent !important;
   color: transparent !important;
+  position: relative !important;
+  right: calc(((100vw - 849px)/2)) !important;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  height: 100vh !important;
+  z-index: -1 !important;
+}
+
+.rs-picker-toolbar-right {
+  position: relative !important;
+  top: -443px;
+  width: 849px !important;
+  height: 0px !important;
+}
+
+.rs-picker-toolbar-ranges {
+  position: unset !important;
+  display: none !important;
+}
+.rs-picker-toolbar {
+  position: absolute !important;
+  left: 0px !important;
   padding: 0px !important;
-  position: absolute;
-  transform: translate(-1068px, -455px);
-  width: 100vw;
-  height: 100vh;
-  z-index: -100 !important;
+  border: none !important;
 }
 
 .rs-ripple, .rs-ripple-rippling {
@@ -50,6 +76,7 @@ body {
 
 .rs-picker-menu .rs-calendar .rs-calendar-table-header-row .rs-calendar-table-cell-content:hover {
   border: none !important;
+  height: 0px !important;
 }
 
 .rs-calendar-table-cell-selected:before {
@@ -128,12 +155,7 @@ body {
   border-radius: 50%;
 }
 
-.rs-picker-toolbar-ranges {
-  display: none !important;
-}
-.rs-picker-toolbar {
-  border: none !important;
-}
+
 
 .rs-picker-toggle-wrapper {
   height: 100%;
@@ -153,14 +175,29 @@ body {
   display: none !important;
 }
 
-.large-button .half, .large-button .half {
+.large-button .half {
   padding-left: 34px;
   position: absolute;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
   height: 64px;
   box-shadow: 0 1px 10px 0 rgb(34 36 38 / 5%);
 }
+
+.search-header {
+  font-family: 'airbnb_cereal_appbold';
+  font-size: 12px !important;
+}
+
+.half > p {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+
+
 .dates-clicked {
   width: 424px !important;
   transform: translate(9px);
@@ -196,7 +233,13 @@ body {
   background: white;
 }
 
+/* ! Hero - Home page */
+
 .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
   height: 600px;
   background: 
@@ -204,6 +247,53 @@ body {
   url('https://cdn57.androidauthority.net/wp-content/uploads/2019/05/airbnb-experiences-farm-house.jpg');
   background-position: center;
   background-size: cover;
+}
+
+.hero-image {
+  border-radius: 5px;
+  padding: 10px 0px 10px 0px;
+  width: 100vw;
+  min-width: 300px !important;
+  max-width: 500px;
+  border-radius: 24px;
+  position: absolute;
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+}
+
+.hero-button {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.616);
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 64px;
+  border-radius: 32px;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  transition-duration: .4s;
+}
+
+h3 {
+  font-family: 'airbnb_cereal_applight' !important;
+  font-size: 18px !important;
+  margin-bottom: 20px !important;
+  color: rgb(255, 255, 255) !important;
+  word-spacing: 0.1em;
+  text-shadow: 1px 3px 2px rgb(0, 0, 0) !important;
+}
+
+.hero-button > p {
+  font-family: 'airbnb_cereal_appbold';
+  font-size: 17px;
+  background: -webkit-linear-gradient(0deg, #26007e, #9500b3 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-button:hover {
+  box-shadow:  0 3px 4px 0 rgb(34 36 38 / 15%);
 }
 
 .navbar-extended {
@@ -227,13 +317,14 @@ body {
  
 /* !Calendar container */
 .rs-picker-menu {
+
   border-radius: 32px !important;
   padding: 16px 32px !important;
   height: 450px !important;
   width: 849px !important;
   background-color: white !important;
   transform: translate(-50%);
-  z-index: 3;
+  z-index: 200 !important;
   overflow: visible !important;
 }
 
@@ -315,6 +406,11 @@ hr {
   align-items: center;
 }
 
+.navbar-center {
+  position: absolute !important;
+  transform: translate(-50%) translate(50vw);
+}
+
 .navbar-secondary {
   padding: 0px !important;
 }
@@ -344,7 +440,6 @@ hr {
   border-radius: 24px;
   border: 1px solid rgb(220, 220, 220);
   box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
-  transition-duration: .4s;
 }
 
 .navbar-button:hover {
@@ -428,18 +523,7 @@ hr {
 
 
 
-.hero-image {
-  border-radius: 5px;
-  padding: 10px 0px 10px 0px;
-  width: 100vw;
-  min-width: 300px !important;
-  max-width: 500px;
-  border-radius: 24px;
-  position: absolute;
-  background-color: white;
-  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
-  z-index: 1;
-}
+
 
 
 /* 

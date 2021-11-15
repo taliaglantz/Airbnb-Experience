@@ -1,15 +1,18 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+
 
 const Home = () => {
 
   return (
-    <div>
+    <div className='black'>
       <div className='hero'>
+        <h3>Not sure where to go? Perfect.</h3>
+        <div className='hero-button'>
+          <p>
+            I&apos; m flexible
+          </p>
+        </div>
       </div>
-      <Button>
-      I am flexible
-      </Button>
       <p>Home</p>
       <p>Home</p>
       <p>Home</p>

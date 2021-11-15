@@ -9901,9 +9901,9 @@ rollup@^1.31.1:
     acorn "^7.1.0"
 
 rsuite-table@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/rsuite-table/-/rsuite-table-5.0.3.tgz#9bcd4a6cb18f2157b905f7b30ecce17a09e024df"
-  integrity sha512-91bufUgj8nZeJ6idaxPv1qM9oWr/2zWzoH2WBiOeAPJvvOur38be59WKqz25jG9DG+iJ1tnDqDDPm2KWLXj0sA==
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/rsuite-table/-/rsuite-table-5.1.0.tgz#9d88023c902063a830db0b985c659c4fe623955d"
+  integrity sha512-HsG20TWiRC6gwBnfrNy0068nOV3CO4ipTEhevHrj5PaSjyOofTzTR4pgg6pQgV3t4cg70XaWgitf7BBRCSjFeA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@rsuite/icons" "^1.0.0"
