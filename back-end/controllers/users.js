@@ -8,6 +8,6 @@ export const getUserProfile = async (req, res) => {
     // console.log('User ->', user)
   } catch (err) {
     console.log(err)
-    return res.status(404).json({ 'message': 'not found' })
+    return res.status(404).json({ 'Message': 'Not found' })
   }
 }

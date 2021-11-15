@@ -5,32 +5,41 @@ import 'rsuite/dist/rsuite.min.css'
 
 
 const Navbar = () => {
-  const [value, setValue] = useState([])
-  const [displayDates, setDisplayDates] = useState([])
   const [visible, setVisibility] = useState(false)
   const [openDatePicker, setDatePicker] = useState(false)
   const [datesClicked, setDatesClicked] = useState(false)
+  const [displayDates, setDisplayDates] = useState('Select dates')
+  const [startDate, setStartDate] = useState('Start date')
+  const [endDate, setEndDate] = useState('end date')
+  const [newRange, setNewRange] = useState(true)
 
   useEffect(() => {
-    if (value.length === 2) {
-      const datesToDisplay = value.map(date => {
-        return date.split('-').splice(0, 2).join(' ').trim()
-      })
-      setDisplayDates(datesToDisplay)
+    let datesToDisplay
+    if (startDate === endDate) {
+      datesToDisplay = `${startDate}`
+    } else {
+      datesToDisplay = `${startDate} - ${endDate}`
     }
-  }, [value])
+    setDisplayDates(datesToDisplay)
+  }, [startDate, endDate])
+
+  useEffect(() => {
+    if (openDatePicker) {
+      toggleButton()
+    }
+  }, [datesClicked])
 
   const datePickerButton = (
     <div onClick={function (event) {
       event.target.addEventListener('click', function () {
         setDatePicker(!openDatePicker)
       }, { once: true })
-    }} className='ui item'>
-      <div className=' navbar-button card'>
+    }} className='ui item navbar-center'>
+      <div className=' navbar-button'>
         <div className='navbar-item'>
           <div className='search-data'>
             <p>Nearby</p>
-            { displayDates.lenght ? <p>{`${displayDates[0]} - ${displayDates[1]}`}</p> : <p>Select dates</p> }
+            { displayDates !== 'Start date - end date' ? <p>{displayDates}</p> : <p>Select dates</p>}
           </div>
           <div className='search-icon'>
             <i className="search icon" />
@@ -46,20 +55,24 @@ const Navbar = () => {
         <div className='navbar-item' id='buttons-parent'>
           <div onClick={function () {
             setDatesClicked(false)
-            toggleButton()
           }} className='large-button half location-clicked'>
+            <p className='search-header'>Location</p>
             <p>
-              Nearby
+              London - Nearby
             </p>
           </div>
-          <div className='search-icon large-icon'>
+          <div className='search-icon large-icon' onClick={function () {
+            setDatePicker(!openDatePicker)
+            setDatesClicked(false)
+          }}>
             <i className="large search icon" />
             <p>
               Search
             </p>
           </div>
           <div className='large-button half dates'>
-            {displayDates.length === 2 ? <p>{`${displayDates[0]} - ${displayDates[1]}`}</p> : <p>Select dates</p>}
+            <p className='search-header'>Date</p>
+            {<p>{displayDates}</p>}
           </div>
         </div>
       </div>
@@ -68,20 +81,24 @@ const Navbar = () => {
 
   const datePicker = (
     <div className='ui item navbar-secondary'>
-      <div>
+      <div className='navbar-link'>
         Experiences
       </div>
       {datePickerButtonLarge}
-      <DateRangePicker format={'dd-MMM-yyyy'} toggleAs={'button'} onChange={function () {
-        const pickerData = document.querySelector('.rs-picker-toggle-read-only')
-        setValue(pickerData.value.split('~'))
-      }} onEntering={function () {
-        setDatesClicked(true)
-        console.log('true')
-        toggleButton()
-      }} onOk={function () {
-        console.log('this')
-      }} className='ui item' placeholder=" " style={{ width: 230 }} />
+      <DateRangePicker format={'dd-MMM-yyyy'} toggleAs={'button'}
+        onSelect={function (date) {
+          console.log(newRange)
+          const options = { year: 'numeric', month: 'short', day: 'numeric' }
+          if (newRange) {
+            setStartDate(date.toLocaleDateString(undefined, options))
+            setNewRange(false)
+          } else {
+            setEndDate(date.toLocaleDateString(undefined, options))
+            setNewRange(true)
+          }
+        }} onEnter={function () {
+          setDatesClicked(true)
+        }} />
     </div>
   )
 
@@ -90,30 +107,30 @@ const Navbar = () => {
   }
 
   const toggleButton = () => {
+    console.log(datesClicked)
     const container = document.getElementById('buttons-parent')
-    console.log(container)
     if (datesClicked) {
-      container.firstChild.classList.add('location-clicked')
-      container.firstChild.classList.remove('location')
-      container.lastChild.classList.remove('dates-clicked')
-      container.lastChild.classList.add('dates')
-    } else {
       container.firstChild.classList.remove('location-clicked')
       container.firstChild.classList.add('location')
       container.lastChild.classList.add('dates-clicked')
       container.lastChild.classList.remove('dates')
+    }
+    if (!datesClicked) {
+      container.firstChild.classList.add('location-clicked')
+      container.firstChild.classList.remove('location')
+      container.lastChild.classList.remove('dates-clicked')
+      container.lastChild.classList.add('dates')
     }
   }
 
   return (
     <div className='ui top fixed menu borderless'>
       <div className='ui left item'>
-        <img className='ui image small' src='https://res.cloudinary.com/dulbdr0in/image/upload/v1636680281/Assets/logo-experience_jfwyca.gif' />
+        <img className='ui image small' src='https://res.cloudinary.com/dulbdr0in/image/upload/v1636747530/logo-experience-new_zrfthh.png' />
       </div>
       {openDatePicker ? datePicker : datePickerButton}
       {openDatePicker ?? document.body.addEventListener('click', function () {
         setDatePicker(!openDatePicker)
-        console.log(openDatePicker)
       })
       }
       <div className='ui right item dropdown'>
