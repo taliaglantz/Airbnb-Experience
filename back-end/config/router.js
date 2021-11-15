@@ -22,8 +22,8 @@ router.route('/experiences/:id/comments')
 router.route('/experiences/:id/comments/:commentId')
   .delete(secureRoute, deleteAComment)
 
-router.route('/register')
-  .post(registerUser)
+// router.route('/register')
+//   .post(registerUser)
 
 router.route('/login')
   .post(loginUser)
