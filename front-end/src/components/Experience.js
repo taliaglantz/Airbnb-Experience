@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating, ItemMeta } from 'semantic-ui-react'
@@ -77,27 +77,27 @@ const Experience = () => {
   // Returning Rating Component
   //const Rating = () => <Rating />
 
-  const Location = () => (
-    <Container>
-      <Icon name='circle' size='mini' /> 
-      <Link to={`./location/${experience.location}`}>{experience.location}</Link>
-    </Container>
-  )
+  // const Location = () => (
+  //   <Container>
+  //     <Icon name='circle' size='mini' /> 
+  //     <Link to={`./location/${experience.location}`}>{experience.location}</Link>
+  //   </Container>
+  // )
 
-  // Returning HeartIcons Component
-  const HeartIcon = () => (
-    <Container>
-      <Icon name='heart outline' />
-      <p>save</p>
-    </Container>
-  )
+  // // Returning HeartIcons Component
+  // const HeartIcon = () => (
+  //   <Container>
+  //     <Icon name='heart outline' />
+  //     <p>save</p>
+  //   </Container>
+  // )
 
-  // Returing ShareIcon Component
-  const ShareIcon = () => (
-    <Container>
-      <i aria-hidden="true" className="share square outline icon"></i>
-    </Container>
-  )
+  // // Returing ShareIcon Component
+  // const ShareIcon = () => (
+  //   <Container>
+  //     <i aria-hidden="true" className="share square outline icon"></i>
+  //   </Container>
+  // )
 
   // Returning ExperienceTitle Component
   const ExperienceTitle = () => (
@@ -131,7 +131,7 @@ const Experience = () => {
 
   // Storing Host Object
   const details = { ...experience.host }
-  // console.log(details)
+  console.log(details)
 
   // Returing HostDetails Component
   const HostDetails = () => (
@@ -176,16 +176,19 @@ const Experience = () => {
   
   // Returing MeetYourHost Component
   const MeetYourHost = () => (
-
     <Container className="meet-your-host">
-      <Card.Description>
+      <div className="meet-your-host-header">
+        <img src={details.profilePicture} alt={`${details.firstName} profile picture`} className="myh-image"/>
+        {/* <Image src={details.profilePicture} avatar  className="myh-image"/> */}
         <Header as="h3">Meet your host, {details.firstName}</Header>
-        <Rating />
-        {/* Place Holder Text for now as description isnt available */}
-        <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p>
-      </Card.Description>
+      </div>
+      {/* Place Holder Text for now as description isnt available */}
+      {/* <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p> */}
+      <Rating /> (Not yet rated)
+      <p className="myh-text">{details.about}</p>
     </Container>
   )
+
   // Returning WhereYoullBe Component
   const WhereYoullBe = () => (
     <Container>
@@ -246,7 +249,9 @@ const Experience = () => {
   const KeepExploringInLondon = () => (
     <Header as="h3">Keep exploring in London</Header>
   )
+
   
+
   return (
     <section className="experiences-container">
       {experience ? 
@@ -254,18 +259,30 @@ const Experience = () => {
           <BreadCrumbComponent />
           <ExperienceTitle />
           <Container>
-            <Grid divided='vertically' columns='equal'>
+            {/* <Grid divided='vertically' columns='equal'>
               <Grid.Row columns={2}>
                 <Grid.Column floated={'left'}>
                   <Rating />
                   <Location />
                 </Grid.Column>
-                <Grid.Column floated={'right'}> 
-                  <ShareIcon />
-                  <HeartIcon />
-                </Grid.Column>
+                // <Grid.Column floated={'right'}> 
+                  {/* <ShareIcon />
+                  <HeartIcon /> */}
+            {/* </Grid.Column>
               </Grid.Row>
-            </Grid>
+            </Grid> */}
+            <div className="rating-share-container">
+              <div>
+                <Rating /><span>({experience.averageRating})</span>
+                <Icon name='circle' size='mini' className="circle-icon" /> 
+                <Link to={`./location/${experience.location}`}>{experience.location}</Link>
+              </div>
+              <div>
+                <i aria-hidden="true" className="share square outline icon"></i>
+                <Icon name='heart outline' />
+              </div>
+            </div>
+
           </Container>
           <ImageGrid />
           <Container>

@@ -621,6 +621,20 @@ hr {
   justify-content: space-between;
 }
 
+.rating-share-container {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Circle icon between rating and location - just below main header */
+/* .circle-icon {
+  position: fixed;
+  top: 10px
+} */
+
 .experience-img-0 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
@@ -648,6 +662,22 @@ hr {
 .ui.container.icon-style {
   border: 1px solid red;
 }
+
+/* Meet your host start */
+.meet-your-host-header {
+  display: flex;
+}
+
+.myh-image {
+  width: 70px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.myh-text {
+  padding-top: 20px;
+}
+/* Meet your host end */
 
 .exploring-cards {
   display: flex;
