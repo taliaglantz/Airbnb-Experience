@@ -10,7 +10,7 @@ const Experience = () => {
 
   const [experience, setExperience] = useState([])
   const [experiences, setExperiences] = useState([])
-  const [hasError, setHasError] = useState([])
+  const [hasError, setHasError] = useState(false)
   const { id } = useParams()
   const history = useHistory()
   //const [images, setImages] = useState([])
@@ -18,16 +18,17 @@ const Experience = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        //const { data } = await axios.get(`/api/experiences/${id}`)
+        // const { data } = await axios.get(`/api/experiences/${id}`)
         const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda4')
         // console.log('Data ->', data)
         setExperience(data)
       } catch (err) {
         console.log('Error Getting Experience ->', err)
+        setHasError(true)
       }
     }
     getData()
-  },[])
+  },[]) // id
 
   const getTokenFromLocalStorage = () => {
     return window.localStorage.getItem('token')
@@ -258,13 +259,13 @@ const Experience = () => {
   // console.log('Unique Experience ->', uniqueExperience)
   // console.log('This Experience Category ->', experience.category)
   // setcurrentExperience(experience.category)
-  const currentExperience = experience.category
+  const currentExperienceCategory = experience.category
 
   // const filterExperienceByCategory = experiences.filter(experience => experienceCategory)
 
   const filterByCategory = () => {
     return experiences.filter(experience => {
-      return experience.category === currentExperience
+      return experience.category === currentExperienceCategory
     })
   }
 
@@ -284,21 +285,9 @@ const Experience = () => {
           <BreadCrumbComponent />
           <ExperienceTitle />
           <Container>
-            {/* <Grid divided='vertically' columns='equal'>
-              <Grid.Row columns={2}>
-                <Grid.Column floated={'left'}>
-                  <Rating />
-                  <Location />
-                </Grid.Column>
-                // <Grid.Column floated={'right'}> 
-                  {/* <ShareIcon />
-                  <HeartIcon /> */}
-            {/* </Grid.Column>
-              </Grid.Row>
-            </Grid> */}
             <div className="rating-share-container">
-              <div>
-                <Rating /><span>({experience.averageRating})</span>
+              <div> 
+                <Icon name='star' size='small' className="star-rating"/><span>({experience.averageRating})</span>
                 <Icon name='circle' size='mini' className="circle-icon" /> 
                 <Link to={`./location/${experience.location}`}>{experience.location}</Link>
               </div>
@@ -396,7 +385,7 @@ const Experience = () => {
                 <Grid.Column>
                   {/* <SimilarExperiences /> */}
                   <>
-                    <Header as="h3">Similar Experiences</Header>
+                    <Header as="h3">Similar Experiences<span></span></Header>
                     <div className="similar-experience-container">
                       {filterByCategory().map((item, index) => {
                         // console.log(item) 
@@ -404,15 +393,17 @@ const Experience = () => {
                         // console.log(item.name)
                         // console.log(item.price)
                         return (
-                          <Card key={index}>
-                            <div>
-                              {/* <img src={item.image[0]} /> */}
-                            </div>
-                            <div>
-                              <p>{item.name}</p>
-                              <span><strong>From {item.price}</strong>/ Person</span>
-                            </div>
-                          </Card>
+                          <div key={index} className="similar-experiences-card">
+                            <Link to={`/experiences/${item.id}`} className="similar-experience-link">
+                              <div>
+                                <img className="similar-experiences-card-img" src={item.image[1]} />
+                              </div>
+                              <div className="card-description">
+                                <p className="card-title">{`${item.name.slice(0, 25)}...`}</p>
+                                <span className="card-price"><strong>From {item.price}</strong>/ Person</span>
+                              </div>
+                            </Link>
+                          </div>
                         )
                       })}
                       

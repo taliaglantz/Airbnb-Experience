@@ -616,6 +616,11 @@ hr {
   flex-direction: column;
   margin: auto 0; */
 }
+
+.star-rating {
+  color: #FF385C !important;
+}
+
 .rlss-container {
   display: flex;
   justify-content: space-between;
@@ -714,6 +719,35 @@ hr {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+.similar-experiences-card {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+  padding: 10px;
+}
+
+.similar-experiences-card-img {
+  width: 200px;
+  display: flex;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.similar-experience-link {
+  color: rgb(80, 80, 80);
+}
+
+.card-title {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.card-price {
+  margin-left: 10px;
 }
 
 /* Similar Experiences End */
