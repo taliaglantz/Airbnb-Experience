@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.route('/experiences')
   .get(getAllExperiences)
-  .post(addExperience )
+  .post(addExperience)
 
 router.route('/experiences/:id')
   .get(getSingleExperience)
@@ -21,8 +21,8 @@ router.route('/experiences/:id/comments')
 router.route('/experiences/:id/comments/:commentId')
   .delete(deleteAComment)
 
-router.route('/register')
-  .post(registerUser)
+// router.route('/register')
+//   .post(registerUser)
 
 // router.route('/login')
 //   .post(loginUser)
