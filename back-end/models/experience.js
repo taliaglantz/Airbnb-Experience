@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 
-
 //* review schema
 const reviewSchema = new mongoose.Schema({
   text: { type: String, required: true },
@@ -19,7 +18,7 @@ const experienceSchema = new mongoose.Schema({
   locationCoord: { type: Object },
   date: [{ type: Object, required: true }],
   duration: { type: Number },
-  description: { type: String, required: true, unique: true },
+  description: { type: String, required: true },
   category: { type: String, required: true },
   image: [{ type: String, required: true }],
   attendees: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],

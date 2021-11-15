@@ -1,7 +1,8 @@
 import User from '../models/user.js'
 import jwt from 'jsonwebtoken'
-import { secret } from '../controllers/auth.js'
+import { secret } from '../config/environment.js'
 
+//! SECURE ROUTE FOR TOKEN WHEN USER LOGS IN
 export const secureRoute = async (req, res, next) => {
   try {
     if (!req.headers.authorization) throw new Error()

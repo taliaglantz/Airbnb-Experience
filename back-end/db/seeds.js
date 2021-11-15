@@ -17,7 +17,7 @@ const seedDatabase = async () => {
 
     // * add user to database
     const users = await User.create(userData)
-    console.log('USER HAS BEEN CREATED')
+    console.log('User has been added to database')
 
     // * add owner to expereince from experienceData so each one has an owner attached 
     const experiencesWithHost = experienceData.map(experience => {

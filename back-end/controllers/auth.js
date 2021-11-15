@@ -1,20 +1,24 @@
-import User from '../models/user.js'
-import jwt from 'jsonwebtoken'
-import { secret } from '../config/environment.js'
+// import User from '../models/user.js'
+// import jwt from 'jsonwebtoken'
+// import { secret } from '../config/environment.js'
 
+
+//! REGISTER USER
 export const registerUser = async (req, res) => {
   try {
     const newUser = await User.create(req.body)
     return res.status(201).json({ 'message': `Thank you Registering! Welcome ${newUser.username}` })
   } catch (err) {
-    console.log('Error', err)
+    console.log('ERROR!!!!', err)
     return res.status(422).json(err)
   }
 }
 
+//! LOGIN USER
 export const loginUser = async (req, res) => {
   try {
     const userToLogin = await User.findOne({ email: req.body.email })
+    console.log('USER TO LOGIN ->', userToLogin)
     if (!userToLogin || !userToLogin.validatePassword(req.body.password)) {
       throw new Error()
     }
@@ -22,6 +26,6 @@ export const loginUser = async (req, res) => {
     return res.status(200).json({ 'message': `Welcome back ${userToLogin.username}`, token })
   } catch (err) {
     console.log(err)
-    return res.status(422).json({ 'message': 'unauthorized'})
+    return res.status(422).json({ 'Message': 'Unauthorized'})
   }
 }
