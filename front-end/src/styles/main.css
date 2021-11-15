@@ -708,6 +708,16 @@ hr {
   align-items: center;
 }
 
+/* Similar Experiences Start */
+
+.similar-experience-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Similar Experiences End */
+
 /* Keep exporing  */
 .ui.card.experience-card {
   width: 140px;

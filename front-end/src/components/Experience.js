@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating, ItemMeta } from 'semantic-ui-react'
+import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating, ItemMeta, ItemDescription } from 'semantic-ui-react'
 import ExperiencesMap from './ExperiencesMap'
 // Need React Location and History
 
@@ -193,10 +193,13 @@ const Experience = () => {
     </Container>
   )
 
-  // Returning WhereYoullBe Component
+  // Returning WhereYoullBe Component - Map Goes Here
   const WhereYoullBe = () => (
     <Container>
       <Header as="h3">Where you&apos;ll be</Header>
+      <>
+
+      </>
       {/* INSERT MAP <ExperiencesMap /> */}
     </Container>
   )
@@ -251,11 +254,29 @@ const Experience = () => {
   const uniqueExperience = [...new Set(experienceCategory)]
   //console.log('Unique Experience', uniqueExperience.map(experience => console.log(experience)))
 
+  // const [currentExperience, setcurrentExperience] = useState('')
+  // console.log('Unique Experience ->', uniqueExperience)
+  // console.log('This Experience Category ->', experience.category)
+  // setcurrentExperience(experience.category)
+  const currentExperience = experience.category
+
+  // const filterExperienceByCategory = experiences.filter(experience => experienceCategory)
+
+  const filterByCategory = () => {
+    return experiences.filter(experience => {
+      return experience.category === currentExperience
+    })
+  }
+
+  // filterByCategory().map(item => {
+  //   console.log('Filtered Item ->', item)
+  // })
+
   const KeepExploringInLondon = () => (
     <Header as="h3">Keep exploring in London</Header>
   )
 
-
+  
   return (
     <section className="experiences-container">
       {experience ? 
@@ -305,13 +326,18 @@ const Experience = () => {
                 <Grid.Column width={7}>
                   <Header as="h3">What Is Included</Header>
                   <div className="whats-included-container">
-                    {experience.whatIsIncluded.map((item, index) => {
-                      return (
-                        <Card className="whats-included-card" key={index}>
-                          <Header as="h4">{item}</Header>
-                        </Card>
-                      )
-                    })}
+                    {experience.whatIsIncluded ? 
+                      <>
+                        {experience.whatIsIncluded.map((item, index) => {
+                          return (
+                            <Card className="whats-included-card" key={index}>
+                              <Header as="h4">{item}</Header>
+                            </Card>
+                          )
+                        })}
+                      </>
+                      : 'Loading'
+                    }
                   </div>
                 </Grid.Column>
               </Grid.Row>
@@ -343,7 +369,7 @@ const Experience = () => {
                     <Grid>
                       <Grid.Row>
                         <div className="things-to-know-container">
-                          {experience.thingsToKnow !== undefined ? 
+                          {experience.thingsToKnow !== undefined ?
                             experience.thingsToKnow.map((item, index) => {
                               // console.log('Header ->', item.header)
                               return (
@@ -359,7 +385,7 @@ const Experience = () => {
                               )
                             }) 
                             : // Loading state
-                            console.log('Loading...')}
+                            <div>Loading...</div>}
                         </div>
                       </Grid.Row>
                     </Grid>
@@ -372,8 +398,23 @@ const Experience = () => {
                   <>
                     <Header as="h3">Similar Experiences</Header>
                     <div className="similar-experience-container">
-                      {/* {console.log('Current Experience Category ->', experience.category)}
-                      {console.log('All Experience Category ->', uniqueExperience)} */}
+                      {filterByCategory().map((item, index) => {
+                        // console.log(item) 
+                        // console.log(item.image[0]) first image
+                        // console.log(item.name)
+                        // console.log(item.price)
+                        return (
+                          <Card key={index}>
+                            <div>
+                              {/* <img src={item.image[0]} /> */}
+                            </div>
+                            <div>
+                              <p>{item.name}</p>
+                              <span><strong>From {item.price}</strong>/ Person</span>
+                            </div>
+                          </Card>
+                        )
+                      })}
                       
                     </div>
                   </>
@@ -384,15 +425,20 @@ const Experience = () => {
                   {/* <KeepExploringInLondon /> */}
                   <Header as="h3">Keep exploring</Header>
                   <div className="exploring-cards">
-                    {/* {uniqueExperience.map((experience, index) => {
+                    {uniqueExperience.map((experience, index) => {
                       return (
+                        // <Card key={index} className="experience-card">
+                        //   <Card.Content className="experience-card-content" textAlign={'center'}>
+                        //     <Card.Header>{experience.category}</Card.Header>
+                        //   </Card.Content>
+                        // </Card>
                         <Card key={index} className="experience-card">
-                          <Card.Content className="experience-card-content" textAlign={'center'}>
-                            <Card.Header>{experience.name}</Card.Header>
+                          <Card.Content>
+                            <Card.Header>{experience}</Card.Header>
                           </Card.Content>
                         </Card>
                       )
-                    })} */}
+                    })}
                   </div>
                 </Grid.Column>
               </Grid.Row>
