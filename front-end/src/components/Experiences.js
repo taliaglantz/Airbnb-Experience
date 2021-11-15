@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
-import { Grid, Container, Header, Card, Image } from 'semantic-ui-react'
+import { Grid, Container, Header, Card, Divider, Icon } from 'semantic-ui-react'
 import ReactMapGL, { Marker, FlyToInterpolator, Popup } from 'react-map-gl' // yarn add react-map-gl to enable mapbox
 import axios from 'axios'
 
@@ -56,7 +56,7 @@ const Experiences = () => {
   return (
     <Grid divided='vertically'>
       <Grid.Row columns={2} >
-        <Grid.Column width={9}>
+        <Grid.Column width={9} id='left-column'>
 
           {/* Column on left */}
           {/* Hovering over card shows up location as black bubble with white price
@@ -65,30 +65,48 @@ const Experiences = () => {
               Clicking on that card also takes you to the cards' show page */}
 
           <Container>
-            <p>{experiences.length} experiences</p>
-            <Header as='h2'>Experiences in London</Header>
-            <p>Review COVID-19 travel restrictions before you book.<a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
+            <div className='header-div'>
+              <p>{experiences.length} experiences</p>
+              <Header as='h3'>Experiences in London</Header>
+              <p>Review COVID-19 travel restrictions before you book. <a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
+            </div>
             <div>
               {experiences.length ?
                 <div>
+                  <Divider />
                   {experiences.map(experience => {
                     return (
-                      <Card className='card' key={experience._id}>
-                        <div>
-                          <Image
-                            floated='left'
-                            src={experience.image[0]}
-                            size='small'
-                          />
-                        </div>
+
+                      <div className='experience-segment' key={experience._id}>
 
                         <div>
-                          <Header as='h4'>{experience.name}</Header>
-                          <p className="what-we-will-do">What we&apos;ll do:</p>
-                          <p className="description">{experience.description}</p>
-                          <p>{experience.duration / 60} hours</p>
+                          <img className='experience-image' src={experience.image[0]} />
                         </div>
-                      </Card>
+
+                        <div className='right-content'>
+                          <div>
+                            <p>{experience.category} in {experience.location}</p>
+                            <div className='header'>
+                              <h4>{experience.name}</h4>
+                              <Icon id='heart' name='heart outline' size='big' />
+                            </div>
+
+                            <p className="what-we-will-do">What we&apos;ll do:</p>
+                            <p className="description">{experience.description}</p>
+                            <p>{experience.duration / 60} hours</p>
+                          </div>
+                          <div className='reviews-and-price'>
+                            <p>{experience.reviews}TBC reviews</p>
+                            <h5><strong>From {experience.price}</strong>/person</h5>
+                          </div>
+                          <div>
+                            <Divider />
+                            {/* Can't get this below the image!!!! */}
+                          </div>
+                        </div>
+
+                      </div>
+
                     )
                   })}
                 </div>
@@ -115,12 +133,16 @@ const Experiences = () => {
                   longitude={viewport.longitude}
                   onViewportChange={(viewport) => setNewViewport(viewport)} // this ensures that when the map is moved (including zoomed), the map is loaded with new viewports
                 >
+                  {/* Marker for user location */}
                   <Marker
                     latitude={viewport.latitude}
                     longitude={viewport.longitude}
                   >
-                    <span role="img" aria-label="map-marker" className="marker rocket">🚀</span>
+                    <span role="img" aria-label="map-marker" className="marker rocket">
+                      <Icon name='map marker alternate' size='large' color='red' />
+                    </span>
                   </Marker>
+                  {/* Marker for each experience location */}
                   {experiences.map(experience => (
                     <Marker
                       key={experience._id}
@@ -133,28 +155,30 @@ const Experiences = () => {
                     </Marker>
                   ))}
                   {popup &&
+
+                    // Popups in Mapbox
                     <Popup
+                      id='popup'
                       latitude={popup.locationCoord.latitude}
                       longitude={popup.locationCoord.longitude}
                       closeOnClick={true}
                       onClose={() => setPopup(null)}
                       closeButton={false}
-                      anchor={'center'}
                     >
                       <Card>
                         <div className='images-in-map-card'>
                           <div>
-                            <img className='image-on-left' src={popup.image[0]}/>
+                            <img className='image-on-left' src={popup.image[0]} />
                           </div>
                           <div className='images-in-map-card-right'>
-                            <img className='image-on-right' src={popup.image[1]}/>
-                            <img className='image-on-right' src={popup.image[2]}/>
+                            <img className='image-on-right' src={popup.image[1]} />
+                            <img className='image-on-right' src={popup.image[2]} />
                           </div>
                         </div>
 
-                        <p>{popup.reviews}</p>
+                        <p>TBC reviews &middot; {popup.location}</p>
                         <p>{popup.name}</p>
-                        <p>{popup.category} . {popup.duration / 60} hours</p>
+                        <p>{popup.category} &middot; {popup.duration / 60} hours</p>
                         <p><strong>From {popup.price}</strong>/person</p>
                       </Card>
 
@@ -163,7 +187,7 @@ const Experiences = () => {
 
                 </ReactMapGL>
                 :
-                <h1>Loading your location...</h1> // map takes ages to load and refresh so need laoding handler
+                <h3>Loading your experiences...</h3> // map takes ages to load and refresh so need laoding handler
               }
             </div>
           </div>
