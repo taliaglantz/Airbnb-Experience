@@ -20,8 +20,8 @@ const Experience = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get(`/api/experiences/${id}`)
-        // const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda4')
+        //const { data } = await axios.get(`/api/experiences/${id}`)
+        const { data } = await axios.get('/api/experiences/6193b7384e537fcd049ed78e')
         // const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda5')
         // console.log('Data ->', data)
         setExperience(data)
@@ -125,7 +125,7 @@ const Experience = () => {
   // Returning ExperienceTitle Component
   const ExperienceTitle = () => (
     <Container>
-      <Header as="h2">{experience.name}</Header>
+      <Header as="h4">{experience.name}</Header>
     </Container>
   )
 
@@ -311,7 +311,8 @@ const Experience = () => {
     console.log('Similar Experience Favourite->', event.target.parentElement.id)
   }
 
-  console.log('Experience ->', experience.locationCoord)
+  // console.log('Experience ->', experience)
+  console.log('Experience Data ->', experience.reviews)
   
   return (
     <section className="experiences-container">
@@ -417,7 +418,31 @@ const Experience = () => {
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column>
-                  <Reviews />
+                  {/* <Reviews /> */}
+                  <Container>
+                    {experience.reviews ? 
+                      <>
+                        <Header as="h3">
+                          {experience.averageRating}({experience.reviews.length} Reviews)
+                        </Header>
+                        <div className="review-container">
+                          {experience.reviews.map((review, index) => {
+                            return (
+                              <div key={index} className="review-card">
+                                {/* <p>{review.text}</p> */}
+                                <span>{review.updatedAt.slice(0, 10)}</span>
+                                <p>{review.text.slice(0, 200)}...</p>
+                                <br></br>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </>
+                      :
+                      <Header as="h3">Unable to load reviews</Header>
+                    }
+
+                  </Container>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>

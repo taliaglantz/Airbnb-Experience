@@ -962,6 +962,20 @@ div.things-to-know-container div.things-to-know-element {
   color: #FF385C;
 }
 
+/* Reviews Component Start */
+.review-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  
+}
+
+.review-card {
+  
+}
+
+/* Reviews Component End */
+
 
 /* Experience Component End */
 
