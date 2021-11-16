@@ -634,6 +634,15 @@ hr {
   padding-bottom: 10px;
 }
 
+.main-favourite-icon {
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.main-favourite-icon:hover {
+  color: #FF385C;
+}
+
 /* Circle icon between rating and location - just below main header */
 /* .circle-icon {
   position: fixed;
@@ -752,15 +761,6 @@ hr {
 
 /* Similar Experiences End */
 
-/* Keep exporing  */
-.ui.card.experience-card {
-  width: 140px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* div.rating-share-icons {
   border: 1px solid red;
 } */
@@ -784,6 +784,32 @@ div.things-to-know-container div.things-to-know-element {
 }
 
 /* Things to know end */
+
+/* Keep exporing  */
+.ui.card.experience-card {
+  width: 140px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.similar-experiences-card {
+  position: relative;
+}
+
+.heart-favourite-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: rgb(248, 248, 248);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.heart-favourite-icon:hover {
+  color:rgb(139, 139, 139);
+}
 
 
 /* Experience Component End */

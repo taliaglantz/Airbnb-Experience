@@ -269,6 +269,8 @@ const Experience = () => {
     })
   }
 
+  // console.log('ID ->', id)
+
   // filterByCategory().map(item => {
   //   console.log('Filtered Item ->', item)
   // })
@@ -276,6 +278,17 @@ const Experience = () => {
   const KeepExploringInLondon = () => (
     <Header as="h3">Keep exploring in London</Header>
   )
+
+  const handleMainFavourite = (event) => {
+    // console.log('Event ->', event.target.dataset.id) - Logs the id of the experience you want to favourite
+    console.log('Main Favourite ->', event.target.dataset.id)
+  }
+
+  const handleSimilarFavourite = (event) => {
+    // console.log('Event ->', event.target.parentElement.id)
+    // Saves the id of the clicked on favourite
+    console.log('Similar Experience Favourite->', event.target.parentElement.id)
+  }
 
   
   return (
@@ -293,7 +306,7 @@ const Experience = () => {
               </div>
               <div>
                 <i aria-hidden="true" className="share square outline icon"></i>
-                <Icon name='heart outline' />
+                <Icon name='heart outline' className="main-favourite-icon" onClick={handleMainFavourite} data-id={experience._id}/>
               </div>
             </div>
 
@@ -393,16 +406,17 @@ const Experience = () => {
                         // console.log(item.name)
                         // console.log(item.price)
                         return (
-                          <div key={index} className="similar-experiences-card">
+                          <div key={index} className="similar-experiences-card" id={item._id}>
                             <Link to={`/experiences/${item.id}`} className="similar-experience-link">
                               <div>
-                                <img className="similar-experiences-card-img" src={item.image[1]} />
+                                <img className="similar-experiences-card-img" src={item.image[1]}/>
                               </div>
                               <div className="card-description">
                                 <p className="card-title">{`${item.name.slice(0, 25)}...`}</p>
                                 <span className="card-price"><strong>From {item.price}</strong>/ Person</span>
                               </div>
                             </Link>
+                            <Icon name='heart outline' size='big' className="heart-favourite-icon" onClick={handleSimilarFavourite}/>
                           </div>
                         )
                       })}
