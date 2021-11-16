@@ -10,7 +10,7 @@ export const getAllExperiences = async (req, res) => {
 export const addExperience = async (req, res) => {
   try {
     console.log('REQ.CURRENT USER->', req.currentUser)
-    // const newExperience = { ...req.body, host: req.currentUser._id }
+    const newExperience = { ...req.body, host: req.currentUser._id }
     const experienceToAdd = await Experience.create(newExperience)
     return res.status(201).json(experienceToAdd)
   } catch (err) {
@@ -61,36 +61,36 @@ export const updateExperience = async (req, res) => {
 }
 
 
-// ! ADD COMMENT TO EXPERIENCE
-export const addAComment = async (req, res) => {
+// ! ADD REVIEW TO EXPERIENCE
+export const addAReview = async (req, res) => {
   try {
     const { id } = req.params
     const experience = await Experience.findById(id)
     if (!experience) throw new Error('Experience not found')
-    const newComment = { ...req.body, owner: req.currentUser._id }
-    experience.comments.push(newComment)
-    await experienceToAddComment.save({ validateModifiedOnly: true })
-    return res.status(200).json(Experience)
+    const newReview = { ...req.body, owner: req.currentUser._id }
+    experience.reviews.push(newReview)
+    await experience.save({ validateModifiedOnly: true })
+    return res.status(200).json(experience)
   } catch (err) {
     console.log(err)
     return res.status(404).json({ 'message': err.message })
   }
 }
 
-//! DELETE COMMENT FROM EXPERIENCE
-export const deleteAComment = async (req, res) => {
+//! DELETE REVIEW FROM EXPERIENCE
+export const deleteAReview = async (req, res) => {
   try {
-    const { id, commentId } = req.params
-    const experienceToDeleteComment = await Experience.findById(id)
-    if (!experienceToDeleteComment) throw new Error('Experience Not Found')
-    const commentToDelete = experienceToDeleteComment.comments.id(commentId)
-    if (!commentToDelete) throw new Error('Comment Not Found')
-    if (!commentToDelete.owner.equals(req.currentUser._id)) throw new Error('Unauthorized')
-    await commentToDelete.remove()
-    await experienceToDeleteComment.save({ validateModifiedOnly: true })
+    const { id, reviewId } = req.params
+    const experience = await Experience.findById(id)
+    if (!experience) throw new Error('Experience Not Found')
+    const reviewToDelete = experience.reviews.id(reviewId)
+    if (!reviewToDelete) throw new Error('Comment Not Found')
+    if (!reviewToDelete.owner.equals(req.currentUser._id)) throw new Error('Unauthorized')
+    await reviewToDelete.remove()
+    await experience.save({ validateModifiedOnly: true })
     return res.sendStatus(204)
   } catch (err) {
-    console.log('Error',err)
+    console.log(err)
     return res.status(404).json({ 'message' : err.message })
   }
 }

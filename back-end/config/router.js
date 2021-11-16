@@ -1,7 +1,7 @@
 import express from 'express'
 import { registerUser, loginUser } from '../controllers/auth.js'
 import { secureRoute } from './secure-route.js'
-import { addAComment, deleteAComment, getAllExperiences, addExperience, getSingleExperience, deleteExperience, updateExperience } from '../controllers/experiences.js'
+import { addAReview, deleteAReview, getAllExperiences, addExperience, getSingleExperience, deleteExperience, updateExperience } from '../controllers/experiences.js'
 import { getUserProfile } from '../controllers/users.js'
 
 //! CREATE ROUTER FOR EACH PIECE OF FUNCTIONALITY 
@@ -17,13 +17,13 @@ router.route('/experiences/:id')
   .delete(secureRoute, deleteExperience)
 
 router.route('/experiences/:id/comments')
-  .post(secureRoute, addAComment)
+  .post(secureRoute, addAReview)
 
 router.route('/experiences/:id/comments/:commentId')
-  .delete(secureRoute, deleteAComment)
+  .delete(secureRoute, deleteAReview)
 
-// router.route('/register')
-//   .post(registerUser)
+router.route('/register')
+  .post(registerUser)
 
 router.route('/login')
   .post(loginUser)
