@@ -497,6 +497,14 @@ hr {
   padding: 20px 0px;
 }
 
+.whole-segment {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.212);
+  z-index: 100;
+  height: 250px;
+  width: 100%;
+}
+
 .experience-image {
   height: 250px;
   border-radius: 13px;
@@ -512,6 +520,7 @@ hr {
 .header {
   display: flex;
   justify-content: space-between;
+  
 }
 
 #heart {
@@ -552,6 +561,14 @@ hr {
   height: 100vh;
 }
 
+.toggled {
+  background-color: black;
+  color: white;
+  border-radius: 14px;
+  font-size: 15px;
+  padding: 5px;
+  z-index: 400 !important; 
+}
 
 .price-marker {
   background-color: white;
@@ -559,6 +576,7 @@ hr {
   border-radius: 14px;
   font-size: 15px;
   padding: 5px;
+  z-index: unset;
 }
 :hover.price-marker {
   background-color: black;

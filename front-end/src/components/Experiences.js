@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import { Grid, Container, Header, Card, Divider, Icon } from 'semantic-ui-react'
-import ReactMapGL, { Marker, FlyToInterpolator, Popup } from 'react-map-gl' // yarn add react-map-gl to enable mapbox
+import ReactMapGL, { Marker, Popup } from 'react-map-gl' // yarn add react-map-gl to enable mapbox
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 const Experiences = () => {
@@ -26,21 +27,36 @@ const Experiences = () => {
     getData()
   }, [])
 
-  //***MAPBOX***
+  // ***MAPBOX***
 
   const [viewport, setNewViewport] = useState(null)
   const [popup, setPopup] = useState(null)
 
-  // Moving to new location on map
-  const handleNewLocation = ({ longitude, latitude }) => {
-    setNewViewport({
-      longitude,
-      latitude,
-      zoom: 13,
-      transitionInterpolator: new FlyToInterpolator({ speed: 1 }),
-      transitionDuration: 'auto'
-    })
+  // when mouse enters, price-marker class is removed and togggled is added -> button turns black
+  const mouseEnter = (event) => {
+
+    console.log(event.target)
+    const mapElement = document.getElementById(`button-${event.target.id}`)
+    console.log('mapElement->', mapElement)
+    if (mapElement) {
+      mapElement.classList.remove('price-marker')
+      mapElement.classList.add('toggled')
+    }
   }
+
+  // when mouse leaves, toggled class is removed and price-marker is added -> button turns white
+  const mouseLeave = (event) => {
+    console.log(event.target)
+    const mapElement = document.getElementById(`button-${event.target.id}`)
+    console.log('mapElement->', mapElement)
+
+    if (mapElement) {
+      mapElement.classList.add('price-marker')
+      mapElement.classList.remove('toggled')
+    }
+  }
+
+
 
   // viewport to access location of current user
   useEffect(() => {
@@ -78,33 +94,35 @@ const Experiences = () => {
                     return (
 
                       <div className='experience-segment' key={experience._id}>
-
-                        <div>
-                          <img className='experience-image' src={experience.image[0]} />
-                        </div>
-
-                        <div className='right-content'>
+                        <Link to={`/api/experiences/${id}`}>
+                          <div className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave}>
+                          </div>
                           <div>
-                            <p>{experience.category} in {experience.location}</p>
-                            <div className='header'>
-                              <h4>{experience.name}</h4>
-                              <Icon id='heart' name='heart outline' size='big' />
+                            <img className='experience-image' src={experience.image[0]} />
+                          </div>
+
+                          <div className='right-content'>
+                            <div>
+                              <p>{experience.category} in {experience.location}</p>
+                              <div className='header'>
+                                <h4>{experience.name}</h4>
+                                <Icon id='heart' name='heart outline' size='big' />
+                              </div>
+
+                              <p className="what-we-will-do">What we&apos;ll do:</p>
+                              <p className="description">{experience.description}</p>
+                              <p>{experience.duration / 60} hours</p>
                             </div>
-
-                            <p className="what-we-will-do">What we&apos;ll do:</p>
-                            <p className="description">{experience.description}</p>
-                            <p>{experience.duration / 60} hours</p>
+                            <div className='reviews-and-price'>
+                              <p>{experience.reviews}TBC reviews</p>
+                              <h5><strong>From {experience.price}</strong>/person</h5>
+                            </div>
+                            <div>
+                              <Divider />
+                              {/* Can't get this below the image!!!! */}
+                            </div>
                           </div>
-                          <div className='reviews-and-price'>
-                            <p>{experience.reviews}TBC reviews</p>
-                            <h5><strong>From {experience.price}</strong>/person</h5>
-                          </div>
-                          <div>
-                            <Divider />
-                            {/* Can't get this below the image!!!! */}
-                          </div>
-                        </div>
-
+                        </Link>
                       </div>
 
                     )
@@ -131,7 +149,7 @@ const Experiences = () => {
                   zoom={10}
                   latitude={viewport.latitude}
                   longitude={viewport.longitude}
-                  onViewportChange={(viewport) => setNewViewport(viewport)} // this ensures that when the map is moved (including zoomed), the map is loaded with new viewports
+                  onViewportChange={viewport => setNewViewport(viewport)} // this ensures that when the map is moved (including zoomed), the map is loaded with new viewports
                 >
                   {/* Marker for user location */}
                   <Marker
@@ -150,7 +168,7 @@ const Experiences = () => {
                       longitude={experience.locationCoord.longitude}
                     >
                       <span onClick={() => setPopup(experience)} role="img" aria-label="map-marker" className="marker">
-                        <button className='price-marker'>{experience.price}</button>
+                        <button id={`button-${experience._id}`} className='price-marker'>{experience.price}</button>
                       </span>
                     </Marker>
                   ))}

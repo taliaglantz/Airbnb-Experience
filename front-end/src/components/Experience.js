@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating } from 'semantic-ui-react'
-import ExperiencesMap from './ExperiencesMap'
+import ReactMapGL, { Marker } from 'react-map-gl'
 // Need React Location and History
 
 const Experience = () => {
@@ -26,7 +26,10 @@ const Experience = () => {
       }
     }
     getData()
-  },[])
+  }, [])
+
+
+
 
   const getTokenFromLocalStorage = () => {
     return window.localStorage.getItem('token')
@@ -63,7 +66,7 @@ const Experience = () => {
 
   // Place holder information for BreadCumbs
   const sections = [
-    { key: 'location' , content: 'London', link: true }, // in content place data when it comes back
+    { key: 'location', content: 'London', link: true }, // in content place data when it comes back
     { key: 'category', content: 'Nature and outdoors', link: true } // in content place data when it comes back
   ]
 
@@ -79,7 +82,7 @@ const Experience = () => {
 
   const Location = () => (
     <Container>
-      <Icon name='circle' size='mini' /> 
+      <Icon name='circle' size='mini' />
       <Link to={`./location/${experience.location}`}>{experience.location}</Link>
     </Container>
   )
@@ -112,17 +115,17 @@ const Experience = () => {
       <Grid>
         <Grid.Row columns={4}>
           <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-0" src={experience.image[0]}/> : <div>Unable to load image</div>}
+            {experience.image !== undefined ? <Image className="experience-img-0" src={experience.image[0]} /> : <div>Unable to load image</div>}
           </Grid.Column>
           <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-1" src={experience.image[1]}/> : <div>Unable to load image</div>}
+            {experience.image !== undefined ? <Image className="experience-img-1" src={experience.image[1]} /> : <div>Unable to load image</div>}
           </Grid.Column>
           <Grid.Row>
-            {experience.image !== undefined ? <Image className="experience-img-2" src={experience.image[2]}/> : <div>Unable to load image</div>}
-            {experience.image !== undefined ? <Image className="experience-img-3" src={experience.image[3]}/> : <div>Unable to load image</div>}
+            {experience.image !== undefined ? <Image className="experience-img-2" src={experience.image[2]} /> : <div>Unable to load image</div>}
+            {experience.image !== undefined ? <Image className="experience-img-3" src={experience.image[3]} /> : <div>Unable to load image</div>}
           </Grid.Row>
           <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-4" src={experience.image[4]}/> : <div>Unable to load image</div>}
+            {experience.image !== undefined ? <Image className="experience-img-4" src={experience.image[4]} /> : <div>Unable to load image</div>}
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -137,7 +140,7 @@ const Experience = () => {
   const HostDetails = () => (
     <Container>
       <div>
-        <Header as="h3">Experience hosted by {details.firstName}</Header> 
+        <Header as="h3">Experience hosted by {details.firstName}</Header>
         <Image src={details.profilePicture} avatar />
       </div>
       <p>
@@ -173,7 +176,7 @@ const Experience = () => {
       <WhatsIncludedCard />
     </Container>
   )
-  
+
   // Returing MeetYourHost Component
   const MeetYourHost = () => (
 
@@ -191,6 +194,7 @@ const Experience = () => {
     <Container>
       <Header as="h3">Where you&apos;ll be</Header>
       {/* INSERT MAP <ExperiencesMap /> */}
+
     </Container>
   )
 
@@ -231,7 +235,7 @@ const Experience = () => {
       }
     }
     exloringData()
-  },[])
+  }, [])
 
   // Storing all experiences categories 
   const experienceCategory = []
@@ -246,10 +250,10 @@ const Experience = () => {
   const KeepExploringInLondon = () => (
     <Header as="h3">Keep exploring in London</Header>
   )
-  
+
   return (
     <section className="experiences-container">
-      {experience ? 
+      {experience ?
         <>
           <BreadCrumbComponent />
           <ExperienceTitle />
@@ -260,7 +264,7 @@ const Experience = () => {
                   <Rating />
                   <Location />
                 </Grid.Column>
-                <Grid.Column floated={'right'}> 
+                <Grid.Column floated={'right'}>
                   <ShareIcon />
                   <HeartIcon />
                 </Grid.Column>
@@ -292,7 +296,9 @@ const Experience = () => {
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column width={7}>
-                  <WhereYoullBe />
+
+                  
+                  
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
@@ -310,7 +316,7 @@ const Experience = () => {
                   {/* <ThingsToKnow /> */}
                   <Container>
                     <Header as="h3">Things to know</Header>
-                    {experience.thingsToKnow !== undefined ? 
+                    {experience.thingsToKnow !== undefined ?
                       experience.thingsToKnow.map((item, index) => {
                         // console.log('Header ->', item.header)
                         return (
@@ -324,7 +330,7 @@ const Experience = () => {
                             })}
                           </div>
                         )
-                      }) 
+                      })
                       : // Loading state
                       console.log('Loading...')}
                   </Container>
