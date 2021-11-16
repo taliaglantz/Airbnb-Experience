@@ -798,7 +798,54 @@ body .black {
   top: 10px
 } */
 
+/* Image Grid Start */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+  /* border: 1px solid red; */
+}
+
+.main-image {
+  height: 440px;
+  width: 300px;
+  background-size: cover !important;
+  background-position: center;
+}
+
 .experience-img-0 {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.experience-img-1 {
+  
+}
+
+.image-innner-grid {
+  display: grid;
+  max-height: 440px;
+  max-width: 200px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 8px;
+}
+
+.experience-img-2,
+.experience-img-3 {
+  max-height: 215px;
+  max-width: 200px;
+}
+
+.experience-img-4 {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+
+/* Image Grid End */
+
+/* .experience-img-0 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
@@ -816,7 +863,7 @@ body .black {
 .experience-img-4 {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-}
+} */
 
 .rating-location {
   display: flex;
@@ -970,9 +1017,9 @@ div.things-to-know-container div.things-to-know-element {
   
 }
 
-.review-card {
-  
-}
+/* .review-card {
+
+} */
 
 /* Reviews Component End */
 

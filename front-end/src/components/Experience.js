@@ -20,8 +20,8 @@ const Experience = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        //const { data } = await axios.get(`/api/experiences/${id}`)
-        const { data } = await axios.get('/api/experiences/6193b7384e537fcd049ed78e')
+        const { data } = await axios.get(`/api/experiences/${id}`)
+        // const { data } = await axios.get('/api/experiences/6193b7384e537fcd049ed78e')
         // const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda5')
         // console.log('Data ->', data)
         setExperience(data)
@@ -51,38 +51,25 @@ const Experience = () => {
 
 
 
-  const getTokenFromLocalStorage = () => {
-    return window.localStorage.getItem('token')
-  }
+  // const userIsOwner = (currentUserId) => {
+  //   const payload = getPayLoad()
+  //   if (!payload) return false
+  //   return currentUserId === payload.sub
+  // }
 
-  const getPayLoad = () => {
-    const token = getTokenFromLocalStorage()
-    if (!token) return
-    const splitToken = token.split('.')
-    if (splitToken.length < 3) return
-    const payLoadString = splitToken[1]
-    return JSON.parse(atob(payLoadString))
-  }
-
-  const userIsOwner = (currentUserId) => {
-    const payload = getPayLoad()
-    if (!payload) return false
-    return currentUserId === payload.sub
-  }
-
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/api/experiences/${id}`,
-        {
-          headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
-        }
-      )
-      history.push('/experiences')
-    } catch (err) {
-      console.log('Deleting Error ->', err)
-      setHasError(err)
-    }
-  }
+  // const handleDelete = async () => {
+  //   try {
+  //     await axios.delete(`/api/experiences/${id}`,
+  //       {
+  //         headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
+  //       }
+  //     )
+  //     history.push('/experiences')
+  //   } catch (err) {
+  //     console.log('Deleting Error ->', err)
+  //     setHasError(err)
+  //   }
+  // }
 
   // Place holder information for BreadCumbs
   const sections = [
@@ -131,24 +118,38 @@ const Experience = () => {
 
   // Returning ImageGrid Component
   const ImageGrid = () => (
+    // <Container>
+    //   <Grid>
+    //     <Grid.Row columns={4}>
+    //       <Grid.Column>
+    //         {experience.image !== undefined ? <Image className="experience-img-0" src={experience.image[0]}/> : <div>Unable to load image</div>}
+    //       </Grid.Column>
+    //       <Grid.Column>
+    //         {experience.image !== undefined ? <Image className="experience-img-1" src={experience.image[1]}/> : <div>Unable to load image</div>}
+    //       </Grid.Column>
+    //       <Grid.Row>
+    //         {experience.image !== undefined ? <Image className="experience-img-2" src={experience.image[2]}/> : <div>Unable to load image</div>}
+    //         {experience.image !== undefined ? <Image className="experience-img-3" src={experience.image[3]}/> : <div>Unable to load image</div>}
+    //       </Grid.Row>
+    //       <Grid.Column>
+    //         {experience.image !== undefined ? <Image className="experience-img-4" src={experience.image[4]}/> : <div>Unable to load image</div>}
+    //       </Grid.Column>
+    //     </Grid.Row>
+    //   </Grid>
+    // </Container>
+    // <div className='inspiration-image visible content' style={{ background: `url(${experience.image[0]})` }} />
     <Container>
-      <Grid>
-        <Grid.Row columns={4}>
-          <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-0" src={experience.image[0]}/> : <div>Unable to load image</div>}
-          </Grid.Column>
-          <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-1" src={experience.image[1]}/> : <div>Unable to load image</div>}
-          </Grid.Column>
-          <Grid.Row>
-            {experience.image !== undefined ? <Image className="experience-img-2" src={experience.image[2]}/> : <div>Unable to load image</div>}
-            {experience.image !== undefined ? <Image className="experience-img-3" src={experience.image[3]}/> : <div>Unable to load image</div>}
-          </Grid.Row>
-          <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-4" src={experience.image[4]}/> : <div>Unable to load image</div>}
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <div className="image-grid">
+        <div className="main-image experience-img-0" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
+        <div className="main-image experience-img-1" style={{ background: `url(${experience.image !== undefined ? experience.image[1] : ''})` }}></div>
+
+        <div className="image-innner-grid">
+          <div className="main-image experience-img-2" style={{ background: `url(${experience.image !== undefined ? experience.image[2] : ''})` }}></div>
+          <div className="main-image experience-img-3" style={{ background: `url(${experience.image !== undefined ? experience.image[3] : ''})` }}></div>
+        </div>
+
+        <div className="main-image experience-img-4" style={{ background: `url(${experience.image !== undefined ? experience.image[4] : ''})` }}></div>
+      </div>
     </Container>
   )
 
@@ -530,7 +531,7 @@ const Experience = () => {
                           </Card.Content>
                         </Card>
                       )
-                    })}
+                    }).slice(0, 5)}
                   </div>
                 </Grid.Column>
               </Grid.Row>
