@@ -34,11 +34,11 @@ const Experience = () => {
   },[id]) // id
 
   // MAP ELEMENT
-  const [viewport, setViewport] = useState({
-    latitude: 51.501671,
-    longitude: -0.175426,
-    zoom: 4
-  })
+  // const [viewport, setViewport] = useState({
+  //   latitude: null,
+  //   longitude: null,
+  //   zoom: 4
+  // })
 
   // const [viewport, setViewport] = useState(null)
 
@@ -387,19 +387,18 @@ const Experience = () => {
                   {/* MAP COMPONENT GOES IN HERE */}
                   <Header as="h3">Where you&apos;ll be</Header>
 
-                  <div className="map-wrapper">
-                    <div className="map-container">
-                      {viewport ? 
+                  <div className="map-display-wrapper">
+                    <div className="map-display-container">
+                      {experience ? 
 
                         <ReactMapGL
                           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
                           height='100%'
                           width='100%'
                           mapStyle='mapbox://styles/mapbox/streets-v11'
-                          latitude={viewport.latitude}
-                          longitude={viewport.longitude}
+                          latitude={experience.locationCoord !== undefined ? experience.locationCoord.latitude : 0}
+                          longitude={experience.locationCoord !== undefined ? experience.locationCoord.longitude : 0}
                           zoom={14}
-                          onViewportChange={(viewport) => setViewport(viewport)}
                         >
                           <Marker longitude={experience.locationCoord !== undefined ? experience.locationCoord.longitude : 0} latitude={experience.locationCoord !== undefined ? experience.locationCoord.latitude : 0}>
                             <span><Icon name='map marker alternate' size='big' color='red' /></span>
