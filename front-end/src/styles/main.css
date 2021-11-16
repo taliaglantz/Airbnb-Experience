@@ -1,9 +1,18 @@
+/* ! Imports */
 @import url('stylesheet.css');
 
+/* ! Main theme color */
+.theme-color {
+  color:#fc405f !important; 
+}
+
+
+/* ! General selector */
 *{
   font-family: 'airbnb_cereal_appmedium';
 }
 
+/* ! Main variables */
 :root {
   
   --rs-text-active: black !important;
@@ -12,21 +21,99 @@
   --rs-btn-subtle-hover-bg: rgb(245, 245, 245)!important;
   --rs-input-focus-border: rgba(255, 255, 255, 0) !important;
   --rs-listbox-option-hover-text: none !important;
+  /* --rs-input-focus-border:#fc405f00
+  --rs-state-focus-shadow:0 0 0 0px */
 }
 
-/* 
-* {
-  color:#fc405f;
-  --rs-state-focus-shadow:0 0 0 0px
-  --rs-input-focus-border:#fc405f00
-} */
-/* ! Date Picker */
+/* ! Body selector */
 body {
   position: relative;
 }
 
-body .black {
-  background-color: rgb(255, 255, 255);
+/* ! Column */
+.column {
+  padding: 28px !important;
+}
+
+/* ! Segment */
+.segment {
+  border-radius: 12px !important;
+}
+
+/* ! Card */
+.card {
+  border-radius: 12px !important;
+}
+
+.square {
+  aspect-ratio: 1;
+}
+
+/* ! Lines */
+hr {
+  border-top: rgb(220, 220, 220);
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+/* ! Text */
+/* Main sections */
+h4 {
+  margin-top: 4px; 
+  line-height: 24px !important; 
+  max-height: 26px !important; 
+  overflow: hidden !important; 
+  color: #343434 !important;
+  font-size: 16px !important;
+  font-family: 'airbnb_cereal_applight' !important;
+}
+h3 {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 25px;
+  color: black !important;
+  padding: 0 28px !important;
+}
+/* White headers */
+h2 {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 41px;
+  color: rgb(255, 255, 255) !important;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0) !important;
+}
+/*  */
+/*  */
+
+/* Add .black to change background color to black */
+body .black { 
+  background-color: rgb(0, 0, 0);
+}
+
+
+/* ! Date Picker */
+.rs-ripple, .rs-ripple-rippling {
+  background: transparent !important;
+}
+
+
+/* Calendar container */
+.rs-picker-menu {
+
+  border-radius: 32px !important;
+  padding: 16px 32px !important;
+  height: 450px !important;
+  width: 849px !important;
+  background-color: white !important;
+  transform: translate(-50%);
+  z-index: 200 !important;
+  overflow: visible !important;
+}
+
+/* Single calendar */
+.rs-calendar {
+  border: none !important;
+  padding: 27px !important;
+  height: auto !important;
+  width: 50% !important;
 }
 
 .ui.menu {
@@ -36,7 +123,8 @@ body .black {
 }
 
 .rs-picker-toolbar-right > button {
-  margin: auto !important;
+  display: none !important;
+  /* margin: auto !important;
   position: absolute !important;
   background-color: transparent !important;
   color: transparent !important;
@@ -45,7 +133,7 @@ body .black {
   width: 100vw !important;
   min-width: 100vw !important;
   height: 100vh !important;
-  z-index: -1 !important;
+  z-index: -1 !important; */
 }
 
 .rs-picker-toolbar-right {
@@ -64,10 +152,6 @@ body .black {
   left: 0px !important;
   padding: 0px !important;
   border: none !important;
-}
-
-.rs-ripple, .rs-ripple-rippling {
-  background: transparent !important;
 }
 
 .rs-btn-icon.rs-btn-xs {
@@ -143,7 +227,6 @@ body .black {
   height: 48px !important;
 }
 
-
 .rs-calendar-view {
   padding: 0px !important;
 }
@@ -154,8 +237,6 @@ body .black {
   width: 48px !important; 
   border-radius: 50%;
 }
-
-
 
 .rs-picker-toggle-wrapper {
   height: 100%;
@@ -175,6 +256,64 @@ body .black {
   display: none !important;
 }
 
+.rs-picker-toggle-textbox {
+  border-radius: 24 !important;
+  border: none !important;
+  height: 100% !important;
+}
+
+/* ! Navbar */
+.navbar-item {
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-center {
+  position: absolute !important;
+  transform: translate(-50%) translate(50vw);
+}
+
+.navbar-button {
+  height: 48px;
+  background-color: white;
+  border-radius: 24px;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+}
+
+.navbar-button:hover {
+  box-shadow:  0 3px 4px 0 rgb(34 36 38 / 15%);
+}
+
+.navbar-secondary {
+  padding: 0px !important;
+}
+
+/* Navbar - extednded section */
+.navbar-extended {
+  height: 100%;
+  width: 100vw;
+  min-width: 400px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 0px;
+  top: 74px;
+  transform: translate(-50%);
+}
+
+/* ! Date picker - large button (Location & Date) */
+/* Container */
+.large-button {
+  width: 850px;
+  height: 64px;
+  border-radius: 32px;
+}
+
+/* Half */
 .large-button .half {
   padding-left: 34px;
   position: absolute;
@@ -186,18 +325,35 @@ body .black {
   box-shadow: 0 1px 10px 0 rgb(34 36 38 / 5%);
 }
 
+/* Button - selected content */
+.half > p {
+  margin-top: 0;
+  font-size: 14px;
+}
+/* Button - search data */
+
+.search-data {
+  display: flex;
+}
+
+.search-data > p {
+  padding: 5px 10px;
+  margin: 0;
+  display: block;
+}
+
+.search-data > p:first-of-type {
+  margin-left: 10px;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+/* Button - labels */
 .search-header {
   font-family: 'airbnb_cereal_appbold';
   font-size: 12px !important;
 }
 
-.half > p {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-
-
+/* Button dates - clicked state */
 .dates-clicked {
   width: 424px !important;
   transform: translate(9px);
@@ -205,18 +361,7 @@ body .black {
   background: rgb(255, 255, 255);
 }
 
-.location {
-  width: 849px !important;
-  transform: translate(8px);
-  z-index: 100;
-  background:linear-gradient(to left, rgb(139, 139, 139), white 60%);
-}
-
-.location:hover {
-  background: linear-gradient(to left, rgb(139, 139, 139), rgb(245, 245, 245) 60%);
-}
-
-
+/* Button dates - normal state */
 .dates {
   width: 848px !important;
   padding-left: 458px !important;
@@ -226,6 +371,7 @@ body .black {
   
 }
 
+/* Button location - clicked state */
 .location-clicked {
   width: 424px !important;
   transform: translate(calc(-100% + 7px));
@@ -233,8 +379,20 @@ body .black {
   background: white;
 }
 
-/* ! Hero - Home page */
+/* Button location - normal state */
+.location {
+  width: 849px !important;
+  transform: translate(8px);
+  z-index: 100;
+  background:linear-gradient(to left, rgb(139, 139, 139), white 60%);
+}
 
+/* Button location - hover */
+.location:hover {
+  background: linear-gradient(to left, rgb(139, 139, 139), rgb(245, 245, 245) 60%);
+}
+
+/* ! Hero - Home page */
 .hero {
   display: flex;
   flex-direction: column;
@@ -249,19 +407,7 @@ body .black {
   background-size: cover;
 }
 
-.hero-image {
-  border-radius: 5px;
-  padding: 10px 0px 10px 0px;
-  width: 100vw;
-  min-width: 300px !important;
-  max-width: 500px;
-  border-radius: 24px;
-  position: absolute;
-  background-color: white;
-  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
-  z-index: 1;
-}
-
+/* ! Hero - button */
 .hero-button {
   display: flex;
   background-color: rgba(255, 255, 255, 0.616);
@@ -275,15 +421,12 @@ body .black {
   transition-duration: .4s;
 }
 
-h3 {
-  font-family: 'airbnb_cereal_applight' !important;
-  font-size: 18px !important;
-  margin-bottom: 20px !important;
-  color: rgb(255, 255, 255) !important;
-  word-spacing: 0.1em;
-  text-shadow: 1px 3px 2px rgb(0, 0, 0) !important;
+.hero-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow:  0 3px 4px 0 rgb(34 36 38 / 15%);
 }
 
+/* Hero button - gradient text */
 .hero-button > p {
   font-family: 'airbnb_cereal_appbold';
   font-size: 17px;
@@ -292,72 +435,38 @@ h3 {
   -webkit-text-fill-color: transparent;
 }
 
-.hero-button:hover {
-  box-shadow:  0 3px 4px 0 rgb(34 36 38 / 15%);
-}
-
-.navbar-extended {
-  height: 100%;
+/* .hero-image {
+  border-radius: 5px;
+  padding: 10px 0px 10px 0px;
   width: 100vw;
-  min-width: 400px;
+  min-width: 300px !important;
+  max-width: 500px;
+  border-radius: 24px;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  left: 0px;
-  top: 74px;
-  transform: translate(-50%);
-}
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+} */
 
-.rs-picker-toggle-textbox {
-  border-radius: 24 !important;
-  border: none !important;
-  height: 100% !important;
+/* White text with shadow */
+.hero-text {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 18px !important;
+  margin-bottom: 20px !important;
+  color: rgb(255, 255, 255) !important;
+  word-spacing: 0.1em;
+  text-shadow: 1px 3px 2px rgb(0, 0, 0) !important;
 }
-
  
-/* !Calendar container */
-.rs-picker-menu {
+/* ! Account dropdown menu */
 
-  border-radius: 32px !important;
-  padding: 16px 32px !important;
-  height: 450px !important;
-  width: 849px !important;
-  background-color: white !important;
-  transform: translate(-50%);
-  z-index: 200 !important;
-  overflow: visible !important;
-}
-
-/* !Single calendar */
-.rs-calendar {
-  border: none !important;
-  padding: 27px !important;
-  height: auto !important;
-  width: 50% !important;
-}
-
-
+/* Dropdown menu container */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  padding-left: 15px;
-  width: 100%;
-  height: 40px;
-}
-
-.dropdown-item:hover {
-  background-color: rgb(250, 250, 250);
-}
-
-hr {
-  border-top: rgb(220, 220, 220)
-}
-
+/* Dropdown list container */
 .dropdown-content {
   overflow: hidden;
   padding: 10px 0px 10px 0px;
@@ -372,12 +481,31 @@ hr {
   z-index: 1;
 }
 
+/* Dropdown option */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  width: 100%;
+  height: 40px;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(250, 250, 250);
+}
+
 .dropdown.item:hover {
   background: none !important;
 }
 
+/* Display dropdown on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* ! Icons */
+.large {
+  font-size: 16px !important; 
 }
 
 .search-icon {
@@ -395,65 +523,10 @@ hr {
   margin-left: 5px;
   height: 32px;
   width: 32px;
-
-}
-
-.navbar-item {
-  height: 100%;
-  padding: 8px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.navbar-center {
-  position: absolute !important;
-  transform: translate(-50%) translate(50vw);
-}
-
-.navbar-secondary {
-  padding: 0px !important;
 }
 
 .bars .icon {
   padding: 10px;
-}
-
-.search-data {
-  display: flex;
-}
-
-.search-data > p {
-  padding: 5px 10px;
-  margin: 0;
-  display: block;
-}
-
-.search-data > p:first-of-type {
-  margin-left: 10px;
-  border-right: 1px solid rgb(220, 220, 220);
-}
-
-.navbar-button {
-  height: 48px;
-  background-color: white;
-  border-radius: 24px;
-  border: 1px solid rgb(220, 220, 220);
-  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
-}
-
-.navbar-button:hover {
-  box-shadow:  0 3px 4px 0 rgb(34 36 38 / 15%);
-}
-
-.large-button {
-  width: 850px;
-  height: 64px;
-  border-radius: 32px;
-}
-
-.large {
-  font-size: 16px !important; 
 }
 
 .large-icon {
@@ -468,6 +541,8 @@ hr {
   z-index: 102;
 }
 
+/* ! Pop-up window */
+
 .popup-screen {
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
@@ -480,6 +555,61 @@ hr {
 
 .popup-window {
   background-color: white !important;
+}
+
+/* ! Home page categories */
+
+
+.nature {
+  background: url('../assets/images/nature-and-outdoors.jpeg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 40px !important;
+}
+
+.food {
+  background: url('../assets/images/drinks-and-food.jpeg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 40px !important;
+
+}
+.entertainment {
+  background: url('../assets/images/entertainment.jpeg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 40px !important;
+}
+.culture {
+  background: url('../assets/images/art-and-culture.jpeg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 40px !important;
+}
+
+.nature:hover, .food:hover, .entertainment:hover, .culture:hover {
+  transform: scale(102%);
+  transition-duration: 1s;
+}
+
+/* Explore button */
+.explore {
+  width: 175px;
+  margin-top: 24px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 14px;
+  color: black !important;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+}
+
+/* ! Home page inspirations */
+
+.inspiration-image {
+  height: 275px;
+  background-size: cover !important;
+  background-position: center;
 }
 
 /* EXPERIENCES.JS */
