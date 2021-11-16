@@ -538,18 +538,37 @@ hr {
 
 /* Start of Map box */
 
-.map {
+/* .map {
   position: fixed;
   width: 100%;
   height: 100vh;
   background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png');
   background-size: no-repeat;
-}
+} */
 
-.map-container {
+/* .map-container {
   position: fixed;
   width: 900px;
   height: 100vh;
+} */
+
+/* .map {
+  width: 100%;
+  height: 500px;
+  background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png');
+  background-size: no-repeat;
+} */
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.map-container {
+  position: absolute;
+  width: 100%;
+  height: 50vh;
 }
 
 
@@ -798,6 +817,7 @@ div.things-to-know-container div.things-to-know-element {
   position: relative;
 }
 
+/* Heart Icon within Similar experience component */
 .heart-favourite-icon {
   position: absolute;
   top: 30px;
@@ -807,8 +827,9 @@ div.things-to-know-container div.things-to-know-element {
   transition: all .3s ease;
 }
 
+/* Heart Icon within Similar experience component */
 .heart-favourite-icon:hover {
-  color:rgb(139, 139, 139);
+  color: #FF385C;
 }
 
 

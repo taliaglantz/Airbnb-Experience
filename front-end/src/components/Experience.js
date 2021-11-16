@@ -3,23 +3,26 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating, ItemMeta, ItemDescription } from 'semantic-ui-react'
-import ExperiencesMap from './ExperiencesMap'
+import ReactMapGL, { Marker } from 'react-map-gl'
 // Need React Location and History
 
 const Experience = () => {
 
   const [experience, setExperience] = useState([])
-  const [experiences, setExperiences] = useState([])
+  const [experiences, setExperiences] = useState([]) // Used for Similar experiences section
   const [hasError, setHasError] = useState(false)
   const { id } = useParams()
   const history = useHistory()
   //const [images, setImages] = useState([])
 
+
+
   useEffect(() => {
     const getData = async () => {
       try {
-        // const { data } = await axios.get(`/api/experiences/${id}`)
-        const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda4')
+        const { data } = await axios.get(`/api/experiences/${id}`)
+        // const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda4')
+        // const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda5')
         // console.log('Data ->', data)
         setExperience(data)
       } catch (err) {
@@ -28,7 +31,25 @@ const Experience = () => {
       }
     }
     getData()
-  },[]) // id
+  },[id]) // id
+
+  // MAP ELEMENT
+  const [viewport, setViewport] = useState({
+    latitude: 51.501671,
+    longitude: -0.175426,
+    zoom: 4
+  })
+
+  // const [viewport, setViewport] = useState(null)
+
+  // useEffect(() => {
+  //   window.navigator.geolocation.getCurrentPosition(position => {
+  //     const { longitude, latitude } = position.coords
+  //     setViewport({ longitude, latitude })
+  //   })
+  // }, [])
+
+
 
   const getTokenFromLocalStorage = () => {
     return window.localStorage.getItem('token')
@@ -179,27 +200,27 @@ const Experience = () => {
   //   </Container>
   // )
   
-  // Returing MeetYourHost Component
-  const MeetYourHost = () => (
-    <Container className="meet-your-host">
-      <div className="meet-your-host-header">
-        <img src={details.profilePicture} alt={`${details.firstName} profile picture`} className="myh-image"/>
-        {/* <Image src={details.profilePicture} avatar  className="myh-image"/> */}
-        <Header as="h3">Meet your host, {details.firstName}</Header>
-      </div>
-      {/* Place Holder Text for now as description isnt available */}
-      {/* <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p> */}
-      <Rating /> (Not yet reviewed)
-      <p className="myh-text">{details.about}</p>
-    </Container>
-  )
+  // Returing MeetYourHost React Semantic Component
+  // const MeetYourHost = () => (
+  //   <Container className="meet-your-host">
+  //     <div className="meet-your-host-header">
+  //       <img src={details.profilePicture} alt={`${details.firstName} profile picture`} className="myh-image"/>
+  //       {/* <Image src={details.profilePicture} avatar  className="myh-image"/> */}
+  //       <Header as="h3">Meet your host, {details.firstName}</Header>
+  //     </div>
+  //     {/* Place Holder Text for now as description isnt available */}
+  //     {/* <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p> */}
+  //     <Icon name='star' size='small' className="star-rating"/>  (Not yet reviewed)
+  //     <p className="myh-text">{details.about}</p>
+  //   </Container>
+  // )
 
   // Returning WhereYoullBe Component - Map Goes Here
   const WhereYoullBe = () => (
     <Container>
       <Header as="h3">Where you&apos;ll be</Header>
       <>
-
+        
       </>
       {/* INSERT MAP <ExperiencesMap /> */}
     </Container>
@@ -290,6 +311,7 @@ const Experience = () => {
     console.log('Similar Experience Favourite->', event.target.parentElement.id)
   }
 
+  console.log('Experience ->', experience.locationCoord)
   
   return (
     <section className="experiences-container">
@@ -345,12 +367,53 @@ const Experience = () => {
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column width={7}>
-                  <MeetYourHost />
+                  {/* <MeetYourHost /> Old React Semantic Component */}
+                  <Container className="meet-your-host">
+                    <div className="meet-your-host-header">
+                      <img src={details.profilePicture} alt={`${details.firstName} profile picture`} className="myh-image"/>
+                      {/* <Image src={details.profilePicture} avatar  className="myh-image"/> */}
+                      <Header as="h3">Meet your host, {details.firstName}</Header>
+                    </div>
+                    {/* Place Holder Text for now as description isnt available */}
+                    {/* <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p> */}
+                    <Icon name='star' size='small' className="star-rating"/>  (Not yet reviewed)
+                    <p className="myh-text">{details.about}</p>
+                  </Container>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
-                <Grid.Column width={7}>
-                  <WhereYoullBe />
+                <Grid.Column>
+                  {/* <WhereYoullBe /> */}
+                  {/* MAP COMPONENT GOES IN HERE */}
+                  <Header as="h3">Where you&apos;ll be</Header>
+
+                  <div className="map-wrapper">
+                    <div className="map-container">
+                      {viewport ? 
+
+                        <ReactMapGL
+                          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+                          height='100%'
+                          width='100%'
+                          mapStyle='mapbox://styles/mapbox/streets-v11'
+                          latitude={viewport.latitude}
+                          longitude={viewport.longitude}
+                          zoom={14}
+                          onViewportChange={(viewport) => setViewport(viewport)}
+                        >
+                          <Marker longitude={experience.locationCoord !== undefined ? experience.locationCoord.longitude : 0} latitude={experience.locationCoord !== undefined ? experience.locationCoord.latitude : 0}>
+                            <span><Icon name='map marker alternate' size='big' color='red' /></span>
+                          </Marker>
+                        </ReactMapGL>
+                        :
+                        <h1>Loading your location</h1>
+                      }
+                    </div>
+                  </div>
+
+
+
+
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
