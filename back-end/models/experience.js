@@ -4,7 +4,7 @@ import uniqueValidator from 'mongoose-unique-validator'
 //* review schema
 const reviewSchema = new mongoose.Schema({
   text: { type: String, required: true },
-  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User' }, //! THIS NEEDS A REQUIRED TRUE - HOW TO GENERATE RANDOM USER?
   rating: { type: Number, required: true, min: 1, max: 5 }
 },
 {
@@ -22,13 +22,13 @@ const experienceSchema = new mongoose.Schema({
   category: { type: String, required: true },
   image: [{ type: String, required: true }],
   attendees: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
-  host: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  host: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }, //! CURRENTLY ALL ANNA (FIRST USER IN DB - NEED TO HAVE RANDOM)
   price: { type: String },
   thingsToKnow: [{ type: Object, required: true }],
   languages: [{ type: String, required: true }],
   accessibilty: [{ type: String }],
   whatIsIncluded: [{ type: String }],
-  reviews: [reviewSchema]
+  reviews: [reviewSchema] //! ASSUME THIS REQUIRES SOMETHING LIKE ...REQ.PARAMS, REVIEWSCHEMAYAR
 })
 
 //*virtual field
