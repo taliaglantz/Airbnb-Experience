@@ -11,7 +11,7 @@ const ExperienceNew = () => {
     location: '',
     duration: '',
     description: '',
-    category: '',
+    categories: '',
     price: '',
     languages: ''
   })
@@ -22,7 +22,7 @@ const ExperienceNew = () => {
     location: '',
     duration: '',
     description: '',
-    category: '',
+    categories: '',
     price: '',
     languages: ''
   })
@@ -37,11 +37,11 @@ const ExperienceNew = () => {
     event.preventDefault()
     console.log('Form Data ->', formData)
     try {
-      await axios.post(
-        'http://localhost:4000/api/experiences',
+      await axios.post('/api/experiences',
         formData,
         {
-          headers: { Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTk0ZDU4OTBlNTM0OGQ5OGFkM2RmNTAiLCJpYXQiOjE2MzcxNDk3ODcsImV4cCI6MTYzNzQwODk4N30.F5ozqGRmerqz_Un9SnB-IJNlfm4YMK2BD4DPdrABQhU' }
+          headers: { 
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTkzYjczMDRlNTM3ZmNkMDQ5ZWQ3MTAiLCJpYXQiOjE2MzcxNTM5OTgsImV4cCI6MTYzNzQxMzE5OH0.wbnKjZostpEfb7T7UEiY13lem400YDepCJqfyvw_JHc' }
         }
       )
     } catch (err) {

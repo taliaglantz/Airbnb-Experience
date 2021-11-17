@@ -13,19 +13,19 @@ const reviewSchema = new mongoose.Schema({
 
 //* Experience schema
 const experienceSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  location: { type: String, required: true },
+  name: { type: String },
+  location: { type: String },
   locationCoord: { type: Object },
-  date: [{ type: Object, required: true }],
+  date: [{ type: Object }],
   duration: { type: Number },
-  description: { type: String, required: true },
-  category: { type: String, required: true },
-  image: [{ type: String, required: true }],
+  description: { type: String },
+  category: { type: String },
+  image: [{ type: String }],
   attendees: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   host: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }, //! CURRENTLY ALL ANNA (FIRST USER IN DB - NEED TO HAVE RANDOM)
   price: { type: String },
-  thingsToKnow: [{ type: Object, required: true }],
-  languages: [{ type: String, required: true }],
+  thingsToKnow: [{ type: Object }],
+  languages: [{ type: String }],
   accessibilty: [{ type: String }],
   whatIsIncluded: [{ type: String }],
   reviews: [reviewSchema] //! ASSUME THIS REQUIRES SOMETHING LIKE ...REQ.PARAMS, REVIEWSCHEMAYAR

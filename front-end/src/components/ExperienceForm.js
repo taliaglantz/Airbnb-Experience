@@ -3,40 +3,6 @@ import React from 'react'
 
 const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
 
-  // const categoryOptions = [
-  //   { 
-  //     key: '1',
-  //     text: 'Food and drink',
-  //     value: 'Food and drink'
-  //   },
-  //   { 
-  //     key: '2',
-  //     text: 'Sightseeing',
-  //     value: 'Sightseeing'
-  //   },
-  //   { 
-  //     key: '3',
-  //     text: 'Sports',
-  //     value: 'Sports'
-  //   },
-  //   { 
-  //     key: '4',
-  //     text: 'Art and culture',
-  //     value: 'Art and culture'
-  //   },
-  //   { 
-  //     key: '5',
-  //     text: 'Entertainment',
-  //     value: 'Entertainment'
-  //   },
-  //   { 
-  //     key: '6',
-  //     text: 'Nature and outdoors',
-  //     value: 'Nature and outdoors'
-  //   }
-  // ]
-
-
   return (
     <form onSubmit={handleSubmit} className="form-container">
 
@@ -85,8 +51,9 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
       </div>
 
       <div>
-        <label htmlFor='categories'>Category</label>
+        <label htmlFor='categories'>Categories</label>
         <select onChange={handleChange} id='categories' name='categories'>
+          <option disabled selected value="">Please select an option</option>
           <option value='Food and drink'>Food and drink</option>
           <option value='Sightseeing'>Sightseeing</option>
           <option value='Art and culture'>Art and culture</option>

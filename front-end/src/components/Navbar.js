@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Register from './Register'
 import { DateRangePicker } from 'rsuite'
 import 'rsuite/dist/rsuite.min.css'
+import { Link, useLocation, useHistory } from 'react-router-dom'
+import { getPayLoad } from './Helpers/auth'
 
 
 const Navbar = () => {
@@ -12,6 +14,13 @@ const Navbar = () => {
   const [startDate, setStartDate] = useState('Start date')
   const [endDate, setEndDate] = useState('end date')
   const [newRange, setNewRange] = useState(true)
+
+  const history = useHistory()
+  const location = useLocation()
+
+  useEffect(() => {
+
+  }, [location.pathname])
 
   useEffect(() => {
     let datesToDisplay
@@ -123,8 +132,42 @@ const Navbar = () => {
     }
   }
 
+  // Sorry Anna
+  const userIsAuthenticated = () => {
+    const payload = getPayLoad()
+    if (!payload) return false
+    const now = Math.round(Date.now() / 1000)
+    return now < payload.exp
+  }
+
+  const handleLogout = () => {
+    window.localStorage.removeItem('token')
+    history.push('/')
+  }
+
   return (
     <div className='ui top fixed menu borderless'>
+      {/* Im so sorry Anna, we are adding in this button to link to register */}
+      {!userIsAuthenticated() ?
+        <>
+          <Link to='/register'>
+            <button>Register</button>
+          </Link>
+          <Link to='/login'>
+            <button>Login</button>
+          </Link>
+        </>
+        :
+        <button onClick={handleLogout}>Log out</button>
+      }
+      {userIsAuthenticated() &&
+        <Link to="/experiences/new">
+          <button>
+            Add a new experience
+          </button>
+        </Link>
+      }
+      {/* -------- */}
       <div className='ui left item'>
         <img className='ui image small' src='https://res.cloudinary.com/dulbdr0in/image/upload/v1636747530/logo-experience-new_zrfthh.png' />
       </div>

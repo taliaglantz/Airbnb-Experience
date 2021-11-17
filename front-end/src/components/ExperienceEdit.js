@@ -41,7 +41,7 @@ const ExpereinceEdit = () => {
     //console.log('Form Data ->', formData)
     try {
       await axios.post(
-        `http://localhost:4000/api/experiences/${id}`,
+        `/api/experiences/${id}`,
         formData,
         {
           headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
