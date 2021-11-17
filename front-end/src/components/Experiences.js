@@ -13,6 +13,7 @@ const Experiences = () => {
   const [experiences, setExperiences] = useState([])
   const [hasError, setHasError] = useState(false)
 
+
   // displaying all experiences on page
   useEffect(() => {
     const getData = async () => {
@@ -29,12 +30,15 @@ const Experiences = () => {
 
   // ***MAPBOX***
 
-  const [viewport, setNewViewport] = useState(null)
+  const [viewport, setNewViewport] = useState({
+    latitude: 51.513546,
+    longitude: -0.112522,
+    zoom: 4
+  })
   const [popup, setPopup] = useState(null)
 
   // when mouse enters, price-marker class is removed and togggled is added -> button turns black
   const mouseEnter = (event) => {
-
     console.log(event.target)
     const mapElement = document.getElementById(`button-${event.target.id}`)
     console.log('mapElement->', mapElement)
@@ -59,26 +63,22 @@ const Experiences = () => {
 
 
   // viewport to access location of current user
-  useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords
-      setNewViewport({ latitude, longitude, zoom: 12, bearing: 0, pitch: 0 })
-    })
-  }, [])
+  // useEffect(() => {
+  //   window.navigator.geolocation.getCurrentPosition(position => {
+  //     const { latitude, longitude } = position.coords
+  //     setNewViewport({ latitude, longitude })
+  //   })
+  // }, [])
 
   //console.log(viewport)
   // console.log(popup)
-  //console.log('EXPERIENCES ->', experiences)
+  console.log('EXPERIENCES ->', experiences)
   return (
     <Grid divided='vertically'>
       <Grid.Row columns={2} >
         <Grid.Column width={9} id='left-column'>
 
           {/* Column on left */}
-          {/* Hovering over card shows up location as black bubble with white price
-              Clicking on the card takes you to the cards' show page
-              Clicking on the black bubble shows a small card of the experience
-              Clicking on that card also takes you to the cards' show page */}
 
           <Container>
             <div className='header-div'>
@@ -94,35 +94,38 @@ const Experiences = () => {
                     return (
 
                       <div className='experience-segment' key={experience._id}>
-                        <Link to={`/api/experiences/${id}`}>
-                          <div className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave}>
+                        
+                        <Link to={`/experiences/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
+                          
+                        </Link>
+                      
+                        <div>
+                          <img className='experience-image' src={experience.image[0]} />
+                        </div>
+
+                        <div className='right-content'>
+                          <div>
+                            <p>{experience.category} in {experience.location}</p>
+                            <div className='header'>
+                              <h4>{experience.name}</h4>
+                              <Icon id='heart' name='heart outline' size='big' />
+                            </div>
+
+                            <p className="what-we-will-do">What we&apos; ll do: </p>
+                            <p className="description">{experience.description}</p>
+                            <p>{experience.duration / 60} hours</p>
+                          </div>
+                          <div className='reviews-and-price'>
+                            <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
+                            <h5><strong>From {experience.price}</strong>/person</h5>
                           </div>
                           <div>
-                            <img className='experience-image' src={experience.image[0]} />
+                            <Divider />
+                            {/* Can't get this below the image!!!! */}
                           </div>
+                        </div>
 
-                          <div className='right-content'>
-                            <div>
-                              <p>{experience.category} in {experience.location}</p>
-                              <div className='header'>
-                                <h4>{experience.name}</h4>
-                                <Icon id='heart' name='heart outline' size='big' />
-                              </div>
 
-                              <p className="what-we-will-do">What we&apos;ll do:</p>
-                              <p className="description">{experience.description}</p>
-                              <p>{experience.duration / 60} hours</p>
-                            </div>
-                            <div className='reviews-and-price'>
-                              <p>{experience.reviews}TBC reviews</p>
-                              <h5><strong>From {experience.price}</strong>/person</h5>
-                            </div>
-                            <div>
-                              <Divider />
-                              {/* Can't get this below the image!!!! */}
-                            </div>
-                          </div>
-                        </Link>
                       </div>
 
                     )
@@ -152,14 +155,14 @@ const Experiences = () => {
                   onViewportChange={viewport => setNewViewport(viewport)} // this ensures that when the map is moved (including zoomed), the map is loaded with new viewports
                 >
                   {/* Marker for user location */}
-                  <Marker
+                  {/* <Marker
                     latitude={viewport.latitude}
                     longitude={viewport.longitude}
                   >
                     <span role="img" aria-label="map-marker" className="marker rocket">
                       <Icon name='map marker alternate' size='large' color='red' />
                     </span>
-                  </Marker>
+                  </Marker> */}
                   {/* Marker for each experience location */}
                   {experiences.map(experience => (
                     <Marker
