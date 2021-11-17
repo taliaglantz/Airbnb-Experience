@@ -627,6 +627,14 @@ body .black {
   padding: 20px 0px;
 }
 
+.whole-segment {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.212);
+  z-index: 100;
+  height: 250px;
+  width: 100%;
+}
+
 .experience-image {
   height: 250px;
   border-radius: 13px;
@@ -642,6 +650,7 @@ body .black {
 .header {
   display: flex;
   justify-content: space-between;
+  
 }
 
 #heart {
@@ -701,6 +710,14 @@ body .black {
   height: 50vh;
 }
 
+.toggled {
+  background-color: black;
+  color: white;
+  border-radius: 14px;
+  font-size: 15px;
+  padding: 5px;
+  z-index: 400 !important; 
+}
 
 .price-marker {
   background-color: white;
@@ -708,6 +725,7 @@ body .black {
   border-radius: 14px;
   font-size: 15px;
   padding: 5px;
+  z-index: unset;
 }
 :hover.price-marker {
   background-color: black;

@@ -31,10 +31,25 @@ const Experience = () => {
       }
     }
     getData()
-  },[id]) // id
+  }, [id])
 
 
-  const userIsOwner = (currentHostId) => {
+
+
+  const getTokenFromLocalStorage = () => {
+    return window.localStorage.getItem('token')
+  }
+
+  const getPayLoad = () => {
+    const token = getTokenFromLocalStorage()
+    if (!token) return
+    const splitToken = token.split('.')
+    if (splitToken.length < 3) return
+    const payLoadString = splitToken[1]
+    return JSON.parse(atob(payLoadString))
+  }
+
+  const userIsOwner = (currentUserId) => {
     const payload = getPayLoad()
     if (!payload) return false
     return currentHostId === payload.sub
@@ -139,7 +154,7 @@ const Experience = () => {
       }
     }
     exloringData()
-  },[])
+  }, [])
 
   // Storing all experiences categories 
   const experienceCategory = []
@@ -238,6 +253,8 @@ const Experience = () => {
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column>
+                  {/* <WhereYoullBe /> */}
+                  
                   <Header as="h3">Where you&apos;ll be</Header>
                   <div className="map-display-wrapper">
                     <div className="map-display-container">
