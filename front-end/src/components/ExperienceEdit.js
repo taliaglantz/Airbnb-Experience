@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-// import { getTokenFromLocalStorage } from './Helpers/auth'
+import { useParams, useHistory } from 'react-router'
+import { getTokenFromLocalStorage } from './Helpers/auth'
 import ExperienceForm from './ExperienceForm'
 
 
-const ExperienceNew = () => {
 
+const ExpereinceEdit = () => {
+  const { id } = useParams()
+  const history = useHistory()
   const [formData, setFormData] = useState({
     name: '',
     location: '',
@@ -15,7 +18,7 @@ const ExperienceNew = () => {
     price: '',
     languages: ''
   })
-
+  
 
   const [errorData, setErrorData] = useState({
     name: '',
@@ -35,21 +38,21 @@ const ExperienceNew = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log('Form Data ->', formData)
+    //console.log('Form Data ->', formData)
     try {
       await axios.post(
-        'http://localhost:4000/api/experiences',
+        `http://localhost:4000/api/experiences/${id}`,
         formData,
         {
-          headers: { Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTk0ZDU4OTBlNTM0OGQ5OGFkM2RmNTAiLCJpYXQiOjE2MzcxNDk3ODcsImV4cCI6MTYzNzQwODk4N30.F5ozqGRmerqz_Un9SnB-IJNlfm4YMK2BD4DPdrABQhU' }
+          headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
         }
       )
+      history.push(`/api/experiences${id}`)
     } catch (err) {
       console.log('Error ->', err)
       setErrorData(err.response.data.errors)
     }
   }
-
   return (
     <section>
       <div>
@@ -62,10 +65,5 @@ const ExperienceNew = () => {
       </div>
     </section>
   )
-
 }
-
-export default ExperienceNew
-
-
-
+export default ExpereinceEdit

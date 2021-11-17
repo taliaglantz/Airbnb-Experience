@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
@@ -36,24 +37,24 @@ const Experience = () => {
 
 
 
-  const getTokenFromLocalStorage = () => {
-    return window.localStorage.getItem('token')
-  }
+  // const getTokenFromLocalStorage = () => {
+  //   return window.localStorage.getItem('token')
+  // }
 
-  const getPayLoad = () => {
-    const token = getTokenFromLocalStorage()
-    if (!token) return
-    const splitToken = token.split('.')
-    if (splitToken.length < 3) return
-    const payLoadString = splitToken[1]
-    return JSON.parse(atob(payLoadString))
-  }
+  // const getPayLoad = () => {
+  //   const token = getTokenFromLocalStorage()
+  //   if (!token) return
+  //   const splitToken = token.split('.')
+  //   if (splitToken.length < 3) return
+  //   const payLoadString = splitToken[1]
+  //   return JSON.parse(atob(payLoadString))
+  // }
 
-  const userIsOwner = (currentUserId) => {
-    const payload = getPayLoad()
-    if (!payload) return false
-    return currentHostId === payload.sub
-  }
+  // const userIsOwner = (currentUserId) => {
+  //   const payload = getPayLoad()
+  //   if (!payload) return false
+  //   return currentHostId === payload.sub
+  // }
 
   const handleDelete = async () => {
     try {
@@ -177,12 +178,12 @@ const Experience = () => {
     <section className="experiences-container">
       {experience.host &&
       <>
-        {userIsOwner(experience.host._id) &&
+        {/* {userIsOwner(experience.host._id) &&
         <div className="experience-user-button">
           <Link to={`/experiences/${id}/edit`}>Edit Experience</Link>
           <button onClick={handleDelete} className="experience-user-delete-button">Delete Experience</button>
         </div>
-        }
+        } */}
       </>
       }
       {experience ?

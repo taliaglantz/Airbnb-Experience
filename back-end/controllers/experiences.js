@@ -38,7 +38,7 @@ export const deleteExperience = async (req, res) => {
     const { id } = req.params
     const experienceToDelete = await Experience.findById(id)
     if (!experienceToDelete) throw new Error('Experience not found')
-    if (!experienceToDelete.owner.equals(req.currentUser.id)) throw new Error()
+    if (!experienceToDelete.host.equals(req.currentUser.id)) throw new Error()
     await experienceToDelete.remove()
     return res.sendStatus(204)
   } catch (err) {

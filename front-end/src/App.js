@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Experiences from './components/Experiences'
 import Experience from './components/Experience'
 import ExperienceNew from './components/ExperienceNew'
+import ExperienceEdit from './components/ExperienceEdit'
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route exact path='/experiences' component={Experiences} />
         <Route exact path='/experiences/new' component={ExperienceNew} />
         <Route exact path='/experiences/:id' component={Experience} />
+        <Route exact path="/experiences/:id/edit" component={ExperienceEdit}/>
       </Switch>
     </BrowserRouter>
   )

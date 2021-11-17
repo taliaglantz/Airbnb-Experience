@@ -43,7 +43,7 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
       <div>
         <label>Name</label>
         <div>
-          <input 
+          <input
             type="text"
             name="name"
             placeholder="Name"
@@ -56,11 +56,11 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
       <div>
         <label>Location</label>
         <div>
-          <input 
+          <input
             type="text"
             name="location"
             placeholder="Location"
-            value={FormData.location}
+            value={formData.location}
             onChange={handleChange}
           />
         </div>
@@ -69,11 +69,11 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
       <div>
         <label>Duration</label>
         <div>
-          <input 
+          <input
             type="number"
             name="duration"
             placeholder="duration"
-            value={FormData.duration}
+            value={formData.duration}
             onChange={handleChange}
           />
         </div>
@@ -81,38 +81,29 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
 
       <div>
         <label>Description</label>
-        <div>
-          <input 
-            type="text"
-            name="description"
-            placeholder="Description"
-            value={FormData.description}
-            onChange={handleChange}
-          />
-        </div>
+        <textarea value={formData.description} onChange={handleChange} name='description' rows='10' cols='30'>Enter description here</textarea>
       </div>
 
       <div>
-        <label>Category</label>
-        <div>
-          <input 
-            type="text"
-            name="category"
-            placeholder="Category"
-            value={FormData.category}
-            onChange={handleChange}
-          />
-        </div>
+        <label htmlFor='categories'>Category</label>
+        <select onChange={handleChange} id='categories' name='categories'>
+          <option value='Food and drink'>Food and drink</option>
+          <option value='Sightseeing'>Sightseeing</option>
+          <option value='Art and culture'>Art and culture</option>
+          <option value='Sports'>Sports</option>
+          <option value='Entertainment'>Entertainment</option>
+          <option value='Nature and outdoors'>Nature and outdoors</option>
+        </select>
       </div>
 
       <div>
         <label>Price</label>
         <div>
-          <input 
+          <input
             type="number"
             name="price"
             placeholder="Price"
-            value={FormData.price}
+            value={formData.price}
             onChange={handleChange}
           />
         </div>
@@ -121,11 +112,11 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
       <div>
         <label>Languages</label>
         <div>
-          <input 
+          <input
             type="text"
             name="languages"
             placeholder="Languages"
-            value={FormData.languages}
+            value={formData.languages}
             onChange={handleChange}
           />
         </div>
