@@ -1,7 +1,7 @@
 import React from 'react'
 // import { Form, Button, TextArea, Input, Select } from 'semantic-ui-react'
 
-const ExperienceForm = ({ handleSubmit, handleChange }) => {
+const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
 
   // const categoryOptions = [
   //   { 
@@ -38,7 +38,7 @@ const ExperienceForm = ({ handleSubmit, handleChange }) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
 
       <div>
         <label>Name</label>
@@ -47,7 +47,7 @@ const ExperienceForm = ({ handleSubmit, handleChange }) => {
             type="text"
             name="name"
             placeholder="Name"
-            value={FormData.name}
+            value={formData.name}
             onChange={handleChange}
           />
         </div>

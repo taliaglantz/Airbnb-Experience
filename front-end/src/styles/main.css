@@ -926,19 +926,19 @@ body .black {
   justify-content: flex-start;
 }
 
+.similar-experience-card {
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
 .similar-experiences-card {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 15px;
-  padding: 10px;
-}
-
-.similar-experiences-card-img {
-  width: 200px;
-  display: flex;
-  border-radius: 20px;
   padding: 10px;
 }
 
@@ -948,6 +948,7 @@ body .black {
 
 .card-title {
   font-size: 15px;
+  padding-top: 10px;
   margin-left: 10px;
 }
 
@@ -1025,6 +1026,15 @@ div.things-to-know-container div.things-to-know-element {
 
 
 /* Experience Component End */
+
+/* ExperienceForm Component Start */
+
+.form-container {
+  position: relative;
+  top: 100px;
+}
+
+/* ExperienceForm Component End */
 
 /* 
 

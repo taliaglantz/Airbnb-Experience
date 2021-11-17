@@ -38,7 +38,7 @@ const ExperienceNew = () => {
     console.log('Form Data ->', formData)
     try {
       await axios.post(
-        'http://localhost:4000/api/experiences/',
+        'http://localhost:4000/api/experiences',
         formData,
         {
           headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
