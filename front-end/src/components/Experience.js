@@ -420,8 +420,10 @@ const Experience = () => {
         :
         <>
           <section className="experiences-container">
-            <h1>Experience Deleted</h1>
-            <p>Redirecting you to the homepage now</p>
+            <Container>
+              <Header as="h3">Experience Deleted</Header>
+              <p>Redirecting you to the homepage now</p>
+            </Container>
           </section>
         </>
       }
