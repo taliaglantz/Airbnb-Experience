@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { Breadcrumb, Grid, Container, Card, Header, Image, Icon } from 'semantic-ui-react'
+import { Breadcrumb, Grid, Container, Card, Header, Image, Icon, Button } from 'semantic-ui-react'
 import ReactMapGL, { Marker } from 'react-map-gl'
-// import { getPayLoad, getTokenFromLocalStorage } from './Helpers/auth'
+import { getPayLoad, getTokenFromLocalStorage } from './Helpers/auth'
 // Need React Location and History
 
 const Experience = () => {
@@ -13,9 +13,8 @@ const Experience = () => {
   const [experiences, setExperiences] = useState([]) // Used for Similar experiences section
   const [hasError, setHasError] = useState(false)
   const { id } = useParams()
-  //const history = useHistory()
+  const history = useHistory()
   //const [images, setImages] = useState([])
-
 
 
   useEffect(() => {
@@ -37,38 +36,38 @@ const Experience = () => {
 
 
 
-  // const getTokenFromLocalStorage = () => {
-  //   return window.localStorage.getItem('token')
-  // }
+  const getTokenFromLocalStorage = () => {
+    return window.localStorage.getItem('token')
+  }
 
-  // const getPayLoad = () => {
-  //   const token = getTokenFromLocalStorage()
-  //   if (!token) return
-  //   const splitToken = token.split('.')
-  //   if (splitToken.length < 3) return
-  //   const payLoadString = splitToken[1]
-  //   return JSON.parse(atob(payLoadString))
-  // }
+  const getPayLoad = () => {
+    const token = getTokenFromLocalStorage()
+    if (!token) return
+    const splitToken = token.split('.')
+    if (splitToken.length < 3) return
+    const payLoadString = splitToken[1]
+    return JSON.parse(atob(payLoadString))
+  }
 
-  // const userIsOwner = (currentUserId) => {
-  //   const payload = getPayLoad()
-  //   if (!payload) return false
-  //   return currentHostId === payload.sub
-  // }
+  const userIsOwner = (currentHostId) => {
+    const payload = getPayLoad()
+    if (!payload) return false
+    return currentHostId === payload.sub
+  }
 
-  // const handleDelete = async () => {
-  //   try {
-  //     await axios.delete(`/api/experiences/${id}`,
-  //       {
-  //         headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
-  //       }
-  //     )
-  //     history.push('/experiences')
-  //   } catch (err) {
-  //     console.log('Deleting Error ->', err)
-  //     setHasError(err)
-  //   }
-  // }
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/api/experiences/${id}`,
+        {
+          headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
+        }
+      )
+      history.push('/')
+    } catch (err) {
+      console.log('Deleting Error ->', err)
+      setHasError(err)
+    }
+  }
 
   // Place holder information for BreadCumbs
   const sections = [
@@ -178,12 +177,14 @@ const Experience = () => {
     <section className="experiences-container">
       {experience.host &&
       <>
-        {/* {userIsOwner(experience.host._id) &&
-        <div className="experience-user-button">
-          <Link to={`/experiences/${id}/edit`}>Edit Experience</Link>
-          <button onClick={handleDelete} className="experience-user-delete-button">Delete Experience</button>
-        </div>
-        } */}
+        {userIsOwner(experience.host.id) &&
+        <Container>
+          <div className="experience-user-button">
+            <Button onClick={handleDelete} negative floated='right'>Delete Experience</Button>
+            <Button floated='right' ><Link to={`/experiences/${id}/edit`}>Edit Experience</Link></Button>
+          </div>
+        </Container>
+        }
       </>
       }
       {experience ?
