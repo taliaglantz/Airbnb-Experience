@@ -343,6 +343,7 @@ const Experience = () => {
                               </div>
                               <div className="card-description">
                                 <p className="card-title">{`${item.name.slice(0, 25)}...`}</p>
+                                <p className="similar-experience-rating"><Icon name='star' size='small' className="star-rating"/>{item.averageRating}<span>({item.reviews.length})</span></p>
                                 <span className="card-price"><strong>From {item.price}</strong>/ Person</span>
                               </div>
                             </Link>
