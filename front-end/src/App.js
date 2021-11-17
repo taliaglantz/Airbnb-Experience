@@ -5,7 +5,7 @@ import NavbarFilters from './components/NavbarFilters'
 import Home from './components/Home'
 import Experiences from './components/Experiences'
 import Experience from './components/Experience'
-
+import ExperienceNew from './components/ExperienceNew'
 
 
 const App = () => {
@@ -20,6 +20,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/experiences' component={Experiences} />
+        <Route exact path='/experiences/new' component={ExperienceNew} />
         <Route exact path='/experiences/:id' component={Experience} />
       </Switch>
     </BrowserRouter>

@@ -809,7 +809,54 @@ body .black {
   top: 10px
 } */
 
+/* Image Grid Start */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+  /* border: 1px solid red; */
+}
+
+.main-image {
+  height: 440px;
+  width: 300px;
+  background-size: cover !important;
+  background-position: center;
+}
+
 .experience-img-0 {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.experience-img-1 {
+  
+}
+
+.image-innner-grid {
+  display: grid;
+  max-height: 440px;
+  max-width: 200px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 8px;
+}
+
+.experience-img-2,
+.experience-img-3 {
+  max-height: 215px;
+  max-width: 200px;
+}
+
+.experience-img-4 {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+
+/* Image Grid End */
+
+/* .experience-img-0 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
@@ -827,7 +874,7 @@ body .black {
 .experience-img-4 {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-}
+} */
 
 .rating-location {
   display: flex;
@@ -890,19 +937,19 @@ body .black {
   justify-content: flex-start;
 }
 
+.similar-experience-card {
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
 .similar-experiences-card {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 15px;
-  padding: 10px;
-}
-
-.similar-experiences-card-img {
-  width: 200px;
-  display: flex;
-  border-radius: 20px;
   padding: 10px;
 }
 
@@ -912,7 +959,13 @@ body .black {
 
 .card-title {
   font-size: 15px;
+  padding-top: 10px;
   margin-left: 10px;
+}
+
+.similar-experience-rating {
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 .card-price {
@@ -973,8 +1026,31 @@ div.things-to-know-container div.things-to-know-element {
   color: #FF385C;
 }
 
+/* Reviews Component Start */
+.review-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  
+}
+
+/* .review-card {
+
+} */
+
+/* Reviews Component End */
+
 
 /* Experience Component End */
+
+/* ExperienceForm Component Start */
+
+.form-container {
+  position: relative;
+  top: 100px;
+}
+
+/* ExperienceForm Component End */
 
 /* 
 
