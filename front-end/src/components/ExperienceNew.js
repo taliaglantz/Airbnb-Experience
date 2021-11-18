@@ -10,19 +10,42 @@ const ExperienceNew = () => {
     name: '',
     location: '',
     duration: '',
+    locationCoord: 
+      {
+        latitude: '',
+        longitude: ''
+      },
+    date: 
+      [
+        {
+          day: '',
+          month: '11',
+          year: '2021'
+        }
+      ],
     description: '',
-    categories: '',
+    category: '',
+    //image: ''
     price: '',
-    languages: ''
+    thingsToKnow: 
+    [
+      { text: '' },
+      { text: '' },
+      { text: '' }
+    ],
+    languages: '',
+    whatIsIncluded: ['']
   })
 
 
   const [errorData, setErrorData] = useState({
     name: '',
     location: '',
+    longitude: '',
+    latitude: '',
     duration: '',
     description: '',
-    categories: '',
+    category: '',
     price: '',
     languages: ''
   })
