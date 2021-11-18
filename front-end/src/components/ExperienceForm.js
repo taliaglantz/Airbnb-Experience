@@ -1,7 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 // import { Form, Button, TextArea, Input, Select } from 'semantic-ui-react'
+import { ImageUploadField } from '../components/ImageUploadField'
 
-const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
+const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData }) => {
+
+  const handleImageUrl = (url) => {
+    setFormData({ ...formData, uploadImage: url })
+  }
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
@@ -50,7 +56,7 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
         <textarea value={formData.description} onChange={handleChange} name='description' rows='10' cols='30'>Enter description here</textarea>
       </div>
 
-      <div>
+      {/* <div>
         <label htmlFor='categories'>Categories</label>
         <select onChange={handleChange} id='categories' name='categories'>
           <option disabled selected value="">Please select an option</option>
@@ -61,7 +67,7 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
           <option value='Entertainment'>Entertainment</option>
           <option value='Nature and outdoors'>Nature and outdoors</option>
         </select>
-      </div>
+      </div> */}
 
       <div>
         <label>Price</label>
@@ -89,6 +95,13 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
         </div>
       </div>
 
+      <div>
+        <ImageUploadField
+          value={formData.uploadImage}
+          name="uploadImage"
+          handleImageUrl={handleImageUrl}
+        />
+      </div>
 
       <button type="submit">Submit</button>
     </form>
