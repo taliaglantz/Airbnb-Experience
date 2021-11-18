@@ -3,7 +3,7 @@ import React from 'react'
 import { Form, Header } from 'semantic-ui-react'
 import { ImageUploadField } from '../components/ImageUploadField'
 
-const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData }) => {
+const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, handleInputChanges, handleDateChanges }) => {
 
   const handleImageUrl = (url) => {
     setFormData({ ...formData, uploadImage: url })
@@ -41,6 +41,10 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData }) =
   //     value: 'Sight seeing'
   //   }
   // ]
+
+  const latitude = { ...formData  }
+
+
   return (
     <div className='form-wrapper'>
       <div className='new-experience-form'>
@@ -53,15 +57,66 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData }) =
         <Form onSubmit={handleSubmit}>
 
           <Form.Input label='Name of Experience' width={6}>
-            <input onChange={handleChange} value={formData.name} name='name' placeholder='e.g. Afternoon Tea at Claridges' />
+            {/* <input onChange={handleChange} value={formData.name} name='name' placeholder='e.g. Afternoon Tea at Claridges' /> */}
+            <input onChange={handleInputChanges()} value={formData.name} name='name' placeholder='e.g. Afternoon Tea at Claridges' />
           </Form.Input>
 
+          <Form.Input label='Location' width={4}>
+            <input onChange={handleInputChanges()} value={formData.location} name='location' placeholder='e.g. London' />
+          </Form.Input>
 
+          <Form.Input label='Duration' width={4}>
+            <input onChange={handleInputChanges()} value={formData.duration} name='duration' placeholder='e.g. 90' />
+          </Form.Input>
+
+          <Form.Input label='Latitude' width={4}>
+            {/* <input onChange={handleChange} value={formData.locationCoord.latitude} name='latitude' placeholder='e.g. 51.5072' /> */}
+            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.latitude} name='latitude' placeholder='e.g. 51.5072' />
+          </Form.Input>
           
-
-          <Form.Input width={4} label='Location'>
-            <input onChange={handleChange} value={formData.location} name='location' placeholder='e.g. London' />
+          <Form.Input label='Longitude' width={4}>
+            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.longitude} name='longitude' placeholder='e.g. 0.1276' />
           </Form.Input>
+
+          <Form.Group>
+            <Form.Input width={4} label='Day'>
+              <input onChange={handleDateChanges('date')} value={formData.date[0].day} name='day' placeholder='e.g. 13' />
+            </Form.Input>
+            <Form.Input width={4} label='Month'>
+              <input onChange={handleDateChanges('date')} value={formData.date[0].month} name='month' placeholder='e.g. 04' />
+            </Form.Input>
+            <Form.Input width={4} label='Year'>
+              <input onChange={handleDateChanges('date')} value={formData.date[0].year} name='year' placeholder='e.g. 2022' />
+            </Form.Input>
+          </Form.Group>
+
+          <Form.Input width={4} label='Description'>
+            <input onChange={handleInputChanges()} value={formData.description} name='description' placeholder='Tell us about your experience' />
+          </Form.Input>
+
+          <Form.Input label='Category' width={4}>
+            <input onChange={handleInputChanges()} value={formData.category} name='category' placeholder='Please select a category' />
+          </Form.Input>
+
+          <Form.Input label='Price' width={4}>
+            <input onChange={handleInputChanges()} value={formData.price} name='price' placeholder='e.g. £20' />
+          </Form.Input>
+
+          <Form.Input label='Languages' width={4}>
+            <input onChange={handleInputChanges()} value={formData.price} name='languages' placeholder='e.g. English' />
+          </Form.Input>
+
+          <div>
+            <ImageUploadField
+              value={formData.uploadImage}
+              name="uploadImage"
+              handleImageUrl={handleImageUrl}
+            />
+          </div> 
+
+          {/* <Form.Input width={4} label='locationCoord.longitude'>
+            <input onChange={handleChange} value={formData.locationCoord.longitude} name='locationCoord.longitude' placeholder='e.g. 0.1276' />
+          </Form.Input> */}
 
           {/* <Form.Field onChange={handleChange} value={formData.duration} name='duration'>
             <label>Duration (in mins)</label>
@@ -144,8 +199,8 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData }) =
             />
           </div> */}
 
-          <div className='submit-button'>
-            <Form.Button>Submit Experience</Form.Button>
+          <div>
+            <Form.Button className='coral-button'>Submit Experience</Form.Button>
           </div>
 
         </Form>

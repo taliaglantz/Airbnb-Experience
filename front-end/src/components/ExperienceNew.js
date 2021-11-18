@@ -9,74 +9,111 @@ const ExperienceNew = () => {
   const [formData, setFormData] = useState({
     name: '',
     location: '',
-    duration: ''
-    // locationCoord: 
-    //   {
-    //     latitude: '',
-    //     longitude: ''
-    //   },
-    // date: 
-    //   [
-    //     {
-    //       day: '',
-    //       month: '',
-    //       year: ''
-    //     }
-    //   ],
-    // description: '',
-    // category: '',
-    // price: '',
-    // thingsToKnow: 
-    // [
-    //   { text: '' },
-    //   { text: '' },
-    //   { text: '' }
-    // ],
-    // languages: '',
-    // whatIsIncluded: '',
-    // uploadImage: ''
+    duration: '',
+    locationCoord: 
+      {
+        latitude: '',
+        longitude: ''
+      },
+    date: 
+      [
+        {
+          day: '',
+          month: '',
+          year: ''
+        }
+      ],
+    description: '',
+    category: '',
+    price: '',
+    thingsToKnow: 
+    [
+      { text: '' },
+      { text: '' },
+      { text: '' }
+    ],
+    languages: '',
+    whatIsIncluded: '',
+    uploadImage: ''
   })
+
 
 
   const [errorData, setErrorData] = useState({
     name: '',
     location: '',
-    duration: ''
-    // locationCoord: 
-    //   {
-    //     latitude: '',
-    //     longitude: ''
-    //   },
-    // date: 
-    //   [
-    //     {
-    //       day: '',
-    //       month: '11',
-    //       year: '2021'
-    //     }
-    //   ],
-    // description: '',
-    // category: '',
-    // //image: ''
-    // price: '',
-    // thingsToKnow: 
-    // [
-    //   { text: '' },
-    //   { text: '' },
-    //   { text: '' }
-    // ],
-    // languages: '',
-    // whatIsIncluded: [''],
-    // uploadImage: ''
+    duration: '',
+    locationCoord: 
+      {
+        latitude: '',
+        longitude: ''
+      },
+    date: 
+      [
+        {
+          day: '',
+          month: '',
+          year: ''
+        }
+      ],
+    description: '',
+    category: '',
+    //image: ''
+    price: '',
+    thingsToKnow: 
+    [
+      { text: '' },
+      { text: '' },
+      { text: '' }
+    ],
+    languages: '',
+    whatIsIncluded: [''],
+    uploadImage: ''
   })
 
-  const handleChange = (event) => {
-    // const { target } = event
-    const newFormData = { ...formData, [event.target.name]: event.target.value }
-    console.log('Form Data ->', formData)
-    console.log('Event Target Value ->', event.target.value)
-    setFormData(newFormData)
-    console.log('formData - look at this one!!-> ', formData)
+  // const handleChange = (event) => {
+  //   // const { target } = event
+  //   const newFormData = { ...formData, [event.target.name]: event.target.value }
+  //   console.log('Form Data ->', formData)
+  //   console.log('Event Target Value ->', event.target.value)
+  //   setFormData(newFormData)
+  //   console.log('formData - look at this one!!-> ', formData)
+  // }
+
+  const handleInputChanges = level => e => {
+    if (!level) {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [level]: {
+          ...formData[level],
+          [e.target.name]: e.target.value
+        }
+      })
+    }
+  }
+
+  // console.log(formData.date[0].day)
+
+  const handleDateChanges = level => e => {
+    if (!level) {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [level]: [{
+          ...formData.date[0],       
+          [e.target.name]: e.target.value
+        }]
+      })
+    }
   }
 
   const handleSubmit = async (event) => {
@@ -101,10 +138,11 @@ const ExperienceNew = () => {
       <div>
         <ExperienceForm
           handleSubmit={handleSubmit}
-          handleChange={handleChange}
+          handleInputChanges={handleInputChanges}
           formData={formData}
           errors={errorData}
           setFormData={setFormData}
+          handleDateChanges={handleDateChanges}
         />
       </div>
     </section>

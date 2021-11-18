@@ -39,8 +39,6 @@ const Experience = () => {
   }, [])
 
 
-
-
   const getTokenFromLocalStorage = () => {
     return window.localStorage.getItem('token')
   }
