@@ -3,7 +3,7 @@ import React from 'react'
 import { Form, Header } from 'semantic-ui-react'
 import { ImageUploadField } from '../components/ImageUploadField'
 
-const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, handleInputChanges, handleDateChanges }) => {
+const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, handleInputChanges, handleDateChanges, handleThingsToKnowChanges }) => {
 
   const handleImageUrl = (url) => {
     setFormData({ ...formData, uploadImage: url })
@@ -43,7 +43,9 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
   // ]
 
   const latitude = { ...formData  }
-
+  console.log('Things to know -> ', formData.thingsToKnow)
+  console.log('Things to know [0] -> ', formData.thingsToKnow[0])
+  console.log('Things to know [0] text -> ', formData.thingsToKnow[0].text)
 
   return (
     <div className='form-wrapper'>
@@ -103,8 +105,18 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
           </Form.Input>
 
           <Form.Input label='Languages' width={4}>
-            <input onChange={handleInputChanges()} value={formData.price} name='languages' placeholder='e.g. English' />
+            <input onChange={handleInputChanges()} value={formData.languages} name='languages' placeholder='e.g. English' />
           </Form.Input>
+
+          <Form.Input label='What is included' width={4}>
+            <input onChange={handleInputChanges()} value={formData.whatIsIncluded} name='whatIsIncluded' placeholder='e.g. Tickets' />
+          </Form.Input>
+
+          <Form.Group>
+            <Form.Input width={4} label="What to bring">
+              <input onChange={handleThingsToKnowChanges('thingsToKnow')} value={formData.thingsToKnow[0].text} name='thingsToKnow' placeholder='e.g Bring wellington boots' />
+            </Form.Input>
+          </Form.Group>
 
           <div>
             <ImageUploadField

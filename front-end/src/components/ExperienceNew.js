@@ -26,11 +26,19 @@ const ExperienceNew = () => {
     description: '',
     category: '',
     price: '',
-    thingsToKnow: 
-    [
-      { text: '' },
-      { text: '' },
-      { text: '' }
+    thingsToKnow: [
+      {
+        header: 'What to bring',
+        text: [
+          ''
+        ]
+      },
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Cancel within 24 hours of purchasing or at least 7 days before the experience starts for a full refund.'
+        ]
+      }
     ],
     languages: '',
     whatIsIncluded: '',
@@ -62,9 +70,12 @@ const ExperienceNew = () => {
     price: '',
     thingsToKnow: 
     [
-      { text: '' },
-      { text: '' },
-      { text: '' }
+      { 
+        text: '' 
+      },
+      { 
+        text: '' 
+      }
     ],
     languages: '',
     whatIsIncluded: [''],
@@ -116,6 +127,23 @@ const ExperienceNew = () => {
     }
   }
 
+  const handleThingsToKnowChanges = level => e => {
+    if (!level) {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [level]: [{
+          ...formData.thingsToKnow[0],
+          ['text']: e.target.value
+        }]
+      })
+    }
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     console.log('Submitted Form Data ->', formData)
@@ -143,6 +171,7 @@ const ExperienceNew = () => {
           errors={errorData}
           setFormData={setFormData}
           handleDateChanges={handleDateChanges}
+          handleThingsToKnowChanges={handleThingsToKnowChanges}
         />
       </div>
     </section>
