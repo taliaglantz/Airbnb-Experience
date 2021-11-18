@@ -34,6 +34,10 @@ const Experience = () => {
     getData()
   }, [id])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
 
 
 
@@ -98,6 +102,12 @@ const Experience = () => {
   // Returning ImageGrid Component
   const ImageGrid = () => (
     <Container>
+      <>
+        {experience.image !== undefined && experience.image.length === 1 ? 
+          <div className="main-image experience-img-single" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
+          : <></>
+        }
+      </>
       <div className="image-grid">
         <div className="main-image experience-img-0" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
         <div className="main-image experience-img-1" style={{ background: `url(${experience.image !== undefined ? experience.image[1] : ''})` }}></div>
@@ -176,7 +186,6 @@ const Experience = () => {
     })
   }
 
-
   return (
     <>
       {!isDeleted ? 
@@ -210,7 +219,6 @@ const Experience = () => {
                   </div>
                 </div>
               </Container>
-
               <ImageGrid />
               <Container>
                 <Grid divided='vertically'>
@@ -392,7 +400,7 @@ const Experience = () => {
                       </>
                     </Grid.Column>
                   </Grid.Row>
-                  <Grid.Row columns={1}>
+                  {/* <Grid.Row columns={1}>
                     <Grid.Column>
                       <Header as="h3">Keep exploring</Header>
                       <div className="exploring-cards">
@@ -407,7 +415,7 @@ const Experience = () => {
                         })}
                       </div>
                     </Grid.Column>
-                  </Grid.Row>
+                  </Grid.Row> */}
                 </Grid>
               </Container>
             </>
