@@ -69,9 +69,8 @@ const Home = () => {
 
           {experiences.map(experience => {
             return (
-
               <div key={experience.id} className='column'>
-                <div className='ui card' style={{ height: '390px', overflow: 'hidden' }}>
+                <div className='ui card' style={{ height: '430px', overflow: 'hidden' }}>
                   <div className='ui slide masked reveal image inspiration-image'>
                     <div className='inspiration-image visible content' style={{ background: `url(${experience.image[0]})` }} />
                     <div className='inspiration-image hidden content' style={{ background: `url(${experience.image[1]})` }} />
@@ -84,7 +83,7 @@ const Home = () => {
                   </div>
                   <div className='extra content' >
                     <i className='star icon theme-color' />
-                    {experience.rating ? `${experience.rating} ${experience.price} per person` : `0.00 | ${experience.price} per person` }
+                    {experience.averageRating ? `${experience.averageRating} | ${experience.price} per person` : `0.00 | ${experience.price} per person` }
                   </div>
                 </div>
                 <p></p>

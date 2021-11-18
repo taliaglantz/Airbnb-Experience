@@ -21,6 +21,7 @@
   --rs-btn-subtle-hover-bg: rgb(245, 245, 245)!important;
   --rs-input-focus-border: rgba(255, 255, 255, 0) !important;
   --rs-listbox-option-hover-text: none !important;
+  --rs-slider-thumb-hover-shadow: none !important;
   /* --rs-input-focus-border:#fc405f00
   --rs-state-focus-shadow:0 0 0 0px */
 }
@@ -28,6 +29,12 @@
 /* ! Body selector */
 body {
   position: relative;
+}
+
+/* ! Link */
+a.search-icon {
+  text-decoration: none !important;
+  color: white !important;
 }
 
 /* ! Column */
@@ -55,6 +62,7 @@ hr {
   margin-top: 5px !important;
   margin-bottom: 5px !important;
 }
+
 
 /* ! Text */
 /* Main sections */
@@ -117,9 +125,16 @@ body .black {
 }
 
 .ui.menu {
-  background-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
+}
+
+.toggle-background {
+  background-color: transparent !important;
+}
+
+.white {
+  background-color: white !important;
 }
 
 .rs-picker-toolbar-right > button {
@@ -294,6 +309,7 @@ body .black {
 
 /* Navbar - extednded section */
 .navbar-extended {
+  background-color: white;
   height: 100%;
   width: 100vw;
   min-width: 400px;
@@ -304,6 +320,200 @@ body .black {
   top: 74px;
   transform: translate(-50%);
 }
+
+/* ! Filters bar */
+
+.filters-bar {
+  min-width: 535px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  transform: translate(0%);
+  height: 68px;
+  /* padding: 8px 24px 12px 24px; */
+}
+
+.dropdown-filters {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 440px;
+  height: 280px;
+}
+
+
+.price-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.ui.input {
+  width: 168px !important;
+} 
+
+.price-input {
+  height: 60px !important;
+}
+
+.price-input > input {
+  font-size: 16px;
+  padding-top: 30px !important;
+  padding-left: 20px !important;
+  border-radius: 12px !important;
+}
+
+.price-input-label {
+  top: 7px;
+  left: 12px !important;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+.ui.input>input:focus {
+  border-color: black !important;
+
+}
+
+.price-input-label > p:first-child {
+  font-family: 'airbnb_cereal_applight' !important;
+  font-size: 12px;
+}
+
+.ui.secondary.button.price-search{
+  margin-left: auto;
+  margin-top: 10px;
+  width: 85px;
+  height: 35px !important;
+}
+
+
+
+.dropdown-filters > p {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 16px;
+}
+
+.filters-left {
+  display: flex;
+}
+
+.category-filters {
+  height: 68px;
+  overflow: hidden;
+  display: flex !important;
+  align-items: flex-end;
+  flex-wrap: wrap !important;
+}
+
+@media (max-width: 625px) {
+  .category-filters {
+    display: none !important;
+  }
+}
+
+.ui.item.dropdown {
+  padding-left: 0px !important;
+  display: block !important;
+}
+
+.filter-button {
+  font-family: 'airbnb_cereal_applight' !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 20px;
+  height: 40px !important;
+  padding: 1px 14px 0px 14px;
+  margin-left: 1px;
+}
+
+.active {
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 1px 0.2px rgb(0, 0, 0); 
+}
+
+.filter-button > p {
+  font-family: 'airbnb_cereal_applight' !important;
+}
+
+.filter-button:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.dropdown-content-filters {
+  overflow: hidden;
+  padding: 10px 0px 10px 0px;
+  margin-top: 10px;
+  min-width: 200px !important;
+  border-radius: 12px;
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+}
+
+.divider {
+  padding-right: 15px !important;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+.dropdown-content-filters.hover {
+  background-color: none !important;
+}
+
+/* ! Slider */
+.rs-slider-bar {
+  height: 2px !important;
+}
+
+input[type='range'] {
+  border: 2px solid rgb(220, 220, 220) !important;
+}
+
+.rs-slider {
+  box-shadow: none !important;
+  width: calc(100% - 40px) !important;
+  margin: 40px 20px !important;
+}
+
+
+.rs-slider-handle:before {
+  margin: -8px 0px 0px -10px !important;
+  transform: scale(1.29) !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 1px solid rgb(220, 220, 220) !important;
+  animation: none !important;
+  background: url('../assets/images/three-lines.gif'), white !important;
+  background-size: 14px !important;
+  background-position: center !important;
+}
+
+div.rs-slider-handle.active:before {
+  margin: -9.5px 0px 0px -10px !important;
+  transform: scale(1.29) !important;
+  transition: none !important;
+  /* display: none !important; */
+}
+
+
+.rs-slider-progress-bar{
+  height: 2px !important;
+  background-color: rgb(180, 180, 180) !important;
+}
+
+.rs-slider-handle:hover .rs-tooltip,
+.rs-slider-handle.active .rs-tooltip {
+  box-shadow: none !important;
+  display: none !important;
+}
+
 
 /* ! Date picker - large button (Location & Date) */
 /* Container */
@@ -472,7 +682,7 @@ body .black {
   padding: 10px 0px 10px 0px;
   margin-top: 10px;
   min-width: 200px !important;
-  border-radius: 24px;
+  border-radius: 12px;
   display: none;
   position: absolute;
   transform: translate(calc(-100% + 73.2px));
@@ -499,11 +709,12 @@ body .black {
 }
 
 /* Display dropdown on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content, .dropdown:hover .dropdown-content-filters {
   display: block;
 }
 
 /* ! Icons */
+
 .large {
   font-size: 16px !important; 
 }
@@ -539,6 +750,16 @@ body .black {
   width: 100px;
   border-radius: 24px !important;
   z-index: 102;
+}
+
+.sliders.horizontal.icon {
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+.angle.down.icon {
+  margin-left: 4px;
+  margin-right: -4px;
 }
 
 /* ! Pop-up window */
@@ -607,7 +828,7 @@ body .black {
 /* ! Home page inspirations */
 
 .inspiration-image {
-  height: 275px;
+  height: 320px;
   background-size: cover !important;
   background-position: center;
 }

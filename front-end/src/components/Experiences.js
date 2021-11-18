@@ -3,28 +3,85 @@ import React, { useState, useEffect } from 'react'
 import { Grid, Container, Header, Card, Divider, Icon } from 'semantic-ui-react'
 import ReactMapGL, { Marker, FlyToInterpolator, Popup } from 'react-map-gl' // yarn add react-map-gl to enable mapbox
 import axios from 'axios'
-
+import { CheckTreePicker } from 'rsuite'
 
 const Experiences = () => {
 
-  // ***EXPERIENCES***
+  const { search } = window.location
+  const categoriesString = new URLSearchParams(search).get('cat')
+  const from = new Date(new URLSearchParams(search).get('from'))
+  const to = new Date(new URLSearchParams(search).get('to'))
+  const minPrice = Number(new URLSearchParams(search).get('pricemin'))
+  const maxPrice = Number(new URLSearchParams(search).get('pricemax'))
 
   const [experiences, setExperiences] = useState([])
   const [hasError, setHasError] = useState(false)
+
+  const convertDate = (date) => {
+    let convertedDate = String(date)
+    if (date.length === 1) {
+      convertedDate = ['0', ...date].join('')
+    }
+    return convertedDate
+  }
+
+  const checkDate = (experience) => {
+    let dates = experience.date
+    dates = dates.map(date => {
+      return new Date(`${date.year}-${convertDate(date.month)}-${convertDate(date.day)}`)
+    })
+    if (dates.some(date => (date >= from) && (date <= to))) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  const checkPrice = (experience) => {
+    let price = experience.price
+    price = price.split('')
+    price.shift()
+    price = Number(price.join(''))
+    if ((price >= minPrice) && (price <= maxPrice)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  const filterExperiences = (experiences) => {
+    const categories = categoriesString.split('_')
+    let filtered = experiences
+    if (categories.length && (categories[0] !== '')) {
+      filtered = experiences.filter(experience => categories.some(category => category === experience.category))
+    }
+    if (from && (new URLSearchParams(search).get('from') !== 'Start date')) {
+      filtered = filtered.filter(experience => checkDate(experience))
+    }
+    if (minPrice && maxPrice) {
+      filtered = filtered.filter(experience => checkPrice(experience))
+    }
+    setExperiences(filtered)
+  }
 
   // displaying all experiences on page
   useEffect(() => {
     const getData = async () => {
       try {
         const { data } = await axios.get('/api/experiences')
-        setExperiences(data)
+        if (categoriesString || from || to) {
+          filterExperiences(data)
+        } else {
+          setExperiences(data)
+        }
         //console.log('EXPERIENCES ->', response) // this works
+
       } catch (err) {
         setHasError(true)
       }
     }
     getData()
-  }, [])
+  }, [search])
 
   //***MAPBOX***
 
@@ -96,7 +153,7 @@ const Experiences = () => {
                             <p>{experience.duration / 60} hours</p>
                           </div>
                           <div className='reviews-and-price'>
-                            <p>{experience.reviews}TBC reviews</p>
+                            <p>TBC reviews</p>
                             <h5><strong>From {experience.price}</strong>/person</h5>
                           </div>
                           <div>
