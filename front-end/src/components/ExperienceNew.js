@@ -9,64 +9,85 @@ const ExperienceNew = () => {
   const [formData, setFormData] = useState({
     name: '',
     location: '',
-    duration: '',
-    locationCoord: 
-      {
-        latitude: '',
-        longitude: ''
-      },
-    date: 
-      [
-        {
-          day: '',
-          month: '11',
-          year: '2021'
-        }
-      ],
-    description: '',
-    category: '',
-    //image: ''
-    price: '',
-    thingsToKnow: 
-    [
-      { text: '' },
-      { text: '' },
-      { text: '' }
-    ],
-    languages: '',
-    whatIsIncluded: [''],
-    uploadImage: ''
+    duration: ''
+    // locationCoord: 
+    //   {
+    //     latitude: '',
+    //     longitude: ''
+    //   },
+    // date: 
+    //   [
+    //     {
+    //       day: '',
+    //       month: '',
+    //       year: ''
+    //     }
+    //   ],
+    // description: '',
+    // category: '',
+    // price: '',
+    // thingsToKnow: 
+    // [
+    //   { text: '' },
+    //   { text: '' },
+    //   { text: '' }
+    // ],
+    // languages: '',
+    // whatIsIncluded: '',
+    // uploadImage: ''
   })
 
 
   const [errorData, setErrorData] = useState({
     name: '',
     location: '',
-    longitude: '',
-    latitude: '',
-    duration: '',
-    description: '',
-    category: '',
-    price: '',
-    languages: '',
-    uploadImage: ''
+    duration: ''
+    // locationCoord: 
+    //   {
+    //     latitude: '',
+    //     longitude: ''
+    //   },
+    // date: 
+    //   [
+    //     {
+    //       day: '',
+    //       month: '11',
+    //       year: '2021'
+    //     }
+    //   ],
+    // description: '',
+    // category: '',
+    // //image: ''
+    // price: '',
+    // thingsToKnow: 
+    // [
+    //   { text: '' },
+    //   { text: '' },
+    //   { text: '' }
+    // ],
+    // languages: '',
+    // whatIsIncluded: [''],
+    // uploadImage: ''
   })
 
   const handleChange = (event) => {
+    // const { target } = event
     const newFormData = { ...formData, [event.target.name]: event.target.value }
+    console.log('Form Data ->', formData)
     console.log('Event Target Value ->', event.target.value)
     setFormData(newFormData)
+    console.log('formData - look at this one!!-> ', formData)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log('Form Data ->', formData)
+    console.log('Submitted Form Data ->', formData)
     try {
       await axios.post('/api/experiences',
         formData,
         {
           headers: { 
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTkzYjczMDRlNTM3ZmNkMDQ5ZWQ3MTAiLCJpYXQiOjE2MzcxNTM5OTgsImV4cCI6MTYzNzQxMzE5OH0.wbnKjZostpEfb7T7UEiY13lem400YDepCJqfyvw_JHc' }
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTk2MmZmY2RhY2Q0NmQzZWM2MjcxMDQiLCJpYXQiOjE2MzcyMzkyMjYsImV4cCI6MTYzNzQ5ODQyNn0.C3K1Tyhee0ZC_6FxT4oSJv_zuGH8N0J9CXhDsJTSgZc' }
         }
       )
     } catch (err) {
