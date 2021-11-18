@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import { Grid, Container, Header, Card, Divider, Icon } from 'semantic-ui-react'
-import ReactMapGL, { Marker, FlyToInterpolator, Popup } from 'react-map-gl' // yarn add react-map-gl to enable mapbox
+import ReactMapGL, { Marker, Popup } from 'react-map-gl' // yarn add react-map-gl to enable mapbox
 import axios from 'axios'
-import { CheckTreePicker } from 'rsuite'
+import { Link } from 'react-router-dom'
 
 const Experiences = () => {
 
@@ -83,43 +83,57 @@ const Experiences = () => {
     getData()
   }, [search])
 
-  //***MAPBOX***
+  // ***MAPBOX***
 
-  const [viewport, setNewViewport] = useState(null)
+  const [viewport, setNewViewport] = useState({
+    latitude: 51.513546,
+    longitude: -0.112522,
+    zoom: 4
+  })
   const [popup, setPopup] = useState(null)
 
-  // Moving to new location on map
-  const handleNewLocation = ({ longitude, latitude }) => {
-    setNewViewport({
-      longitude,
-      latitude,
-      zoom: 13,
-      transitionInterpolator: new FlyToInterpolator({ speed: 1 }),
-      transitionDuration: 'auto'
-    })
+  // when mouse enters, price-marker class is removed and togggled is added -> button turns black
+  const mouseEnter = (event) => {
+    console.log(event.target)
+    const mapElement = document.getElementById(`button-${event.target.id}`)
+    console.log('mapElement->', mapElement)
+    if (mapElement) {
+      mapElement.classList.remove('price-marker')
+      mapElement.classList.add('toggled')
+    }
   }
 
+  // when mouse leaves, toggled class is removed and price-marker is added -> button turns white
+  const mouseLeave = (event) => {
+    console.log(event.target)
+    const mapElement = document.getElementById(`button-${event.target.id}`)
+    console.log('mapElement->', mapElement)
+
+    if (mapElement) {
+      mapElement.classList.add('price-marker')
+      mapElement.classList.remove('toggled')
+    }
+  }
+
+
+
   // viewport to access location of current user
-  useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords
-      setNewViewport({ latitude, longitude, zoom: 12, bearing: 0, pitch: 0 })
-    })
-  }, [])
+  // useEffect(() => {
+  //   window.navigator.geolocation.getCurrentPosition(position => {
+  //     const { latitude, longitude } = position.coords
+  //     setNewViewport({ latitude, longitude })
+  //   })
+  // }, [])
 
   //console.log(viewport)
   // console.log(popup)
-  //console.log('EXPERIENCES ->', experiences)
+  console.log('EXPERIENCES ->', experiences)
   return (
     <Grid divided='vertically'>
       <Grid.Row columns={2} >
         <Grid.Column width={9} id='left-column'>
 
           {/* Column on left */}
-          {/* Hovering over card shows up location as black bubble with white price
-              Clicking on the card takes you to the cards' show page
-              Clicking on the black bubble shows a small card of the experience
-              Clicking on that card also takes you to the cards' show page */}
 
           <Container>
             <div className='header-div'>
@@ -135,7 +149,11 @@ const Experiences = () => {
                     return (
 
                       <div className='experience-segment' key={experience._id}>
-
+                        
+                        <Link to={`/experiences/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
+                          
+                        </Link>
+                      
                         <div>
                           <img className='experience-image' src={experience.image[0]} />
                         </div>
@@ -148,12 +166,12 @@ const Experiences = () => {
                               <Icon id='heart' name='heart outline' size='big' />
                             </div>
 
-                            <p className="what-we-will-do">What we&apos;ll do:</p>
+                            <p className="what-we-will-do">What we&apos; ll do: </p>
                             <p className="description">{experience.description}</p>
                             <p>{experience.duration / 60} hours</p>
                           </div>
                           <div className='reviews-and-price'>
-                            <p>TBC reviews</p>
+                            <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
                             <h5><strong>From {experience.price}</strong>/person</h5>
                           </div>
                           <div>
@@ -161,6 +179,7 @@ const Experiences = () => {
                             {/* Can't get this below the image!!!! */}
                           </div>
                         </div>
+
 
                       </div>
 
@@ -188,17 +207,17 @@ const Experiences = () => {
                   zoom={10}
                   latitude={viewport.latitude}
                   longitude={viewport.longitude}
-                  onViewportChange={(viewport) => setNewViewport(viewport)} // this ensures that when the map is moved (including zoomed), the map is loaded with new viewports
+                  onViewportChange={viewport => setNewViewport(viewport)} // this ensures that when the map is moved (including zoomed), the map is loaded with new viewports
                 >
                   {/* Marker for user location */}
-                  <Marker
+                  {/* <Marker
                     latitude={viewport.latitude}
                     longitude={viewport.longitude}
                   >
                     <span role="img" aria-label="map-marker" className="marker rocket">
                       <Icon name='map marker alternate' size='large' color='red' />
                     </span>
-                  </Marker>
+                  </Marker> */}
                   {/* Marker for each experience location */}
                   {experiences.map(experience => (
                     <Marker
@@ -207,7 +226,7 @@ const Experiences = () => {
                       longitude={experience.locationCoord.longitude}
                     >
                       <span onClick={() => setPopup(experience)} role="img" aria-label="map-marker" className="marker">
-                        <button className='price-marker'>{experience.price}</button>
+                        <button id={`button-${experience._id}`} className='price-marker'>{experience.price}</button>
                       </span>
                     </Marker>
                   ))}

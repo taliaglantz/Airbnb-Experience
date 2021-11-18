@@ -5,7 +5,10 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Experiences from './components/Experiences'
 import Experience from './components/Experience'
-import ExperiencesMap from './components/ExperiencesMap'
+import ExperienceNew from './components/ExperienceNew'
+import ExperienceEdit from './components/ExperienceEdit'
+import RegisterDraft from './components/RegisterDraft'
+import LoginDraft from './components/LoginDraft'
 
 
 const App = () => {
@@ -16,8 +19,11 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/experiences' component={Experiences} />
+        <Route exact path='/experiences/new' component={ExperienceNew} />
         <Route exact path='/experiences/:id' component={Experience} />
-        <Route exact path='/experiences-map' component={ExperiencesMap} />
+        <Route exact path="/experiences/:id/edit" component={ExperienceEdit}/>
+        <Route exact path="/register" component={RegisterDraft}/>
+        <Route exact path="/login" component={LoginDraft}/>
       </Switch>
     </BrowserRouter>
   )

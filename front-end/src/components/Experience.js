@@ -1,71 +1,82 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
-import { useParams, Link, useHistory } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
-import { Breadcrumb, Grid, Container, Card, Header, Image, GridColumn, GridRow, Icon, Rating } from 'semantic-ui-react'
-import ExperiencesMap from './ExperiencesMap'
+import { Breadcrumb, Grid, Container, Card, Header, Image, Icon } from 'semantic-ui-react'
+import ReactMapGL, { Marker } from 'react-map-gl'
+// import { getPayLoad, getTokenFromLocalStorage } from './Helpers/auth'
 // Need React Location and History
 
 const Experience = () => {
 
   const [experience, setExperience] = useState([])
-  const [hasError, setHasError] = useState([])
+  const [experiences, setExperiences] = useState([]) // Used for Similar experiences section
+  const [hasError, setHasError] = useState(false)
   const { id } = useParams()
-  const history = useHistory()
+  //const history = useHistory()
   //const [images, setImages] = useState([])
+
+
 
   useEffect(() => {
     const getData = async () => {
       try {
-        //const { data } = await axios.get(`/api/experiences/${id}`)
-        const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda4')
+        const { data } = await axios.get(`/api/experiences/${id}`)
+        // const { data } = await axios.get('/api/experiences/6193b7384e537fcd049ed78e')
+        // const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda5')
         // console.log('Data ->', data)
         setExperience(data)
       } catch (err) {
         console.log('Error Getting Experience ->', err)
+        setHasError(true)
       }
     }
     getData()
-  },[])
+  }, [id])
 
-  const getTokenFromLocalStorage = () => {
-    return window.localStorage.getItem('token')
-  }
 
-  const getPayLoad = () => {
-    const token = getTokenFromLocalStorage()
-    if (!token) return
-    const splitToken = token.split('.')
-    if (splitToken.length < 3) return
-    const payLoadString = splitToken[1]
-    return JSON.parse(atob(payLoadString))
-  }
 
-  const userIsOwner = (currentUserId) => {
-    const payload = getPayLoad()
-    if (!payload) return false
-    return currentUserId === payload.sub
-  }
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/api/experiences/${id}`,
-        {
-          headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
-        }
-      )
-      history.push('/experiences')
-    } catch (err) {
-      console.log('Deleting Error ->', err)
-      setHasError(err)
-    }
-  }
+  // const getTokenFromLocalStorage = () => {
+  //   return window.localStorage.getItem('token')
+  // }
+
+  // const getPayLoad = () => {
+  //   const token = getTokenFromLocalStorage()
+  //   if (!token) return
+  //   const splitToken = token.split('.')
+  //   if (splitToken.length < 3) return
+  //   const payLoadString = splitToken[1]
+  //   return JSON.parse(atob(payLoadString))
+  // }
+
+  // const userIsOwner = (currentUserId) => {
+  //   const payload = getPayLoad()
+  //   if (!payload) return false
+  //   return currentHostId === payload.sub
+  // }
+
+  // const handleDelete = async () => {
+  //   try {
+  //     await axios.delete(`/api/experiences/${id}`,
+  //       {
+  //         headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` }
+  //       }
+  //     )
+  //     history.push('/experiences')
+  //   } catch (err) {
+  //     console.log('Deleting Error ->', err)
+  //     setHasError(err)
+  //   }
+  // }
 
   // Place holder information for BreadCumbs
   const sections = [
-    { key: 'location' , content: 'London', link: true }, // in content place data when it comes back
-    { key: 'category', content: 'Nature and outdoors', link: true } // in content place data when it comes back
+    { key: 'location' , content: '', link: true }, // in content place data when it comes back
+    { key: 'category', content: '', link: true } // in content place data when it comes back
   ]
+  sections[0].content = experience.location
+  sections[1].content = experience.category
 
   // Returing BreadCrumbComponent
   const BreadCrumbComponent = () => (
@@ -74,58 +85,27 @@ const Experience = () => {
     </Container>
   )
 
-  // Returning Rating Component
-  //const Rating = () => <Rating />
-
-  const Location = () => (
-    <Container>
-      <Icon name='circle' size='mini' /> 
-      <Link to={`./location/${experience.location}`}>{experience.location}</Link>
-    </Container>
-  )
-
-  // Returning HeartIcons Component
-  const HeartIcon = () => (
-    <Container>
-      <Icon name='heart outline' />
-      <p>save</p>
-    </Container>
-  )
-
-  // Returing ShareIcon Component
-  const ShareIcon = () => (
-    <Container>
-      <i aria-hidden="true" className="share square outline icon"></i>
-    </Container>
-  )
-
   // Returning ExperienceTitle Component
   const ExperienceTitle = () => (
     <Container>
-      <Header as="h2">{experience.name}</Header>
+      <Header as="h4">{experience.name}</Header>
     </Container>
   )
 
   // Returning ImageGrid Component
   const ImageGrid = () => (
     <Container>
-      <Grid>
-        <Grid.Row columns={4}>
-          <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-0" src={experience.image[0]}/> : <div>Unable to load image</div>}
-          </Grid.Column>
-          <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-1" src={experience.image[1]}/> : <div>Unable to load image</div>}
-          </Grid.Column>
-          <Grid.Row>
-            {experience.image !== undefined ? <Image className="experience-img-2" src={experience.image[2]}/> : <div>Unable to load image</div>}
-            {experience.image !== undefined ? <Image className="experience-img-3" src={experience.image[3]}/> : <div>Unable to load image</div>}
-          </Grid.Row>
-          <Grid.Column>
-            {experience.image !== undefined ? <Image className="experience-img-4" src={experience.image[4]}/> : <div>Unable to load image</div>}
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <div className="image-grid">
+        <div className="main-image experience-img-0" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
+        <div className="main-image experience-img-1" style={{ background: `url(${experience.image !== undefined ? experience.image[1] : ''})` }}></div>
+
+        <div className="image-innner-grid">
+          <div className="main-image experience-img-2" style={{ background: `url(${experience.image !== undefined ? experience.image[2] : ''})` }}></div>
+          <div className="main-image experience-img-3" style={{ background: `url(${experience.image !== undefined ? experience.image[3] : ''})` }}></div>
+        </div>
+
+        <div className="main-image experience-img-4" style={{ background: `url(${experience.image !== undefined ? experience.image[4] : ''})` }}></div>
+      </div>
     </Container>
   )
 
@@ -136,14 +116,15 @@ const Experience = () => {
   // Returing HostDetails Component
   const HostDetails = () => (
     <Container>
-      <div>
+      <div className="host-title">
         <Header as="h3">Experience hosted by {details.firstName}</Header> 
         <Image src={details.profilePicture} avatar />
       </div>
-      <p>
-        {experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}
-      </p>
-      <p>Hosted in English</p>
+      <div className="experience-details">
+        <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
+        <Icon name='circle' size='mini' /> 
+        <p>Hosted in {experience.languages}</p>
+      </div>
     </Container>
   )
 
@@ -155,68 +136,10 @@ const Experience = () => {
     </Container>
   )
 
-  // Returing WhatsIncludedCard Component
-  const WhatsIncludedCard = () => (
-    <Card>
-      <Card.Content>
-        <Card.Header>
-          {experience.whatIsIncluded}
-        </Card.Header>
-      </Card.Content>
-    </Card>
-  )
-
-  // Returing WhatsIncluded Component
-  const WhatsIncluded = () => (
-    <Container>
-      <Header as="h3">What&apos;s included</Header>
-      <WhatsIncludedCard />
-    </Container>
-  )
-  
-  // Returing MeetYourHost Component
-  const MeetYourHost = () => (
-
-    <Container className="meet-your-host">
-      <Card.Description>
-        <Header as="h3">Meet your host, {details.firstName}</Header>
-        <Rating />
-        {/* Place Holder Text for now as description isnt available */}
-        <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p>
-      </Card.Description>
-    </Container>
-  )
-  // Returning WhereYoullBe Component
-  const WhereYoullBe = () => (
-    <Container>
-      <Header as="h3">Where you&apos;ll be</Header>
-      {/* INSERT MAP <ExperiencesMap /> */}
-    </Container>
-  )
-
-  // Returing Reviews Component
-  const Reviews = () => (
-    <Container>
-      <Header as="h3">Reviews</Header>
-    </Container>
-  )
-
   // Returning ChooseAvailableDates Component
-  const ChooseAvailableDates = () => (
-    <Header as="h3">Choose from available dates</Header>
-  )
-
-  // Returning ThingsToKnow Component
-  // const ThingsToKnow = () => (
-  //   <Container>
-  //     <Header as="h3">Things to know</Header>
-  //   </Container>
+  // const ChooseAvailableDates = () => (
+  //   <Header as="h3">Choose from available dates</Header>
   // )
-
-  // Returing SimilarExperiences Component
-  const SimilarExperiences = () => (
-    <Header as="h3">Similar Experiences</Header>
-  )
 
   // Used for KeepExploringInLondon Component 
   // Takes in all experiences 
@@ -226,12 +149,13 @@ const Experience = () => {
       try {
         const { data } = await axios.get('/api/experiences')
         setexploreData(data)
+        setExperiences(data)
       } catch (err) {
         console.log('Error getting explore data ->', err)
       }
     }
     exloringData()
-  },[])
+  }, [])
 
   // Storing all experiences categories 
   const experienceCategory = []
@@ -241,32 +165,45 @@ const Experience = () => {
 
   // Storing only one instance of the experience category
   const uniqueExperience = [...new Set(experienceCategory)]
-  //console.log('Unique Experience', uniqueExperience.map(experience => console.log(experience)))
+  const currentExperienceCategory = experience.category
 
-  const KeepExploringInLondon = () => (
-    <Header as="h3">Keep exploring in London</Header>
-  )
-  
+  const filterByCategory = () => {
+    return experiences.filter(experience => {
+      return experience.category === currentExperienceCategory
+    })
+  }
+
+
   return (
     <section className="experiences-container">
-      {experience ? 
+      {experience.host &&
+      <>
+        {/* {userIsOwner(experience.host._id) &&
+        <div className="experience-user-button">
+          <Link to={`/experiences/${id}/edit`}>Edit Experience</Link>
+          <button onClick={handleDelete} className="experience-user-delete-button">Delete Experience</button>
+        </div>
+        } */}
+      </>
+      }
+      {experience ?
         <>
           <BreadCrumbComponent />
           <ExperienceTitle />
           <Container>
-            <Grid divided='vertically' columns='equal'>
-              <Grid.Row columns={2}>
-                <Grid.Column floated={'left'}>
-                  <Rating />
-                  <Location />
-                </Grid.Column>
-                <Grid.Column floated={'right'}> 
-                  <ShareIcon />
-                  <HeartIcon />
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
+            <div className="rating-share-container">
+              <div> 
+                <Icon name='star' size='small' className="star-rating"/><span>({experience.averageRating})</span>
+                <Icon name='circle' size='mini' className="circle-icon" /> 
+                <Link to={`./location/${experience.location}`}>{experience.location}</Link>
+              </div>
+              <div>
+                <i aria-hidden="true" className="share square outline icon"></i>
+                <Icon name='heart outline' className="main-favourite-icon" data-id={experience._id}/>
+              </div>
+            </div>
           </Container>
+
           <ImageGrid />
           <Container>
             <Grid divided='vertically'>
@@ -282,68 +219,180 @@ const Experience = () => {
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column width={7}>
-                  <WhatsIncluded />
+                  <Header as="h3">What Is Included</Header>
+                  <div className="whats-included-container">
+                    {experience.whatIsIncluded ? 
+                      <>
+                        {experience.whatIsIncluded.map((item, index) => {
+                          return (
+                            <Card className="whats-included-card" key={index}>
+                              <Header as="h4">{item}</Header>
+                            </Card>
+                          )
+                        })}
+                      </>
+                      : 'Loading'
+                    }
+                  </div>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column width={7}>
-                  <MeetYourHost />
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row columns={1}>
-                <Grid.Column width={7}>
-                  <WhereYoullBe />
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row columns={1}>
-                <Grid.Column>
-                  <Reviews />
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row columns={1}>
-                <Grid.Column>
-                  <ChooseAvailableDates />
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row columns={1}>
-                <Grid.Column>
-                  {/* <ThingsToKnow /> */}
-                  <Container>
-                    <Header as="h3">Things to know</Header>
-                    {experience.thingsToKnow !== undefined ? 
-                      experience.thingsToKnow.map((item, index) => {
-                        // console.log('Header ->', item.header)
-                        return (
-                          <div key={index}>
-                            <Header as="h4">{item.header}</Header>
-                            {item.text.map((item, index) => {
-                              return (
-                                //console.log('Text Content ->',item)
-                                <p key={index}>{item}</p>
-                              )
-                            })}
-                          </div>
-                        )
-                      }) 
-                      : // Loading state
-                      console.log('Loading...')}
+                  {/* <MeetYourHost /> Old React Semantic Component */}
+                  <Container className="meet-your-host">
+                    <div className="meet-your-host-header">
+                      <img src={details.profilePicture} alt={`${details.firstName} profile picture`} className="myh-image"/>
+                      {/* <Image src={details.profilePicture} avatar  className="myh-image"/> */}
+                      <Header as="h3">Meet your host, {details.firstName}</Header>
+                    </div>
+                    {/* Place Holder Text for now as description isnt available */}
+                    {/* <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p> */}
+                    <Icon name='star' size='small' className="star-rating"/>  (Not yet reviewed)
+                    <p className="myh-text">{details.about}</p>
                   </Container>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column>
-                  <SimilarExperiences />
+                  {/* <WhereYoullBe /> */}
+                  
+                  <Header as="h3">Where you&apos;ll be</Header>
+                  <div className="map-display-wrapper">
+                    <div className="map-display-container">
+                      {experience ? 
+                        <ReactMapGL
+                          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+                          height='100%'
+                          width='100%'
+                          mapStyle='mapbox://styles/mapbox/streets-v11'
+                          latitude={experience.locationCoord !== undefined ? experience.locationCoord.latitude : 0}
+                          longitude={experience.locationCoord !== undefined ? experience.locationCoord.longitude : 0}
+                          zoom={14}
+                        >
+                          <Marker longitude={experience.locationCoord !== undefined ? experience.locationCoord.longitude : 0} latitude={experience.locationCoord !== undefined ? experience.locationCoord.latitude : 0}>
+                            <span><Icon name='map marker alternate' size='big' color='red' /></span>
+                          </Marker>
+                        </ReactMapGL>
+                        :
+                        <h1>Loading your location</h1>
+                      }
+                    </div>
+                  </div>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column>
-                  {/* <KeepExploringInLondon /> */}
+                  <Container>
+                    {experience.reviews ? 
+                      <>
+                        <Header as="h3">
+                          {experience.averageRating}({experience.reviews.length} Reviews)
+                        </Header>
+                        <div className="review-container">
+                          {experience.reviews.map((review, index) => {
+                            return (
+                              <div key={index} className="review-card">
+                                {/* <p>{review.text}</p> */}
+                                <span>{review.updatedAt.slice(0, 10)}</span>
+                                <p>{review.text.slice(0, 200)}...</p>
+                                <br></br>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </>
+                      :
+                      <Header as="h3">Unable to load reviews</Header>
+                    }
+                  </Container>
+                </Grid.Column>
+              </Grid.Row>
+              {/* <Grid.Row columns={1}>
+                <Grid.Column>
+                  <ChooseAvailableDates />
+                </Grid.Column>
+              </Grid.Row> */}
+              <Grid.Row columns={1}>
+                <Grid.Column>
+                  <Container>
+                    <Header as="h3">Things to know</Header>
+                    <Grid>
+                      <Grid.Row>
+                        <div className="things-to-know-container">
+                          {experience.thingsToKnow !== undefined ?
+                            experience.thingsToKnow.map((item, index) => {
+                              // console.log('Header ->', item.header)
+                              return (
+                                <div key={index} className="things-to-know-element">
+                                  <Header as="h4">{item.header}</Header>
+                                  {item.text.map((item, index) => {
+                                    return (
+                                      //console.log('Text Content ->',item)
+                                      <p key={index}>{item}</p>
+                                    )
+                                  })}
+                                </div>
+                              )
+                            }) 
+                            : // Loading state
+                            <div>Loading...</div>}
+                        </div>
+                      </Grid.Row>
+                    </Grid>
+                  </Container>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row columns={1}>
+                <Grid.Column>
+                  <>
+                    <Header as="h3">Similar Experiences<span></span></Header>
+                    <div className="similar-experience-container">
+                      {filterByCategory().slice(0, 4).map((item, index) => {
+                        // console.log(item) 
+                        // console.log(item.image[0]) first image
+                        // console.log(item.name)
+                        // console.log(item.price)
+                        return (
+                          <div key={index} className="similar-experiences-card" id={item._id}>
+                            <Link to={`/experiences/${item.id}`} className="similar-experience-link">
+                              <div>
+                                {/* <img className="similar-experiences-card-img" src={item.image[1]}/> */}
+                                <div className="similar-experience-card similar-experience-img" style={{ background: `url(${item.image !== undefined ? item.image[0] : ''})` }}></div>
+                              </div>
+                              <div className="card-description">
+                                <p className="card-title">{`${item.name.slice(0, 25)}...`}</p>
+                                <p className="similar-experience-rating"><Icon name='star' size='small' className="star-rating"/>{item.averageRating}<span>({item.reviews.length})</span></p>
+                                <span className="card-price"><strong>From {item.price}</strong>/ Person</span>
+                              </div>
+                            </Link>
+                            <Icon name='heart outline' size='big' className="heart-favourite-icon"/>
+                          </div>
+                        //   <div className="image-grid">
+                        //   <div className="main-image experience-img-0" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
+                        //   <div className="main-image experience-img-1" style={{ background: `url(${experience.image !== undefined ? experience.image[1] : ''})` }}></div>
+                  
+                        //   <div className="image-innner-grid">
+                        //     <div className="main-image experience-img-2" style={{ background: `url(${experience.image !== undefined ? experience.image[2] : ''})` }}></div>
+                        //     <div className="main-image experience-img-3" style={{ background: `url(${experience.image !== undefined ? experience.image[3] : ''})` }}></div>
+                        //   </div>
+                  
+                        //   <div className="main-image experience-img-4" style={{ background: `url(${experience.image !== undefined ? experience.image[4] : ''})` }}></div>
+                        // </div>
+                        )
+                      })}
+                      
+                    </div>
+                  </>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row columns={1}>
+                <Grid.Column>
                   <Header as="h3">Keep exploring</Header>
                   <div className="exploring-cards">
                     {uniqueExperience.map((experience, index) => {
                       return (
                         <Card key={index} className="experience-card">
-                          <Card.Content className="experience-card-content" textAlign={'center'}>
+                          <Card.Content>
                             <Card.Header>{experience}</Card.Header>
                           </Card.Content>
                         </Card>

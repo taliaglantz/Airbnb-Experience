@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import Register from './Register'
 import { DateRangePicker, RangeSlider } from 'rsuite'
 import 'rsuite/dist/rsuite.min.css'
+import { getPayLoad } from './Helpers/auth'
 
 
 const Navbar = () => {
@@ -19,6 +20,14 @@ const Navbar = () => {
   let categoryString = ''
   let categories = new Array
 
+
+  // !!!!!!!!!!!
+  const location = useLocation()
+
+  useEffect(() => {
+
+  }, [location.pathname])
+  // !!!!!!!!!!!
 
   // Toggle navbar background transparency
   window.addEventListener('scroll', function () {
@@ -350,8 +359,46 @@ const Navbar = () => {
     })
   }
 
+  // !!!!!!!!!!!!!!!!!!!
+
+  const userIsAuthenticated = () => {
+    const payload = getPayLoad()
+    if (!payload) return false
+    const now = Math.round(Date.now() / 1000)
+    return now < payload.exp
+  }
+
+  const handleLogout = () => {
+    window.localStorage.removeItem('token')
+    history.push('/')
+  }
+
   return (
     <div className='ui top fixed menu borderless toggle-background'>
+      {/* !!!!!!!!!!!!!!!!!!!!!!!!!! */}
+      <div className='ui top fixed menu borderless'>
+        {/* Im so sorry Anna, we are adding in this button to link to register */}
+        {!userIsAuthenticated() ?
+          <>
+            <Link to='/register'>
+              <button>Register</button>yarn serve
+            </Link>
+            <Link to='/login'>
+              <button>Login</button>
+            </Link>
+          </>
+          :
+          <button onClick={handleLogout}>Log out</button>
+        }
+        {userIsAuthenticated() &&
+          <Link to="/experiences/new">
+            <button>
+              Add a new experience
+            </button>
+          </Link>
+        }
+      </div>
+      {/* !!!!!!!!!!!!!!!!!!!!!!!!!! */}
       <div className='ui left item'>
         <img className='ui image small' src='https://res.cloudinary.com/dulbdr0in/image/upload/v1636747530/logo-experience-new_zrfthh.png' />
       </div>

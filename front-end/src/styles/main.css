@@ -848,6 +848,14 @@ div.rs-slider-handle.active:before {
   padding: 20px 0px;
 }
 
+.whole-segment {
+  position: absolute;
+  /* background-color: rgba(255, 0, 0, 0.212); */
+  z-index: 100;
+  height: 250px;
+  width: 100%;
+}
+
 .experience-image {
   height: 250px;
   border-radius: 13px;
@@ -863,6 +871,7 @@ div.rs-slider-handle.active:before {
 .header {
   display: flex;
   justify-content: space-between;
+  
 }
 
 #heart {
@@ -895,14 +904,34 @@ div.rs-slider-handle.active:before {
   height: 100vh;
   background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png');
   background-size: no-repeat;
-}
+} 
 
-.map-container {
+ .map-container {
   position: fixed;
   width: 900px;
   height: 100vh;
 }
 
+.map-display-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.map-display-container {
+  position: absolute;
+  width: 100%;
+  height: 50vh;
+}
+
+.toggled {
+  background-color: black;
+  color: white;
+  border-radius: 14px;
+  font-size: 15px;
+  padding: 5px;
+  z-index: 400 !important; 
+}
 
 .price-marker {
   background-color: white;
@@ -910,6 +939,7 @@ div.rs-slider-handle.active:before {
   border-radius: 14px;
   font-size: 15px;
   padding: 5px;
+  z-index: unset;
 }
 :hover.price-marker {
   background-color: black;
@@ -952,7 +982,21 @@ div.rs-slider-handle.active:before {
 }
 /* End of Experiences.js */
 
+/* Add New Experience */
 
+.form-wrapper {
+  margin-top: 150px;
+  background-color: rgba(128, 128, 128, 0.301);
+}
+
+.new-experience-form {
+  margin-left: 175px;
+  margin-right: 175px;
+  background-color: white;
+  padding: 40px;
+  
+
+}
 
 
 
@@ -967,12 +1011,87 @@ div.rs-slider-handle.active:before {
   flex-direction: column;
   margin: auto 0; */
 }
+
+.star-rating {
+  color: #FF385C !important;
+}
+
 .rlss-container {
   display: flex;
   justify-content: space-between;
 }
 
+.rating-share-container {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-favourite-icon {
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.main-favourite-icon:hover {
+  color: #FF385C;
+}
+
+/* Circle icon between rating and location - just below main header */
+/* .circle-icon {
+  position: fixed;
+  top: 10px
+} */
+
+/* Image Grid Start */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+  /* border: 1px solid red; */
+}
+
+.main-image {
+  height: 440px;
+  width: 300px;
+  background-size: cover !important;
+  background-position: center;
+}
+
 .experience-img-0 {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.experience-img-1 {
+  
+}
+
+.image-innner-grid {
+  display: grid;
+  max-height: 440px;
+  max-width: 200px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 8px;
+}
+
+.experience-img-2,
+.experience-img-3 {
+  max-height: 215px;
+  max-width: 200px;
+}
+
+.experience-img-4 {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+
+/* Image Grid End */
+
+/* .experience-img-0 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
@@ -990,7 +1109,7 @@ div.rs-slider-handle.active:before {
 .experience-img-4 {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-}
+} */
 
 .rating-location {
   display: flex;
@@ -1000,11 +1119,119 @@ div.rs-slider-handle.active:before {
   border: 1px solid red;
 }
 
+/* Experience Hosted by Start */
+.host-title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.experience-details {
+  display: flex;
+}
+
+/* Experience hosted by End */
+
+/* Whats included card start */
+.whats-included-container {
+  display: flex;
+  flex-direction: column;
+}
+.whats-included-card {
+  padding: 20px !important;
+}
+/* Whats included card end */
+
+/* Meet your host start */
+.meet-your-host-header {
+  display: flex;
+}
+
+.myh-image {
+  width: 70px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.myh-text {
+  padding-top: 20px;
+}
+/* Meet your host end */
+
 .exploring-cards {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
+
+/* Similar Experiences Start */
+
+.similar-experience-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.similar-experience-card {
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.similar-experiences-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+  padding: 10px;
+}
+
+.similar-experience-link {
+  color: rgb(80, 80, 80);
+}
+
+.card-title {
+  font-size: 15px;
+  padding-top: 10px;
+  margin-left: 10px;
+}
+
+.similar-experience-rating {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.card-price {
+  margin-left: 10px;
+}
+
+/* Similar Experiences End */
+
+/* div.rating-share-icons {
+  border: 1px solid red;
+} */
+
+
+/* .ui.container {
+  width: 400px;
+} */
+
+/* Things to know start  */
+
+div.things-to-know-container {
+  padding-left: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+div.things-to-know-container div.things-to-know-element {
+  width: 300px;
+}
+
+/* Things to know end */
 
 /* Keep exporing  */
 .ui.card.experience-card {
@@ -1015,15 +1242,50 @@ div.rs-slider-handle.active:before {
   align-items: center;
 }
 
-/* div.rating-share-icons {
-  border: 1px solid red;
+.similar-experiences-card {
+  position: relative;
+}
+
+/* Heart Icon within Similar experience component */
+.heart-favourite-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: rgb(248, 248, 248);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+/* Heart Icon within Similar experience component */
+.heart-favourite-icon:hover {
+  color: #FF385C;
+}
+
+/* Reviews Component Start */
+.review-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  
+}
+
+/* .review-card {
+
 } */
 
+/* Reviews Component End */
 
-/* .ui.container {
-  width: 400px;
-} */
+
 /* Experience Component End */
+
+/* ExperienceForm Component Start */
+
+.form-container {
+  position: relative;
+  top: 100px;
+}
+
+/* ExperienceForm Component End */
 
 /* 
 
