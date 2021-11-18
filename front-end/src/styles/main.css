@@ -1059,6 +1059,12 @@ div.rs-slider-handle.active:before {
   background-position: center;
 }
 
+.experience-img-single {
+  height: 440px;
+  width: 1125px;
+  border-radius: 12px;
+}
+
 .experience-img-0 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
