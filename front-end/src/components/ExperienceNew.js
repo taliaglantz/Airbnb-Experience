@@ -10,10 +10,31 @@ const ExperienceNew = () => {
     name: '',
     location: '',
     duration: '',
+    locationCoord: 
+      {
+        latitude: '',
+        longitude: ''
+      },
+    date: 
+      [
+        {
+          day: '',
+          month: '11',
+          year: '2021'
+        }
+      ],
     description: '',
-    categories: '',
+    category: '',
+    //image: ''
     price: '',
+    thingsToKnow: 
+    [
+      { text: '' },
+      { text: '' },
+      { text: '' }
+    ],
     languages: '',
+    whatIsIncluded: [''],
     uploadImage: ''
   })
 
@@ -21,9 +42,11 @@ const ExperienceNew = () => {
   const [errorData, setErrorData] = useState({
     name: '',
     location: '',
+    longitude: '',
+    latitude: '',
     duration: '',
     description: '',
-    categories: '',
+    category: '',
     price: '',
     languages: '',
     uploadImage: ''
