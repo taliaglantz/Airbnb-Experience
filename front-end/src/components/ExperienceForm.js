@@ -6,7 +6,7 @@ import { ImageUploadField } from '../components/ImageUploadField'
 const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, handleInputChanges, handleDateChanges, handleThingsToKnowChanges }) => {
 
   const handleImageUrl = (url) => {
-    setFormData({ ...formData, uploadImage: url })
+    setFormData({ ...formData, image: url })
   }
 
   // const categories = [
@@ -121,7 +121,7 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
           <div>
             <ImageUploadField
               value={formData.uploadImage}
-              name="uploadImage"
+              name="image"
               handleImageUrl={handleImageUrl}
             />
           </div> 

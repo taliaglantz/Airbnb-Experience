@@ -42,7 +42,7 @@ const ExperienceNew = () => {
     ],
     languages: '',
     whatIsIncluded: '',
-    uploadImage: ''
+    image: ''
   })
 
 
@@ -79,7 +79,7 @@ const ExperienceNew = () => {
     ],
     languages: '',
     whatIsIncluded: [''],
-    uploadImage: ''
+    image: ''
   })
 
   // const handleChange = (event) => {
@@ -152,7 +152,7 @@ const ExperienceNew = () => {
         formData,
         {
           headers: { 
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTk2MmZmY2RhY2Q0NmQzZWM2MjcxMDQiLCJpYXQiOjE2MzcyMzkyMjYsImV4cCI6MTYzNzQ5ODQyNn0.C3K1Tyhee0ZC_6FxT4oSJv_zuGH8N0J9CXhDsJTSgZc' }
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTk2MWMxNzNjNzgzYjg2Zjg2MTVkNzciLCJpYXQiOjE2MzcyNzY0NDEsImV4cCI6MTYzNzUzNTY0MX0.rTwzI-0TSBNJOSf-Bn8DSWOUYdu4Vbfj0ATTWkHJAGc' }
         }
       )
     } catch (err) {

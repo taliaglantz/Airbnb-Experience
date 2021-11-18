@@ -25,6 +25,7 @@ const Experience = () => {
         // const { data } = await axios.get('/api/experiences/6193b7384e537fcd049ed78e')
         // const { data } = await axios.get('/api/experiences/618e5589869bf3b103dcbda5')
         // console.log('Data ->', data)
+        window.scrollTo(0, 0)
         setExperience(data)
       } catch (err) {
         console.log('Error Getting Experience ->', err)
@@ -34,10 +35,9 @@ const Experience = () => {
     getData()
   }, [id])
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  // console.log('Experience', experience.thingsToKnow !== undefined &&  experience.thingsToKnow[0].length === 1 ? experience.thingsToKnow[0].header : 'Loading...')
 
+  console.log(experience.thingsToKnow)
 
   const getTokenFromLocalStorage = () => {
     return window.localStorage.getItem('token')
