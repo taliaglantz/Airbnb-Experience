@@ -990,12 +990,14 @@ div.rs-slider-handle.active:before {
 }
 
 .new-experience-form {
-  margin-left: 175px;
-  margin-right: 175px;
+  margin-left: 250px;
+  margin-right: 250px;
   background-color: white;
   padding: 40px;
-  
+}
 
+.submit-button {
+  padding: 50px 0px;
 }
 
 
