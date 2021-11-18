@@ -34,7 +34,8 @@ const ExperienceNew = () => {
       { text: '' }
     ],
     languages: '',
-    whatIsIncluded: ['']
+    whatIsIncluded: [''],
+    uploadImage: ''
   })
 
 
@@ -47,7 +48,8 @@ const ExperienceNew = () => {
     description: '',
     category: '',
     price: '',
-    languages: ''
+    languages: '',
+    uploadImage: ''
   })
 
   const handleChange = (event) => {
@@ -81,6 +83,7 @@ const ExperienceNew = () => {
           handleChange={handleChange}
           formData={formData}
           errors={errorData}
+          setFormData={setFormData}
         />
       </div>
     </section>

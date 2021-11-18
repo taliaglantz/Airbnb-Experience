@@ -1,7 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { Form } from 'semantic-ui-react'
+// import { Form, Button, TextArea, Input, Select } from 'semantic-ui-react'
+import { ImageUploadField } from '../components/ImageUploadField'
 
-const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
+const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData }) => {
+
+  const handleImageUrl = (url) => {
+    setFormData({ ...formData, uploadImage: url })
+  }
 
   const categories = [
     {
@@ -91,12 +98,19 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData }) => {
             <Form.Input width={5} placeholder='e.g. Tickets' />
           </Form.Field>
 
+          <div>
+            <ImageUploadField
+              value={formData.uploadImage}
+              name="uploadImage"
+              handleImageUrl={handleImageUrl}
+            />
+          </div>
+
           <Form.Button>Submit Experience</Form.Button>
 
         </Form>
       </div>
     </div>
-
     
   )
 }
