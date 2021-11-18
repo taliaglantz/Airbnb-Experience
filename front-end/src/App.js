@@ -9,6 +9,7 @@ import ExperienceNew from './components/ExperienceNew'
 import ExperienceEdit from './components/ExperienceEdit'
 import RegisterDraft from './components/RegisterDraft'
 import LoginDraft from './components/LoginDraft'
+import FavouritesDraft from './components/FavouritesDraft'
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/experiences/:id/edit" component={ExperienceEdit}/>
         <Route exact path="/register" component={RegisterDraft}/>
         <Route exact path="/login" component={LoginDraft}/>
+        <Route exact path="/favourites" component={FavouritesDraft}/>
       </Switch>
     </BrowserRouter>
   )

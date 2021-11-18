@@ -16,6 +16,7 @@ const Experience = () => {
   const { id } = useParams()
   const history = useHistory()
   //const [images, setImages] = useState([])
+  const [favourites, setFavourites] = useState([])
 
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const Experience = () => {
       }
     }
     getData()
+    getExperienceFromLocalStorage()
   }, [id])
 
 
@@ -176,6 +178,23 @@ const Experience = () => {
     })
   }
 
+  //!!!! FAVOURITES
+
+  const getExperienceFromLocalStorage = () => { 
+    const retrievedData = window.localStorage.getItem('favourites')
+    if (!retrievedData) return
+    const faves = JSON.parse(retrievedData)
+    setFavourites(faves)
+  }
+
+  const setExperienceToLocalStorage = (event) => {
+    const newFavourite = event.target.id 
+    const newFaves = [...favourites, newFavourite]
+    const addFave = JSON.stringify(newFaves)
+    window.localStorage.setItem('favourites', addFave)
+  }
+
+  //!!!! FAVOURITES
 
   return (
     <>
@@ -206,7 +225,7 @@ const Experience = () => {
                   </div>
                   <div>
                     <i aria-hidden="true" className="share square outline icon"></i>
-                    <Icon name='heart outline' className="main-favourite-icon" data-id={experience._id}/>
+                    <Icon name='heart outline' className="main-favourite-icon" data-id={experience._id} ID={experience._id} onClick={setExperienceToLocalStorage} />
                   </div>
                 </div>
               </Container>

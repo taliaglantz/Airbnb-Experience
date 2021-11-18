@@ -386,6 +386,9 @@ const Navbar = () => {
             <Link to='/login'>
               <button>Login</button>
             </Link>
+            <Link to='/favourites'>
+              <button>Favourites</button>
+            </Link>
           </>
           :
           <button onClick={handleLogout}>Log out</button>

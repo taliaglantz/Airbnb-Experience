@@ -857,8 +857,10 @@ div.rs-slider-handle.active:before {
 }
 
 .experience-image {
-  height: 250px;
-  border-radius: 13px;
+  height: 190px;
+  border-radius: 12px;
+  background-position: center;
+  background-size: cover;
 }
 
 .right-content {
@@ -876,6 +878,13 @@ div.rs-slider-handle.active:before {
 
 #heart {
   color: black;
+  position: absolute;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+#heart:hover {
+  color: #FF385C;
 }
 
 .what-we-will-do {

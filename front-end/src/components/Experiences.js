@@ -138,7 +138,7 @@ const Experiences = () => {
           <Container>
             <div className='header-div'>
               <p>{experiences.length} experiences</p>
-              <Header as='h3'>Experiences in London</Header>
+              <Header as='h4'>Experiences in London</Header>
               <p>Review COVID-19 travel restrictions before you book. <a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
             </div>
             <div>
@@ -149,14 +149,14 @@ const Experiences = () => {
                     return (
 
                       <div className='experience-segment' key={experience._id}>
-                        
+
                         <Link to={`/experiences/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
-                          
+
                         </Link>
-                      
-                        <div>
+                        <div className='experience-image' style={{ background: `url(${experience.image[0]})` }} />
+                        {/* <div>
                           <img className='experience-image' src={experience.image[0]} />
-                        </div>
+                        </div> */}
 
                         <div className='right-content'>
                           <div>
@@ -172,7 +172,7 @@ const Experiences = () => {
                           </div>
                           <div className='reviews-and-price'>
                             <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
-                            <h5><strong>From {experience.price}</strong>/person</h5>
+                            <p><strong>From {experience.price}</strong>/person</p>
                           </div>
                           <div>
                             <Divider />
@@ -187,7 +187,7 @@ const Experiences = () => {
                   })}
                 </div>
                 :
-                <h2>{hasError ? 'Something has gone wrong!' : 'loading experiences...'}</h2>
+                <h2>{hasError ? 'Something has gone wrong!' : 'Loading experiences...'}</h2>
               }
             </div>
           </Container>
