@@ -4,9 +4,10 @@ import Register from './Register'
 import Login from './Login'
 import NewUser from './NewUser'
 import SeeYou from './SeeYou'
-import { DateRangePicker, RangeSlider } from 'rsuite'
+import { DateRangePicker, RangeSlider, Rate } from 'rsuite'
 import 'rsuite/dist/rsuite.min.css'
 import { getPayLoad } from './Helpers/auth'
+import axios from 'axios'
 
 const Navbar = () => {
   const history = useHistory()
@@ -23,15 +24,17 @@ const Navbar = () => {
   const [displayDates, setDisplayDates] = useState('Select dates')
   const [startDate, setStartDate] = useState('Start date')
   const [endDate, setEndDate] = useState('end date')
+  const [minRating, setMinRating] = useState(0)
   const [newRange, setNewRange] = useState(true)
-  let categoryString = ''
-  let categories = new Array
-
+  const [averagePrice, setAveragePrice] = useState('0')
+  const [categoryString, setCategoryString] = useState('')
+  const [categories] = useState([])
 
   useEffect(() => {
-    console.log(location.pathname)
     if (location.pathname === '/experiences') {
       setOpenFilters(true)
+      getAveragePrice()
+
     } else {
       setOpenFilters(false)
       setDatePicker(false)
@@ -162,11 +165,26 @@ const Navbar = () => {
   // ! Filters 
 
   const setFilter = () => {
-    console.log(location)
     history.push({
       pathname: '/experiences',
-      search: `cat=${categoryString}&from=${startDate}&to=${endDate}&pricemin=${price[0]}&pricemax=${price[1]}`
+      search: `cat=${categoryString}&from=${startDate}&to=${endDate}&pricemin=${price[0]}&pricemax=${price[1]}&rating=${minRating}`
     })
+  }
+
+  const getAveragePrice = async () => {
+    let average
+    try {
+      const { data } = await axios.get('/api/experiences')
+      average = Math.floor(data.reduce((acc, experience) => {
+        let price = experience.price.split('')
+        price.shift()
+        price = price.join('')
+        return (acc += Number(price))
+      }, 0) / data.length)
+      setAveragePrice(String(average))
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const priceFilter = (
@@ -178,7 +196,7 @@ const Navbar = () => {
         </div>
         <div className='dropdown-content-filters'>
           <div className='dropdown-filters'>
-            <p>The average price of an experience is £73</p>
+            <p>The average price of an experience is £ {averagePrice}</p>
             <RangeSlider
               max={250}
               defaultValue={[25, 250]}
@@ -246,11 +264,20 @@ const Navbar = () => {
           <i className='angle down icon' />
         </div>
         <div className='dropdown-content-filters'>
-          <div className='dropdown-item'>Rating content</div>
+          <div className='dropdown-filters'>
+            <p>Minimum rating of an experience:</p>
+            < Rate defaultValue={2.5} allowHalf onChange={(rating) => setMinRating(rating)} />
+            <div>
+              <hr />
+            </div>
+            <button className='ui secondary button price-search' onClick={setFilter}>Search</button>
+          </div>
         </div>
       </div>
+
     </div>
   )
+
 
   const languageFilter = (
     <div className='ui item dropdown'>
@@ -260,7 +287,7 @@ const Navbar = () => {
           <i className='angle down icon' />
         </div>
         <div className='dropdown-content-filters'>
-          <div className='dropdown-item'>Language content</div>
+          {/* <div className='dropdown-item'>Language content</div> */}
         </div>
       </div>
     </div>
@@ -365,20 +392,24 @@ const Navbar = () => {
     button.classList.toggle('active')
     if (button.classList.contains('active')) {
       categories.push(selected)
-    } else {
-      categories = categories.filter(item => item !== selected)
     }
+    if (!button.classList.contains('active')) {
+      categories.splice(categories.indexOf(selected), 1)
+    }
+    let string
     if (categories.length) {
-      categoryString = categories.join('_')
+      string = categories.join('_')
     } else {
-      categoryString = ''
+      string = ''
     }
-    console.log(location)
-    history.push({
-      pathname: '/experiences',
-      search: `cat=${categoryString}&from=${startDate}&to=${endDate}&pricemin=${price[0]}&pricemax=${price[1]}`
-    })
+    setCategoryString(string)
   }
+
+  useEffect(() => {
+    console.log('running')
+  
+    setFilter()
+  }, [categoryString])
 
   // !!!!!!!!!!!!!!!!!!!
 
@@ -412,7 +443,9 @@ const Navbar = () => {
       }} >
         Add a new experience
       </div>
-      <div className='dropdown-item'>Edit profile</div>
+      <div onClick={() => {
+        redirect('/profile')
+      }} className='dropdown-item'>User profile</div>
       <hr />
       <div className='dropdown-item' onClick={handleLogout}>Log out</div>
     </>
@@ -422,6 +455,7 @@ const Navbar = () => {
     <div className='ui top fixed menu borderless toggle-background'>
       <div onClick={() => {
         redirect('/')
+        categories.splice(0, categories.length)
       }} className='ui left item'>
         <img className='ui image small' src='https://res.cloudinary.com/dulbdr0in/image/upload/v1636747530/logo-experience-new_zrfthh.png' />
       </div>

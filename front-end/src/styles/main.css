@@ -14,7 +14,7 @@
 
 /* ! Main variables */
 :root {
-  
+  --rs-rate-symbol-checked: #fc405f !important;
   --rs-text-active: black !important;
   --rs-btn-subtle-text: black !important;
   --rs-btn-subtle-hover-text: black !important;
@@ -810,6 +810,20 @@ select:-webkit-autofill:active {
 
 .large {
   font-size: 16px !important; 
+}
+
+.rs-rate {
+  position: relative;
+  display: inline-flex;
+  color: var(--rs-rate-symbol-checked);
+  list-style: none;
+  vertical-align: middle;
+  margin: 72px auto !important;
+}
+
+.rs-icon, .rs-rate-character-half, .rs-rate-character-full, .rs-rate-character-empty  {     
+  height: 18px !important;
+  width: 18px !important;
 }
 
 .search-icon {

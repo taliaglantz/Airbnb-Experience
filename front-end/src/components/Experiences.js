@@ -13,6 +13,7 @@ const Experiences = () => {
   const to = new Date(new URLSearchParams(search).get('to'))
   const minPrice = Number(new URLSearchParams(search).get('pricemin'))
   const maxPrice = Number(new URLSearchParams(search).get('pricemax'))
+  const minRating = Number(new URLSearchParams(search).get('rating'))
 
   const [experiences, setExperiences] = useState([])
   const [hasError, setHasError] = useState(false)
@@ -49,6 +50,13 @@ const Experiences = () => {
     }
   }
 
+  const checkRating = (experience) => {
+    const rating = parseFloat(experience.averageRating)
+    return (
+      rating >= minRating ? true : false
+    )
+  }
+
   const filterExperiences = (experiences) => {
     const categories = categoriesString.split('_')
     let filtered = experiences
@@ -60,6 +68,9 @@ const Experiences = () => {
     }
     if (minPrice && maxPrice) {
       filtered = filtered.filter(experience => checkPrice(experience))
+    }
+    if (minRating >= 0) {
+      filtered = filtered.filter(experience => checkRating(experience))
     }
     setExperiences(filtered)
   }
@@ -94,9 +105,9 @@ const Experiences = () => {
 
   // when mouse enters, price-marker class is removed and togggled is added -> button turns black
   const mouseEnter = (event) => {
-    console.log(event.target)
+    // console.log(event.target)
     const mapElement = document.getElementById(`button-${event.target.id}`)
-    console.log('mapElement->', mapElement)
+    // console.log('mapElement->', mapElement)
     if (mapElement) {
       mapElement.classList.remove('price-marker')
       mapElement.classList.add('toggled')
@@ -105,9 +116,9 @@ const Experiences = () => {
 
   // when mouse leaves, toggled class is removed and price-marker is added -> button turns white
   const mouseLeave = (event) => {
-    console.log(event.target)
+    // console.log(event.target)
     const mapElement = document.getElementById(`button-${event.target.id}`)
-    console.log('mapElement->', mapElement)
+    // console.log('mapElement->', mapElement)
 
     if (mapElement) {
       mapElement.classList.add('price-marker')
@@ -127,7 +138,7 @@ const Experiences = () => {
 
   //console.log(viewport)
   // console.log(popup)
-  console.log('EXPERIENCES ->', experiences)
+  // console.log('EXPERIENCES ->', experiences)
   return (
     <Grid divided='vertically'>
       <Grid.Row columns={2} >
