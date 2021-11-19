@@ -51,7 +51,7 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
     <div className='form-wrapper'>
       <div className='new-experience-form'>
         <div>
-          <Header as='h2' textAlign='center'>
+          <Header as='h1' textAlign='center'>
             <Header.Content>Add a new experience</Header.Content>
           </Header>
         </div>
@@ -73,11 +73,11 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
 
           <Form.Input label='Latitude' width={4}>
             {/* <input onChange={handleChange} value={formData.locationCoord.latitude} name='latitude' placeholder='e.g. 51.5072' /> */}
-            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.latitude} name='latitude' placeholder='e.g. 51.5072' />
+            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.latitude} name='latitude' placeholder='e.g. 51.5072' type="number"/>
           </Form.Input>
           
           <Form.Input label='Longitude' width={4}>
-            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.longitude} name='longitude' placeholder='e.g. 0.1276' />
+            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.longitude} name='longitude' placeholder='e.g. 0.1276' type="number"/>
           </Form.Input>
 
           <Form.Group>
@@ -95,6 +95,14 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
           <Form.Input width={4} label='Description'>
             <input onChange={handleInputChanges()} value={formData.description} name='description' placeholder='Tell us about your experience' />
           </Form.Input>
+
+          <Form.Field>
+            <ImageUploadField
+              value={formData.uploadImage}
+              name="image"
+              handleImageUrl={handleImageUrl}
+            />
+          </Form.Field>
 
           <Form.Input label='Category' width={4}>
             <input onChange={handleInputChanges()} value={formData.category} name='category' placeholder='Please select a category' />
@@ -117,14 +125,6 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
               <input onChange={handleThingsToKnowChanges('thingsToKnow')} value={formData.thingsToKnow[0].text} name='thingsToKnow' placeholder='e.g Bring wellington boots' />
             </Form.Input>
           </Form.Group>
-
-          <div>
-            <ImageUploadField
-              value={formData.uploadImage}
-              name="image"
-              handleImageUrl={handleImageUrl}
-            />
-          </div> 
 
           {/* <Form.Input width={4} label='locationCoord.longitude'>
             <input onChange={handleChange} value={formData.locationCoord.longitude} name='locationCoord.longitude' placeholder='e.g. 0.1276' />

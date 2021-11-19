@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-// import { getTokenFromLocalStorage } from './Helpers/auth'
+import { getTokenFromLocalStorage } from './Helpers/auth'
 import ExperienceForm from './ExperienceForm'
 
 
@@ -102,7 +102,7 @@ const ExperienceNew = () => {
         ...formData,
         [level]: {
           ...formData[level],
-          [e.target.name]: e.target.value
+          [e.target.name]: parseFloat(e.target.value)
         }
       })
     }
@@ -152,7 +152,7 @@ const ExperienceNew = () => {
         formData,
         {
           headers: { 
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTk2MWMxNzNjNzgzYjg2Zjg2MTVkNzciLCJpYXQiOjE2MzcyNzY0NDEsImV4cCI6MTYzNzUzNTY0MX0.rTwzI-0TSBNJOSf-Bn8DSWOUYdu4Vbfj0ATTWkHJAGc' }
+            Authorization: `Bearer ${getTokenFromLocalStorage()}`  }
         }
       )
     } catch (err) {
