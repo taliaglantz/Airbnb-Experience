@@ -2,7 +2,7 @@
 @import url('stylesheet.css');
 
 /* ! Main theme color */
-.theme-color {
+.coral {
   color:#fc405f !important; 
 }
 
@@ -349,13 +349,9 @@ body .black {
   margin-bottom: 20px;
 }
 
-
-.ui.input {
-  width: 168px !important;
-} 
-
 .price-input {
   height: 60px !important;
+  width: 168px !important;
 }
 
 .price-input > input {
@@ -365,7 +361,7 @@ body .black {
   border-radius: 12px !important;
 }
 
-.price-input-label {
+.input-label {
   top: 7px;
   left: 12px !important;
   display: flex;
@@ -378,7 +374,7 @@ body .black {
 
 }
 
-.price-input-label > p:first-child {
+.input-label > p:first-child {
   font-family: 'airbnb_cereal_applight' !important;
   font-size: 12px;
 }
@@ -513,6 +509,103 @@ div.rs-slider-handle.active:before {
   box-shadow: none !important;
   display: none !important;
 }
+
+/* ! Forms Sign up and Log in */
+
+.user-message {
+  margin: 0 10px;
+}
+
+.popup-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.popup-title {
+  margin-left: 35px;
+  margin-bottom: 20px;
+}
+
+.popup-form-container {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50px;
+}
+
+.input-field {
+  height: 56px !important;
+  width: 350px !important;
+}
+
+.input-field > input {
+  font-size: 16px;
+  padding-top: 30px !important;
+  padding-left: 10px !important;
+  border-radius: 0px !important;
+  margin-top: -1px !important;
+}
+
+.input-field.first > input {
+  border-top-left-radius: 12px !important; 
+  border-top-right-radius: 12px !important;
+}
+
+.input-field.last > input {
+  border-bottom-left-radius: 12px !important; 
+  border-bottom-right-radius: 12px !important;
+}
+
+.ui.input>input:focus {
+  outline: 1px solid rgb(0, 0, 0) !important;
+  outline-offset: -2px;
+  z-index: 200px !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus, 
+select:-webkit-autofill:active {
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0px 1000px rgb(250, 250, 250) inset !important;
+}
+
+.coral-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fc405f;
+  color: white;
+  border-radius: 12px;
+  width: 350px !important;
+  height: 40px !important;
+  margin: 35px 0;
+}
+
+.coral-button:hover {
+  background-color: #fd5672;
+
+}
+
+/* .input-label {
+  top: 7px;
+  left: 12px !important;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+} */
 
 
 /* ! Date picker - large button (Location & Date) */
@@ -685,7 +778,7 @@ div.rs-slider-handle.active:before {
   border-radius: 12px;
   display: none;
   position: absolute;
-  transform: translate(calc(-100% + 73.2px));
+  right: 15px;
   background-color: white;
   box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
   z-index: 1;
@@ -740,6 +833,14 @@ div.rs-slider-handle.active:before {
   padding: 10px;
 }
 
+.close {
+  position: absolute !important;
+  margin-top: 15px !important;
+  margin-left: 15px !important;
+  font-size: 18px !important;
+  color: rgb(210, 210, 210);
+}
+
 .large-icon {
   font-family: 'airbnb_cereal_appblack';
   font-size: 16px;
@@ -775,7 +876,9 @@ div.rs-slider-handle.active:before {
 } 
 
 .popup-window {
+  width: 420px;
   background-color: white !important;
+  border-radius: 24px !important;
 }
 
 /* ! Home page categories */
@@ -817,17 +920,23 @@ div.rs-slider-handle.active:before {
 .explore {
   width: 175px;
   margin-top: 24px;
-  background-color: white;
+  background-color: black;
   border-radius: 12px;
-  padding: 14px;
+  padding: 10px;
+  color: white !important;
+  box-shadow:  0 0px 3px 0px rgb(255 255 255 / 60%);
+}
+
+.explore:hover {
+  background-color: rgb(255, 255, 255);
   color: black !important;
-  border: 1px solid rgb(220, 220, 220);
-  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  box-shadow: none;
 }
 
 /* ! Home page inspirations */
 
 .inspiration-image {
+  min-width: 250px;
   height: 320px;
   background-size: cover !important;
   background-position: center;
@@ -916,7 +1025,7 @@ div.rs-slider-handle.active:before {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png');
+  /* background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png'); */
   background-size: no-repeat;
 } 
 
@@ -999,7 +1108,7 @@ div.rs-slider-handle.active:before {
 /* Add New Experience */
 
 .form-wrapper {
-  margin-top: 150px;
+  margin-top: 74px !important;
   background-color: rgba(128, 128, 128, 0.301);
 }
 
@@ -1008,6 +1117,7 @@ div.rs-slider-handle.active:before {
   margin-right: 250px;
   background-color: white;
   padding: 40px;
+  padding-top: 50px;
 }
 
 .submit-button {
@@ -1054,8 +1164,6 @@ div.rs-slider-handle.active:before {
   margin-left: 10px;
 }
 
-
-
 /* Experience Component Start */
 
 .experiences-container {
@@ -1068,7 +1176,7 @@ div.rs-slider-handle.active:before {
 }
 
 .star-rating {
-  color: #FF385C !important;
+  color: #fc405f !important;
 }
 
 .rlss-container {
@@ -1090,7 +1198,7 @@ div.rs-slider-handle.active:before {
 }
 
 .main-favourite-icon:hover {
-  color: #FF385C;
+  color: #fc405f;
 }
 
 /* Circle icon between rating and location - just below main header */
@@ -1114,13 +1222,15 @@ div.rs-slider-handle.active:before {
   background-position: center;
 }
 
+.experience-img-single {
+  height: 440px;
+  width: 1125px;
+  border-radius: 12px;
+}
+
 .experience-img-0 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
-}
-
-.experience-img-1 {
-  
 }
 
 .image-innner-grid {
@@ -1313,7 +1423,7 @@ div.things-to-know-container div.things-to-know-element {
 
 /* Heart Icon within Similar experience component */
 .heart-favourite-icon:hover {
-  color: #FF385C;
+  color: #fc405f;
 }
 
 .heart-favourite-icon:active {
@@ -1333,6 +1443,16 @@ div.things-to-know-container div.things-to-know-element {
 } */
 
 /* Reviews Component End */
+
+/* Experience error */
+.experience-error {
+  height: 80vh;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* Experience Component End */

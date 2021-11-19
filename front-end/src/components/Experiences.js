@@ -149,54 +149,50 @@ const Experiences = () => {
                   {experiences.map(experience => {
                     return (
 
+
                       <div className='experience-segment' key={experience._id}>
 
-                        <Link to={`/experiences/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
+                        <Link to={`/experiences/experience/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
 
                         </Link>
-                        <div className='experience-image' style={{ background: `url(${experience.image[0]})` }} />
-                        {/* <div>
-                          <img className='experience-image' src={experience.image[0]} />
-                        </div> */}
+                        <div className='experience-image' style={{ background: `url(${experience.image[0]})` }}>
+                          <div className='right-content'>
+                            <div>
+                              <p>{experience.category} in {experience.location}</p>
+                              <div className='header'>
+                                <h4>{experience.name}</h4>
+                                <Icon id='heart' name='heart outline' size='big' />
+                              </div>
 
-                        <div className='right-content'>
-                          <div>
-                            <p>{experience.category} in {experience.location}</p>
-                            <div className='header'>
-                              <h4>{experience.name}</h4>
-                              <Icon id='heart' name='heart outline' size='big' />
+                              <p className="what-we-will-do">What we&apos; ll do: </p>
+                              <p className="description">{experience.description}</p>
+                              <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
                             </div>
+                            <div className='reviews-and-price'>
+                              <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
+                              <h5><strong>From {experience.price}</strong>/person</h5>
+                            </div>
+                            <div>
 
-                            <p className="what-we-will-do">What we&apos; ll do: </p>
-                            <p className="description">{experience.description}</p>
-                            <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
+                              {/* Can't get this below the image!!!! */}
+                            </div>
                           </div>
-                          <div className='reviews-and-price'>
-                            <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
-                            <p><strong>From {experience.price}</strong>/person</p>
-                          </div>
-                          <div>
-                            <Divider />
-                            {/* Can't get this below the image!!!! */}
-                          </div>
-                        </div>
-
-
-                      </div>
-
+                        </div >
+                        <Divider />
+                      </div >
                     )
                   })}
-                </div>
+                </div >
                 :
                 <h2>{hasError ? 'Something has gone wrong!' : 'Loading experiences...'}</h2>
               }
-            </div>
-          </Container>
-        </Grid.Column>
+            </div >
+          </Container >
+        </Grid.Column >
 
         {/* Column on right */}
 
-        <Grid.Column width={7}>
+        < Grid.Column width={7} >
           <div className="map">
             <div className="map-container">
               {viewport ?
@@ -268,8 +264,8 @@ const Experiences = () => {
               }
             </div>
           </div>
-        </Grid.Column>
-      </Grid.Row>
+        </Grid.Column >
+      </Grid.Row >
     </Grid >
   )
 }
