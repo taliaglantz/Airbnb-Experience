@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-// import { getTokenFromLocalStorage } from './Helpers/auth'
+import { getTokenFromLocalStorage } from './Helpers/auth'
 import ExperienceForm from './ExperienceForm'
 
 
@@ -19,8 +19,49 @@ const ExperienceNew = () => {
       [
         {
           day: '',
-          month: '11',
-          year: '2021'
+          month: '',
+          year: ''
+        }
+      ],
+    description: '',
+    category: '',
+    price: '',
+    thingsToKnow: [
+      {
+        header: 'What to bring',
+        text: [
+          ''
+        ]
+      },
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Cancel within 24 hours of purchasing or at least 7 days before the experience starts for a full refund.'
+        ]
+      }
+    ],
+    languages: '',
+    whatIsIncluded: '',
+    image: ''
+  })
+
+
+
+  const [errorData, setErrorData] = useState({
+    name: '',
+    location: '',
+    duration: '',
+    locationCoord: 
+      {
+        latitude: '',
+        longitude: ''
+      },
+    date: 
+      [
+        {
+          day: '',
+          month: '',
+          year: ''
         }
       ],
     description: '',
@@ -29,44 +70,89 @@ const ExperienceNew = () => {
     price: '',
     thingsToKnow: 
     [
-      { text: '' },
-      { text: '' },
-      { text: '' }
+      { 
+        text: '' 
+      },
+      { 
+        text: '' 
+      }
     ],
     languages: '',
     whatIsIncluded: [''],
-    uploadImage: ''
+    image: ''
   })
 
+  // const handleChange = (event) => {
+  //   // const { target } = event
+  //   const newFormData = { ...formData, [event.target.name]: event.target.value }
+  //   console.log('Form Data ->', formData)
+  //   console.log('Event Target Value ->', event.target.value)
+  //   setFormData(newFormData)
+  //   console.log('formData - look at this one!!-> ', formData)
+  // }
 
-  const [errorData, setErrorData] = useState({
-    name: '',
-    location: '',
-    longitude: '',
-    latitude: '',
-    duration: '',
-    description: '',
-    category: '',
-    price: '',
-    languages: '',
-    uploadImage: ''
-  })
+  const handleInputChanges = level => e => {
+    if (!level) {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [level]: {
+          ...formData[level],
+          [e.target.name]: parseFloat(e.target.value)
+        }
+      })
+    }
+  }
 
-  const handleChange = (event) => {
-    const newFormData = { ...formData, [event.target.name]: event.target.value }
-    console.log('Event Target Value ->', event.target.value)
-    setFormData(newFormData)
+  // console.log(formData.date[0].day)
+
+  const handleDateChanges = level => e => {
+    if (!level) {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [level]: [{
+          ...formData.date[0],       
+          [e.target.name]: e.target.value
+        }]
+      })
+    }
+  }
+
+  const handleThingsToKnowChanges = level => e => {
+    if (!level) {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [level]: [{
+          ...formData.thingsToKnow[0],
+          ['text']: e.target.value
+        }]
+      })
+    }
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log('Form Data ->', formData)
+    console.log('Submitted Form Data ->', formData)
     try {
       await axios.post('/api/experiences',
         formData,
         {
           headers: { 
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTkzYjczMDRlNTM3ZmNkMDQ5ZWQ3MTAiLCJpYXQiOjE2MzcxNTM5OTgsImV4cCI6MTYzNzQxMzE5OH0.wbnKjZostpEfb7T7UEiY13lem400YDepCJqfyvw_JHc' }
+            Authorization: `Bearer ${getTokenFromLocalStorage()}`  }
         }
       )
     } catch (err) {
@@ -80,10 +166,12 @@ const ExperienceNew = () => {
       <div>
         <ExperienceForm
           handleSubmit={handleSubmit}
-          handleChange={handleChange}
+          handleInputChanges={handleInputChanges}
           formData={formData}
           errors={errorData}
           setFormData={setFormData}
+          handleDateChanges={handleDateChanges}
+          handleThingsToKnowChanges={handleThingsToKnowChanges}
         />
       </div>
     </section>

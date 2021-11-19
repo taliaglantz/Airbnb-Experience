@@ -1099,14 +1099,16 @@ select:-webkit-autofill:active {
 }
 
 .new-experience-form {
-  margin-left: 175px;
-  margin-right: 175px;
+  margin-left: 250px;
+  margin-right: 250px;
   background-color: white;
   padding: 40px;
   padding-top: 50px;
 }
 
-
+.submit-button {
+  padding: 50px 0px;
+}
 
 
 /* Experience Component Start */
@@ -1167,13 +1169,15 @@ select:-webkit-autofill:active {
   background-position: center;
 }
 
+.experience-img-single {
+  height: 440px;
+  width: 1125px;
+  border-radius: 12px;
+}
+
 .experience-img-0 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
-}
-
-.experience-img-1 {
-  
 }
 
 .image-innner-grid {
@@ -1382,6 +1386,16 @@ div.things-to-know-container div.things-to-know-element {
 } */
 
 /* Reviews Component End */
+
+/* Experience error */
+.experience-error {
+  height: 80vh;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* Experience Component End */
