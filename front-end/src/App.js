@@ -6,7 +6,7 @@ import Home from './components/Home'
 import Experiences from './components/Experiences'
 import Experience from './components/Experience'
 import ExperiencesMap from './components/ExperiencesMap'
-
+import UserPage from './components/UserPage'
 
 const App = () => {
 
@@ -22,6 +22,7 @@ const App = () => {
         <Route exact path='/experiences' component={Experiences} />
         <Route exact path='/experiences/:id' component={Experience} />
         <Route exact path='/experiences-map' component={ExperiencesMap} />
+        <Route exact path='/profile/:id' component={UserPage} />
       </Switch>
     </BrowserRouter>
   )
