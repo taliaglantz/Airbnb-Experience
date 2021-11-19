@@ -2,7 +2,7 @@
 @import url('stylesheet.css');
 
 /* ! Main theme color */
-.theme-color {
+.coral {
   color:#fc405f !important; 
 }
 
@@ -21,6 +21,7 @@
   --rs-btn-subtle-hover-bg: rgb(245, 245, 245)!important;
   --rs-input-focus-border: rgba(255, 255, 255, 0) !important;
   --rs-listbox-option-hover-text: none !important;
+  --rs-slider-thumb-hover-shadow: none !important;
   /* --rs-input-focus-border:#fc405f00
   --rs-state-focus-shadow:0 0 0 0px */
 }
@@ -28,6 +29,12 @@
 /* ! Body selector */
 body {
   position: relative;
+}
+
+/* ! Link */
+a.search-icon {
+  text-decoration: none !important;
+  color: white !important;
 }
 
 /* ! Column */
@@ -55,6 +62,7 @@ hr {
   margin-top: 5px !important;
   margin-bottom: 5px !important;
 }
+
 
 /* ! Text */
 /* Main sections */
@@ -117,9 +125,16 @@ body .black {
 }
 
 .ui.menu {
-  background-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
+}
+
+.toggle-background {
+  background-color: transparent !important;
+}
+
+.white {
+  background-color: white !important;
 }
 
 .rs-picker-toolbar-right > button {
@@ -294,6 +309,7 @@ body .black {
 
 /* Navbar - extednded section */
 .navbar-extended {
+  background-color: white;
   height: 100%;
   width: 100vw;
   min-width: 400px;
@@ -304,6 +320,293 @@ body .black {
   top: 74px;
   transform: translate(-50%);
 }
+
+/* ! Filters bar */
+
+.filters-bar {
+  min-width: 535px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  transform: translate(0%);
+  height: 68px;
+  /* padding: 8px 24px 12px 24px; */
+}
+
+.dropdown-filters {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 440px;
+  height: 280px;
+}
+
+
+.price-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.price-input {
+  height: 60px !important;
+  width: 168px !important;
+}
+
+.price-input > input {
+  font-size: 16px;
+  padding-top: 30px !important;
+  padding-left: 20px !important;
+  border-radius: 12px !important;
+}
+
+.input-label {
+  top: 7px;
+  left: 12px !important;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+.ui.input>input:focus {
+  border-color: black !important;
+
+}
+
+.input-label > p:first-child {
+  font-family: 'airbnb_cereal_applight' !important;
+  font-size: 12px;
+}
+
+.ui.secondary.button.price-search{
+  margin-left: auto;
+  margin-top: 10px;
+  width: 85px;
+  height: 35px !important;
+}
+
+
+
+.dropdown-filters > p {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 16px;
+}
+
+.filters-left {
+  display: flex;
+}
+
+.category-filters {
+  height: 68px;
+  overflow: hidden;
+  display: flex !important;
+  align-items: flex-end;
+  flex-wrap: wrap !important;
+}
+
+@media (max-width: 625px) {
+  .category-filters {
+    display: none !important;
+  }
+}
+
+.ui.item.dropdown {
+  padding-left: 0px !important;
+  display: block !important;
+}
+
+.filter-button {
+  font-family: 'airbnb_cereal_applight' !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 20px;
+  height: 40px !important;
+  padding: 1px 14px 0px 14px;
+  margin-left: 1px;
+}
+
+.active {
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 1px 0.2px rgb(0, 0, 0); 
+}
+
+.filter-button > p {
+  font-family: 'airbnb_cereal_applight' !important;
+}
+
+.filter-button:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.dropdown-content-filters {
+  overflow: hidden;
+  padding: 10px 0px 10px 0px;
+  margin-top: 10px;
+  min-width: 200px !important;
+  border-radius: 12px;
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+}
+
+.divider {
+  padding-right: 15px !important;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+.dropdown-content-filters.hover {
+  background-color: none !important;
+}
+
+/* ! Slider */
+.rs-slider-bar {
+  height: 2px !important;
+}
+
+input[type='range'] {
+  border: 2px solid rgb(220, 220, 220) !important;
+}
+
+.rs-slider {
+  box-shadow: none !important;
+  width: calc(100% - 40px) !important;
+  margin: 40px 20px !important;
+}
+
+
+.rs-slider-handle:before {
+  margin: -8px 0px 0px -10px !important;
+  transform: scale(1.29) !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 1px solid rgb(220, 220, 220) !important;
+  animation: none !important;
+  background: url('../assets/images/three-lines.gif'), white !important;
+  background-size: 14px !important;
+  background-position: center !important;
+}
+
+div.rs-slider-handle.active:before {
+  margin: -9.5px 0px 0px -10px !important;
+  transform: scale(1.29) !important;
+  transition: none !important;
+  /* display: none !important; */
+}
+
+
+.rs-slider-progress-bar{
+  height: 2px !important;
+  background-color: rgb(180, 180, 180) !important;
+}
+
+.rs-slider-handle:hover .rs-tooltip,
+.rs-slider-handle.active .rs-tooltip {
+  box-shadow: none !important;
+  display: none !important;
+}
+
+/* ! Forms Sign up and Log in */
+
+.user-message {
+  margin: 0 10px;
+}
+
+.popup-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.popup-title {
+  margin-left: 35px;
+  margin-bottom: 20px;
+}
+
+.popup-form-container {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50px;
+}
+
+.input-field {
+  height: 56px !important;
+  width: 350px !important;
+}
+
+.input-field > input {
+  font-size: 16px;
+  padding-top: 30px !important;
+  padding-left: 10px !important;
+  border-radius: 0px !important;
+  margin-top: -1px !important;
+}
+
+.input-field.first > input {
+  border-top-left-radius: 12px !important; 
+  border-top-right-radius: 12px !important;
+}
+
+.input-field.last > input {
+  border-bottom-left-radius: 12px !important; 
+  border-bottom-right-radius: 12px !important;
+}
+
+.ui.input>input:focus {
+  outline: 1px solid rgb(0, 0, 0) !important;
+  outline-offset: -2px;
+  z-index: 200px !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus, 
+select:-webkit-autofill:active {
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0px 1000px rgb(250, 250, 250) inset !important;
+}
+
+.coral-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fc405f;
+  color: white;
+  border-radius: 12px;
+  width: 350px !important;
+  height: 40px !important;
+  margin: 35px 0;
+}
+
+.coral-button:hover {
+  background-color: #fd5672;
+
+}
+
+/* .input-label {
+  top: 7px;
+  left: 12px !important;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+} */
+
 
 /* ! Date picker - large button (Location & Date) */
 /* Container */
@@ -472,10 +775,10 @@ body .black {
   padding: 10px 0px 10px 0px;
   margin-top: 10px;
   min-width: 200px !important;
-  border-radius: 24px;
+  border-radius: 12px;
   display: none;
   position: absolute;
-  transform: translate(calc(-100% + 73.2px));
+  right: 15px;
   background-color: white;
   box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
   z-index: 1;
@@ -499,11 +802,12 @@ body .black {
 }
 
 /* Display dropdown on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content, .dropdown:hover .dropdown-content-filters {
   display: block;
 }
 
 /* ! Icons */
+
 .large {
   font-size: 16px !important; 
 }
@@ -529,6 +833,14 @@ body .black {
   padding: 10px;
 }
 
+.close {
+  position: absolute !important;
+  margin-top: 15px !important;
+  margin-left: 15px !important;
+  font-size: 18px !important;
+  color: rgb(210, 210, 210);
+}
+
 .large-icon {
   font-family: 'airbnb_cereal_appblack';
   font-size: 16px;
@@ -539,6 +851,16 @@ body .black {
   width: 100px;
   border-radius: 24px !important;
   z-index: 102;
+}
+
+.sliders.horizontal.icon {
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+.angle.down.icon {
+  margin-left: 4px;
+  margin-right: -4px;
 }
 
 /* ! Pop-up window */
@@ -554,7 +876,9 @@ body .black {
 } 
 
 .popup-window {
+  width: 420px;
   background-color: white !important;
+  border-radius: 24px !important;
 }
 
 /* ! Home page categories */
@@ -596,18 +920,24 @@ body .black {
 .explore {
   width: 175px;
   margin-top: 24px;
-  background-color: white;
+  background-color: black;
   border-radius: 12px;
-  padding: 14px;
+  padding: 10px;
+  color: white !important;
+  box-shadow:  0 0px 3px 0px rgb(255 255 255 / 60%);
+}
+
+.explore:hover {
+  background-color: rgb(255, 255, 255);
   color: black !important;
-  border: 1px solid rgb(220, 220, 220);
-  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  box-shadow: none;
 }
 
 /* ! Home page inspirations */
 
 .inspiration-image {
-  height: 275px;
+  min-width: 250px;
+  height: 320px;
   background-size: cover !important;
   background-position: center;
 }
@@ -627,9 +957,19 @@ body .black {
   padding: 20px 0px;
 }
 
-.experience-image {
+.whole-segment {
+  position: absolute;
+  /* background-color: rgba(255, 0, 0, 0.212); */
+  z-index: 100;
   height: 250px;
-  border-radius: 13px;
+  width: 100%;
+}
+
+.experience-image {
+  height: 190px;
+  border-radius: 12px;
+  background-position: center;
+  background-size: cover;
 }
 
 .right-content {
@@ -642,10 +982,18 @@ body .black {
 .header {
   display: flex;
   justify-content: space-between;
+  
 }
 
 #heart {
   color: black;
+  position: absolute;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+#heart:hover {
+  color: #FF385C;
 }
 
 .what-we-will-do {
@@ -660,6 +1008,11 @@ body .black {
   -webkit-box-orient: vertical;
 }
 
+
+
+
+
+
 .reviews-and-price {
   display: flex;
   justify-content: space-between;
@@ -672,16 +1025,36 @@ body .black {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png');
+  /* background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png'); */
   background-size: no-repeat;
-}
+} 
 
-.map-container {
+ .map-container {
   position: fixed;
   width: 900px;
   height: 100vh;
 }
 
+.map-display-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.map-display-container {
+  position: absolute;
+  width: 100%;
+  height: 50vh;
+}
+
+.toggled {
+  background-color: black;
+  color: white;
+  border-radius: 14px;
+  font-size: 15px;
+  padding: 5px;
+  z-index: 400 !important; 
+}
 
 .price-marker {
   background-color: white;
@@ -689,6 +1062,7 @@ body .black {
   border-radius: 14px;
   font-size: 15px;
   padding: 5px;
+  z-index: unset;
 }
 :hover.price-marker {
   background-color: black;
@@ -731,10 +1105,64 @@ body .black {
 }
 /* End of Experiences.js */
 
+/* Add New Experience */
 
+.form-wrapper {
+  margin-top: 74px !important;
+  background-color: rgba(128, 128, 128, 0.301);
+}
 
+.new-experience-form {
+  margin-left: 250px;
+  margin-right: 250px;
+  background-color: white;
+  padding: 40px;
+  padding-top: 50px;
+}
 
+.submit-button {
+  padding: 50px 0px;
+}
 
+/* Favourite cards */
+
+.favourite-cards-wrapper {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+
+}
+
+/* .favourite-cards-container {
+  display: flex;
+   
+  
+}
+*/
+
+.each-favourite-cards {
+  /* display: flex;
+  justify-content: space-around; */
+  padding: 20px;
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.card-title-for-favourite-card {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  font-size: 15px;
+  padding-top: 10px;
+  margin-left: 10px;
+}
 
 /* Experience Component Start */
 
@@ -746,12 +1174,89 @@ body .black {
   flex-direction: column;
   margin: auto 0; */
 }
+
+.star-rating {
+  color: #fc405f !important;
+}
+
 .rlss-container {
   display: flex;
   justify-content: space-between;
 }
 
+.rating-share-container {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-favourite-icon {
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.main-favourite-icon:hover {
+  color: #fc405f;
+}
+
+/* Circle icon between rating and location - just below main header */
+/* .circle-icon {
+  position: fixed;
+  top: 10px
+} */
+
+/* Image Grid Start */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+  /* border: 1px solid red; */
+}
+
+.main-image {
+  height: 440px;
+  width: 300px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.experience-img-single {
+  height: 440px;
+  width: 1125px;
+  border-radius: 12px;
+}
+
 .experience-img-0 {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.image-innner-grid {
+  display: grid;
+  max-height: 440px;
+  max-width: 200px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 8px;
+}
+
+.experience-img-2,
+.experience-img-3 {
+  max-height: 215px;
+  max-width: 200px;
+}
+
+.experience-img-4 {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+
+/* Image Grid End */
+
+/* .experience-img-0 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
@@ -769,7 +1274,7 @@ body .black {
 .experience-img-4 {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-}
+} */
 
 .rating-location {
   display: flex;
@@ -779,11 +1284,119 @@ body .black {
   border: 1px solid red;
 }
 
+/* Experience Hosted by Start */
+.host-title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.experience-details {
+  display: flex;
+}
+
+/* Experience hosted by End */
+
+/* Whats included card start */
+.whats-included-container {
+  display: flex;
+  flex-direction: column;
+}
+.whats-included-card {
+  padding: 20px !important;
+}
+/* Whats included card end */
+
+/* Meet your host start */
+.meet-your-host-header {
+  display: flex;
+}
+
+.myh-image {
+  width: 70px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.myh-text {
+  padding-top: 20px;
+}
+/* Meet your host end */
+
 .exploring-cards {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
+
+/* Similar Experiences Start */
+
+.similar-experience-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.similar-experience-card {
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.similar-experiences-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+  padding: 10px;
+}
+
+.similar-experience-link {
+  color: rgb(80, 80, 80);
+}
+
+.card-title {
+  font-size: 15px;
+  padding-top: 10px;
+  margin-left: 10px;
+}
+
+.similar-experience-rating {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.card-price {
+  margin-left: 10px;
+}
+
+/* Similar Experiences End */
+
+/* div.rating-share-icons {
+  border: 1px solid red;
+} */
+
+
+/* .ui.container {
+  width: 400px;
+} */
+
+/* Things to know start  */
+
+div.things-to-know-container {
+  padding-left: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+div.things-to-know-container div.things-to-know-element {
+  width: 300px;
+}
+
+/* Things to know end */
 
 /* Keep exporing  */
 .ui.card.experience-card {
@@ -794,17 +1407,66 @@ body .black {
   align-items: center;
 }
 
-/* div.rating-share-icons {
-  border: 1px solid red;
+.similar-experiences-card {
+  position: relative;
+}
+
+/* Heart Icon within Similar experience component */
+.heart-favourite-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: rgb(248, 248, 248);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+/* Heart Icon within Similar experience component */
+.heart-favourite-icon:hover {
+  color: #fc405f;
+}
+
+.heart-favourite-icon:active {
+  color: blue;
+}
+
+/* Reviews Component Start */
+.review-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  
+}
+
+/* .review-card {
+
 } */
 
+/* Reviews Component End */
 
-/* .ui.container {
-  width: 400px;
-} */
+/* Experience error */
+.experience-error {
+  height: 80vh;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 /* Experience Component End */
 
-/* 
+/* ExperienceForm Component Start */
+
+.form-container {
+  position: relative;
+  top: 100px;
+}
+
+/* ExperienceForm Component End */
+
+/*
 
 input:focus { 
   outline: none !important;
