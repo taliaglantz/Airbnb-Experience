@@ -899,6 +899,11 @@ div.rs-slider-handle.active:before {
   -webkit-box-orient: vertical;
 }
 
+
+
+
+
+
 .reviews-and-price {
   display: flex;
   justify-content: space-between;
@@ -1009,6 +1014,45 @@ div.rs-slider-handle.active:before {
   padding: 50px 0px;
 }
 
+/* Favourite cards */
+
+.favourite-cards-wrapper {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+
+}
+
+/* .favourite-cards-container {
+  display: flex;
+   
+  
+}
+*/
+
+.each-favourite-cards {
+  /* display: flex;
+  justify-content: space-around; */
+  padding: 20px;
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.card-title-for-favourite-card {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  font-size: 15px;
+  padding-top: 10px;
+  margin-left: 10px;
+}
 
 
 
@@ -1272,6 +1316,10 @@ div.things-to-know-container div.things-to-know-element {
   color: #FF385C;
 }
 
+.heart-favourite-icon:active {
+  color: blue;
+}
+
 /* Reviews Component Start */
 .review-container {
   display: grid;
@@ -1298,7 +1346,7 @@ div.things-to-know-container div.things-to-know-element {
 
 /* ExperienceForm Component End */
 
-/* 
+/*
 
 input:focus { 
   outline: none !important;

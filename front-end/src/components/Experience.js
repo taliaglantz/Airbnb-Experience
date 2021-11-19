@@ -126,9 +126,7 @@ const Experience = () => {
         <Image src={details.profilePicture} avatar />
       </div>
       <div className="experience-details">
-        <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
-        <Icon name='circle' size='mini' /> 
-        <p>Hosted in {experience.languages}</p>
+        <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>} &middot; Hosted in {experience.languages}</p>
       </div>
     </Container>
   )
@@ -219,9 +217,7 @@ const Experience = () => {
               <Container>
                 <div className="rating-share-container">
                   <div> 
-                    <Icon name='star' size='small' className="star-rating"/><span>({experience.averageRating})</span>
-                    <Icon name='circle' size='mini' className="circle-icon" /> 
-                    <Link to={`./location/${experience.location}`}>{experience.location}</Link>
+                    <Icon name='star' size='small' className="star-rating"/><span>({experience.averageRating})</span>&nbsp;&middot;&nbsp;<Link to={`./location/${experience.location}`}>{experience.location}</Link>
                   </div>
                   <div>
                     <i aria-hidden="true" className="share square outline icon"></i>

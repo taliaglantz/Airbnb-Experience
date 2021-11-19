@@ -5,6 +5,7 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl' // yarn add react-map-g
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+
 const Experiences = () => {
 
   const { search } = window.location
@@ -168,7 +169,7 @@ const Experiences = () => {
 
                             <p className="what-we-will-do">What we&apos; ll do: </p>
                             <p className="description">{experience.description}</p>
-                            <p>{experience.duration / 60} hours</p>
+                            <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
                           </div>
                           <div className='reviews-and-price'>
                             <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>

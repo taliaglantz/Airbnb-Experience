@@ -10,3 +10,4 @@ export const getPayLoad = () => {
   const payLoadString = splitToken[1]
   return JSON.parse(atob(payLoadString))
 }
+
