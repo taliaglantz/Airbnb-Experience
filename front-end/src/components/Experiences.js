@@ -5,6 +5,7 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl' // yarn add react-map-g
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+
 const Experiences = () => {
 
   const { search } = window.location
@@ -149,7 +150,7 @@ const Experiences = () => {
           <Container>
             <div className='header-div'>
               <p>{experiences.length} experiences</p>
-              <Header as='h3'>Experiences in London</Header>
+              <Header as='h4'>Experiences in London</Header>
               <p>Review COVID-19 travel restrictions before you book. <a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
             </div>
             <div>
@@ -158,17 +159,14 @@ const Experiences = () => {
                   <Divider />
                   {experiences.map(experience => {
                     return (
-                      <div key={experience._id}>
-                        <div className='experience-segment'>
 
-                          <Link to={`/experiences/experience/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
 
-                          </Link>
+                      <div className='experience-segment' key={experience._id}>
 
-                          <div>
-                            <img className='experience-image' src={experience.image[0]} />
-                          </div>
+                        <Link to={`/experiences/experience/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
 
+                        </Link>
+                        <div className='experience-image' style={{ background: `url(${experience.image[0]})` }}>
                           <div className='right-content'>
                             <div>
                               <p>{experience.category} in {experience.location}</p>
@@ -179,7 +177,7 @@ const Experiences = () => {
 
                               <p className="what-we-will-do">What we&apos; ll do: </p>
                               <p className="description">{experience.description}</p>
-                              <p>{experience.duration / 60} hours</p>
+                              <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
                             </div>
                             <div className='reviews-and-price'>
                               <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
@@ -190,22 +188,22 @@ const Experiences = () => {
                               {/* Can't get this below the image!!!! */}
                             </div>
                           </div>
-                        </div>
+                        </div >
                         <Divider />
-                      </div>
+                      </div >
                     )
                   })}
-                </div>
+                </div >
                 :
-                <h2>{hasError ? 'Something has gone wrong!' : 'loading experiences...'}</h2>
+                <h2>{hasError ? 'Something has gone wrong!' : 'Loading experiences...'}</h2>
               }
-            </div>
-          </Container>
-        </Grid.Column>
+            </div >
+          </Container >
+        </Grid.Column >
 
         {/* Column on right */}
 
-        <Grid.Column width={7}>
+        < Grid.Column width={7} >
           <div className="map">
             <div className="map-container">
               {viewport ?
@@ -277,8 +275,8 @@ const Experiences = () => {
               }
             </div>
           </div>
-        </Grid.Column>
-      </Grid.Row>
+        </Grid.Column >
+      </Grid.Row >
     </Grid >
   )
 }

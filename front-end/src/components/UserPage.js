@@ -206,7 +206,10 @@ const UserPage = () => {
       </Grid.Column>
     </Grid >
   )
+
   //! FILTER FOR EXPERIENCES THEY ARE HOSTING
+
+
   return (
     <section className="host-container">
       {profile ?

@@ -16,6 +16,7 @@ const Experience = () => {
   const { id } = useParams()
   const history = useHistory()
   //const [images, setImages] = useState([])
+  const [favourites, setFavourites] = useState([])
 
 
   useEffect(() => {
@@ -33,6 +34,7 @@ const Experience = () => {
       }
     }
     getData()
+    getExperienceFromLocalStorage()
   }, [id])
 
   // console.log('Experience', experience.thingsToKnow !== undefined &&  experience.thingsToKnow[0].length === 1 ? experience.thingsToKnow[0].header : 'Loading...')
@@ -68,7 +70,7 @@ const Experience = () => {
       setIsDeleted(true)
       setTimeout(() => {
         history.push('/')
-      },2000)
+      }, 2000)
     } catch (err) {
       console.log('Deleting Error ->', err)
       setHasError(err)
@@ -77,7 +79,7 @@ const Experience = () => {
 
   // Place holder information for BreadCumbs
   const sections = [
-    { key: 'location' , content: '', link: true }, // in content place data when it comes back
+    { key: 'location', content: '', link: true }, // in content place data when it comes back
     { key: 'category', content: '', link: true } // in content place data when it comes back
   ]
   sections[0].content = experience.location
@@ -101,9 +103,9 @@ const Experience = () => {
   const ImageGrid = () => (
     <Container>
       <>
-        {experience.image !== undefined && experience.image.length === 1 ? 
+        {experience.image !== undefined && experience.image.length === 1 ?
           <div className="main-image experience-img-single" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
-          : 
+          :
           <div className="image-grid">
             <div className="main-image experience-img-0" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
             <div className="main-image experience-img-1" style={{ background: `url(${experience.image !== undefined ? experience.image[1] : ''})` }}></div>
@@ -128,13 +130,11 @@ const Experience = () => {
   const HostDetails = () => (
     <Container>
       <div className="host-title">
-        <Header as="h3">Experience hosted by {details.firstName}</Header> 
+        <Header as="h3">Experience hosted by {details.firstName}</Header>
         <Image src={details.profilePicture} avatar />
       </div>
       <div className="experience-details">
-        <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
-        <Icon name='circle' size='mini' /> 
-        <p>Hosted in {experience.languages}</p>
+        <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>} &middot; Hosted in {experience.languages}</p>
       </div>
     </Container>
   )
@@ -184,11 +184,27 @@ const Experience = () => {
     })
   }
 
-  console.log('experience locationCoord',experience.locationCoord)
+  //!!!! FAVOURITES
+
+  const getExperienceFromLocalStorage = () => {
+    const retrievedData = window.localStorage.getItem('favourites')
+    if (!retrievedData) return
+    const faves = JSON.parse(retrievedData)
+    setFavourites(faves)
+  }
+
+  const setExperienceToLocalStorage = (event) => {
+    const newFavourite = event.target.id
+    const newFaves = [...favourites, newFavourite]
+    const addFave = JSON.stringify(newFaves)
+    window.localStorage.setItem('favourites', addFave)
+  }
+
+  //!!!! FAVOURITES
 
   return (
     <>
-      {hasError ? 
+      {hasError ?
         <section className="experiences-container experience-no-longer-exists">
           <div className="experience-error">
             <Container>
@@ -201,21 +217,21 @@ const Experience = () => {
         </section>
         :
         <>
-          {!isDeleted ? 
+          {!isDeleted ?
             <section className="experiences-container">
               {experience.host &&
-              <>
-                {userIsOwner(experience.host.id) &&
-                <Container>
-                  <div className="experience-user-button">
-                    <Button onClick={handleDelete} negative floated='right'>Delete Experience</Button>
-                    {experience.image.length <= 1 ?
-                      <Button floated='right' ><Link to={`/experiences/experience/${id}/edit`}>Edit Experience</Link></Button>
-                      : <></>}
-                  </div>
-                </Container>
-                }
-              </>
+                <>
+                  {userIsOwner(experience.host.id) &&
+                    <Container>
+                      <div className="experience-user-button">
+                        <Button onClick={handleDelete} negative floated='right'>Delete Experience</Button>
+                        {experience.image.length <= 1 ?
+                          <Button floated='right' ><Link to={`/experiences/experience/${id}/edit`}>Edit Experience</Link></Button>
+                          : <></>}
+                      </div>
+                    </Container>
+                  }
+                </>
               }
               {experience ?
                 <>
@@ -223,14 +239,12 @@ const Experience = () => {
                   <ExperienceTitle />
                   <Container>
                     <div className="rating-share-container">
-                      <div> 
-                        <Icon name='star' size='small' className="star-rating"/><span>({experience.averageRating})</span>
-                        <Icon name='circle' size='mini' className="circle-icon" /> 
-                        <Link to={`./location/${experience.location}`}>{experience.location}</Link>
+                      <div>
+                        <Icon name='star' size='small' className="star-rating" /><span>({experience.averageRating})</span>&nbsp;&middot;&nbsp;<Link to={`./location/${experience.location}`}>{experience.location}</Link>
                       </div>
                       <div>
                         <i aria-hidden="true" className="share square outline icon"></i>
-                        <Icon name='heart outline' className="main-favourite-icon" data-id={experience._id}/>
+                        <Icon name='heart outline' className="main-favourite-icon" data-id={experience._id} ID={experience._id} onClick={setExperienceToLocalStorage} />
                       </div>
                     </div>
                   </Container>
@@ -251,7 +265,7 @@ const Experience = () => {
                         <Grid.Column width={7}>
                           <Header as="h3">What Is Included</Header>
                           <div className="whats-included-container">
-                            {experience.whatIsIncluded ? 
+                            {experience.whatIsIncluded ?
                               <>
                                 {experience.whatIsIncluded.map((item, index) => {
                                   return (
@@ -271,13 +285,13 @@ const Experience = () => {
                           {/* <MeetYourHost /> Old React Semantic Component */}
                           <Container className="meet-your-host">
                             <div className="meet-your-host-header">
-                              <img src={details.profilePicture} alt={`${details.firstName} profile picture`} className="myh-image"/>
+                              <img src={details.profilePicture} alt={`${details.firstName} profile picture`} className="myh-image" />
                               {/* <Image src={details.profilePicture} avatar  className="myh-image"/> */}
                               <Header as="h3">Meet your host, {details.firstName}</Header>
                             </div>
                             {/* Place Holder Text for now as description isnt available */}
                             {/* <p>Hi! I’m Anna from Hong Kong and I live in London. I am a professional photographer, focusing on portrait, family, wedding and event photography for more than 5 years. And the major is also majoring in tourism, so it is definitely an ideal candidate for guiding and travel shooting. I am professional, attentive, patient, interesting and enthusiastic, so don’t worry, I will guide your movements carefully, so as to give you the best pictures.</p> */}
-                            <Icon name='star' size='small' className="star-rating"/>  (Not yet reviewed)
+                            <Icon name='star' size='small' className="star-rating" />  (Not yet reviewed)
                             <p className="myh-text">{details.about}</p>
                           </Container>
                         </Grid.Column>
@@ -285,11 +299,11 @@ const Experience = () => {
                       <Grid.Row columns={1}>
                         <Grid.Column>
                           {/* <WhereYoullBe /> */}
-                          
+
                           <Header as="h3">Where you&apos;ll be</Header>
                           <div className="map-display-wrapper">
                             <div className="map-display-container">
-                              {experience ? 
+                              {experience ?
                                 <ReactMapGL
                                   mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
                                   height='100%'
@@ -313,7 +327,7 @@ const Experience = () => {
                       <Grid.Row columns={1}>
                         <Grid.Column>
                           <Container>
-                            {experience.reviews ? 
+                            {experience.reviews ?
                               <>
                                 <Header as="h3">
                                   {experience.averageRating}({experience.reviews.length} Reviews)
@@ -391,26 +405,15 @@ const Experience = () => {
                                       </div>
                                       <div className="card-description">
                                         <p className="card-title">{`${item.name.slice(0, 25)}...`}</p>
-                                        <p className="similar-experience-rating"><Icon name='star' size='small' className="star-rating"/>{item.averageRating}<span>({item.reviews.length})</span></p>
+                                        <p className="similar-experience-rating"><Icon name='star' size='small' className="star-rating" />{item.averageRating}<span>({item.reviews.length})</span></p>
                                         <span className="card-price"><strong>From {item.price}</strong>/ Person</span>
                                       </div>
                                     </Link>
-                                    <Icon name='heart outline' size='big' className="heart-favourite-icon"/>
+                                    <Icon name='heart outline' size='big' className="heart-favourite-icon" />
                                   </div>
-                                //   <div className="image-grid">
-                                //   <div className="main-image experience-img-0" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
-                                //   <div className="main-image experience-img-1" style={{ background: `url(${experience.image !== undefined ? experience.image[1] : ''})` }}></div>
-                          
-                                //   <div className="image-innner-grid">
-                                //     <div className="main-image experience-img-2" style={{ background: `url(${experience.image !== undefined ? experience.image[2] : ''})` }}></div>
-                                //     <div className="main-image experience-img-3" style={{ background: `url(${experience.image !== undefined ? experience.image[3] : ''})` }}></div>
-                                //   </div>
-                          
-                                //   <div className="main-image experience-img-4" style={{ background: `url(${experience.image !== undefined ? experience.image[4] : ''})` }}></div>
-                                // </div>
                                 )
                               })}
-                              
+
                             </div>
                           </>
                         </Grid.Column>

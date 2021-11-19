@@ -980,8 +980,10 @@ select:-webkit-autofill:active {
 }
 
 .experience-image {
-  height: 250px;
-  border-radius: 13px;
+  height: 190px;
+  border-radius: 12px;
+  background-position: center;
+  background-size: cover;
 }
 
 .right-content {
@@ -999,6 +1001,13 @@ select:-webkit-autofill:active {
 
 #heart {
   color: black;
+  position: absolute;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+#heart:hover {
+  color: #FF385C;
 }
 
 .what-we-will-do {
@@ -1012,6 +1021,11 @@ select:-webkit-autofill:active {
   -webkit-line-clamp: 2; 
   -webkit-box-orient: vertical;
 }
+
+
+
+
+
 
 .reviews-and-price {
   display: flex;
@@ -1124,6 +1138,45 @@ select:-webkit-autofill:active {
   padding: 50px 0px;
 }
 
+/* Favourite cards */
+
+.favourite-cards-wrapper {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+
+}
+
+/* .favourite-cards-container {
+  display: flex;
+   
+  
+}
+*/
+
+.each-favourite-cards {
+  /* display: flex;
+  justify-content: space-around; */
+  padding: 20px;
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.card-title-for-favourite-card {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  font-size: 15px;
+  padding-top: 10px;
+  margin-left: 10px;
+}
 
 /* Experience Component Start */
 
@@ -1387,6 +1440,10 @@ div.things-to-know-container div.things-to-know-element {
   color: #fc405f;
 }
 
+.heart-favourite-icon:active {
+  color: blue;
+}
+
 /* Reviews Component Start */
 .review-container {
   display: grid;
@@ -1423,7 +1480,7 @@ div.things-to-know-container div.things-to-know-element {
 
 /* ExperienceForm Component End */
 
-/* 
+/*
 
 input:focus { 
   outline: none !important;
@@ -1435,3 +1492,23 @@ textarea:focus {
   border-color: #719ECE;
   box-shadow: 0 0 10px #719ECE;
 } */
+
+.profile-reviews {
+  padding-left: 20px;
+}
+
+.ui.medium.circular.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  width: 50vw;
+}
+
+.about-anna h4 {
+  font-weight: bold;
+}
+
+.user-name h2 {
+  color: black;
+}
