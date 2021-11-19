@@ -411,17 +411,6 @@ const Experience = () => {
                                     </Link>
                                     <Icon name='heart outline' size='big' className="heart-favourite-icon" />
                                   </div>
-                                  //   <div className="image-grid">
-                                  //   <div className="main-image experience-img-0" style={{ background: `url(${experience.image !== undefined ? experience.image[0] : ''})` }}></div>
-                                  //   <div className="main-image experience-img-1" style={{ background: `url(${experience.image !== undefined ? experience.image[1] : ''})` }}></div>
-
-                                  //   <div className="image-innner-grid">
-                                  //     <div className="main-image experience-img-2" style={{ background: `url(${experience.image !== undefined ? experience.image[2] : ''})` }}></div>
-                                  //     <div className="main-image experience-img-3" style={{ background: `url(${experience.image !== undefined ? experience.image[3] : ''})` }}></div>
-                                  //   </div>
-
-                                  //   <div className="main-image experience-img-4" style={{ background: `url(${experience.image !== undefined ? experience.image[4] : ''})` }}></div>
-                                  // </div>
                                 )
                               })}
 
