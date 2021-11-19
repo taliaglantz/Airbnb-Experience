@@ -147,42 +147,41 @@ const Experiences = () => {
                   <Divider />
                   {experiences.map(experience => {
                     return (
+                      <div key={experience._id}>
+                        <div className='experience-segment'>
 
-                      <div className='experience-segment' key={experience._id}>
-                        
-                        <Link to={`/experiences/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
-                          
-                        </Link>
-                      
-                        <div>
-                          <img className='experience-image' src={experience.image[0]} />
-                        </div>
+                          <Link to={`/experiences/experience/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
 
-                        <div className='right-content'>
+                          </Link>
+
                           <div>
-                            <p>{experience.category} in {experience.location}</p>
-                            <div className='header'>
-                              <h4>{experience.name}</h4>
-                              <Icon id='heart' name='heart outline' size='big' />
+                            <img className='experience-image' src={experience.image[0]} />
+                          </div>
+
+                          <div className='right-content'>
+                            <div>
+                              <p>{experience.category} in {experience.location}</p>
+                              <div className='header'>
+                                <h4>{experience.name}</h4>
+                                <Icon id='heart' name='heart outline' size='big' />
+                              </div>
+
+                              <p className="what-we-will-do">What we&apos; ll do: </p>
+                              <p className="description">{experience.description}</p>
+                              <p>{experience.duration / 60} hours</p>
                             </div>
+                            <div className='reviews-and-price'>
+                              <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
+                              <h5><strong>From {experience.price}</strong>/person</h5>
+                            </div>
+                            <div>
 
-                            <p className="what-we-will-do">What we&apos; ll do: </p>
-                            <p className="description">{experience.description}</p>
-                            <p>{experience.duration / 60} hours</p>
-                          </div>
-                          <div className='reviews-and-price'>
-                            <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
-                            <h5><strong>From {experience.price}</strong>/person</h5>
-                          </div>
-                          <div>
-                            <Divider />
-                            {/* Can't get this below the image!!!! */}
+                              {/* Can't get this below the image!!!! */}
+                            </div>
                           </div>
                         </div>
-
-
+                        <Divider />
                       </div>
-
                     )
                   })}
                 </div>

@@ -187,7 +187,7 @@ const Experience = () => {
             <Container>
               <div className="experience-user-button">
                 <Button onClick={handleDelete} negative floated='right'>Delete Experience</Button>
-                <Button floated='right' ><Link to={`/experiences/${id}/edit`}>Edit Experience</Link></Button>
+                <Button floated='right' ><Link to={`/experiences/experience/${id}/edit`}>Edit Experience</Link></Button>
               </div>
             </Container>
             }
@@ -361,7 +361,7 @@ const Experience = () => {
                             // console.log(item.price)
                             return (
                               <div key={index} className="similar-experiences-card" id={item._id}>
-                                <Link to={`/experiences/${item.id}`} className="similar-experience-link">
+                                <Link to={`/experiences/experience/${item.id}`} className="similar-experience-link">
                                   <div>
                                     {/* <img className="similar-experiences-card-img" src={item.image[1]}/> */}
                                     <div className="similar-experience-card similar-experience-img" style={{ background: `url(${item.image !== undefined ? item.image[0] : ''})` }}></div>

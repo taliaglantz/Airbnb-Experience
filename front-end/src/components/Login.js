@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const Register = ({ state, setState, createNewUser }) => {
+const Login = ({ state, setState, setUsername }) => {
   const handleClick = () => {
-    createNewUser(formData.username.charAt(0).toUpperCase() + formData.username.substr(1).toLowerCase())
     setState(!state)
   }
 
@@ -27,11 +26,20 @@ const Register = ({ state, setState, createNewUser }) => {
     setFormData(newFormData)
   }
 
+  // this takes in a token arguement
+  const setItemToLocalStorage = (token) => {
+    // In order to access local storage we access it through the window
+    window.localStorage.setItem('token', token)
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     console.log('Form Data ->', formData)
     try {
-      await axios.post('/api/register', formData)
+      const { data } = await axios.post('/api/login', formData)
+      setItemToLocalStorage(data.token)
+      console.log('Data ->', data)
+      setUsername(formData.username.charAt(0).toUpperCase() + formData.username.substr(1).toLowerCase())
       handleClick()
     } catch (err) {
       console.log('Error ->', err)
@@ -45,10 +53,10 @@ const Register = ({ state, setState, createNewUser }) => {
       <div className='popup-window'>
         <i className='close icon' onClick={handleClick} />
         <div className='popup-header'>
-          <h5>Sign up</h5>
+          <h5>Log in</h5>
           <hr />
         </div>
-        <h4 className='popup-title'>Welcome to Airbnb Experience!</h4>
+        <h4 className='popup-title'>Welcome back to Airbnb Experience!</h4>
         <form onSubmit={handleSubmit} className='popup-form-container'>
           <div>
             <div className='ui input input-field first'>
@@ -64,6 +72,7 @@ const Register = ({ state, setState, createNewUser }) => {
               />
             </div>
           </div>
+
           <div className='ui input input-field'>
             <div className='input-label'>
               <p>Email</p>
@@ -102,13 +111,11 @@ const Register = ({ state, setState, createNewUser }) => {
               onChange={handleChange}
             />
           </div>
-          <button className='coral-button' type='submit'>
-            <p>Submit</p>
-          </button>
+          <button className='coral-button' type='submit'>Submit</button>
         </form>
       </div>
     </div>
   )
 
 }
-export default Register
+export default Login
