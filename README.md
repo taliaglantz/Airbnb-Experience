@@ -1,6 +1,6 @@
 # Project 3 - MERN Stack Application
 
-Group size: ***[Anna Wilczynska](https://anwilcz.github.io), [Rhona Petersen](https://rhonabpetersen.github.io), [Talia Glantz](https://taliaglantz.github.io), [Jamie Joahill](https://JamieJoahill.github.io)*** 
+Group size: ***[Anna Wilczynska](https://github.com/anwilcz), [Rhona Petersen](https:///github.com/rhonabpetersen), [Talia Glantz](https:///github.com/taliaglantz), [Jamie Joahill](https:///github.com/JamieJoahill)*** 
 </br>
 Duration: ***10 days***
 </br>
