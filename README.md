@@ -8,11 +8,25 @@ Duration: ***10 days***
 Technologies used: ***JavaScript, React, MongoDB, Express, Node, CSS, SAAS, Semantic UI)***
 </br>
 </br>
-Public API: ***[CoinStats](https://coinstats.app/) | [Docs](https://documenter.getpostman.com/view/5734027/RzZ6Hzr3)***
+
 
 ## Overview
 
 The project aim was to build a full-stack application including own backend and frontend setup by using Express API to serve data from the Mongo database and render information in the browser by JavaScript React.
+
+## Contributors’ Notes
+
+### Anna
+Add your text here..
+
+### Rhona
+Add your text here..
+
+### Talia
+Add your text here..
+
+### Jamie
+Add your text here..
 
 </br>
 </br>
