@@ -1,4 +1,4 @@
-# Project 3 - MERN Stack Application
+# Project 3 - MERN Full-stack Application
 
 Group size: ***[Anna Wilczynska](https://github.com/anwilcz), [Rhona Petersen](https:///github.com/rhonabpetersen), [Talia Glantz](https:///github.com/taliaglantz), [Jamie Joahill](https:///github.com/JamieJoahill)*** 
 </br>
