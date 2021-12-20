@@ -1166,20 +1166,6 @@ select:-webkit-autofill:active {
 
 /* Favourite cards */
 
-.favourite-cards-wrapper {
-  margin-top: 150px;
-  display: flex;
-  justify-content: center;
-
-}
-
-/* .favourite-cards-container {
-  display: flex;
-   
-  
-}
-*/
-
 .each-favourite-cards {
   /* display: flex;
   justify-content: space-around; */

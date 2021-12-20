@@ -62,7 +62,7 @@ const Home = () => {
           window.scrollTo(0, 0)
         }} className='hero-button'>
           <p>
-            I&apos; m flexible
+            I&apos;m flexible
           </p>
         </div>
       </div>

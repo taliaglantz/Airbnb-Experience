@@ -245,8 +245,8 @@ const Experience = () => {
                       </div>
                       <div>
                         <i aria-hidden="true" className="share square outline icon"></i>
-                        <Icon name='heart outline' className="main-favourite-icon heart" data-id={experience._id} id={experience._id} onClick={(event) => { 
-                          addToWishlist(event) 
+                        <Icon name='heart outline' className="main-favourite-icon heart" data-id={experience._id} id={experience._id} onClick={(event) => {
+                          addToWishlist(event)
                         }} />
                       </div>
                     </div>
@@ -412,7 +412,9 @@ const Experience = () => {
                                         <span className="card-price"><strong>From {item.price}</strong>/ Person</span>
                                       </div>
                                     </Link>
-                                    <Icon name='heart outline' size='big' className="heart-favourite-icon" />
+                                    <Icon name='heart outline' size='big' className="heart-favourite-icon" onClick={(event) => {
+                                      addToWishlist(event)
+                                    }} />
                                   </div>
                                 )
                               })}
