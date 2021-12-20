@@ -12,6 +12,7 @@ import axios from 'axios'
 const Navbar = () => {
   const history = useHistory()
   const location = useLocation()
+
   const [price, setPrice] = useState([25, 250])
   const [visibleRegister, setVisibilityRegister] = useState(false)
   const [visibleSeeYou, setVisibilitySeeYou] = useState(false)
@@ -29,6 +30,14 @@ const Navbar = () => {
   const [averagePrice, setAveragePrice] = useState('0')
   const [categoryString, setCategoryString] = useState('')
   const [categories] = useState([])
+
+  useEffect(() => {
+    if (datesClicked) {
+      document.body.classList.add('stop-scrolling')
+    } else {
+      document.body.classList.remove('stop-scrolling')
+    }
+  }, [datesClicked])
 
   useEffect(() => {
     if (location.pathname === '/experiences') {
@@ -414,10 +423,14 @@ const Navbar = () => {
   // !!!!!!!!!!!!!!!!!!!
 
   const userIsAuthenticated = () => {
+    console.log('Checking1')
     const payload = getPayLoad()
+    console.log(payload)
     if (!payload) return false
+    console.log('Checking2')
     const now = Math.round(Date.now() / 1000)
-    return now < payload.exp
+    if (now < payload.exp) return true
+    return false
   }
 
   const handleLogout = () => {
@@ -475,9 +488,7 @@ const Navbar = () => {
             {username ? <p className='user-message'>Welcome back <span className='coral'>{username}</span>!</p> : null}
           </div>
           <div className='dropdown-content'>
-
-            {!userIsAuthenticated() ? publicMenu : userMenu}
-
+            { userIsAuthenticated() ? userMenu : publicMenu}
           </div>
         </div>
       </div>

@@ -31,7 +31,21 @@ body {
   position: relative;
 }
 
+.stop-scrolling {
+  height: 100vh;
+  overflow: hidden;
+}
+
 /* ! Link */
+a {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: rgb(34, 34, 34) !important;
+}
+
 a.search-icon {
   text-decoration: none !important;
   color: white !important;
@@ -968,7 +982,7 @@ select:-webkit-autofill:active {
 
 .experience-segment {
   display: flex;
-  padding: 20px 0px;
+  padding: 20px;
 }
 
 .whole-segment {
@@ -976,21 +990,26 @@ select:-webkit-autofill:active {
   /* background-color: rgba(255, 0, 0, 0.212); */
   z-index: 100;
   height: 250px;
-  width: 100%;
+  width: calc(100% - 75px);
 }
 
 .experience-image {
-  height: 190px;
+  min-width: 200px !important;
+  width: 200px !important;
+  height: 250px;
+  border: 1px solid rgb(219, 219, 219);
   border-radius: 12px;
-  background-position: center;
-  background-size: cover;
+  background-position: center !important;
+  background-size: cover !important;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
 }
 
 .right-content {
+  width: calc(100%-200px) !important;
   padding-left: 20px;
   display: flex;
-  justify-content: space-between;
   flex-direction: column; 
+  justify-content: space-between;
 }
 
 .header {
@@ -1000,9 +1019,12 @@ select:-webkit-autofill:active {
 }
 
 #heart {
-  color: black;
-  position: absolute;
+  font-size: 25px !important;
+  position: absolute !important;
+  right: 0px;
+  color: rgb(197, 197, 197);
   cursor: pointer;
+  right: 0px!;
   transition: all .3s ease;
 }
 

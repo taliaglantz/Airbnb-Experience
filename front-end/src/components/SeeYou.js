@@ -1,10 +1,13 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 
 const SeeYou = ({ username, setUsername, setVisibilitySeeYou }) => {
+  const history = useHistory()
+
   const handleClick = () => {
     setUsername(false)
     setVisibilitySeeYou(false)
-    window.location.reload()
+    history.push('/')
   }
 
   return (

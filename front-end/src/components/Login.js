@@ -40,7 +40,7 @@ const Login = ({ state, setState, setUsername }) => {
       setItemToLocalStorage(data.token)
       console.log('Data ->', data)
       setUsername(formData.username.charAt(0).toUpperCase() + formData.username.substr(1).toLowerCase())
-      handleClick()
+      handleClick()  
     } catch (err) {
       console.log('Error ->', err)
       console.log(errorData)

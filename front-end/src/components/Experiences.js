@@ -161,18 +161,17 @@ const Experiences = () => {
                     return (
 
 
-                      <div className='experience-segment' key={experience._id}>
-
-                        <Link to={`/experiences/experience/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave} >
-
-                        </Link>
-                        <div className='experience-image' style={{ background: `url(${experience.image[0]})` }}>
+                      <div key={experience._id}>
+                        <div className='experience-segment'>
+                          <Link to={`/experiences/experience/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave}>
+                            <Icon id='heart' name='heart outline' size='big' />
+                          </Link>
+                          <div className='experience-image' style={{ background: `url(${experience.image[0]})` }} />
                           <div className='right-content'>
                             <div>
                               <p>{experience.category} in {experience.location}</p>
                               <div className='header'>
                                 <h4>{experience.name}</h4>
-                                <Icon id='heart' name='heart outline' size='big' />
                               </div>
 
                               <p className="what-we-will-do">What we&apos; ll do: </p>
@@ -180,15 +179,11 @@ const Experiences = () => {
                               <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
                             </div>
                             <div className='reviews-and-price'>
-                              <p><Icon name='star' centered size='small' color='red' />{experience.averageRating} ({experience.reviews.length})</p>
+                              <p><Icon name='star' className='coral' centered size='small'/>{experience.averageRating} ({experience.reviews.length})</p>
                               <h5><strong>From {experience.price}</strong>/person</h5>
                             </div>
-                            <div>
-
-                              {/* Can't get this below the image!!!! */}
-                            </div>
                           </div>
-                        </div >
+                        </div>
                         <Divider />
                       </div >
                     )
@@ -198,6 +193,7 @@ const Experiences = () => {
                 <h2>{hasError ? 'Something has gone wrong!' : 'Loading experiences...'}</h2>
               }
             </div >
+
           </Container >
         </Grid.Column >
 
