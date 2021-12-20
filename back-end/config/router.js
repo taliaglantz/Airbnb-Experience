@@ -2,7 +2,7 @@ import express from 'express'
 import { registerUser, loginUser } from '../controllers/auth.js'
 import { secureRoute } from './secure-route.js'
 import { addAReview, deleteAReview, getAllExperiences, addExperience, getSingleExperience, deleteExperience, updateExperience } from '../controllers/experiences.js'
-import { getUserProfile } from '../controllers/users.js'
+import { getUserProfile, updateUserProfile } from '../controllers/users.js'
 
 //! CREATE ROUTER FOR EACH PIECE OF FUNCTIONALITY 
 const router = express.Router()
@@ -30,6 +30,7 @@ router.route('/login')
 
 router.route('/profile')
   .get(secureRoute, getUserProfile)
+  .put(secureRoute, updateUserProfile)
 
 export default router
 

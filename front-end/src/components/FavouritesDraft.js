@@ -4,57 +4,65 @@ import axios from 'axios'
 import { Icon, Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-const FavouritesDraft = () => {
-  const [newExperience, setNewExperience] = useState([])
-  const [newArray, setNewArray] = useState(null)
-  const [favourites, setFavourites] = useState([])
+const FavouritesDraft = ({ wishlist }) => {
+  console.log(wishlist)
+  // const [newExperience, setNewExperience] = useState([])
+  // const [newArray, setNewArray] = useState(null)
+  const [filteredExperiences, setFilteredExperiences] = useState([])
   const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
       try {
         const { data } = await axios.get('/api/experiences')
-        setNewExperience(data)
+        const filtered = new Array
+        data.forEach(experience => {
+          if (wishlist.some(id => id === experience.id)) {
+            filtered.push(experience)
+          }
+        })
+        setFilteredExperiences(filtered)
+
       } catch (err) {
         setHasError(true)
       }
-      getExperienceFromLocalStorage()
+      // getExperienceFromLocalStorage()
     }
     getData()
   }, [])
 
-  const getExperienceFromLocalStorage = () => {
-    const retrievedData = window.localStorage.getItem('favourites')
-    const arrayData = JSON.parse(retrievedData)
-    setFavourites(arrayData)
-  }
+  // const getExperienceFromLocalStorage = () => {
+  //   const retrievedData = window.localStorage.getItem('favourites')
+  //   const arrayData = JSON.parse(retrievedData)
+  //   setFavourites(arrayData)
+  // }
 
-  useEffect(() => {
-    console.log('all experiences ->', newExperience)
-    try {
-      const filteredExperiences = newExperience && newExperience.filter((experience) => {
-        return favourites.includes(experience._id)
-      })
-      console.log('***filteredExperiences ->', filteredExperiences)
-      setNewArray(filteredExperiences)
+  // useEffect(() => {
+  //   console.log('all experiences ->', newExperience)
+  //   try {
+  //     const filteredExperiences = newExperience && newExperience.filter((experience) => {
+  //       return favourites.includes(experience._id)
+  //     })
+  //     console.log('***filteredExperiences ->', filteredExperiences)
+  //     setNewArray(filteredExperiences)
 
-    } catch (err) {
-      setHasError(true)
-    }
-  }, [favourites])
+  //   } catch (err) {
+  //     setHasError(true)
+  //   }
+  // }, [favourites])
 
-  console.log('favourites ->', favourites)
-  console.log('newArray ->', newArray)
+  // console.log('favourites ->', favourites)
+  console.log('filteredExperiences ->', filteredExperiences)
   return (
     <>
       <section>
         <div>
-          {newArray ?
+          {filteredExperiences ?
             <div className='favourite-cards-wrapper'>
               {/* <div className='favourite-cards-container'> */}
               <Grid>
                 <Grid.Row columns={4}>
-                  {newArray.map(experience => {
+                  {filteredExperiences.map(experience => {
                     return (
                       <Grid.Column key={experience._id}>
                         <Link to={`/experiences/${experience._id}`} className="each-favourite-cards" id={experience._id}>

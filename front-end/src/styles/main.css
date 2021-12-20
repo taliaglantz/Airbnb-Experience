@@ -1018,7 +1018,7 @@ select:-webkit-autofill:active {
   
 }
 
-#heart {
+.heart {
   font-size: 25px !important;
   position: absolute !important;
   right: 0px;
@@ -1028,7 +1028,11 @@ select:-webkit-autofill:active {
   transition: all .3s ease;
 }
 
-#heart:hover {
+.heart:hover {
+  color: #FF385C;
+}
+
+.heart.wishlist {
   color: #FF385C;
 }
 

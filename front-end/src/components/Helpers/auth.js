@@ -19,8 +19,8 @@ export const getPayLoad = () => {
   const payLoadString = splitToken[1]
   // const decodedPayLoad = atob(payLoadString) // this function will decode the payload string
   // This returns a string but we need to convert it into a JS object using JSON.parse()
-  // const decodedPayLoad = JSON.parse(atob(payLoadString))
-  // console.log(‘DECODED ->’, decodedPayLoad)
+  const decodedPayLoad = JSON.parse(atob(payLoadString))
+  console.log('DECODED ->', decodedPayLoad)
   return JSON.parse(atob(payLoadString))
 }
 

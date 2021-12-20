@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Breadcrumb, Grid, Container, Card, Header, Image, Icon, Button } from 'semantic-ui-react'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import { getPayLoad, getTokenFromLocalStorage } from './Helpers/auth'
+import { addToWishlist } from './Helpers/wishlist'
 // Need React Location and History
 
 const Experience = () => {
@@ -244,7 +245,9 @@ const Experience = () => {
                       </div>
                       <div>
                         <i aria-hidden="true" className="share square outline icon"></i>
-                        <Icon name='heart outline' className="main-favourite-icon" data-id={experience._id} ID={experience._id} onClick={setExperienceToLocalStorage} />
+                        <Icon name='heart outline' className="main-favourite-icon heart" data-id={experience._id} id={experience._id} onClick={(event) => { 
+                          addToWishlist(event) 
+                        }} />
                       </div>
                     </div>
                   </Container>

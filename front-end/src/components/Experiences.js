@@ -4,6 +4,7 @@ import { Grid, Container, Header, Card, Divider, Icon } from 'semantic-ui-react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl' // yarn add react-map-gl to enable mapbox
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { addToWishlist } from './Helpers/wishlist'
 
 
 const Experiences = () => {
@@ -163,8 +164,10 @@ const Experiences = () => {
 
                       <div key={experience._id}>
                         <div className='experience-segment'>
+                          <Icon id={experience._id} onClick={event => {
+                            addToWishlist(event)
+                          }} className='heart' name='heart outline' size='big' />
                           <Link to={`/experiences/experience/${experience._id}`} className='whole-segment' id={experience._id} onMouseOver={mouseEnter} onMouseLeave={mouseLeave}>
-                            <Icon id='heart' name='heart outline' size='big' />
                           </Link>
                           <div className='experience-image' style={{ background: `url(${experience.image[0]})` }} />
                           <div className='right-content'>
@@ -179,7 +182,7 @@ const Experiences = () => {
                               <p>{experience.duration > 90 ? <span>{experience.duration / 60} hours</span> : <span>{experience.duration} mins</span>}</p>
                             </div>
                             <div className='reviews-and-price'>
-                              <p><Icon name='star' className='coral' centered size='small'/>{experience.averageRating} ({experience.reviews.length})</p>
+                              <p><Icon name='star' className='coral' centered size='small' />{experience.averageRating} ({experience.reviews.length})</p>
                               <h5><strong>From {experience.price}</strong>/person</h5>
                             </div>
                           </div>
