@@ -19,6 +19,7 @@ export const loginUser = async (req, res) => {
   try {
     const userToLogin = await User.findOne({ email: req.body.email })
     console.log('USER TO LOGIN ->', userToLogin)
+    console.log('USER TO LOGIN ->', userToLogin.languages.length)
     if (!userToLogin || !userToLogin.validatePassword(req.body.password)) {
       throw new Error()
     }
