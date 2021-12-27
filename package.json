@@ -19,6 +19,6 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "build": "cd client && yarn && yarn build"
+    "build": "cd front-end && yarn && yarn build"
   }
 }
