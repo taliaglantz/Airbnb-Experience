@@ -1,0 +1,22 @@
+export default [
+  { id: 1 , name: 'Richard', longitude: -0.132490, latitude: 51.462510, icon: '🔥' },
+  { id: 2, name: 'Cristina', longitude: 41.902782, latitude: 12.496365, icon: '👩‍💻' },
+  { id: 3 ,name: 'Taras', longitude: 26.4444190, latitude: 55.590663, icon: '🍳' },
+  { id: 4 ,name: 'Victoria', longitude: -0.260400, latitude: 52.536442, icon: '👩🏻‍💻'  },
+  { id: 5 ,name: 'Emile', longitude: -2.150990, latitude: 52.559940, icon: '🇯🇲' },
+  { id: 6 ,name: 'Mike', longitude: -0.775950, latitude: 50.836990, icon: '😴'  },
+  { id: 7 ,name: 'Hamster', longitude: -0.317325, latitude: 51.548789, icon: '🙋‍♂️'  },
+  { id: 8 ,name: 'Sami',longitude: -0.261354,  latitude: 51.432977,icon: '🦈' },
+  { id: 9 ,name: 'Arjun', longitude: 51.464790, latitude: -0.532930, icon: '🏡' },
+  { id: 10 ,name: 'Adrian', longitude: -0.320313, latitude: 51.551385, icon: '🧙‍♂️'  },
+  { id: 11 , name: 'Daria', longitude: -0.076460, latitude: 51.541140, icon: '🦆'  },
+  { id: 12 ,name: 'Cecilia',  longitude: -0.330300, latitude: 51.595010 , icon: '👩‍🎤' },
+  { id: 13 ,name: 'Ineta', longitude: -0.108440, latitude: 51.578060, icon: '🍠' },
+  { id: 14 ,name: 'Aya', longitude: -0.222166, latitude: 51.504087, icon: '🐵' },
+  { id: 15 ,name: 'Vania', longitude: 14.211960, latitude: 45.776380, icon: '🇸🇮'  },
+  { id: 16 ,name: 'Oli', longitude: -0.186060, latitude: 51.436241, icon: '🐃'  },
+  { id: 17 ,name: 'Char', longitude: 0.005540, latitude: 51.509240, icon: '👩🏻‍💻' },
+  { id: 18 ,name: 'Maurice', longitude: 0.066690, latitude: 51.534520, icon: '👨🏽‍🦰'  },
+  { id: 19 ,name: 'Ole', longitude: 52.520008, latitude: 13.404954, icon: '🐶' },
+  { id: 20 ,name: 'Sam', longitude: -0.099980, latitude: 51.481190, icon: '🤙' }
+]

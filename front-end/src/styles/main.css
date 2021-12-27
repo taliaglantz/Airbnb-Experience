@@ -1,0 +1,1526 @@
+/* ! Imports */
+@import url('stylesheet.css');
+
+/* ! Main theme color */
+.coral {
+  color:#fc405f !important; 
+}
+
+
+/* ! General selector */
+*{
+  font-family: 'airbnb_cereal_appmedium';
+}
+
+/* ! Main variables */
+:root {
+  --rs-rate-symbol-checked: #fc405f !important;
+  --rs-text-active: black !important;
+  --rs-btn-subtle-text: black !important;
+  --rs-btn-subtle-hover-text: black !important;
+  --rs-btn-subtle-hover-bg: rgb(245, 245, 245)!important;
+  --rs-input-focus-border: rgba(255, 255, 255, 0) !important;
+  --rs-listbox-option-hover-text: none !important;
+  --rs-slider-thumb-hover-shadow: none !important;
+  /* --rs-input-focus-border:#fc405f00
+  --rs-state-focus-shadow:0 0 0 0px */
+}
+
+/* ! Body selector */
+body {
+  position: relative;
+}
+
+.stop-scrolling {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ! Link */
+a {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: rgb(34, 34, 34) !important;
+}
+
+a.search-icon {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+/* ! Column */
+.column {
+  padding: 28px !important;
+}
+
+/* ! Segment */
+.segment {
+  border-radius: 12px !important;
+}
+
+/* ! Card */
+.card {
+  border-radius: 12px !important;
+}
+
+.square {
+  aspect-ratio: 1;
+}
+
+/* ! Lines */
+hr {
+  border-top: rgb(220, 220, 220);
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+
+/* ! Text */
+/* Main sections */
+h4 {
+  margin-top: 4px; 
+  line-height: 24px !important; 
+  max-height: 26px !important; 
+  overflow: hidden !important; 
+  color: #343434 !important;
+  font-size: 16px !important;
+  font-family: 'airbnb_cereal_applight' !important;
+}
+h3 {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 25px;
+  color: black !important;
+  padding: 0 28px !important;
+}
+/* White headers */
+h2 {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 41px;
+  color: rgb(255, 255, 255) !important;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0) !important;
+}
+/*  */
+/*  */
+
+/* Add .black to change background color to black */
+body .black { 
+  background-color: rgb(0, 0, 0);
+}
+
+
+/* ! Date Picker */
+.rs-ripple, .rs-ripple-rippling {
+  background: transparent !important;
+}
+
+
+/* Calendar container */
+.rs-picker-menu {
+
+  border-radius: 32px !important;
+  padding: 16px 32px !important;
+  height: 450px !important;
+  width: 849px !important;
+  background-color: white !important;
+  transform: translate(-50%);
+  z-index: 200 !important;
+  overflow: visible !important;
+}
+
+/* Single calendar */
+.rs-calendar {
+  border: none !important;
+  padding: 27px !important;
+  height: auto !important;
+  width: 50% !important;
+}
+
+.ui.menu {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.toggle-background {
+  background-color: transparent !important;
+}
+
+.white {
+  background-color: white !important;
+}
+
+.rs-picker-toolbar-right > button {
+  display: none !important;
+  /* margin: auto !important;
+  position: absolute !important;
+  background-color: transparent !important;
+  color: transparent !important;
+  position: relative !important;
+  right: calc(((100vw - 849px)/2)) !important;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  height: 100vh !important;
+  z-index: -1 !important; */
+}
+
+.rs-picker-toolbar-right {
+  position: relative !important;
+  top: -443px;
+  width: 849px !important;
+  height: 0px !important;
+}
+
+.rs-picker-toolbar-ranges {
+  position: unset !important;
+  display: none !important;
+}
+.rs-picker-toolbar {
+  position: absolute !important;
+  left: 0px !important;
+  padding: 0px !important;
+  border: none !important;
+}
+
+.rs-btn-icon.rs-btn-xs {
+  border-radius: 50% !important;
+}
+
+.rs-picker-menu .rs-calendar .rs-calendar-table-header-row .rs-calendar-table-cell-content:hover {
+  border: none !important;
+  height: 0px !important;
+}
+
+.rs-calendar-table-cell-selected:before {
+  display: flex !important;
+  margin-top: 1px !important;
+  height: 48px !important;
+}
+
+.rs-calendar-header-title {
+  font-size: 16px !important;
+}
+
+.rs-icon {
+  font-size: 19px !important;
+  margin-top: -4px !important;
+}
+
+.rs-calendar-table-cell-content {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 48px !important;
+  width: 48px !important;
+}
+
+.rs-calendar-month-dropdown {
+  display: none !important;
+}
+
+.rs-calendar-table-cell-content:hover {
+  color: black !important;
+  height: 47px !important;
+  width: 47px !important;
+  background-color: inherit !important;
+  border: 1px black solid;
+  border-radius: 50% !important;
+  padding: 4px !important;
+
+}
+
+.rs-calendar-table-cell:hover :not(.rs-calendar-table-cell-in-range:hover) {
+  background: white !important;
+}
+
+.rs-calendar-table-cell-in-range:hover {
+  background-color: rgb(245, 245, 245) !important;
+}
+
+.rs-calendar-table-cell-selected-start:before {
+  background: linear-gradient(to right, white 49%, rgb(245, 245, 245) 50%) !important;
+}
+
+.rs-calendar-table-cell-selected-end:before {
+  background: linear-gradient(to left, white 49%, rgb(245, 245, 245) 50%) !important;
+}
+.rs-calendar-table-cell-in-range:before {
+  margin-top:  0.5px !important;
+  height: 48px  !important;
+  background-color: rgb(245, 245, 245) !important;
+}
+
+.rs-calendar-table-cell {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.rs-calendar-view {
+  padding: 0px !important;
+}
+
+.rs-calendar-table-cell-selected .rs-calendar-table-cell-content {
+  background-color: black !important;
+  height: 48px !important;
+  width: 48px !important; 
+  border-radius: 50%;
+}
+
+.rs-picker-toggle-wrapper {
+  height: 100%;
+  max-width: 100vw !important;
+  position: absolute !important;
+  width: 316px !important;
+  transform: translate(0, 100%);
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.rs-picker-toggle {
+  display: none !important;
+}
+
+.rs-picker-daterange-header {
+  display: none !important;
+}
+
+.rs-picker-toggle-textbox {
+  border-radius: 24 !important;
+  border: none !important;
+  height: 100% !important;
+}
+
+/* ! Navbar */
+.navbar-item {
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-center {
+  position: absolute !important;
+  transform: translate(-50%) translate(50vw);
+}
+
+.navbar-button {
+  height: 48px;
+  background-color: white;
+  border-radius: 24px;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+}
+
+.navbar-button:hover {
+  box-shadow:  0 3px 4px 0 rgb(34 36 38 / 15%);
+}
+
+.navbar-secondary {
+  padding: 0px !important;
+}
+
+/* Navbar - extednded section */
+.navbar-extended {
+  background-color: white;
+  height: 100%;
+  width: 100vw;
+  min-width: 400px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 0px;
+  top: 74px;
+  transform: translate(-50%);
+}
+
+/* ! Filters bar */
+
+.filters-bar {
+  min-width: 535px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  transform: translate(0%);
+  height: 68px;
+  /* padding: 8px 24px 12px 24px; */
+}
+
+.dropdown-filters {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 440px;
+  height: 280px;
+}
+
+
+.price-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.price-input {
+  height: 60px !important;
+  width: 168px !important;
+}
+
+.price-input > input {
+  font-size: 16px;
+  padding-top: 30px !important;
+  padding-left: 20px !important;
+  border-radius: 12px !important;
+}
+
+.input-label {
+  top: 7px;
+  left: 12px !important;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+.ui.input>input:focus {
+  border-color: black !important;
+
+}
+
+.input-label > p:first-child {
+  font-family: 'airbnb_cereal_applight' !important;
+  font-size: 12px;
+}
+
+.ui.secondary.button.price-search{
+  margin-left: auto;
+  margin-top: 10px;
+  width: 85px;
+  height: 35px !important;
+}
+
+
+
+.dropdown-filters > p {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 16px;
+}
+
+.filters-left {
+  display: flex;
+}
+
+.category-filters {
+  height: 68px;
+  overflow: hidden;
+  display: flex !important;
+  align-items: flex-end;
+  flex-wrap: wrap !important;
+}
+
+@media (max-width: 625px) {
+  .category-filters {
+    display: none !important;
+  }
+}
+
+.ui.item.dropdown {
+  padding-left: 0px !important;
+  display: block !important;
+}
+
+.filter-button {
+  font-family: 'airbnb_cereal_applight' !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 20px;
+  height: 40px !important;
+  padding: 1px 14px 0px 14px;
+  margin-left: 1px;
+}
+
+.active {
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 1px 0.2px rgb(0, 0, 0); 
+}
+
+.filter-button > p {
+  font-family: 'airbnb_cereal_applight' !important;
+}
+
+.filter-button:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.dropdown-content-filters {
+  overflow: hidden;
+  padding: 10px 0px 10px 0px;
+  margin-top: 10px;
+  min-width: 200px !important;
+  border-radius: 12px;
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+}
+
+.divider {
+  padding-right: 15px !important;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+.dropdown-content-filters.hover {
+  background-color: none !important;
+}
+
+/* ! Slider */
+.rs-slider-bar {
+  height: 2px !important;
+}
+
+input[type='range'] {
+  border: 2px solid rgb(220, 220, 220) !important;
+}
+
+.rs-slider {
+  box-shadow: none !important;
+  width: calc(100% - 40px) !important;
+  margin: 40px 20px !important;
+}
+
+
+.rs-slider-handle:before {
+  margin: -8px 0px 0px -10px !important;
+  transform: scale(1.29) !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 1px solid rgb(220, 220, 220) !important;
+  animation: none !important;
+  background: url('../assets/images/three-lines.gif'), white !important;
+  background-size: 14px !important;
+  background-position: center !important;
+}
+
+div.rs-slider-handle.active:before {
+  margin: -9.5px 0px 0px -10px !important;
+  transform: scale(1.29) !important;
+  transition: none !important;
+  /* display: none !important; */
+}
+
+
+.rs-slider-progress-bar{
+  height: 2px !important;
+  background-color: rgb(180, 180, 180) !important;
+}
+
+.rs-slider-handle:hover .rs-tooltip,
+.rs-slider-handle.active .rs-tooltip {
+  box-shadow: none !important;
+  display: none !important;
+}
+
+/* ! Forms Sign up and Log in */
+
+.user-message {
+  margin: 0 10px;
+}
+
+.popup-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.popup-title {
+  margin-left: 35px;
+  margin-bottom: 20px;
+}
+
+.popup-form-container {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50px;
+}
+
+.input-field {
+  height: 56px !important;
+  width: 350px !important;
+}
+
+.input-field > input {
+  font-size: 16px;
+  padding-top: 30px !important;
+  padding-left: 10px !important;
+  border-radius: 0px !important;
+  margin-top: -1px !important;
+}
+
+.input-field.first > input {
+  border-top-left-radius: 12px !important; 
+  border-top-right-radius: 12px !important;
+}
+
+.input-field.last > input {
+  border-bottom-left-radius: 12px !important; 
+  border-bottom-right-radius: 12px !important;
+}
+
+.ui.input>input:focus {
+  outline: 1px solid rgb(0, 0, 0) !important;
+  outline-offset: -2px;
+  z-index: 200px !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus, 
+select:-webkit-autofill:active {
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0px 1000px rgb(250, 250, 250) inset !important;
+}
+
+.coral-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fc405f;
+  color: white;
+  border-radius: 12px;
+  width: 350px !important;
+  height: 40px !important;
+  margin: 35px 0;
+}
+
+.coral-button:hover {
+  background-color: #fd5672;
+
+}
+
+/* .input-label {
+  top: 7px;
+  left: 12px !important;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+} */
+
+
+/* ! Date picker - large button (Location & Date) */
+/* Container */
+.large-button {
+  width: 850px;
+  height: 64px;
+  border-radius: 32px;
+}
+
+/* Half */
+.large-button .half {
+  padding-left: 34px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  height: 64px;
+  box-shadow: 0 1px 10px 0 rgb(34 36 38 / 5%);
+}
+
+/* Button - selected content */
+.half > p {
+  margin-top: 0;
+  font-size: 14px;
+}
+/* Button - search data */
+
+.search-data {
+  display: flex;
+}
+
+.search-data > p {
+  padding: 5px 10px;
+  margin: 0;
+  display: block;
+}
+
+.search-data > p:first-of-type {
+  margin-left: 10px;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+/* Button - labels */
+.search-header {
+  font-family: 'airbnb_cereal_appbold';
+  font-size: 12px !important;
+}
+
+/* Button dates - clicked state */
+.dates-clicked {
+  width: 424px !important;
+  transform: translate(9px);
+  z-index: 100;
+  background: rgb(255, 255, 255);
+}
+
+/* Button dates - normal state */
+.dates {
+  width: 848px !important;
+  padding-left: 458px !important;
+  transform: translate(9px);
+  background-color: white;
+  background:linear-gradient(to right, rgb(139, 139, 139), white 70%);
+  
+}
+
+/* Button location - clicked state */
+.location-clicked {
+  width: 424px !important;
+  transform: translate(calc(-100% + 7px));
+  z-index: 100;
+  background: white;
+}
+
+/* Button location - normal state */
+.location {
+  width: 849px !important;
+  transform: translate(8px);
+  z-index: 100;
+  background:linear-gradient(to left, rgb(139, 139, 139), white 60%);
+}
+
+/* Button location - hover */
+.location:hover {
+  background: linear-gradient(to left, rgb(139, 139, 139), rgb(245, 245, 245) 60%);
+}
+
+/* ! Hero - Home page */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 600px;
+  background: 
+  linear-gradient(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2) 70%),
+  url('https://cdn57.androidauthority.net/wp-content/uploads/2019/05/airbnb-experiences-farm-house.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+/* ! Hero - button */
+.hero-button {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.616);
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 64px;
+  border-radius: 32px;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  transition-duration: .4s;
+}
+
+.hero-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow:  0 3px 4px 0 rgb(34 36 38 / 15%);
+}
+
+/* Hero button - gradient text */
+.hero-button > p {
+  font-family: 'airbnb_cereal_appbold';
+  font-size: 17px;
+  background: -webkit-linear-gradient(0deg, #26007e, #9500b3 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* .hero-image {
+  border-radius: 5px;
+  padding: 10px 0px 10px 0px;
+  width: 100vw;
+  min-width: 300px !important;
+  max-width: 500px;
+  border-radius: 24px;
+  position: absolute;
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+} */
+
+/* White text with shadow */
+.hero-text {
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 18px !important;
+  margin-bottom: 20px !important;
+  color: rgb(255, 255, 255) !important;
+  word-spacing: 0.1em;
+  text-shadow: 1px 3px 2px rgb(0, 0, 0) !important;
+}
+ 
+/* ! Account dropdown menu */
+
+/* Dropdown menu container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown list container */
+.dropdown-content {
+  overflow: hidden;
+  padding: 10px 0px 10px 0px;
+  margin-top: 10px;
+  min-width: 200px !important;
+  border-radius: 12px;
+  display: none;
+  position: absolute;
+  right: 15px;
+  background-color: white;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+  z-index: 1;
+}
+
+/* Dropdown option */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  width: 100%;
+  height: 40px;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.dropdown.item:hover {
+  background: none !important;
+}
+
+/* Display dropdown on hover */
+.dropdown:hover .dropdown-content, .dropdown:hover .dropdown-content-filters {
+  display: block;
+}
+
+/* ! Icons */
+
+.large {
+  font-size: 16px !important; 
+}
+
+.rs-rate {
+  position: relative;
+  display: inline-flex;
+  color: var(--rs-rate-symbol-checked);
+  list-style: none;
+  vertical-align: middle;
+  margin: 72px auto !important;
+}
+
+.rs-icon, .rs-rate-character-half, .rs-rate-character-full, .rs-rate-character-empty  {     
+  height: 18px !important;
+  width: 18px !important;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50% !important;
+  background-color: #fc405f;
+  color: white
+}
+
+.user-icon {
+  margin-left: 5px;
+  height: 32px;
+  width: 32px;
+}
+
+.bars .icon {
+  padding: 10px;
+}
+
+.close {
+  position: absolute !important;
+  margin-top: 15px !important;
+  margin-left: 15px !important;
+  font-size: 18px !important;
+  color: rgb(210, 210, 210);
+}
+
+.large-icon {
+  font-family: 'airbnb_cereal_appblack';
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100px;
+  border-radius: 24px !important;
+  z-index: 102;
+}
+
+.sliders.horizontal.icon {
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+.angle.down.icon {
+  margin-left: 4px;
+  margin-right: -4px;
+}
+
+/* ! Pop-up window */
+
+.popup-screen {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+} 
+
+.popup-window {
+  width: 420px;
+  background-color: white !important;
+  border-radius: 24px !important;
+}
+
+/* ! Home page categories */
+
+
+.nature {
+  background: url('../assets/images/nature-and-outdoors.jpeg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 40px !important;
+}
+
+.food {
+  background: url('../assets/images/drinks-and-food.jpeg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 40px !important;
+
+}
+.entertainment {
+  background: url('../assets/images/entertainment.jpeg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 40px !important;
+}
+.culture {
+  background: url('../assets/images/art-and-culture.jpeg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 40px !important;
+}
+
+.nature:hover, .food:hover, .entertainment:hover, .culture:hover {
+  transform: scale(102%);
+  transition-duration: 1s;
+}
+
+/* Explore button */
+.explore {
+  width: 175px;
+  margin-top: 24px;
+  background-color: black;
+  border-radius: 12px;
+  padding: 10px;
+  color: white !important;
+  box-shadow:  0 0px 3px 0px rgb(255 255 255 / 60%);
+}
+
+.explore:hover {
+  background-color: rgb(255, 255, 255);
+  color: black !important;
+  box-shadow: none;
+}
+
+/* ! Home page inspirations */
+
+.inspiration-image {
+  min-width: 250px;
+  height: 320px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+/* EXPERIENCES.JS */
+
+#left-column {
+  padding: 0px 40px ;
+}
+
+.header-div {
+  padding: 50px 0px;
+}
+
+.experience-segment {
+  display: flex;
+  padding: 20px;
+}
+
+.whole-segment {
+  position: absolute;
+  /* background-color: rgba(255, 0, 0, 0.212); */
+  z-index: 100;
+  height: 250px;
+  width: calc(100% - 75px);
+}
+
+.experience-image {
+  min-width: 200px !important;
+  width: 200px !important;
+  height: 250px;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 12px;
+  background-position: center !important;
+  background-size: cover !important;
+  box-shadow:  0 1px 3px 0 rgb(34 36 38 / 15%);
+}
+
+.right-content {
+  width: calc(100%-200px) !important;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.heart {
+  font-size: 25px !important;
+  position: absolute !important;
+  right: 0px;
+  color: rgb(197, 197, 197);
+  cursor: pointer;
+  right: 0px!;
+  transition: all .3s ease;
+}
+
+.heart:hover {
+  color: #FF385C;
+}
+
+.heart.wishlist {
+  color: #FF385C;
+}
+
+.what-we-will-do {
+  font-weight: bold;
+}
+
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+
+
+
+
+
+.reviews-and-price {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0;
+}
+
+/* Start of Map box */
+
+.map {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  /* background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png'); */
+  background-size: no-repeat;
+} 
+
+ .map-container {
+  position: fixed;
+  width: 900px;
+  height: 100vh;
+}
+
+.map-display-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.map-display-container {
+  position: absolute;
+  width: 100%;
+  height: 50vh;
+}
+
+.toggled {
+  background-color: black;
+  color: white;
+  border-radius: 14px;
+  font-size: 15px;
+  padding: 5px;
+  z-index: 400 !important; 
+}
+
+.price-marker {
+  background-color: white;
+  color: black;
+  border-radius: 14px;
+  font-size: 15px;
+  padding: 5px;
+  z-index: unset;
+}
+:hover.price-marker {
+  background-color: black;
+  color: white;
+}
+.marker {
+  font-size: 20px;
+}
+
+.rocket {
+  display: block;
+  transform: translateX(-20px);
+}
+
+#popup {
+  padding: 0 !important; 
+  /* Why can't I overwrite this?! */
+}
+
+
+
+.images-in-map-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-on-left {
+  height: 250px;
+  width: 200px;
+}
+
+.images-in-map-card-right {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.image-on-right {
+  height: 123px;
+  width: 85px;
+}
+/* End of Experiences.js */
+
+/* Add New Experience */
+
+.form-wrapper {
+  margin-top: 74px !important;
+  background-color: rgba(128, 128, 128, 0.301);
+}
+
+.new-experience-form {
+  margin-left: 250px;
+  margin-right: 250px;
+  background-color: white;
+  padding: 40px;
+  padding-top: 50px;
+}
+
+.submit-button {
+  padding: 50px 0px;
+}
+
+/* Favourite cards */
+
+.each-favourite-cards {
+  /* display: flex;
+  justify-content: space-around; */
+  padding: 20px;
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.card-title-for-favourite-card {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  font-size: 15px;
+  padding-top: 10px;
+  margin-left: 10px;
+}
+
+/* Experience Component Start */
+
+.experiences-container {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  margin: auto 0; */
+}
+
+.star-rating {
+  color: #fc405f !important;
+}
+
+.rlss-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating-share-container {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-favourite-icon {
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.main-favourite-icon:hover {
+  color: #fc405f;
+}
+
+/* Circle icon between rating and location - just below main header */
+/* .circle-icon {
+  position: fixed;
+  top: 10px
+} */
+
+/* Image Grid Start */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+  /* border: 1px solid red; */
+}
+
+.main-image {
+  height: 440px;
+  width: 300px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.experience-img-single {
+  height: 440px;
+  width: 1125px;
+  border-radius: 12px;
+}
+
+.experience-img-0 {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.image-innner-grid {
+  display: grid;
+  max-height: 440px;
+  max-width: 200px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 8px;
+}
+
+.experience-img-2,
+.experience-img-3 {
+  max-height: 215px;
+  max-width: 200px;
+}
+
+.experience-img-4 {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+
+/* Image Grid End */
+
+/* .experience-img-0 {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.experience-img-2 {
+  width: 100%;
+  height: 100px;
+}
+
+.experience-img-3 {
+  width: 180px;
+  height: 160px;
+}
+
+.experience-img-4 {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+} */
+
+.rating-location {
+  display: flex;
+}
+
+.ui.container.icon-style {
+  border: 1px solid red;
+}
+
+/* Experience Hosted by Start */
+.host-title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.experience-details {
+  display: flex;
+}
+
+/* Experience hosted by End */
+
+/* Whats included card start */
+.whats-included-container {
+  display: flex;
+  flex-direction: column;
+}
+.whats-included-card {
+  padding: 20px !important;
+}
+/* Whats included card end */
+
+/* Meet your host start */
+.meet-your-host-header {
+  display: flex;
+}
+
+.myh-image {
+  width: 70px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.myh-text {
+  padding-top: 20px;
+}
+/* Meet your host end */
+
+.exploring-cards {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Similar Experiences Start */
+
+.similar-experience-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.similar-experience-card {
+  height: 300px;
+  width: 210px;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.similar-experiences-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+  padding: 10px;
+}
+
+.similar-experience-link {
+  color: rgb(80, 80, 80);
+}
+
+.card-title {
+  font-size: 15px;
+  padding-top: 10px;
+  margin-left: 10px;
+}
+
+.similar-experience-rating {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.card-price {
+  margin-left: 10px;
+}
+
+/* Similar Experiences End */
+
+/* div.rating-share-icons {
+  border: 1px solid red;
+} */
+
+
+/* .ui.container {
+  width: 400px;
+} */
+
+/* Things to know start  */
+
+div.things-to-know-container {
+  padding-left: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+div.things-to-know-container div.things-to-know-element {
+  width: 300px;
+}
+
+/* Things to know end */
+
+/* Keep exporing  */
+.ui.card.experience-card {
+  width: 140px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.similar-experiences-card {
+  position: relative;
+}
+
+/* Heart Icon within Similar experience component */
+.heart-favourite-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: rgb(248, 248, 248);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+/* Heart Icon within Similar experience component */
+.heart-favourite-icon:hover {
+  color: #fc405f;
+}
+
+.heart-favourite-icon:active {
+  color: blue;
+}
+
+/* Reviews Component Start */
+.review-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  
+}
+
+/* .review-card {
+
+} */
+
+/* Reviews Component End */
+
+/* Experience error */
+.experience-error {
+  height: 80vh;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Experience Component End */
+
+/* ExperienceForm Component Start */
+
+.form-container {
+  position: relative;
+  top: 100px;
+}
+
+/* ExperienceForm Component End */
+
+/*
+
+input:focus { 
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
+textarea:focus { 
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+} */
+
+.profile-reviews {
+  padding-left: 20px;
+}
+
+.ui.medium.circular.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  width: 50vw;
+}
+
+.about-anna h4 {
+  font-weight: bold;
+}
+
+.user-name h2 {
+  color: black;
+}
