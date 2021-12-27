@@ -1060,7 +1060,7 @@ select:-webkit-autofill:active {
   position: fixed;
   width: 100%;
   height: 100vh;
-  /* background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png'); */
+  background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png');
   background-size: no-repeat;
 } 
 

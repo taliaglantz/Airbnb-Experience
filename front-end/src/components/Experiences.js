@@ -140,7 +140,8 @@ const Experiences = () => {
 
   //console.log(viewport)
   // console.log(popup)
-  // console.log('EXPERIENCES ->', experiences)
+  console.log('EXPERIENCES ->', experiences)
+  console.log('PROCESS-ENV ->', process.env)
   return (
     <Grid divided='vertically'>
       <Grid.Row columns={2} >
@@ -151,7 +152,7 @@ const Experiences = () => {
           <Container>
             <div className='header-div'>
               <p>{experiences.length} experiences</p>
-              <Header as='h4'>Experiences in England</Header>
+              <Header as='h4'>Experiences in London</Header>
               <p>Review COVID-19 travel restrictions before you book. <a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
             </div>
             <div>
