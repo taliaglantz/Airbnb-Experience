@@ -207,8 +207,8 @@ const Experiences = () => {
             <div className="map-container">
               {viewport ?
                 <ReactMapGL
-                  // mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-                  mapboxApiAccessToken='pk.eyJ1IjoidGFsaWFnbGFudHoiLCJhIjoiY2t2dTJjZ3I4MGowdTJvanRueWc3MWRrbCJ9.XHliFyEBjsvGbXdinz3nEw'
+                  mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+                  // mapboxApiAccessToken='pk.eyJ1IjoidGFsaWFnbGFudHoiLCJhIjoiY2t2dTJjZ3I4MGowdTJvanRueWc3MWRrbCJ9.XHliFyEBjsvGbXdinz3nEw'
                   height='100%'
                   width='100%'
                   mapStyle='mapbox://styles/mapbox/streets-v11'
