@@ -151,7 +151,7 @@ const Experiences = () => {
           <Container>
             <div className='header-div'>
               <p>{experiences.length} experiences</p>
-              <Header as='h4'>Experiences in London</Header>
+              <Header as='h4'>Experiences in England</Header>
               <p>Review COVID-19 travel restrictions before you book. <a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
             </div>
             <div>
@@ -207,7 +207,8 @@ const Experiences = () => {
             <div className="map-container">
               {viewport ?
                 <ReactMapGL
-                  mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+                  // mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+                  mapboxApiAccessToken='pk.eyJ1IjoidGFsaWFnbGFudHoiLCJhIjoiY2t2dTJjZ3I4MGowdTJvanRueWc3MWRrbCJ9.XHliFyEBjsvGbXdinz3nEw'
                   height='100%'
                   width='100%'
                   mapStyle='mapbox://styles/mapbox/streets-v11'
