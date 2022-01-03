@@ -50,7 +50,7 @@ const Navbar = () => {
     }
   }, [location.pathname])
 
-  // Toggle navbar background transparency
+  // Toggle navbar background transparency - can see comparison if scrolling down the page on home and comparison on experiences page
   window.addEventListener('scroll', function () {
     const navbarElements = document.querySelectorAll('.toggle-background')
     const scrollYPosition = window.scrollY
