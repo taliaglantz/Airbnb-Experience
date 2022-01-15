@@ -4,7 +4,6 @@
 
 ## Table of Contents
 - [Overview](#overview)
-- [Project Description](#project-description)
 - [Brief](#brief)
 - [Technologies used](#technologies-used)
 - [Planning](#planning)
@@ -17,18 +16,15 @@
 <a name="overview"></a>
 ## Overview
 This project was my third project created during General Assembly’s Software Engineering Immersive Course, which I completed from September-December 2021.
+<strong>The goal</strong>: As part of a group, build a full-stack MERN (MongoDB, Express, React and Node.js) application.
 
-### Goal 
-As part of a group, build a full-stack MERN (MongoDB, Express, React and Node.js) application.
-
+Experience is a semi-clone of the experience tab on Airbnb. The app we created boasts the ability for the user to find experiences in London based on a date range. The user is able to view each experience’s details (including precise location), sign up and login, add experiences to a wishlist and add a new experience onto the site themselves.
 
 ### Timeframe
 10 days
 
-
 ### Deployed link
 https://e-xperience.herokuapp.com/ 
-
 
 ### Getting started and admin login
 1. Either clone or download the source code
@@ -38,10 +34,6 @@ Please feel free to use the following login credentials:
 - Username: taliaglantz
 - Email: talia@email.com
 - Password: pass
-
-<a name="project-description"></a>
-## Project description
-Experience is a semi-clone of the experience tab on Airbnb. The app boasts the ability for the user to find experiences in London based on a date range. The user is able to view each experience’s details (including precise location), sign up and login, add experiences to a favourites list and add a new experience onto the site themselves. 
 
 <img src="front-end/src/assets/images/readme/Screenshot 2022-01-10 at 12.32.22.png" alt="homepage" />
 
@@ -63,10 +55,10 @@ Here is the brief we were given:
 - Node.js
 - MongoDB
 - Express
-- JSON Web Token
+- JSON Web Token for authentication
 - Mongoose
-- Body parser
-- Bcrypt
+- Body parser 
+- Bcrypt for password hashing
 
 ### Front-end:
 - React
@@ -74,19 +66,18 @@ Here is the brief we were given:
 - React Semantic UI (CSS Framework)
 - CSS
 - Nodemon
-- React-router-dom
+- React-router-dom for component-based routing
 - react-router
-- React Mapbox GL
-- RSuite - DateRangePicker, RangeSlider and Rate
+- React Mapbox GL for maps
+- RSuite for DateRangePicker, RangeSlider and Rate
 
 ### Dev tools:
 - Insomnia
 - VS code
-- Git and GitHub
 - Google Chrome dev tools
-- Heroku (deployment)
-- Trello
-- Figma
+- Heroku for deployment
+- Trello for communication
+- Figma for wireframing
 
 <a name="build"></a>
 ## Build
@@ -96,11 +87,11 @@ Here is the brief we were given:
 As a group, we were really enthusiastic about creating a modern-looking app that enabled users to find cool events taking place near them. Upon concocting a list of features for this app and searching around for potentially similar-looking sites, we came across the Airbnb experiences tab. As a group of keen-travelling and generally clued-up Millenials - we were shocked we hadn’t come across it before (...you’re welcome)! Since this tab already had all the features we had spoken about and Airbnb has such incredible styling - we thought it would be a good challenge to clone it (as opposed to the bigger challenge of creating something better within a 9-day timeframe). We did make a few changes though - some additions and some editions - which will be explained. 
 For our wireframing we used Figma - I had never worked this tool before so really enjoyed learning how to use it. We completed wireframes for all the components we hoped to create, and related them to the original Airbnb page, for reference.
 
-<img src="front-end/src/assets/images/readme/Screenshot 2022-01-10 at 11.04.25.png" alt="figma board" width=400 />
+<img src="front-end/src/assets/images/readme/Screenshot 2022-01-10 at 11.04.25.png" alt="figma board" width=450 />
 
 To manage our time effectively, we created a Project Trello board which was initially divided into front-end and back-end tasks, which got divided up amongst the group.
 
-<img src="front-end/src/assets/images/readme/Screenshot 2022-01-10 at 11.06.13.png" alt="figma board" width=400 />
+<img src="front-end/src/assets/images/readme/Screenshot 2022-01-10 at 11.06.13.png" alt="figma board" width=450 />
 
 Key dates:
 - Day 1: Planning
@@ -238,7 +229,7 @@ Navigating the `onChange` and `value` props were really challenging, however a g
     }
   }
 ```
-
+<img src="front-end/src/assets/images/readme/Screenshot 2022-01-15 at 18.21.54.png" alt="add an experience form" />
 
 ### Wishlist
 The final component that I worked on was the favourites/wishlist feature. This was a feature that we weren’t sure we would have time to do but since we were only working on styling towards the end, we thought we could squeeze it in if we pair-programmed it. We initially had the idea of using local storage to enable the favouriting of certain experiences by the user but we optimised this and used the back-end instead as we thought it would be more efficient better practice. We ensured the user model was set up correctly in the back-end and then coded the `addToWishList` function in wishlist.js in order for the profiles of the user to be updated with whatever experience they clicked on to favourite. This is then pushed through to the front end and is then displayed in Favourites.js and subsequently pulled through to the user page in UserPage.js. 
@@ -277,6 +268,7 @@ export const addToWishlist = async (event, setRerender) => {
   }
 }
 ```
+<img src="front-end/src/assets/images/readme/Screenshot 2022-01-15 at 18.25.08.png" alt="wishlist" />
 
 <a name="known-bugs"></a>
 ## Known bugs
