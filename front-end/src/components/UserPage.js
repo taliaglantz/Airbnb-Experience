@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Card, Icon, Image, Grid, Container, Segment } from 'semantic-ui-react'
-import FavouritesDraft from '../components/FavouritesDraft'
+import Favourites from './Favourites'
 import { getTokenFromLocalStorage } from './Helpers/auth'
 const UserPage = () => {
   const [profile, setProfile] = useState([])
@@ -138,7 +138,7 @@ const UserPage = () => {
             </Grid.Row>
             <Grid.Row>
               <Container>
-                {profile ? <FavouritesDraft wishlist={profile.wishlist} /> : null}
+                {profile ? <Favourites wishlist={profile.wishlist} /> : null}
               </Container>
             </Grid.Row>
           </Grid >
@@ -154,7 +154,7 @@ const UserPage = () => {
             <h1>Hi, <span className='coral'>{userDetails.username}</span>!</h1>
             <br />
             <br />
-            {profile ? <FavouritesDraft wishlist={profile.wishlist} /> : null}
+            {profile ? <Favourites wishlist={profile.wishlist} /> : null}
           </Segment>
         </>
       }

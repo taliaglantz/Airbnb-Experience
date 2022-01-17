@@ -16,6 +16,7 @@
 <a name="overview"></a>
 ## Overview
 This project was my third project created during General Assembly’s Software Engineering Immersive Course, which I completed from September-December 2021.
+
 <strong>The goal</strong>: As part of a group, build a full-stack MERN (MongoDB, Express, React and Node.js) application.
 
 Experience is a semi-clone of the experience tab on Airbnb. The app we created boasts the ability for the user to find experiences in London based on a date range. The user is able to view each experience’s details (including precise location), sign up and login, add experiences to a wishlist and add a new experience onto the site themselves.
@@ -29,6 +30,7 @@ https://e-xperience.herokuapp.com/
 ### Getting started and admin login
 1. Either clone or download the source code
 2. Run `yarn` && `yarn start`
+3. Navigate to your browser and type in `localhost:4000` to view the site
 
 Please feel free to use the following login credentials:
 - Username: taliaglantz
@@ -273,19 +275,21 @@ export const addToWishlist = async (event, setRerender) => {
 <a name="known-bugs"></a>
 ## Known bugs
 - There are often problems when adding a new experience - often it doesn't show up on the index page
+- Upon entering the site, the experienes page is displayed instead of the homepage
+- Upon the page refeshing, the username is no longer displayed in the navbar
 - We had to allocate one user as the host so all the experiences that we seeded in are hosted by Anna, we hadn't the time to figure out how to change this to have the experiences already displayed by a random user that had already been seeded.
 
 <a name="wins"></a>
 ## Wins
-- Given the quantity of work we had set for ourselves and the timeframe that was given within which we had to complete our project, I believe we achieved a lot and have a fully functional and well-replicated Airbnb site to show for it.
-- I had never used Mapbox before and I thoroughly enjoyed reading the docs, solving errors that appeared and getting working interactive maps to appear on the pages.
-- Although navigating react semantic ui was really challenging at times, I am really glad that we learn a new framework and had some solid practise in using it.
+- Given the quantity of work we had set for ourselves and the timeframe that was given within which we had to complete our project, I believe we achieved a lot and have a <strong>fully functional and well-replicated </strong>Airbnb site to show for it.
+- I had never used <strong>Mapbox</strong> before and I thoroughly enjoyed reading the docs, solving errors that appeared and getting working interactive maps to appear on the pages.
+- Although navigating react semantic ui was really challenging at times, I am really glad that we <strong>learn a new framework</strong> and had some solid practise in using it.
 - Although it was another group member that worked on the datepicker, range and filters after importing them from RSuite, I am really glad they are in our project and I understand how to use them and how I can use them elsewhere. Having been introduced to RSuite in this project, I am looking forward to using it in the future. 
-- Merging conflicts often comes with challenges and we definitely had a lot of them! However, we learnt a lot from the process and I felt far more confident with using Git as a group when going into my next project because of how much we overcame and how many errors we solved together.
+- Merging conflicts often comes with challenges and we definitely had a lot of them! However, we learnt a lot from the process and I felt far more confident with <strong>using Git as a group</strong> when going into my next project because of how much we overcame and how many errors we solved together.
 
 <a name="challenges"></a>
 ## Challenges
-- The biggest challenge that we faced was definitely cloning a website as detailed, perfectly styled and intricately featured as Airbnb. Many times it felt like we had completed a task or even achieved our MVP, only to realise that there was a whole section missing or there was something in the back-end that we’d have to adapt in order to replicate something on the front-end, an example of this being the favourites feature. Given the timeframe we had, quick decisions had to be made as to whether something was a priority to be resolved or if it just had to be put into the “bonus tasks” or future features section. 
+- The biggest challenge that we faced was definitely cloning a website as detailed, perfectly styled and intricately featured as Airbnb. Many times it felt like we had completed a task or even achieved our MVP, only to realise that there was a whole section missing or there was something in the back-end that we’d have to adapt in order to replicate something on the front-end, an example of this being the favourites feature. Given the timeframe we had, quick decisions had to be made as to whether something was a priority to be resolved or if it just had to be put into the “bonus tasks” section. 
 - Another large challenge that we realised relatively early on was how difficult it is to clone a website using a CSS Framework. It was really difficult to learn how to use a new framework on the job whilst also ensuring it matched in style to the airbnb page. More often than not, we resorted to using CSS instead of the framework or adapting the framework in CSS. This was really tricky to navigate and at times meant we spent longer on the styling than was probably necessary. In hindsight, we probably should have chosen between cloning a website and using a new CSS framework.
 - We worked together a lot as a group, whether it be pair or even group programming to find a solution to something a bit more tricky or solving errors - I know that this is a good thing. However, it did cause a lot of problems in terms of merge conflicts and  confusion over who was actually working on what. This is something that we learnt from towards the end of the project and got better at managing, however something I definitely took forward into my next project.
 
@@ -298,7 +302,7 @@ export const addToWishlist = async (event, setRerender) => {
 
 <a name="key-learnings"></a>
 ## Key learnings
-- One of the biggest learning curves for me was learning to read other peoples’ code. Not only this but also understanding it and building on it to create a wider feature. It opened my eyes to different solutions and ways of approaching obstacles and errors.
-- I am really glad I insisted on our group pseudocoding from the beginning. As a result, we found it easier to understand other peoples’ code and distinguish between what sections different people were working on, it massively helped with merging conflicts and also helping to establish a neat and tidy “working environment”.
-- We had never used git before as a group nor deployed a site to Heroku so I am really grateful for those learning opportunities.
-- Being placed in a group with people that you have never worked with before (let alone know) was always going to be a challenge. I learnt a lot from being in a team where we had to conduct ourselves with no designated leader. I believe the quiet yet effective approaches I undertook that led to ensuring there were regular “touch points” throughout the day where we updated each other on progress, that managed group dynamics when it came to communication and also that delicately and sensitively handled different people’s priorities, were met positively and were effective. If I were to be put in this position again, I learnt that setting clear expectations and being open with each other at the beginning of the project is key.
+- One of the biggest learning curves for me was <strong>learning to read other peoples’ code</strong>. Not only this but also understanding it and building on it to create a wider feature. It opened my eyes to different solutions and ways of approaching obstacles and errors.
+- I am really glad I insisted on our <strong>group pseudocoding </strong>from the beginning. As a result, we found it easier to understand other peoples’ code and distinguish between what sections different people were working on, it massively helped with merging conflicts and also helping to establish a neat and tidy “working environment”.
+- We had never used git before as a group nor deployed a site to <strong>Heroku</strong> so I am really grateful for those learning opportunities.
+- Being placed in a group with people that you have never worked with before (let alone know) was always going to be a challenge. I learnt a lot from being in a team where we had to conduct ourselves with no designated leader. I believe the quiet yet effective approaches I undertook that led to ensuring there were <strong>regular “touch points”</strong> throughout the day where we updated each other on progress, that <strong>managed group dynamics </strong>when it came to communication and also that delicately and sensitively handled different people’s priorities, were met positively and were effective. If I were to be put in this position again, I learnt that setting <strong>clear expectations</strong>and being open with each other at the beginning of the project is key.

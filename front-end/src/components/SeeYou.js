@@ -19,8 +19,8 @@ const SeeYou = ({ username, setUsername, setVisibilitySeeYou }) => {
           <hr />
         </div>
         <div className='popup-form-container'>
-          <h4 className=''>🤍&nbsp;🤍&nbsp;🤍&nbsp;&nbsp;</h4>
-          <h4 className=''>We are sad to see you go!</h4>
+          <h4 className='popup-title'>🤍&nbsp;🤍&nbsp;🤍&nbsp;&nbsp;</h4>
+          <h4 className='popup-title'>We are sad to see you go!</h4>
           <button onClick={handleClick} className='coral-button' type='submit'>Bye bye..</button>
         </div>
       </div>

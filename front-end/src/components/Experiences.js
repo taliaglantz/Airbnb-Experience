@@ -29,13 +29,29 @@ const Experiences = () => {
   }
 
   const checkDate = (experience) => {
-    let dates = experience.date
-    dates = dates.map(date => {
-      return new Date(`${date.year}-${convertDate(date.month)}-${convertDate(date.day)}`)
+    const dates = experience.date
+    const datesSet = new Array
+    const currentTime = new Date
+    // dates = dates.map(date => {
+    //   return new Date(`${date.year}-${convertDate(date.month)}-${convertDate(date.day)}`)
+    // })
+    dates.forEach(date => {
+      for (let i = 1; i <= 12; i++) {
+        // datesSet.push(new Date(`${currentTime.getFullYear() - 1}-${convertDate(i)}-${convertDate(date.day)}`))
+        datesSet.push(new Date(`${currentTime.getFullYear() + 1}-${convertDate(i)}-${convertDate(date.day)}`))
+        datesSet.push(new Date(`${currentTime.getFullYear()}-${convertDate(i)}-${convertDate(date.day)}`))
+      }
     })
-    if (dates.some(date => (date >= from) && (date <= to))) {
+    // if (experience.name === 'Hive Pro Paintball Experience') {
+    //   console.log(datesSet)
+    // }
+    // console.log('dsssssss', datesSet)
+
+    if (datesSet.some(date => (date >= from) && (date <= to))) {
+      // console.log('true')
       return true
     } else {
+      console.log('meh', experience.name)
       return false
     }
   }
@@ -53,10 +69,16 @@ const Experiences = () => {
   }
 
   const checkRating = (experience) => {
-    const rating = parseFloat(experience.averageRating)
-    return (
-      rating >= minRating ? true : false
-    )
+    if (experience.averageRating !== 'Not rated yet') {
+      const rating = parseFloat(experience.averageRating)
+      return (
+        rating >= minRating ? true : false
+      )
+    } else if ( experience.averageRating === 'Not rated yet' && minRating === 0){
+      return true
+    } else {
+      return false
+    }
   }
 
   const filterExperiences = (experiences) => {
@@ -143,17 +165,18 @@ const Experiences = () => {
   console.log('EXPERIENCES ->', experiences)
   console.log('PROCESS-ENV ->', process.env)
   return (
-    <Grid divided='vertically'>
-      <Grid.Row columns={2} >
-        <Grid.Column width={9} id='left-column'>
+    <Grid className='navbar-break' divided='vertically'>
+      <Grid.Row >
+        <Grid.Column className='left-column'>
+
 
           {/* Column on left */}
 
-          <Container>
+          <section>
             <div className='header-div'>
               <p>{experiences.length} experiences</p>
-              <Header as='h4'>Experiences in London</Header>
-              <p>Review COVID-19 travel restrictions before you book. <a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
+              <h4>Experiences in London</h4>
+              <p className='review'>Review COVID-19 travel restrictions before you book. <a href='https://www.airbnb.co.uk/help/topic/1418/government-travel-restrictions-and-advisories' target='blank'>Learn more</a></p>
             </div>
             <div>
               {experiences.length ?
@@ -198,12 +221,12 @@ const Experiences = () => {
               }
             </div >
 
-          </Container >
+          </section >
         </Grid.Column >
 
         {/* Column on right */}
 
-        < Grid.Column width={7} >
+        < Grid.Column className='right-column'>
           <div className="map">
             <div className="map-container">
               {viewport ?
@@ -261,9 +284,9 @@ const Experiences = () => {
                           </div>
                         </div>
 
-                        <p>TBC reviews &middot; {popup.location}</p>
-                        <p>{popup.name}</p>
-                        <p>{popup.category} &middot; {popup.duration / 60} hours</p>
+                        <p className='description'>TBC reviews &middot; {popup.location}</p>
+                    
+                        <p className='description'>{popup.category} &middot; {popup.duration / 60} hours</p>
                         <p><strong>From {popup.price}</strong>/person</p>
                       </Card>
 

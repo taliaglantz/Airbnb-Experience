@@ -17,8 +17,8 @@ const NewUser = ({ newUser, createNewUser, setVisibilityLogin }) => {
           <hr />
         </div>
         <div className='popup-form-container'>
-          <h4 className=''>🤍&nbsp;🤍&nbsp;🤍&nbsp;&nbsp;</h4>
-          <h4 className=''>Your account has been successfully created.</h4>
+          <h4 className='popup-title'>🤍&nbsp;🤍&nbsp;🤍&nbsp;&nbsp;</h4>
+          <h4 className='popup-title'>Your account has been successfully created.</h4>
           <button onClick={(event) => handleClick(event.target.innerText)} className='coral-button' type='submit'>Log in and explore!</button>
         </div>
       </div>

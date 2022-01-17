@@ -1,101 +1,248 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Header } from 'semantic-ui-react'
-import { ImageUploadField } from '../components/ImageUploadField'
+import { ImageUploadField } from './ImageUploadField'
+import axios from 'axios'
+import { getTokenFromLocalStorage } from './Helpers/auth'
 
-const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, handleInputChanges, handleDateChanges, handleThingsToKnowChanges }) => {
+const ExperienceForm = () => {
+  const [errorData, setErrorData] = useState({
+    name: undefined,
+    location: undefined,
+    duration: undefined,
+    locationCoord:
+    {
+      latitude: undefined,
+      longitude: undefined
+    },
+    date:
+      [
+        {
+          day: undefined,
+          month: undefined,
+          year: undefined
+        }
+      ],
+    description: undefined,
+    category: undefined,
+    //image: undefined
+    price: undefined,
+    thingsToKnow:
+      [
+        {
+          text: undefined
+        },
+        {
+          text: undefined
+        }
+      ],
+    languages: undefined,
+    whatIsIncluded: [undefined],
+    image: undefined
+  })
+  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: undefined,
+    location: undefined,
+    duration: undefined,
+    locationCoord:
+    {
+      latitude: 'null',
+      longitude: 'null'
+    },
+    date: [{
+      day: 'null',
+      month: 'null',
+      year: 'null'
+    }],
+    description: undefined,
+    category: undefined,
+    price: undefined,
+    thingsToKnow: [
+      {
+        header: 'What to bring',
+        text: [
+          undefined
+        ]
+      },
+      {
+        header: 'Cancellation policy',
+        text: [
+          'Cancel within 24 hours of purchasing or at least 7 days before the experience starts for a full refund.'
+        ]
+      }
+    ],
+    languages: undefined,
+    whatIsIncluded: undefined,
+    image: undefined
+  })
+
+
+  // const handleChange = (event) => {
+  //   // const { target } = event
+  //   const newFormData = { ...formData, [event.target.name]: event.target.value }
+  //   console.log('Form Data ->', formData)
+  //   console.log('Event Target Value ->', event.target.value)
+  //   setFormData(newFormData)
+  //   console.log('formData - look at this one!!-> ', formData)
+  // }
+
+  const handleInputChanges = level => e => {
+    const value = e.target.name === 'price' ?
+      e.target.value[0] !== '£' ? `£${e.target.value}` : e.target.value : e.target.value
+    if (!level) {
+      setFormData({
+        ...formData, [e.target.name]: value
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [level]: {
+          ...formData[level],
+          [e.target.name]: parseFloat(e.target.value)
+        }
+      })
+    }
+  }
+
+  // console.log(formData.date[0].day)
+
+  const handleDateChanges = level => e => {
+    setFormData({
+      ...formData,
+      [level]: [{
+        ...formData.date[0],
+        [e.target.name]: Number(e.target.value)
+      }]
+    })
+
+  }
+
+  const handleThingsToKnowChanges = level => e => {
+    if (!level) {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [level]: [{
+          ...formData.thingsToKnow[0],
+          ['text']: e.target.value
+        }]
+      })
+    }
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    console.log('Submitted Form Data ->', formData)
+    try {
+      await axios.post('/api/experiences',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${getTokenFromLocalStorage()}`
+          }
+        }
+      )
+      setSubmitted(true)
+    } catch (err) {
+      console.log('Error ->', err)
+      setErrorData(err.response.data.errors)
+      console.log('errordata', errorData)
+    }
+  }
+
 
   const handleImageUrl = (url) => {
     setFormData({ ...formData, image: url })
   }
 
-  // const categories = [
-  //   {
-  //     key: 'Food and drink',
-  //     text: 'Food and drink',
-  //     value: 'Food and drink'
-  //   },
-  //   {
-  //     key: 'Entertainment',
-  //     text: 'Entertainment',
-  //     value: 'Entertainment'
-  //   },
-  //   {
-  //     key: 'Sports',
-  //     text: 'Sports',
-  //     value: 'Sports'
-  //   },
-  //   {
-  //     key: 'Art and culture',
-  //     text: 'Art and culture',
-  //     value: 'Art and culture'
-  //   },
-  //   {
-  //     key: 'Nature and outdoors',
-  //     text: 'Nature and outdoors',
-  //     value: 'Nature and outdoors'
-  //   },
-  //   {
-  //     key: 'Sightseeing',
-  //     text: 'Sightseeing',
-  //     value: 'Sight seeing'
-  //   }
-  // ]
-
-  const latitude = { ...formData  }
-  console.log('Things to know -> ', formData.thingsToKnow)
-  console.log('Things to know [0] -> ', formData.thingsToKnow[0])
-  console.log('Things to know [0] text -> ', formData.thingsToKnow[0].text)
+  const currentYear = Number((new Date).getFullYear())
 
   return (
     <div className='form-wrapper'>
       <div className='new-experience-form'>
         <div>
           <Header as='h1' textAlign='center'>
-            <Header.Content>Add a new experience</Header.Content>
+            <h4 className='margin-bottom'>Add a new experience</h4>
           </Header>
         </div>
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} autoComplete="off">
 
-          <Form.Input label='Name of Experience' width={6}>
+          <Form.Input label='Name of Experience' width='16'>
+            <p className='errors'>{errorData.name ? errorData.name.kind : null}</p>
             {/* <input onChange={handleChange} value={formData.name} name='name' placeholder='e.g. Afternoon Tea at Claridges' /> */}
             <input onChange={handleInputChanges()} value={formData.name} name='name' placeholder='e.g. Afternoon Tea at Claridges' />
           </Form.Input>
 
-          <Form.Input label='Location' width={4}>
+          <Form.Input label='Location' width='16'>
+            <p className='errors'>{errorData.location ? errorData.location.kind : null}</p>
             <input onChange={handleInputChanges()} value={formData.location} name='location' placeholder='e.g. London' />
           </Form.Input>
 
-          <Form.Input label='Duration' width={4}>
-            <input onChange={handleInputChanges()} value={formData.duration} name='duration' placeholder='e.g. 90' />
+          <Form.Input label='Duration' width='16'>
+            <p className='errors'>{errorData.duration ? errorData.duration.kind : null}</p>
+            <input onChange={handleInputChanges()} value={formData.duration} name='duration' placeholder='e.g. 90' type='number' />
           </Form.Input>
 
-          <Form.Input label='Latitude' width={4}>
+          <Form.Input label='Latitude' width='16'>
+            <p className='errors'>{errorData['locationCoord.latitude'] ? 'required' : null}</p>
             {/* <input onChange={handleChange} value={formData.locationCoord.latitude} name='latitude' placeholder='e.g. 51.5072' /> */}
-            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.latitude} name='latitude' placeholder='e.g. 51.5072' type="number"/>
+            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.latitude} name='latitude' placeholder='e.g. 51.5072' type="number" />
           </Form.Input>
-          
-          <Form.Input label='Longitude' width={4}>
-            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.longitude} name='longitude' placeholder='e.g. 0.1276' type="number"/>
+
+          <Form.Input label='Longitude' width='16'>
+            <p className='errors'>{errorData['locationCoord.longitude'] ? 'required' : null}</p>
+            <input onChange={handleInputChanges('locationCoord')} value={formData.locationCoord.longitude} name='longitude' placeholder='e.g. 0.1276' type="number" />
           </Form.Input>
 
           <Form.Group>
-            <Form.Input width={4} label='Day'>
-              <input onChange={handleDateChanges('date')} value={formData.date[0].day} name='day' placeholder='e.g. 13' />
+            <Form.Input width={6} label='Day'>
+              <p className='errors'>{errorData['date.0.day'] ? 'required' : null}</p>
+              <select onChange={handleDateChanges('date')} value={formData.date[0] ? formData.date[0].day : null} name='day' placeholder='e.g. 13'>
+                <option value={undefined} disabled selected>DD</option>
+                {[...Array.from({ length: 31 }, (_, i) => i + 1)].map(day => {
+                  return (
+                    <option key={day} value={day}>{String(day).length === 1 ? `0${day}` : day}</option>
+                  )
+                })
+                }
+              </select>
             </Form.Input>
-            <Form.Input width={4} label='Month'>
-              <input onChange={handleDateChanges('date')} value={formData.date[0].month} name='month' placeholder='e.g. 04' />
+            <Form.Input width={6} label='Month'>
+              <p className='errors'>{errorData['date.0.month'] ? 'required' : null}</p>
+              <select onChange={handleDateChanges('date')} value={formData.date[0] ? formData.date[0].month : null} name='month' placeholder='e.g. 04'>
+                <option value={undefined} disabled selected>MM</option>
+                {[...Array.from({ length: 12 }, (_, i) => i + 1)].map(month => {
+                  return (
+                    <option key={month} value={month}>{String(month).length === 1 ? `0${month}` : month}</option>
+                  )
+                })
+                }
+              </select>
             </Form.Input>
-            <Form.Input width={4} label='Year'>
-              <input onChange={handleDateChanges('date')} value={formData.date[0].year} name='year' placeholder='e.g. 2022' />
+            <Form.Input width={6} label='Year'>
+              <p className='errors'>{errorData['date.0.year'] ? 'required' : null}</p>
+              <select onChange={handleDateChanges('date')} value={formData.date[0] ? formData.date[0].year : null} name='year' placeholder='e.g. 2022'>
+                <option value={undefined} disabled selected>YYYY</option>
+                {[currentYear - 1, currentYear, currentYear + 1, currentYear + 2].map(year => {
+                  return (
+                    <option key={year} value={year}>{String(year).length === 1 ? `0${year}` : year}</option>
+                  )
+                })
+                }
+              </select>
             </Form.Input>
           </Form.Group>
 
-          <Form.Input width={4} label='Description'>
-            <input onChange={handleInputChanges()} value={formData.description} name='description' placeholder='Tell us about your experience' />
+          <Form.Input width='16' label='Description'>
+            <p className='errors'>{errorData.description ? errorData.description.kind : null}</p>
+            <textarea style={{ resize: 'none', height: '100px' }} rows="3" onChange={handleInputChanges()} value={formData.description} name='description' placeholder='Tell us about your experience' />
           </Form.Input>
-
           <Form.Field>
             <ImageUploadField
               value={formData.uploadImage}
@@ -104,115 +251,39 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
             />
           </Form.Field>
 
-          <Form.Input label='Category' width={4}>
-            <input onChange={handleInputChanges()} value={formData.category} name='category' placeholder='Please select a category' />
+          <Form.Input label='Category' width='16'>
+            <p className='errors'>{errorData.category ? errorData.category.kind : null}</p>
+            <select onChange={handleInputChanges()} value={formData.category} name="category" placeholder='Please select a category'>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Food and drink">Food and drink</option>
+              <option value="Art and culture">Art and culture</option>
+              <option value="Nature and outdoors">Nature and outdoors</option>
+              <option value="Sports">Sports</option>
+              <option value="Sight seeing">Sight seeing</option>
+            </select>
           </Form.Input>
 
-          <Form.Input label='Price' width={4}>
+          <Form.Input label='Price' width='16'>
+            <p className='errors'>{errorData.price ? errorData.category.price : null}</p>
             <input onChange={handleInputChanges()} value={formData.price} name='price' placeholder='e.g. £20' />
           </Form.Input>
 
-          <Form.Input label='Languages' width={4}>
+          <Form.Input label='Languages' width='16'>
             <input onChange={handleInputChanges()} value={formData.languages} name='languages' placeholder='e.g. English' />
           </Form.Input>
 
-          <Form.Input label='What is included' width={4}>
+          <Form.Input label='What is included' width='16'>
             <input onChange={handleInputChanges()} value={formData.whatIsIncluded} name='whatIsIncluded' placeholder='e.g. Tickets' />
           </Form.Input>
 
-          <Form.Group>
-            <Form.Input width={4} label="What to bring">
-              <input onChange={handleThingsToKnowChanges('thingsToKnow')} value={formData.thingsToKnow[0].text} name='thingsToKnow' placeholder='e.g Bring wellington boots' />
-            </Form.Input>
-          </Form.Group>
 
-          {/* <Form.Input width={4} label='locationCoord.longitude'>
-            <input onChange={handleChange} value={formData.locationCoord.longitude} name='locationCoord.longitude' placeholder='e.g. 0.1276' />
-          </Form.Input> */}
-
-          {/* <Form.Field onChange={handleChange} value={formData.duration} name='duration'>
-            <label>Duration (in mins)</label>
-            <Form.Input width={2} placeholder='e.g. 90' />
-          </Form.Field> */}
-
-          {/* <Form.Field onChange={handleChange} value={formData.locationCoord.latitude} name='locationCoord.latitude'>
-            <label>Latitude of location</label>
-            <Form.Input width={4} placeholder='e.g. 51.5072' />
-          </Form.Field>
-
-          <Form.Field onChange={handleChange} value={formData.locationCoord.longitude} name='locationCoord.longitude'>
-            <label>Longitude of location</label>
-            <Form.Input width={4} placeholder='e.g. 0.1276' />
-          </Form.Field>
-
-          <Form.Group>
-            <Form.Field onChange={handleChange} value={formData.date[0].day} name='date[0].day'>
-              <label>Day</label>
-              <Form.Input width={2} placeholder='e.g. 13' />
-            </Form.Field>
-            <Form.Field onChange={handleChange} value={formData.date[0].month} name='date[0].month'>
-              <label>Month</label>
-              <Form.Input width={2} placeholder='e.g. 04' />
-            </Form.Field>
-            <Form.Field onChange={handleChange} value={formData.date[0].year} name='date[0].year'>
-              <label>Year</label>
-              <Form.Input width={2} placeholder='e.g. 2022' />
-            </Form.Field>
-          </Form.Group>
-
-          <Form.Field onChange={handleChange} value={formData.description} name='description'>
-            <label>Description</label>
-            <Form.TextArea width={10} rows={5} placeholder='Tell us about your experience' />
-          </Form.Field>
-
-
-          <Form.Field onChange={handleChange} value={formData.category} name='category'>
-            <label>Category</label>
-            <Form.Dropdown width={3} selection placeholder='Please select a category' options={categories} />
-          </Form.Field>
-
-
-
-          <Form.Field onChange={handleChange} value={formData.price} name='price'>
-            <label>Price</label>
-            <Form.Input width={3} icon='pound sign' iconPosition='left' placeholder='e.g. 50' />
-          </Form.Field>
-
-          <Form.Field onChange={handleChange} value={formData.thingsToKnow[0].text} name='thingsToKnow[0].text'>
-            <label>Guest requirements</label>
-            <Form.TextArea width={10} rows={2} placeholder='e.g. Please bring a form of ID' />
-          </Form.Field>
-
-          <Form.Field onChange={handleChange} value={formData.thingsToKnow[0].text} name='thingsToKnow[0].text'>
-            <label>What to bring</label>
-            <Form.TextArea width={10} rows={2} placeholder='e.g. Hiking shoes' />
-          </Form.Field>
-
-          <Form.Field onChange={handleChange} value={formData.thingsToKnow[0].text} name='thingsToKnow[0].text'>
-            <label>Cancellation Policy</label>
-            <Form.TextArea width={10} rows={2} placeholder='e.g. Free cancellation within 24 hours of booking' />
-          </Form.Field>
-
-          <Form.Field onChange={handleChange} value={formData.languages} name='languages'>
-            <label>Languages</label>
-            <Form.Input width={5} placeholder='e.g. English' />
-          </Form.Field>
-
-          <Form.Field onChange={handleChange} value={formData.whatIsIncluded[0]} name='whatIsIncluded[0]'>
-            <label>Included</label>
-            <Form.Input width={5} placeholder='e.g. Tickets' />
-          </Form.Field>
+          <Form.Input label="What to bring" width='16'>
+            <input onChange={handleThingsToKnowChanges('thingsToKnow')} value={formData.thingsToKnow[0].text} name='thingsToKnow' placeholder='e.g Bring wellington boots' />
+          </Form.Input>
 
           <div>
-            <ImageUploadField
-              value={formData.uploadImage}
-              name="uploadImage"
-              handleImageUrl={handleImageUrl}
-            />
-          </div> */}
-
-          <div>
-            <Form.Button className='coral-button'>Submit Experience</Form.Button>
+            {submitted ? <p className='success'>Your experience has been posted successfully!</p> : null}
+            <button type='submit' className='form coral-button'>Submit Experience</button>
           </div>
 
         </Form>
@@ -223,4 +294,3 @@ const ExperienceForm = ({ handleSubmit, handleChange, formData, setFormData, han
 }
 
 export default ExperienceForm
-

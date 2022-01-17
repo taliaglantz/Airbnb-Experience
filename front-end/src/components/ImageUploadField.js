@@ -20,10 +20,10 @@ export const ImageUploadField = ({ handleImageUrl }) => {
   return (
     <>
       <label>Upload Image</label>
-      <input
-        type="file"
-        onChange={handleUpload}
-      />
+      <div>
+        <label className='custom-upload' htmlFor='upload'>Browse</label>
+        <input type='file' id='upload' name='image' onChange={handleUpload} />
+      </div>
     </>
   )
 }

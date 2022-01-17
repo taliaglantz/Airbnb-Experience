@@ -22,13 +22,29 @@
   --rs-input-focus-border: rgba(255, 255, 255, 0) !important;
   --rs-listbox-option-hover-text: none !important;
   --rs-slider-thumb-hover-shadow: none !important;
+  --mobile-breakpoint: 450px
   /* --rs-input-focus-border:#fc405f00
   --rs-state-focus-shadow:0 0 0 0px */
 }
 
+.margin-bottom {
+  margin-bottom: 28px !important
+}
+
+
 /* ! Body selector */
 body {
   position: relative;
+}
+
+.ui.grid {
+  margin: 0 !important;
+  padding: 24px 0 50px 0 !important;
+}
+
+.centered.grid {
+  padding: 24px !important;
+  justify-content: center !important;
 }
 
 .stop-scrolling {
@@ -53,7 +69,7 @@ a.search-icon {
 
 /* ! Column */
 .column {
-  padding: 28px !important;
+  padding: 28px ;
 }
 
 /* ! Segment */
@@ -77,17 +93,28 @@ hr {
   margin-bottom: 5px !important;
 }
 
-
 /* ! Text */
 /* Main sections */
-h4 {
-  margin-top: 4px; 
-  line-height: 24px !important; 
-  max-height: 26px !important; 
+
+.grey {
+  color: #5c5c5c
+}
+
+h5 {
+  margin-top: 8px !important;
+  font-family: 'airbnb_cereal_appbook' !important;
+  font-size: 18px !important;
+  font-weight: 100 !important;
   overflow: hidden !important; 
-  color: #343434 !important;
-  font-size: 16px !important;
-  font-family: 'airbnb_cereal_applight' !important;
+  color: black !important;
+}
+
+h4 {
+  margin-top: 8px !important;
+  font-family: 'airbnb_cereal_appbold' !important;
+  font-size: 32px !important;
+  overflow: hidden !important; 
+  color: black !important;
 }
 h3 {
   font-family: 'airbnb_cereal_appbook' !important;
@@ -95,15 +122,20 @@ h3 {
   color: black !important;
   padding: 0 28px !important;
 }
-/* White headers */
+/* White headers with shadow*/
 h2 {
   font-family: 'airbnb_cereal_appbook' !important;
   font-size: 41px;
   color: rgb(255, 255, 255) !important;
   text-shadow: 1px 1px 2px rgb(0, 0, 0) !important;
 }
-/*  */
-/*  */
+
+
+@media (max-width: 400px) {  
+  h2 {
+    font-size: 24px !important;
+  }
+}
 
 /* Add .black to change background color to black */
 body .black { 
@@ -119,15 +151,17 @@ body .black {
 
 /* Calendar container */
 .rs-picker-menu {
-
   border-radius: 32px !important;
   padding: 16px 32px !important;
   height: 450px !important;
   width: 849px !important;
   background-color: white !important;
-  transform: translate(-50%);
   z-index: 200 !important;
   overflow: visible !important;
+  position: fixed !important;
+  top: 148px !important;
+  margin-left: auto !important;
+  left: calc((100vw - 849px) / 2) !important;
 }
 
 /* Single calendar */
@@ -135,8 +169,14 @@ body .black {
   border: none !important;
   padding: 27px !important;
   height: auto !important;
-  width: 50% !important;
+  width: 50%;
 }
+
+/* @media (max-width: var(--mobile-breakpoint)) {
+  .rs-calendar {
+    width: 100% !important;
+  }
+} */
 
 .ui.menu {
   box-shadow: none !important;
@@ -272,7 +312,7 @@ body .black {
   max-width: 100vw !important;
   position: absolute !important;
   width: 316px !important;
-  transform: translate(0, 100%);
+  transform: translate(-37px, 100%);
   padding: 0 !important;
   background: transparent !important;
 }
@@ -292,12 +332,112 @@ body .black {
 }
 
 /* ! Navbar */
+.navbar-break {
+  position: relative;
+  top: 74px;
+  left: 0;
+}
 .navbar-item {
   height: 100%;
   padding: 8px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+@media (max-width: 520px) {
+  .ui.card {
+    width: 100vw !important;
+  }
+  .filters-bar {
+    display: none !important;
+  }
+  #buttons-parent {
+    position: absolute !important;
+    top: -4px !important;
+  }
+  .large-button {
+    width: 90vw !important;
+    padding: 0px !important;
+  }
+  .dates, .dates-clicked {
+    padding-left: 25px !important;
+  }
+  
+  .navbar-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .right.item.dropdown {
+    height: 74px;
+    width: 322px;
+    position: absolute !important;
+    display: flex;
+    justify-content: center;
+    top: 148px !important;
+    left: calc((100vw - 322px) / 2)  !important;
+    z-index: 100 !important;
+    padding: 0px !important;
+  }
+
+  .mobile-width {
+    width: 322px !important;
+    justify-content: space-between;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    width: 322px !important;
+    left: 0vw !important;
+
+
+  }
+  .move-left{
+    justify-content: flex-start !important;
+    padding-right: 0px !important;
+    margin: auto !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+  }
+
+  .button-center {
+    display: none !important; 
+  }
+
+  .navbar-extended {
+    position: fixed !important;
+    top: 74px !important
+  }
+
+  .menu.borderless {
+    height: 210px !important;
+    justify-content: flex-start !important;
+  }
+
+  .ui.item {
+    max-height: 74px !important;
+  }
+
+  .navbar-center {
+    position: fixed;
+    top: 74px !important
+  }
+
+  .navbar-break {
+    top: 130px;
+  }
+}
+
+.button-center {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 74px;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .navbar-center {
@@ -324,15 +464,15 @@ body .black {
 /* Navbar - extednded section */
 .navbar-extended {
   background-color: white;
-  height: 100%;
+  height: 74px;
   width: 100vw;
-  min-width: 400px;
-  position: absolute;
+  min-width: 322px;
+  position: fixed;
   display: flex;
   justify-content: center;
   left: 0px;
+  right: 0px;
   top: 74px;
-  transform: translate(-50%);
 }
 
 /* ! Filters bar */
@@ -352,7 +492,8 @@ body .black {
   flex-direction: column;
   padding: 20px;
   width: 440px;
-  height: 280px;
+  max-width: 90vw;
+  height: 305px;
 }
 
 
@@ -383,7 +524,7 @@ body .black {
   position: absolute;
 }
 
-.ui.input>input:focus {
+.ui.input > input:focus {
   border-color: black !important;
 
 }
@@ -429,6 +570,7 @@ body .black {
   padding-left: 0px !important;
   display: block !important;
 }
+
 
 .filter-button {
   font-family: 'airbnb_cereal_applight' !important;
@@ -525,6 +667,24 @@ div.rs-slider-handle.active:before {
 }
 
 /* ! Forms Sign up and Log in */
+.errors {
+  position: absolute;
+  font-size: 12px;
+  right: 3px;
+  top: -20px;
+  color: var(--rs-rate-symbol-checked)
+}
+
+.success {
+  margin-bottom: -17.1406px;
+  font-size: 12px;
+  color: var(--rs-rate-symbol-checked)
+}
+
+.ui.form .field.field input:-webkit-autofill {
+  box-shadow: 0 0 0 100px rgb(0, 0, 0) inset!important;
+  border-color: #000000!important;
+}
 
 .user-message {
   margin: 0 10px;
@@ -539,9 +699,19 @@ div.rs-slider-handle.active:before {
   border-bottom: 1px solid rgb(220, 220, 220);
 }
 
+.popup-header > h5 {
+  font-family: 'airbnb_cereal_appbold' !important;
+  font-weight: 900 !important;
+  font-size: 20px !important;
+  color: black;
+}
+
 .popup-title {
-  margin-left: 35px;
-  margin-bottom: 20px;
+  font-size: 18px !important;
+  font-family: 'airbnb_cereal_applight' !important;
+  text-align: center !important;
+  color: #5c5c5c !important;
+  padding: 0 30px 20px 30px !important;
 }
 
 .popup-form-container {
@@ -555,7 +725,7 @@ div.rs-slider-handle.active:before {
 
 .input-field {
   height: 56px !important;
-  width: 350px !important;
+  width: 350px;
 }
 
 .input-field > input {
@@ -603,7 +773,7 @@ select:-webkit-autofill:active {
   background-color: #fc405f;
   color: white;
   border-radius: 12px;
-  width: 350px !important;
+  width: 350px;
   height: 40px !important;
   margin: 35px 0;
 }
@@ -707,6 +877,62 @@ select:-webkit-autofill:active {
 /* Button location - hover */
 .location:hover {
   background: linear-gradient(to left, rgb(139, 139, 139), rgb(245, 245, 245) 60%);
+}
+
+
+/* Navbar - responsive */
+@media (max-width: 900px) {  
+  /* .navbar-extended {
+    justify-content: center !important;
+  } */
+  .location, .location-clicked {
+    display: none !important;
+  }
+  #buttons-parent {
+    width: 320px !important;
+  }
+  .large-button {
+    width: 322px !important;
+    padding: 0px !important;
+  }
+  .dates, .dates-clicked {
+    padding-left: 25px !important;
+  }
+  .rs-picker-toggle-wrapper {
+    width: 213px !important;
+    transform: translate(-199px, 100%);
+  }
+
+  @media (max-width: 520px) {
+    .rs-picker-toggle-wrapper {
+      position: fixed !important;
+      top: 74px !important;
+      height: 74px !important;
+      left: calc((100vw - 322px) / 2)  !important;
+      background: transparent !important;
+      width: 215px !important;
+      transform: none !important;
+      z-index: 100;
+
+    }
+  }
+
+  .rs-anim-fade.rs-anim-in.rs-picker-daterange-menu.rs-picker-menu.placement-bottom-start {
+    position: fixed !important;
+    top: 148px !important;
+    width: 354px !important;
+    height: 800px !important;
+    left: calc((100vw - 354px) / 2) !important;
+    padding: 10px !important;
+  }
+  .rs-picker-daterange-calendar-group {
+    width: 100% !important;
+    min-width: 0px !important;
+  }
+  .rs-calendar {
+    width: 100% !important;
+    padding: 12px 0 !important
+  }
 }
 
 /* ! Hero - Home page */
@@ -905,12 +1131,42 @@ select:-webkit-autofill:active {
 
 .popup-window {
   width: 420px;
+  min-width: 322px !important;
   background-color: white !important;
   border-radius: 24px !important;
+  z-index: 200 !important;
 }
+
+@media (max-width:520px) {
+  .popup-window {
+    margin-top: -5px !important;
+    width: 95vw;
+    background-color: white !important;
+    border-radius: 24px !important;
+    z-index: 200 !important;
+  }
+  .popup-form-container {
+    min-width: 322px !important;
+    width: 100%;
+    padding: 0 !important;
+  }
+  .input-field {
+    min-width: 300px;
+    width: 80vw !important;
+  }
+
+  .coral-button {
+    width: 80vw !important;
+  }
+  
+}
+
 
 /* ! Home page categories */
 
+.food, .entertainment, .nature, .culture {
+  min-width: 250px !important;
+}
 
 .nature {
   background: url('../assets/images/nature-and-outdoors.jpeg') !important;
@@ -944,6 +1200,12 @@ select:-webkit-autofill:active {
   transition-duration: 1s;
 }
 
+@media (max-width: 400px) {  
+  .food, .entertainment, .nature, .culture {
+    padding: 20px !important;
+  }
+}
+
 /* Explore button */
 .explore {
   width: 175px;
@@ -964,25 +1226,59 @@ select:-webkit-autofill:active {
 /* ! Home page inspirations */
 
 .inspiration-image {
-  min-width: 250px;
   height: 320px;
   background-size: cover !important;
   background-position: center;
 }
 
-/* EXPERIENCES.JS */
+.extra.content {
+  padding-top: 6px !important;
+}
 
-#left-column {
-  padding: 0px 40px ;
+.min-300 {
+  width: 300px !important
+}
+
+/* EXPERIENCES.JS */
+.ui.container {
+  margin: 0px !important;
+}
+
+.column.left-column {
+  flex-grow: 1;
+  padding: 0px 24px !important;
+}
+
+.right-column {
+  flex-grow: 0.75;
+  padding: 0px !important;
 }
 
 .header-div {
   padding: 50px 0px;
 }
 
+
 .experience-segment {
   display: flex;
-  padding: 20px;
+  padding: 20px 0px;
+}
+
+@media (max-width: 520px) {
+  .experience-segment {
+    flex-direction: column;
+  }
+  .right-content {
+    padding-top: 15px;
+    padding-left: 0px !important;
+  }
+  .experience-image {
+    width: 100% !important;
+  }
+  .heart {
+    margin-top: 10px !important;
+    margin-right: 12px !important;
+  }
 }
 
 .whole-segment {
@@ -995,7 +1291,7 @@ select:-webkit-autofill:active {
 
 .experience-image {
   min-width: 200px !important;
-  width: 200px !important;
+  width: 200px;
   height: 250px;
   border: 1px solid rgb(219, 219, 219);
   border-radius: 12px;
@@ -1005,7 +1301,7 @@ select:-webkit-autofill:active {
 }
 
 .right-content {
-  width: calc(100%-200px) !important;
+  width: 100% !important;
   padding-left: 20px;
   display: flex;
   flex-direction: column; 
@@ -1019,13 +1315,14 @@ select:-webkit-autofill:active {
 }
 
 .heart {
-  font-size: 25px !important;
+  font-size: 20px !important;
   position: absolute !important;
-  right: 0px;
+  right: 20px;
   color: rgb(197, 197, 197);
   cursor: pointer;
   right: 0px!;
   transition: all .3s ease;
+  z-index: 100 !important;
 }
 
 .heart:hover {
@@ -1037,19 +1334,34 @@ select:-webkit-autofill:active {
 }
 
 .what-we-will-do {
-  font-weight: bold;
+  font-family: 'airbnb_cereal_appmedium';
+  white-space: nowrap;
+  width: 95px !important;
+  color: black;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid lightgrey;
 }
 
 .description {
+  font-family: 'airbnb_cereal_appbook';
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2; 
   -webkit-box-orient: vertical;
+  color: #5c5c5c !important;
+  font-size: 13px;
 }
+
+
+
+
+
 
 .reviews-and-price {
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
   padding-right: 0;
 }
@@ -1057,23 +1369,45 @@ select:-webkit-autofill:active {
 /* Start of Map box */
 
 .map {
-  position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url('https://traista.com/wp-content/uploads/2018/03/London-Google-map.png');
   background-size: no-repeat;
 } 
 
+@media (max-width: 1120px) {
+  .map {
+    display: none !important;
+  }
+  .two.column.row {
+    width: 100% !important;
+  }
+  .column.left-column {
+    width: 100vw !important;
+    min-width: 250px !important;
+  }
+  .column.right-column {
+    display: none !important;
+  }
+}
+
  .map-container {
   position: fixed;
-  width: 900px;
+  width: 50% !important;
   height: 100vh;
 }
 
 .map-display-wrapper {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 320px;
+}
+
+.round-corners {
+  border-radius: 12px !important;
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+  overflow: hidden !important;
+
 }
 
 .map-display-container {
@@ -1117,16 +1451,33 @@ select:-webkit-autofill:active {
   /* Why can't I overwrite this?! */
 }
 
+.mapboxgl-popup-content {
+  background: none !important;
+  box-shadow: none !important;
+}
 
+.mapboxgl-popup-content > .card {
+  width: 280px !important;
+  padding: 10px !important;
+}
+
+.mapboxgl-popup-content > .card > p {
+  margin: 0px !important;
+}
 
 .images-in-map-card {
+  overflow: hidden !important;
+  border-radius: 50px !important;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .image-on-left {
-  height: 250px;
-  width: 200px;
+  height: 200px;
+  width: 160px;
+  background-position: center !important;
+  background-size: cover !important;
 }
 
 .images-in-map-card-right {
@@ -1135,28 +1486,79 @@ select:-webkit-autofill:active {
   flex-direction: column;
 }
 .image-on-right {
-  height: 123px;
-  width: 85px;
+  height: 97px;
+  width: 95px;
+  background-position: center !important;
+  background-size: cover !important;
 }
 /* End of Experiences.js */
 
 /* Add New Experience */
 
 .form-wrapper {
-  margin-top: 74px !important;
-  background-color: rgba(128, 128, 128, 0.301);
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  background-color: rgb(200, 200, 200);
 }
 
+/* media (max) */
+
 .new-experience-form {
-  margin-left: 250px;
-  margin-right: 250px;
+  border-radius: 24px;
+  margin: 175px auto 50px auto;
+  width: 700px;
+
   background-color: white;
   padding: 40px;
-  padding-top: 50px;
+}
+
+@media (max-width: 900px) {
+  .new-experience-form {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 520px) {
+  .new-experience-form {
+    padding-top: 75px;
+    width: 100vw;
+    border-radius: 0px;
+    margin-bottom: 0px;
+  }
+  .host-container {
+    padding-top: 178px !important;
+  }
+}
+
+.form.coral-button {
+  margin-top: 70px !important;
+  width: 100% !important;
+}
+
+.six.wide.field {
+  margin-bottom: 1em !important;
 }
 
 .submit-button {
   padding: 50px 0px;
+}
+
+.custom-upload {
+  text-align: center;
+  margin: 6px;
+  padding: 6px;
+  position: absolute;
+  height: 32px;
+  width: 93px;
+  border-radius: 3px;
+  background: rgb(200, 200, 200);
+  color: white;
+}
+
+#upload {
+  display: flex !important;
+  justify-content: space-between !important;
 }
 
 /* Favourite cards */
@@ -1213,6 +1615,11 @@ select:-webkit-autofill:active {
   padding-bottom: 10px;
 }
 
+.share {
+  font-size: 20px !important;
+  color: rgb(200, 200, 200)
+}
+
 .main-favourite-icon {
   cursor: pointer;
   transition: all .3s ease;
@@ -1230,50 +1637,97 @@ select:-webkit-autofill:active {
 
 /* Image Grid Start */
 .image-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 8px;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  aspect-ratio: 2;
+  grid-gap: 4px;
   /* border: 1px solid red; */
 }
 
 .main-image {
-  height: 440px;
-  width: 300px;
+  height: 100%;
+  width: 27%;
   background-size: cover !important;
   background-position: center;
 }
 
 .experience-img-single {
-  height: 440px;
-  width: 1125px;
+  height: 100%;
+  width: 100%;
+  background-size: cover !important;
+  background-position: center !important;
   border-radius: 12px;
 }
 
 .experience-img-0 {
+  width: 27%;
+  height: 100%;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
 
 .image-innner-grid {
-  display: grid;
-  max-height: 440px;
-  max-width: 200px;
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+  grid-gap: 4px;
 }
 
 .experience-img-2,
 .experience-img-3 {
-  max-height: 215px;
-  max-width: 200px;
+  height: 50%;
+  width: 100%;
 }
 
 .experience-img-4 {
+  height: 100%;
+  width: 27%;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
 
+.similar-experience-container {
+  padding: 25px 0px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
 
+h3.ui.header {
+  padding-left: 0px !important;
+  font-size: 24px !important;
+}
+
+
+@media (max-width: 520px) {
+  .experiences-container {
+    margin-top: 74px !important;
+  }
+  .image-grid {
+    aspect-ratio: 1;
+    border-radius: 12px !important;
+  }
+  .experience-img-0, .experience-img-4 {
+    display: none !important;
+  }
+
+  .main-image {
+    width: 70%;
+  }
+  .image-innner-grid {
+    width: 30% !important;
+  }
+
+  .experience-img-2,
+  .experience-img-3 {
+    height: 50%;
+    width: 100%;
+  }
+  
+  .seven.wide.column {
+    width: 100% !important;
+  }
+}
 
 /* Image Grid End */
 
@@ -1281,17 +1735,14 @@ select:-webkit-autofill:active {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
-
 .experience-img-2 {
   width: 100%;
   height: 100px;
 }
-
 .experience-img-3 {
   width: 180px;
   height: 160px;
 }
-
 .experience-img-4 {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -1312,16 +1763,131 @@ select:-webkit-autofill:active {
   justify-content: space-between;
 }
 
-.experience-details {
-  display: flex;
+.host-container {
+  padding-top: 130px;
 }
 
+.experience-details > h3 {
+  margin-top: 5px !important;
+  padding: 0px !important;
+}
+
+.avatar {
+  margin-top: 15px !important;
+  border-radius: 50%;
+  border: 1px solid rgb(240, 240, 240);
+  height: 60px !important;
+  width: 60px !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.avatar-small {
+  margin: 20px 15px !important;
+  border-radius: 50%;
+  border: 1px solid rgb(240, 240, 240);
+  height: 50px !important;
+  width: 50px !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.avatar-profile {
+  margin-top: 15px !important;
+  margin-bottom: 40px !important;
+  border-radius: 50%;
+  border: 1px solid rgb(240, 240, 240);
+  width: 100% !important;
+  aspect-ratio: 1 !important;
+  border: 1px solid rgb(240, 240, 240);
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.experience-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.ten.wide.column {
+  padding-right: 35px !important
+}
+
+.custom-card {
+  overflow: hidden;
+  border-radius: 12px;
+  height: auto !important;
+  padding: 24px;
+  padding-top: 12px !important;
+  margin-right: 0px !important;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.card-description {
+  border-radius: 12px;
+  margin-top: -20px;
+  margin-left: 0;
+  margin-bottom: 25px;
+}
+
+.ten.wide.column {
+  padding-right: 14px !important;
+}
+
+
+ul {
+  padding-left: 25px !important;
+}
+
+.custom-card > h3 {
+  padding-left: 15px !important;
+  margin-bottom: 15px !important;
+  font-size: 20px;
+}
+
+.included {
+  padding: 8px 12px !important;
+  margin-right: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+@media (max-width: 767px) {
+  .not-indented-520 {
+    margin-left: -15px !important;
+  }
+  h3 {
+    font-size: 25px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .right-to-card {
+    width: 100% !important;
+  }
+
+  .host-title {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 120px !important;
+    height: 120px !important;
+    margin-bottom: 50px !important;
+  }
+
+  .experience-details > h3 {
+    margin-bottom: 20px !important;
+  }
+
+}
 /* Experience hosted by End */
 
 /* Whats included card start */
 .whats-included-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 .whats-included-card {
   padding: 20px !important;
@@ -1331,6 +1897,26 @@ select:-webkit-autofill:active {
 /* Meet your host start */
 .meet-your-host-header {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center !important;
+  margin-bottom: 30px;
+}
+
+.card-header {
+  margin: -13px -24px 25px !important;
+  padding: 16px 24px 12px!important;
+  border-bottom: 1px solid lightgrey !important;
+  border-top: 1px solid lightgrey !important;
+}
+
+.meet-your-host-header > h3 {
+  font-size: 24px;
+  padding-left: 0 !important;
+}
+
+.meet-your-host-header > .avatar {
+  width: 45px !important;
+  height: 45px !important;
 }
 
 .myh-image {
@@ -1360,19 +1946,19 @@ select:-webkit-autofill:active {
 
 .similar-experience-card {
   height: 300px;
-  width: 210px;
+  width: 210px !important;
+  margin: 0px !important;
   background-size: cover !important;
   background-position: center;
   border-radius: 12px;
 }
 
-.similar-experiences-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 15px;
-  padding: 10px;
+.similar-experience-card-container {
+  position: relative !important;
+  margin-right: 28px !important;
 }
+
+
 
 .similar-experience-link {
   color: rgb(80, 80, 80);
@@ -1428,15 +2014,12 @@ div.things-to-know-container div.things-to-know-element {
   align-items: center;
 }
 
-.similar-experiences-card {
-  position: relative;
-}
 
 /* Heart Icon within Similar experience component */
 .heart-favourite-icon {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 15px;
+  right: 10px;
   color: rgb(248, 248, 248);
   cursor: pointer;
   transition: all .3s ease;
@@ -1453,15 +2036,42 @@ div.things-to-know-container div.things-to-know-element {
 
 /* Reviews Component Start */
 .review-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  display: flex !important;
+  flex-wrap: wrap !important;
   
 }
 
-/* .review-card {
+.reset-pos {
+  position: unset !important;
+}
 
-} */
+.simple-text {
+  font-family: 'airbnb_cereal_appbook';
+  color: #5c5c5c !important;
+  font-size: 13px;
+}
+
+.normal-text {
+  font-family: 'airbnb_cereal_appbook';
+  color: #5c5c5c !important;
+  font-size: 14px;
+  text-align: justify;
+}
+
+@media (max-width: 700px) {
+  .review-container {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .review-card {
+    width: 100% !important;
+  }
+}
+
+.review-card {
+  width: calc(50% - 14px);
+  margin-right: 14px
+}
 
 /* Reviews Component End */
 
@@ -1488,7 +2098,6 @@ div.things-to-know-container div.things-to-know-element {
 /* ExperienceForm Component End */
 
 /*
-
 input:focus { 
   outline: none !important;
   border-color: #719ECE;
@@ -1502,6 +2111,16 @@ textarea:focus {
 
 .profile-reviews {
   padding-left: 20px;
+}
+
+.profile-details {
+  margin: 8px 0px !important;
+  padding-left: 8px !important;
+}
+
+.not-indented {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 .ui.medium.circular.image {
@@ -1518,4 +2137,13 @@ textarea:focus {
 
 .user-name h2 {
   color: black;
+}
+
+select:focus-visible {
+  outline-color: black !important
+}
+
+textarea:focus, #upload:focus {
+  border-color: black !important;
+  outline: 1px solid black !important;
 }

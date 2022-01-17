@@ -9,15 +9,13 @@ const Login = ({ state, setState, setUsername }) => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: '',
-    passwordConfirmation: ''
+    password: ''
   })
 
   const [errorData, setErrorData] = useState({
     username: '',
     email: '',
-    password: '',
-    passwordConfirmation: ''
+    password: ''
   })
 
   const handleChange = (event) => {
@@ -91,7 +89,7 @@ const Login = ({ state, setState, setUsername }) => {
               <p>Password</p>
             </div>
             <input
-              type='text'
+              type='password'
               name='password'
               placeholder='Password'
               value={formData.password}
@@ -99,18 +97,6 @@ const Login = ({ state, setState, setUsername }) => {
             />
           </div>
 
-          <div className='ui input input-field last'>
-            <div className='input-label'>
-              <p>Password confirmation</p>
-            </div>
-            <input
-              type='text'
-              name='passwordConfirmation'
-              placeholder='Password confirmation'
-              value={formData.passwordConfirmation}
-              onChange={handleChange}
-            />
-          </div>
           <button className='coral-button' type='submit'>Submit</button>
         </form>
       </div>

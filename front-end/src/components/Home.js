@@ -54,7 +54,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className='left-column'>
       <div className='hero'>
         <p className='hero-text' >Not sure where to go? Perfect.</p>
         <div onClick={() => {
@@ -83,7 +83,7 @@ const Home = () => {
                     <div className='inspiration-image hidden content' style={{ background: `url(${experience.image[1]})` }} />
                   </div>
                   <div className='content'>
-                    <h4 className='header'>{experience.name}</h4>
+                    <p>{`${experience.name.slice(0, 25)}...`}</p>
                     <div className='meta'>
                       <span >{experience.category}</span>
                     </div>
