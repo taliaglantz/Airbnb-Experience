@@ -80,7 +80,7 @@ Here is the brief we were given:
 - VS code
 - Google Chrome dev tools
 - Heroku for deployment
-- Trello for communication
+- Trello for planning
 - Figma for wireframing
 
 <a name="build"></a>
