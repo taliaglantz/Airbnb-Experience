@@ -21,6 +21,8 @@ This project was my third project created during General Assembly’s Software E
 
 Experience is a semi-clone of the experience tab on Airbnb. The app we created boasts the ability for the user to find experiences in London based on a date range. The user is able to view each experience’s details (including precise location), sign up and login, add experiences to a wishlist and add a new experience onto the site themselves.
 
+I worked on the display of all the experiences alongside the interactive map, the wishlist feature and the “add an experience” form.
+
 ### Timeframe
 10 days
 
